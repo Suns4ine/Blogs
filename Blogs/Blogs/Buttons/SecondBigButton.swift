@@ -11,7 +11,13 @@ import UIKit
 final class SecondBigButton: UIButton {
     
     private var hasIcon = false
-    private var iconImage: IconImage?
+    
+    private lazy var iconImage: IconImage = {
+        let image = IconImage(icon: .none, size: .small)
+        image.layer.zPosition = 3
+        image.newColorImage(color: label.textColor)
+        return image
+    }()
     
     private let someView: UIView = {
         let view = UIView()
@@ -62,8 +68,9 @@ final class SecondBigButton: UIButton {
         
         hasIcon = icon == .none ? false : true
         iconImage = IconImage(icon: icon, size: .small)
-        iconImage?.layer.zPosition = 3
-        iconImage?.newColorImage(color: label.textColor)
+        iconImage.layer.zPosition = 3
+        iconImage.newColorImage(color: label.textColor)
+        
         label.text = text
         
         setup()
@@ -81,7 +88,7 @@ final class SecondBigButton: UIButton {
     
     private func setup() {
         [shadowView, button, someView, label].forEach{ addSubview($0)}
-        if hasIcon { addSubview(iconImage!)}
+        if hasIcon { addSubview(iconImage)}
         
         self.backgroundColor = .clear
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -112,12 +119,12 @@ final class SecondBigButton: UIButton {
         if hasIcon {
             NSLayoutConstraint.activate([
                 
-                iconImage!.topAnchor.constraint(equalTo: someView.topAnchor),
-                iconImage!.leadingAnchor.constraint(equalTo: someView.leadingAnchor),
-                iconImage!.centerYAnchor.constraint(equalTo: someView.centerYAnchor),
+                iconImage.topAnchor.constraint(equalTo: someView.topAnchor),
+                iconImage.leadingAnchor.constraint(equalTo: someView.leadingAnchor),
+                iconImage.centerYAnchor.constraint(equalTo: someView.centerYAnchor),
                 
                 label.topAnchor.constraint(equalTo: someView.topAnchor),
-                label.leadingAnchor.constraint(equalTo: iconImage!.trailingAnchor, constant: 6),
+                label.leadingAnchor.constraint(equalTo: iconImage.trailingAnchor, constant: 6),
                 label.centerYAnchor.constraint(equalTo: someView.centerYAnchor),
                 
                 someView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
