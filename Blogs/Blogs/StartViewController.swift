@@ -37,10 +37,18 @@ class StartViewController: UIViewController {
         return button
     }()
     
+    private let twoButons: TwoButtons = {
+        let buttons = TwoButtons(stringLeading: "левая", stringTrailing: "правая")
+        buttons.addLeadingButtonSelector(self, action: #selector(bee))
+        buttons.addTrailingButtonSelector(self, action: #selector(mee))
+        return buttons
+    }()
     
     
-    
-    
+    @objc
+    func mee() {
+        debugPrint(456)
+    }
     
     @objc
     func bee() {
@@ -60,12 +68,13 @@ class StartViewController: UIViewController {
         self.view.backgroundColor = .firstBlue
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        view.addSubview(image)
+        //view.addSubview(image)
         view.addSubview(firstButton)
         view.addSubview(firstSmallButton)
         view.addSubview(secondBigButton)
         view.addSubview(thirdBigButton)
         view.addSubview(thirdSmallButton)
+        view.addSubview(twoButons)
     }
 
     override func viewDidLayoutSubviews() {
@@ -92,6 +101,9 @@ class StartViewController: UIViewController {
             secondBigButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             secondBigButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
+            twoButons.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            twoButons.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            twoButons.bottomAnchor.constraint(equalTo: firstButton.topAnchor, constant: -30),
         ])
         
         //debugPrint(thirdBigButton.frame.height)

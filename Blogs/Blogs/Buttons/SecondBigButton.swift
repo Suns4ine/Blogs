@@ -44,6 +44,7 @@ final class SecondBigButton: UIButton {
     
     private let button: UIButton = {
         let button = UIButton()
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         button.backgroundColor = .firstBlack
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = .firstBigButtonFont
@@ -86,6 +87,9 @@ final class SecondBigButton: UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    func addSelector(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()

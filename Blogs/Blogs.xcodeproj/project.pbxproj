@@ -46,6 +46,7 @@
 		35CE262526AF2A44000F4E84 /* ThirdSmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE262426AF2A44000F4E84 /* ThirdSmallButton.swift */; };
 		35CE262A26AF2BFB000F4E84 /* FirstSmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */; };
 		35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263426AF2DBC000F4E84 /* IconImage.swift */; };
+		35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263926AF707A000F4E84 /* TwoButtons.swift */; };
 		7691B1A3650320F9E486C23A /* Pods_Blogs_BlogsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96949E140A0CB89E6B1C9614 /* Pods_Blogs_BlogsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		35CE262426AF2A44000F4E84 /* ThirdSmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSmallButton.swift; sourceTree = "<group>"; };
 		35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSmallButton.swift; sourceTree = "<group>"; };
 		35CE263426AF2DBC000F4E84 /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
+		35CE263926AF707A000F4E84 /* TwoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtons.swift; sourceTree = "<group>"; };
 		501CFC48DFBD75702E7D7B9A /* Pods-BlogsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlogsTests.release.xcconfig"; path = "Target Support Files/Pods-BlogsTests/Pods-BlogsTests.release.xcconfig"; sourceTree = "<group>"; };
 		92001B53180CB04A8B476183 /* Pods_Blogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95657469445BF00C45749603 /* Pods-Blogs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogs.release.xcconfig"; path = "Target Support Files/Pods-Blogs/Pods-Blogs.release.xcconfig"; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */,
 				35CE262426AF2A44000F4E84 /* ThirdSmallButton.swift */,
 				35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */,
+				35CE263926AF707A000F4E84 /* TwoButtons.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				35CE262526AF2A44000F4E84 /* ThirdSmallButton.swift in Sources */,
 				35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */,
 				3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */,
+				35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

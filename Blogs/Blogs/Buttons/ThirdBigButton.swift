@@ -57,6 +57,9 @@ final class ThirdBigButton: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    func addSelector(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -75,9 +78,5 @@ final class ThirdBigButton: UIView {
             shadowView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
             shadowView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 4)
         ])
-    }
-    
-    func addSelector(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        button.addTarget(target, action: action, for: event)
     }
 }
