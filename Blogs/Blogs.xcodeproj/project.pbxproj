@@ -37,6 +37,11 @@
 		3557F34126AE4B08001DA6BB /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3557F32E26AE4B08001DA6BB /* Montserrat-Italic.ttf */; };
 		3557F34226AE4B08001DA6BB /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3557F32F26AE4B08001DA6BB /* Montserrat-SemiBoldItalic.ttf */; };
 		3557F34326AE4B08001DA6BB /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3557F33026AE4B08001DA6BB /* Montserrat-ExtraBoldItalic.ttf */; };
+		3557F34826AE4DAB001DA6BB /* StandartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F34726AE4DAB001DA6BB /* StandartColors.swift */; };
+		3557F36726AE54BA001DA6BB /* FirstButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F36626AE54BA001DA6BB /* FirstButton.swift */; };
+		3557F36F26AE54E0001DA6BB /* FontsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F36E26AE54E0001DA6BB /* FontsExtension.swift */; };
+		35CE261626AEBA66000F4E84 /* SecondButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondButton.swift */; };
+		35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261A26AEBDEC000F4E84 /* Icons.swift */; };
 		7691B1A3650320F9E486C23A /* Pods_Blogs_BlogsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96949E140A0CB89E6B1C9614 /* Pods_Blogs_BlogsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +98,11 @@
 		3557F32E26AE4B08001DA6BB /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
 		3557F32F26AE4B08001DA6BB /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		3557F33026AE4B08001DA6BB /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		3557F34726AE4DAB001DA6BB /* StandartColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartColors.swift; sourceTree = "<group>"; };
+		3557F36626AE54BA001DA6BB /* FirstButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstButton.swift; sourceTree = "<group>"; };
+		3557F36E26AE54E0001DA6BB /* FontsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsExtension.swift; sourceTree = "<group>"; };
+		35CE261526AEBA66000F4E84 /* SecondButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondButton.swift; sourceTree = "<group>"; };
+		35CE261A26AEBDEC000F4E84 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		501CFC48DFBD75702E7D7B9A /* Pods-BlogsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlogsTests.release.xcconfig"; path = "Target Support Files/Pods-BlogsTests/Pods-BlogsTests.release.xcconfig"; sourceTree = "<group>"; };
 		92001B53180CB04A8B476183 /* Pods_Blogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95657469445BF00C45749603 /* Pods-Blogs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogs.release.xcconfig"; path = "Target Support Files/Pods-Blogs/Pods-Blogs.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +166,9 @@
 		3557F2D526AD65A6001DA6BB /* Blogs */ = {
 			isa = PBXGroup;
 			children = (
+				35CE261126AE8848000F4E84 /* ColorsApplication */,
+				35CE261026AE8829000F4E84 /* Extensions */,
+				3557F36526AE54A8001DA6BB /* Buttons */,
 				3557F31D26AE4B08001DA6BB /* TypeFont */,
 				3557F2D626AD65A6001DA6BB /* AppDelegate.swift */,
 				3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */,
@@ -164,7 +177,7 @@
 				3557F2E426AD65A9001DA6BB /* LaunchScreen.storyboard */,
 				3557F2E726AD65A9001DA6BB /* Info.plist */,
 				3557F2DF26AD65A7001DA6BB /* Blogs.xcdatamodeld */,
-				3557F31526AE3A1E001DA6BB /* ColorsApplication.swift */,
+				35CE261A26AEBDEC000F4E84 /* Icons.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -211,6 +224,32 @@
 				3557F33026AE4B08001DA6BB /* Montserrat-ExtraBoldItalic.ttf */,
 			);
 			path = TypeFont;
+			sourceTree = "<group>";
+		};
+		3557F36526AE54A8001DA6BB /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3557F36626AE54BA001DA6BB /* FirstButton.swift */,
+				35CE261526AEBA66000F4E84 /* SecondButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		35CE261026AE8829000F4E84 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3557F36E26AE54E0001DA6BB /* FontsExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		35CE261126AE8848000F4E84 /* ColorsApplication */ = {
+			isa = PBXGroup;
+			children = (
+				3557F31526AE3A1E001DA6BB /* ColorsApplication.swift */,
+				3557F34726AE4DAB001DA6BB /* StandartColors.swift */,
+			);
+			path = ColorsApplication;
 			sourceTree = "<group>";
 		};
 		81807D7113CEBA3A83DBDE6D /* Frameworks */ = {
@@ -492,10 +531,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3557F34826AE4DAB001DA6BB /* StandartColors.swift in Sources */,
 				3557F2DB26AD65A7001DA6BB /* StartViewController.swift in Sources */,
 				3557F2E126AD65A7001DA6BB /* Blogs.xcdatamodeld in Sources */,
 				3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */,
 				3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */,
+				35CE261626AEBA66000F4E84 /* SecondButton.swift in Sources */,
+				3557F36726AE54BA001DA6BB /* FirstButton.swift in Sources */,
+				3557F36F26AE54E0001DA6BB /* FontsExtension.swift in Sources */,
+				35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */,
 				3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
