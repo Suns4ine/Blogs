@@ -1,5 +1,5 @@
 //
-//  SecondButton.swift
+//  SecondBigButton.swift
 //  Blogs
 //
 //  Created by Vyacheslav Pronin on 26.07.2021.
@@ -10,23 +10,19 @@ import UIKit
 
 final class SecondBigButton: UIButton {
     
-    private let iconImage: UIImageView = {
-        let image = UIImageView()
-        image.image = image.image?.tinted(with: StandartColors.secondTextButtonColor)
-        image.layer.frame.size = CGSize(width: 24, height: 24)
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
+    private var hasIcon = false
+    private var iconImage: IconImage?
     
-    private let viewWithLabelAndIcon: UIView = {
+    private let someView: UIView = {
         let view = UIView()
-        view.backgroundColor = .firstYellow
+        view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let label: UILabel = {
         let label = UILabel()
+        label.layer.zPosition = 3
         label.backgroundColor = .clear
         label.font = .firstBigButtonFont
         label.textAlignment = .center
@@ -48,7 +44,7 @@ final class SecondBigButton: UIButton {
     
     private let button: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .firstSeaWave
+        button.backgroundColor = .firstBlack
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = .firstBigButtonFont
         button.setTitleColor(StandartColors.secondTextButtonColor, for: .normal)
@@ -63,12 +59,16 @@ final class SecondBigButton: UIButton {
     convenience init(text: String, icon: Icons) {
         self.init()
         
-        iconImage.image = UIImage(named: choiceIcon(icon: icon))
+        hasIcon = icon == .none ? false : true
+        iconImage = IconImage(icon: icon, size: .small)
+        iconImage?.layer.zPosition = 3
+        iconImage?.newColorImage(color: label.textColor)
         label.text = text
+        
         setup()
     }
  
-    override init(frame: CGRect) {
+    private override init(frame: CGRect) {
         super.init(frame: frame)
         
         setup()
@@ -79,9 +79,8 @@ final class SecondBigButton: UIButton {
     }
     
     private func setup() {
-        [button, shadowView].forEach{ addSubview($0)}
-        button.addSubview(viewWithLabelAndIcon)
-        [iconImage, label].forEach{ viewWithLabelAndIcon.addSubview($0)}
+        [shadowView, button, someView, label].forEach{ addSubview($0)}
+        if hasIcon { addSubview(iconImage!)}
         
         self.backgroundColor = .clear
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -104,18 +103,28 @@ final class SecondBigButton: UIButton {
             shadowView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             shadowView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
             shadowView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 4),
-            
-            viewWithLabelAndIcon.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            viewWithLabelAndIcon.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            viewWithLabelAndIcon.heightAnchor.constraint(equalToConstant: 28),
-            viewWithLabelAndIcon.widthAnchor.constraint(equalToConstant: 93),
-            
-            iconImage.centerXAnchor.constraint(lessThanOrEqualTo: self.centerXAnchor),
-//            iconImage.topAnchor.constraint(equalTo: self.topAnchor),
-//            iconImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            label.topAnchor.constraint(equalTo: self.topAnchor),
-            label.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
         ])
+        
+        if hasIcon {
+            NSLayoutConstraint.activate([
+                
+                iconImage!.topAnchor.constraint(equalTo: someView.topAnchor),
+                iconImage!.leadingAnchor.constraint(equalTo: someView.leadingAnchor),
+                iconImage!.centerYAnchor.constraint(equalTo: someView.centerYAnchor),
+                
+                label.topAnchor.constraint(equalTo: someView.topAnchor),
+                label.leadingAnchor.constraint(equalTo: iconImage!.trailingAnchor, constant: 6),
+                label.centerYAnchor.constraint(equalTo: someView.centerYAnchor),
+                
+                someView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                someView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+                someView.widthAnchor.constraint(equalToConstant: label.frame.size.width + 30),
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            ])
+        }
     }
 }

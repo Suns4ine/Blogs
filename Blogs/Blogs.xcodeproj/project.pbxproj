@@ -38,10 +38,14 @@
 		3557F34226AE4B08001DA6BB /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3557F32F26AE4B08001DA6BB /* Montserrat-SemiBoldItalic.ttf */; };
 		3557F34326AE4B08001DA6BB /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3557F33026AE4B08001DA6BB /* Montserrat-ExtraBoldItalic.ttf */; };
 		3557F34826AE4DAB001DA6BB /* StandartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F34726AE4DAB001DA6BB /* StandartColors.swift */; };
-		3557F36726AE54BA001DA6BB /* FirstButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F36626AE54BA001DA6BB /* FirstButton.swift */; };
+		3557F36726AE54BA001DA6BB /* FirstBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F36626AE54BA001DA6BB /* FirstBigButton.swift */; };
 		3557F36F26AE54E0001DA6BB /* FontsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F36E26AE54E0001DA6BB /* FontsExtension.swift */; };
-		35CE261626AEBA66000F4E84 /* SecondButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondButton.swift */; };
+		35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondBigButton.swift */; };
 		35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261A26AEBDEC000F4E84 /* Icons.swift */; };
+		35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */; };
+		35CE262526AF2A44000F4E84 /* ThirdSmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE262426AF2A44000F4E84 /* ThirdSmallButton.swift */; };
+		35CE262A26AF2BFB000F4E84 /* FirstSmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */; };
+		35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263426AF2DBC000F4E84 /* IconImage.swift */; };
 		7691B1A3650320F9E486C23A /* Pods_Blogs_BlogsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96949E140A0CB89E6B1C9614 /* Pods_Blogs_BlogsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,10 +103,14 @@
 		3557F32F26AE4B08001DA6BB /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		3557F33026AE4B08001DA6BB /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		3557F34726AE4DAB001DA6BB /* StandartColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartColors.swift; sourceTree = "<group>"; };
-		3557F36626AE54BA001DA6BB /* FirstButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstButton.swift; sourceTree = "<group>"; };
+		3557F36626AE54BA001DA6BB /* FirstBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBigButton.swift; sourceTree = "<group>"; };
 		3557F36E26AE54E0001DA6BB /* FontsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsExtension.swift; sourceTree = "<group>"; };
-		35CE261526AEBA66000F4E84 /* SecondButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondButton.swift; sourceTree = "<group>"; };
+		35CE261526AEBA66000F4E84 /* SecondBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBigButton.swift; sourceTree = "<group>"; };
 		35CE261A26AEBDEC000F4E84 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBigButton.swift; sourceTree = "<group>"; };
+		35CE262426AF2A44000F4E84 /* ThirdSmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdSmallButton.swift; sourceTree = "<group>"; };
+		35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSmallButton.swift; sourceTree = "<group>"; };
+		35CE263426AF2DBC000F4E84 /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
 		501CFC48DFBD75702E7D7B9A /* Pods-BlogsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlogsTests.release.xcconfig"; path = "Target Support Files/Pods-BlogsTests/Pods-BlogsTests.release.xcconfig"; sourceTree = "<group>"; };
 		92001B53180CB04A8B476183 /* Pods_Blogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95657469445BF00C45749603 /* Pods-Blogs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogs.release.xcconfig"; path = "Target Support Files/Pods-Blogs/Pods-Blogs.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +186,7 @@
 				3557F2E726AD65A9001DA6BB /* Info.plist */,
 				3557F2DF26AD65A7001DA6BB /* Blogs.xcdatamodeld */,
 				35CE261A26AEBDEC000F4E84 /* Icons.swift */,
+				35CE263426AF2DBC000F4E84 /* IconImage.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -229,8 +238,11 @@
 		3557F36526AE54A8001DA6BB /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				3557F36626AE54BA001DA6BB /* FirstButton.swift */,
-				35CE261526AEBA66000F4E84 /* SecondButton.swift */,
+				3557F36626AE54BA001DA6BB /* FirstBigButton.swift */,
+				35CE261526AEBA66000F4E84 /* SecondBigButton.swift */,
+				35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */,
+				35CE262426AF2A44000F4E84 /* ThirdSmallButton.swift */,
+				35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -533,12 +545,16 @@
 			files = (
 				3557F34826AE4DAB001DA6BB /* StandartColors.swift in Sources */,
 				3557F2DB26AD65A7001DA6BB /* StartViewController.swift in Sources */,
+				35CE262A26AF2BFB000F4E84 /* FirstSmallButton.swift in Sources */,
 				3557F2E126AD65A7001DA6BB /* Blogs.xcdatamodeld in Sources */,
 				3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */,
+				35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */,
 				3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */,
-				35CE261626AEBA66000F4E84 /* SecondButton.swift in Sources */,
-				3557F36726AE54BA001DA6BB /* FirstButton.swift in Sources */,
+				35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */,
+				3557F36726AE54BA001DA6BB /* FirstBigButton.swift in Sources */,
 				3557F36F26AE54E0001DA6BB /* FontsExtension.swift in Sources */,
+				35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */,
+				35CE262526AF2A44000F4E84 /* ThirdSmallButton.swift in Sources */,
 				35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */,
 				3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */,
 			);

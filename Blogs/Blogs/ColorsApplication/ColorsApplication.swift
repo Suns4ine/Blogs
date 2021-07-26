@@ -49,6 +49,8 @@ protocol ColorsApplicationProtocol {
     static var secondTextButtonColor: UIColor { get }
     static var thirdTextButtonColor: UIColor { get }
     static var loginTextButtonColor: UIColor { get }
+    static var filledHeartColor: UIColor { get }
+    static var emptyHeartColor: UIColor { get }
 }
 
 extension UIColor {

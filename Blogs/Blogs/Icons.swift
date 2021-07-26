@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 enum Icons {
+    case heartFill
     case facebook
     case twitter
     case email
@@ -20,8 +21,22 @@ func choiceIcon(icon: Icons) -> String {
     case .email: return "mail"
     case .facebook: return "facebook"
     case .twitter: return "twitter"
+    case .heartFill: return "heart-fill"
     default: return ""
     }
+}
+
+func returnIconColor(icon: Icons, size: sizeIcon) -> UIColor {
+    guard !choiceIcon(icon: icon).isEmpty else { return UIColor.clear }
+    
+    switch (icon, size) {
+    case (.facebook, _): return StandartColors.facebookColor
+    case (.twitter, _): return StandartColors.twitterColor
+    case (_, .big): return .clear
+    case(.heartFill, _): return StandartColors.filledHeartColor
+    default: return StandartColors.smallIconColor
+    }
+    
 }
 
 extension UIImage {

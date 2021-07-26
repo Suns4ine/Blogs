@@ -9,7 +9,7 @@ import UIKit
 
 class StartViewController: UIViewController {
     
-    private lazy var firstButton: FirstBigButton = {
+    private let firstButton: FirstBigButton = {
         let button = FirstBigButton(text: "Регистрация")
         button.addSelector(self, action: #selector(bee), for: .touchUpInside)
         return button
@@ -25,18 +25,27 @@ class StartViewController: UIViewController {
         return button
     }()
     
+    private let thirdBigButton: ThirdBigButton = {
+        let button = ThirdBigButton(text: "Третья")
+        button.addSelector(self, action: #selector(bee))
+        return button
+    }()
+    
+    private let thirdSmallButton: ThirdSmallButton = {
+        let button = ThirdSmallButton(text: "|")//"четвертая")
+        button.addSelector(self, action: #selector(bee))
+        return button
+    }()
+    
+    
+    
+    
+    
+    
     @objc
     func bee() {
         debugPrint(123)
     }
-    
-    
-    
-    
-    
-    
-    
-    
 
     let image: UIImageView = {
         let imageView = UIImageView()
@@ -55,6 +64,8 @@ class StartViewController: UIViewController {
         view.addSubview(firstButton)
         view.addSubview(firstSmallButton)
         view.addSubview(secondBigButton)
+        view.addSubview(thirdBigButton)
+        view.addSubview(thirdSmallButton)
     }
 
     override func viewDidLayoutSubviews() {
@@ -63,21 +74,27 @@ class StartViewController: UIViewController {
         NSLayoutConstraint.activate([
             firstButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             firstButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            //firstButton.heightAnchor.constraint(equalToConstant: 60),
             firstButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             firstButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
             firstSmallButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: 30),
-            //firstSmallButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            //firstSmallButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            firstSmallButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            secondBigButton.topAnchor.constraint(equalTo: firstSmallButton.bottomAnchor, constant: 30),
+            thirdBigButton.topAnchor.constraint(equalTo: firstSmallButton.bottomAnchor, constant: 30),
+            thirdBigButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            thirdBigButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            thirdBigButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            
+            thirdSmallButton.topAnchor.constraint(equalTo: thirdBigButton.bottomAnchor, constant: 30),
+            thirdSmallButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
+            secondBigButton.topAnchor.constraint(equalTo: thirdSmallButton.bottomAnchor, constant: 30),
             secondBigButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             secondBigButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
         ])
         
-        debugPrint(firstButton.frame.height)
+        //debugPrint(thirdBigButton.frame.height)
     }
 }
 

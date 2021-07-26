@@ -78,4 +78,8 @@ final class StandartColors: ColorsApplicationProtocol {
     
     static var loginTextButtonColor: UIColor = .thirdWhite
     
+    static var filledHeartColor: UIColor = .firstSunnyRed
+    
+    static var emptyHeartColor: UIColor = .firstBlack
+    
 }
