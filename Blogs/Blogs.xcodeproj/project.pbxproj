@@ -40,6 +40,7 @@
 		3557F34826AE4DAB001DA6BB /* StandartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F34726AE4DAB001DA6BB /* StandartColors.swift */; };
 		3557F36726AE54BA001DA6BB /* FirstBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F36626AE54BA001DA6BB /* FirstBigButton.swift */; };
 		3557F36F26AE54E0001DA6BB /* FontsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F36E26AE54E0001DA6BB /* FontsExtension.swift */; };
+		356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */; };
 		35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondBigButton.swift */; };
 		35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261A26AEBDEC000F4E84 /* Icons.swift */; };
 		35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */; };
@@ -47,6 +48,9 @@
 		35CE262A26AF2BFB000F4E84 /* FirstSmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */; };
 		35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263426AF2DBC000F4E84 /* IconImage.swift */; };
 		35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263926AF707A000F4E84 /* TwoButtons.swift */; };
+		35FFE51A26B01CBB0032321B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51926B01CBB0032321B /* HeaderView.swift */; };
+		35FFE52026B020690032321B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51F26B020690032321B /* Title.swift */; };
+		35FFE52826B02DF70032321B /* SubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE52726B02DF70032321B /* SubTitle.swift */; };
 		7691B1A3650320F9E486C23A /* Pods_Blogs_BlogsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96949E140A0CB89E6B1C9614 /* Pods_Blogs_BlogsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +110,7 @@
 		3557F34726AE4DAB001DA6BB /* StandartColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartColors.swift; sourceTree = "<group>"; };
 		3557F36626AE54BA001DA6BB /* FirstBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBigButton.swift; sourceTree = "<group>"; };
 		3557F36E26AE54E0001DA6BB /* FontsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsExtension.swift; sourceTree = "<group>"; };
+		356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProtocol.swift; sourceTree = "<group>"; };
 		35CE261526AEBA66000F4E84 /* SecondBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBigButton.swift; sourceTree = "<group>"; };
 		35CE261A26AEBDEC000F4E84 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBigButton.swift; sourceTree = "<group>"; };
@@ -113,6 +118,9 @@
 		35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSmallButton.swift; sourceTree = "<group>"; };
 		35CE263426AF2DBC000F4E84 /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
 		35CE263926AF707A000F4E84 /* TwoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtons.swift; sourceTree = "<group>"; };
+		35FFE51926B01CBB0032321B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		35FFE51F26B020690032321B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		35FFE52726B02DF70032321B /* SubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitle.swift; sourceTree = "<group>"; };
 		501CFC48DFBD75702E7D7B9A /* Pods-BlogsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlogsTests.release.xcconfig"; path = "Target Support Files/Pods-BlogsTests/Pods-BlogsTests.release.xcconfig"; sourceTree = "<group>"; };
 		92001B53180CB04A8B476183 /* Pods_Blogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95657469445BF00C45749603 /* Pods-Blogs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogs.release.xcconfig"; path = "Target Support Files/Pods-Blogs/Pods-Blogs.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +184,8 @@
 		3557F2D526AD65A6001DA6BB /* Blogs */ = {
 			isa = PBXGroup;
 			children = (
+				35FFE51E26B0200E0032321B /* Titles */,
+				35FFE51826B01CA00032321B /* Header */,
 				35CE261126AE8848000F4E84 /* ColorsApplication */,
 				35CE261026AE8829000F4E84 /* Extensions */,
 				3557F36526AE54A8001DA6BB /* Buttons */,
@@ -265,6 +275,24 @@
 				3557F34726AE4DAB001DA6BB /* StandartColors.swift */,
 			);
 			path = ColorsApplication;
+			sourceTree = "<group>";
+		};
+		35FFE51826B01CA00032321B /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				35FFE51926B01CBB0032321B /* HeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		35FFE51E26B0200E0032321B /* Titles */ = {
+			isa = PBXGroup;
+			children = (
+				35FFE51F26B020690032321B /* Title.swift */,
+				35FFE52726B02DF70032321B /* SubTitle.swift */,
+				356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */,
+			);
+			path = Titles;
 			sourceTree = "<group>";
 		};
 		81807D7113CEBA3A83DBDE6D /* Frameworks */ = {
@@ -550,6 +578,8 @@
 				3557F2DB26AD65A7001DA6BB /* StartViewController.swift in Sources */,
 				35CE262A26AF2BFB000F4E84 /* FirstSmallButton.swift in Sources */,
 				3557F2E126AD65A7001DA6BB /* Blogs.xcdatamodeld in Sources */,
+				356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */,
+				35FFE52826B02DF70032321B /* SubTitle.swift in Sources */,
 				3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */,
 				35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */,
 				3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */,
@@ -559,8 +589,10 @@
 				35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */,
 				35CE262526AF2A44000F4E84 /* ThirdSmallButton.swift in Sources */,
 				35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */,
+				35FFE52026B020690032321B /* Title.swift in Sources */,
 				3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */,
 				35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */,
+				35FFE51A26B01CBB0032321B /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

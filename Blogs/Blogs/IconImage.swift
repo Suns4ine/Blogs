@@ -30,9 +30,9 @@ final class IconImage: UIView {
     convenience  init(icon: Icons, size: sizeIcon) {
         self.init()
         
-        name = choiceIcon(icon: icon)
+        name = icon.rawValue
         image.image = UIImage(named: name)
-        image.image = image.image?.tinted(with: returnIconColor(icon: icon, size: size))
+        //image.image = image.image?.tinted(with: returnIconColor(icon: icon, size: size))
         self.size = size.rawValue
         setup()
     }
@@ -53,6 +53,10 @@ final class IconImage: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    func newColorImage(color: UIColor) {
+        image.image = image.image?.tinted(with: color)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -66,9 +70,5 @@ final class IconImage: UIView {
             image.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             image.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
-    }
-    
-    func newColorImage(color: UIColor) {
-        image.image = image.image?.tinted(with: color)
     }
 }

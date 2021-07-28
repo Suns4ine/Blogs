@@ -15,7 +15,7 @@ final class TwoButtons: UIView {
         return button
     }()
     
-    private var trailingButton: SecondBigButton = {
+    private (set) var trailingButton: SecondBigButton = {
         let button = SecondBigButton(text: "", icon: .none)
         return button
     }()

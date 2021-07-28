@@ -98,6 +98,10 @@ final class SecondBigButton: UIButton {
         button.addTarget(target, action: action, for: event)
     }
     
+    func newButtonColor(color: UIColor) {
+        button.backgroundColor = color
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
