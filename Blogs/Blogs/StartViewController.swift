@@ -7,7 +7,11 @@
 
 import UIKit
 
-class StartViewController: UIViewController {
+class StartViewController: UIViewController, TextFieldDelegate {
+    func action(text: String) {
+        textField.editErrorText(text: text)
+    }
+    
     
     private let headerView: Header = {
         let header = Header(title: "Заголовок", leftIcon: .init(icon: .bookmark, size: .small), rightIcon: .init(icon: .bold, size: .standart))
@@ -21,6 +25,12 @@ class StartViewController: UIViewController {
         let avatar = Avatar(image: UIImage(named: "peep-2"), size: .standart)
         avatar.addTarget(self, action: #selector(bee))
         return avatar
+    }()
+    
+    private lazy var textField: TextField = {
+        let textField = TextField(name: "Верхняя", shadowText: "Средняя", error: "Нижняя")
+        textField.delegate = self
+        return textField
     }()
     
     private let firstButton: FirstBigButton = {
@@ -112,6 +122,7 @@ class StartViewController: UIViewController {
     @objc
     func mee(_ sender: UIButton) {
         debugPrint("правая")
+        textField.editErrorText(text: "Ошибка Ошибка Ошибка")
         let arr: [TextProtocol] = [bigTitle, standartTitle, bigSubTitle,
                                   standartSubTitle, widerLittleSubTitle,
                                   narrowerLittleSubTitle, smallSubTitle,
@@ -148,9 +159,13 @@ class StartViewController: UIViewController {
         // bigTitle, standartTitle, bigSubTitle,
         //standartSubTitle, widerLittleSubTitle, narrowerLittleSubTitle,
         //smallSubTitle, textView,
-        [twoButons, headerView, avatar].forEach {
+        [twoButons, headerView, avatar, textField].forEach {
             view.addSubview($0)
         }
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
 
     override func viewDidLayoutSubviews() {
@@ -161,13 +176,17 @@ class StartViewController: UIViewController {
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//
+
             twoButons.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             twoButons.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             twoButons.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
             
             avatar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             avatar.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            textField.bottomAnchor.constraint(equalTo: avatar.topAnchor, constant: -20),
+            textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
 //            smallSubTitle.bottomAnchor.constraint(equalTo: twoButons.topAnchor, constant:  -30),
 //            smallSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -197,7 +216,32 @@ class StartViewController: UIViewController {
 //            textView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
         ])
         
-        debugPrint(imageOne.frame)
+      //  debugPrint(imageOne.frame)
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        self.keyboardWillHide()
+        super.touchesBegan(touches, with: event)
+    }
+    
+    @objc
+    private func keyboardWillHide() {
+        self.view.frame.origin.y = 0
+    }
+
+    @objc
+    private func keyboardWillChange(notification: NSNotification) {
+        
+        if self.view.frame.origin.y == 0 {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                if textField.isFirstResponder {
+                    self.view.frame.origin.y = -keyboardSize.height
+                }
+            }
+        }
     }
 }
 
