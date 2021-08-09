@@ -44,12 +44,12 @@ final class TwoButtons: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func addLeadingButtonSelector(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        leadingButton.addSelector(target, action: action, for: event)
+    func addLeadingButtonTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        leadingButton.addTarget(target, action: action, for: event)
     }
     
-    func addTrailingButtonSelector(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        trailingButton.addSelector(target, action: action, for: event)
+    func addTrailingButtonTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        trailingButton.addTarget(target, action: action, for: event)
     }
     
     override func layoutSubviews() {

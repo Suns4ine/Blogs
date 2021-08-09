@@ -9,6 +9,6 @@ import Foundation
 import UIKit
 
 protocol TextProtocol {
-    func editTextTitle(text: String)
-    func editTitleColor(color: UIColor)
+    func editText(text: String)
+    func editColor(color: UIColor)
 }

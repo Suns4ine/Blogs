@@ -27,12 +27,18 @@ final class IconImage: UIView {
         return imageView
     }()
     
+    private let button: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     convenience  init(icon: Icons, size: sizeIcon) {
         self.init()
         
         name = icon.rawValue
         image.image = UIImage(named: name)
-        //image.image = image.image?.tinted(with: returnIconColor(icon: icon, size: size))
         self.size = size.rawValue
         setup()
     }
@@ -46,8 +52,10 @@ final class IconImage: UIView {
     }
     
     private func setup() {
-        if !name.isEmpty { addSubview(image)}
-        [].forEach{ addSubview($0)}
+       // [button].forEach{ addSubview($0)}
+        if !name.isEmpty {
+            [button, image].forEach{ addSubview($0)}
+        }
         
         self.backgroundColor = .clear
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +63,10 @@ final class IconImage: UIView {
     
     func newColorImage(color: UIColor) {
         image.image = image.image?.tinted(with: color)
+    }
+    
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
     }
     
     override func layoutSubviews() {
@@ -68,7 +80,12 @@ final class IconImage: UIView {
             image.topAnchor.constraint(equalTo: self.topAnchor),
             image.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             image.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            image.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            image.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            button.topAnchor.constraint(equalTo: self.topAnchor),
+            button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            button.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
 }

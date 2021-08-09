@@ -58,7 +58,7 @@ final class FirstBigButton: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func addSelector(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
         button.addTarget(target, action: action, for: event)
     }
     

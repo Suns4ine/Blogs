@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class SecondBigButton: UIButton {
+final class SecondBigButton: UIView {
     
     private var hasIcon = false
     
@@ -94,7 +94,7 @@ final class SecondBigButton: UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func addSelector(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
         button.addTarget(target, action: action, for: event)
     }
     

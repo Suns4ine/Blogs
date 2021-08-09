@@ -9,9 +9,17 @@ import UIKit
 
 class StartViewController: UIViewController {
     
+    private let headerView: Header = {
+        let header = Header(title: "Заголовок", leftIcon: .init(icon: .bookmark, size: .small), rightIcon: .init(icon: .bold, size: .standart))
+        header.addLeftIconTarget(self, action: #selector(bee))
+        header.addRightIconTarget(self, action: #selector(mee))
+        header.backgroundColor = .firstYellow
+        return header
+    }()
+    
     private let firstButton: FirstBigButton = {
         let button = FirstBigButton(text: "Регистрация")
-        button.addSelector(self, action: #selector(bee), for: .touchUpInside)
+        button.addTarget(self, action: #selector(bee), for: .touchUpInside)
         return button
     }()
     
@@ -28,20 +36,20 @@ class StartViewController: UIViewController {
     
     private let thirdBigButton: ThirdBigButton = {
         let button = ThirdBigButton(text: "Третья")
-        button.addSelector(self, action: #selector(bee))
+        button.addTarget(self, action: #selector(bee))
         return button
     }()
     
     private let thirdSmallButton: ThirdSmallButton = {
         let button = ThirdSmallButton(text: "четвертая")
-        button.addSelector(self, action: #selector(bee))
+        button.addTarget(self, action: #selector(bee))
         return button
     }()
     
     private let twoButons: TwoButtons = {
         let buttons = TwoButtons(stringLeading: "левая", stringTrailing: "правая")
-        buttons.addLeadingButtonSelector(self, action: #selector(bee))
-        buttons.addTrailingButtonSelector(self, action: #selector(mee))
+        buttons.addLeadingButtonTarget(self, action: #selector(bee))
+        buttons.addTrailingButtonTarget(self, action: #selector(mee))
         return buttons
     }()
     
@@ -82,24 +90,40 @@ class StartViewController: UIViewController {
         return title
     }()
     
+    private let textView: Text = {
+        let text = Text(text:
+                            """
+1Один два три четыре пять шесть семь восемь девять десять оддинадцать
+        2Один два три четыре пять шесть семь восемь девять десять оддинадцать
+        3Один два три четыре пять шесть семь восемь девять десять оддинадцать
+        4Один два три четыре пять шесть семь восемь девять десять оддинадцать
+""", size: .big)
+        text.editColor(color: .firstYellow
+)
+        return text
+    }()
+    
     @objc
     func mee(_ sender: UIButton) {
-        
+        debugPrint("правая")
         let arr: [TextProtocol] = [bigTitle, standartTitle, bigSubTitle,
                                   standartSubTitle, widerLittleSubTitle,
-                                  narrowerLittleSubTitle, smallSubTitle]
+                                  narrowerLittleSubTitle, smallSubTitle,
+                                  textView]
        var numb = 1
         for label in arr {
-            label.editTextTitle(text: "Новый текст \(numb)")
-            label.editTitleColor(color: [UIColor.firstPink, UIColor.firstGray, UIColor.firstSeaWave, UIColor.firstYellow].randomElement() ?? UIColor.firstYellow)
+            label.editText(text: "Новый текст \(numb)")
+            label.editColor(color: [UIColor.firstPink, UIColor.firstGray, UIColor.firstSeaWave, UIColor.firstYellow, UIColor.firstBlack, UIColor.firstSunnyRed].randomElement() ?? UIColor.firstYellow)
             numb += 1
        }
+        
+        textView.editWorkInText(edit: true)
         //bigTitle.editTextTitle(text: "Ничего")
     }
     
     @objc
     func bee() {
-        debugPrint(123)
+        debugPrint("Левая")
     }
 
     let imageOne: IconImage = {
@@ -115,7 +139,10 @@ class StartViewController: UIViewController {
         
        // [ firstButton, firstSmallButton, secondBigButton,
        //   thirdBigButton, thirdSmallButton,
-         [twoButons, bigTitle, standartTitle, bigSubTitle, standartSubTitle, widerLittleSubTitle, narrowerLittleSubTitle, smallSubTitle].forEach {
+        // bigTitle, standartTitle, bigSubTitle,
+        //standartSubTitle, widerLittleSubTitle, narrowerLittleSubTitle,
+        //smallSubTitle, textView,
+        [twoButons, headerView].forEach {
             view.addSubview($0)
         }
     }
@@ -125,33 +152,40 @@ class StartViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//
             twoButons.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             twoButons.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             twoButons.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
             
-            smallSubTitle.bottomAnchor.constraint(equalTo: twoButons.topAnchor, constant:  -30),
-            smallSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            narrowerLittleSubTitle.bottomAnchor.constraint(equalTo: smallSubTitle.topAnchor, constant:  -30),
-            narrowerLittleSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            widerLittleSubTitle.bottomAnchor.constraint(equalTo: narrowerLittleSubTitle.topAnchor, constant:  -30),
-            widerLittleSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            standartSubTitle.bottomAnchor.constraint(equalTo: widerLittleSubTitle.topAnchor, constant:  -30),
-            standartSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            bigSubTitle.bottomAnchor.constraint(equalTo: standartSubTitle.topAnchor, constant:  -30),
-            bigSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            standartTitle.bottomAnchor.constraint(equalTo: bigSubTitle.topAnchor, constant:  -30),
-            standartTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            bigTitle.bottomAnchor.constraint(equalTo: standartTitle.topAnchor, constant:  -30),
-            bigTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            bigTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-//            bigTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            //firstTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
+//            smallSubTitle.bottomAnchor.constraint(equalTo: twoButons.topAnchor, constant:  -30),
+//            smallSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//
+//            narrowerLittleSubTitle.bottomAnchor.constraint(equalTo: smallSubTitle.topAnchor, constant:  -30),
+//            narrowerLittleSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//
+//            widerLittleSubTitle.bottomAnchor.constraint(equalTo: narrowerLittleSubTitle.topAnchor, constant:  -30),
+//            widerLittleSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//
+//            standartSubTitle.bottomAnchor.constraint(equalTo: widerLittleSubTitle.topAnchor, constant:  -30),
+//            standartSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//
+//            bigSubTitle.bottomAnchor.constraint(equalTo: standartSubTitle.topAnchor, constant:  -30),
+//            bigSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//
+//            standartTitle.bottomAnchor.constraint(equalTo: bigSubTitle.topAnchor, constant:  -30),
+//            standartTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//
+//            bigTitle.bottomAnchor.constraint(equalTo: standartTitle.topAnchor, constant:  -30),
+//            bigTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//
+//            textView.bottomAnchor.constraint(equalTo: bigTitle.topAnchor, constant:  -30),
+//            textView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+//            textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+//            textView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30)
         ])
         
         debugPrint(imageOne.frame)

@@ -68,11 +68,11 @@ final class SubTitle: UIView, TextProtocol {
         }
     }
     
-    func editTitleColor(color: UIColor) {
+    func editColor(color: UIColor) {
         label.textColor = color
     }
     
-    func editTextTitle(text: String) {
+    func editText(text: String) {
         label.text = text
     }
     
