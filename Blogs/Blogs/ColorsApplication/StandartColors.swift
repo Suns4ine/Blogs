@@ -82,4 +82,6 @@ final class StandartColors: ColorsApplicationProtocol {
     
     static var emptyHeartColor: UIColor = .firstBlack
     
+    static var backgroundAvatarColor: UIColor = .firstYellow
+    
 }

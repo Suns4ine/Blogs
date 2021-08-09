@@ -51,6 +51,7 @@ protocol ColorsApplicationProtocol {
     static var loginTextButtonColor: UIColor { get }
     static var filledHeartColor: UIColor { get }
     static var emptyHeartColor: UIColor { get }
+    static var backgroundAvatarColor: UIColor { get }
 }
 
 extension UIColor {

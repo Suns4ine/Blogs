@@ -49,6 +49,7 @@
 		35CE262A26AF2BFB000F4E84 /* FirstSmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */; };
 		35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263426AF2DBC000F4E84 /* IconImage.swift */; };
 		35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263926AF707A000F4E84 /* TwoButtons.swift */; };
+		35E020B926C1812A00C99280 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020B826C1812A00C99280 /* Avatar.swift */; };
 		35FFE51A26B01CBB0032321B /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51926B01CBB0032321B /* Header.swift */; };
 		35FFE52026B020690032321B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51F26B020690032321B /* Title.swift */; };
 		35FFE52826B02DF70032321B /* SubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE52726B02DF70032321B /* SubTitle.swift */; };
@@ -120,6 +121,7 @@
 		35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSmallButton.swift; sourceTree = "<group>"; };
 		35CE263426AF2DBC000F4E84 /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
 		35CE263926AF707A000F4E84 /* TwoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtons.swift; sourceTree = "<group>"; };
+		35E020B826C1812A00C99280 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		35FFE51926B01CBB0032321B /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		35FFE51F26B020690032321B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		35FFE52726B02DF70032321B /* SubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitle.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				3557F2DF26AD65A7001DA6BB /* Blogs.xcdatamodeld */,
 				35CE261A26AEBDEC000F4E84 /* Icons.swift */,
 				35CE263426AF2DBC000F4E84 /* IconImage.swift */,
+				35E020B826C1812A00C99280 /* Avatar.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */,
 				35FFE52026B020690032321B /* Title.swift in Sources */,
 				3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */,
+				35E020B926C1812A00C99280 /* Avatar.swift in Sources */,
 				35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */,
 				35FFE51A26B01CBB0032321B /* Header.swift in Sources */,
 			);

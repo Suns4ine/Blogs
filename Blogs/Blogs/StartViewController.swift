@@ -17,6 +17,12 @@ class StartViewController: UIViewController {
         return header
     }()
     
+    private let avatar: Avatar = {
+        let avatar = Avatar(image: UIImage(named: "peep-2"), size: .standart)
+        avatar.addTarget(self, action: #selector(bee))
+        return avatar
+    }()
+    
     private let firstButton: FirstBigButton = {
         let button = FirstBigButton(text: "Регистрация")
         button.addTarget(self, action: #selector(bee), for: .touchUpInside)
@@ -142,7 +148,7 @@ class StartViewController: UIViewController {
         // bigTitle, standartTitle, bigSubTitle,
         //standartSubTitle, widerLittleSubTitle, narrowerLittleSubTitle,
         //smallSubTitle, textView,
-        [twoButons, headerView].forEach {
+        [twoButons, headerView, avatar].forEach {
             view.addSubview($0)
         }
     }
@@ -159,6 +165,9 @@ class StartViewController: UIViewController {
             twoButons.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             twoButons.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             twoButons.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
+            
+            avatar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            avatar.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
 //            smallSubTitle.bottomAnchor.constraint(equalTo: twoButons.topAnchor, constant:  -30),
 //            smallSubTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
