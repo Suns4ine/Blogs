@@ -11,4 +11,5 @@ import UIKit
 protocol TextProtocol {
     func editText(text: String)
     func editColor(color: UIColor)
+    func editAligent(aligent: NSTextAlignment)
 }

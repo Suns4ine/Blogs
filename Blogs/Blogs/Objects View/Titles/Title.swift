@@ -70,6 +70,10 @@ final class Title: UIView, TextProtocol {
         label.text = text
     }
     
+    func editAligent(aligent: NSTextAlignment) {
+        label.textAlignment = aligent
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

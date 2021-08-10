@@ -28,6 +28,7 @@ final class Text: UIView, TextProtocol {
         text.showsHorizontalScrollIndicator = false
         text.translatesAutoresizingMaskIntoConstraints = false
         text.isEditable = false
+        text.isScrollEnabled = false
         return text
     }()
     
@@ -82,6 +83,10 @@ final class Text: UIView, TextProtocol {
     
     func editWorkInText(edit: Bool) {
         textView.isEditable = edit
+    }
+    
+    func editScrollEnabled(edit: Bool) {
+        textView.isScrollEnabled = edit
     }
     
     override func layoutSubviews() {

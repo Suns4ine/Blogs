@@ -16,15 +16,14 @@ final class TextField: UIView, UITextFieldDelegate {
     
     var delegate: TextFieldDelegateProtocol?
     
-    private let nameText: Text = {
-        let text = Text(text: "nameText", size: .little)
+    private let nameSubTitle: SubTitle = {
+        let text = SubTitle(text: "nameText", size: .narrowerLittle)
         text.editAligent(aligent: .left)
-        text.editColor(color: StandartColors.enteredTextColor)
         return text
     }()
     
-    private let errorText: Text = {
-        let text = Text(text: "errorText", size: .little)
+    private let errorSubTitle: SubTitle = {
+        let text = SubTitle(text: "errorText", size: .narrowerLittle)
         text.editAligent(aligent: .left)
         text.editColor(color: StandartColors.textErrorColor)
         return text
@@ -52,8 +51,8 @@ final class TextField: UIView, UITextFieldDelegate {
     
     convenience init(name: String, shadowText: String, error: String) {
         self.init()
-        nameText.editText(text: name)
-        errorText.editText(text: error)
+        nameSubTitle.editText(text: name)
+        errorSubTitle.editText(text: error)
         
         textField.attributedPlaceholder = NSAttributedString(string: shadowText,
                                                              attributes: [NSAttributedString.Key.foregroundColor : StandartColors.textForTextfieldBackgroundColor.withAlphaComponent(0.5)])
@@ -63,8 +62,6 @@ final class TextField: UIView, UITextFieldDelegate {
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        
-      //  setup()
     }
     
     required init?(coder: NSCoder) {
@@ -72,11 +69,11 @@ final class TextField: UIView, UITextFieldDelegate {
     }
     
     func editErrorText(text: String) {
-        errorText.editText(text: text)
+        errorSubTitle.editText(text: text)
     }
     
     private func setup() {
-        [nameText, errorText, textField].forEach{ addSubview($0)}
+        [nameSubTitle, errorSubTitle, textField].forEach{ addSubview($0)}
         
         self.backgroundColor = .clear
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -93,20 +90,20 @@ final class TextField: UIView, UITextFieldDelegate {
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalToConstant: 106),
             
-            nameText.topAnchor.constraint(equalTo: self.topAnchor),
-            nameText.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 19),
-            nameText.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            nameText.heightAnchor.constraint(equalToConstant: 20),
+            nameSubTitle.topAnchor.constraint(equalTo: self.topAnchor),
+            nameSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 19),
+            nameSubTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            nameSubTitle.heightAnchor.constraint(equalToConstant: 20),
             
-            errorText.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            errorText.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 19),
-            errorText.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            errorText.heightAnchor.constraint(equalToConstant: 20),
+            errorSubTitle.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            errorSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 19),
+            errorSubTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            errorSubTitle.heightAnchor.constraint(equalToConstant: 20),
             
             textField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            textField.topAnchor.constraint(equalTo: nameText.bottomAnchor, constant: 5),
-            textField.bottomAnchor.constraint(equalTo: errorText.topAnchor, constant: -5)
+            textField.topAnchor.constraint(equalTo: nameSubTitle.bottomAnchor, constant: 5),
+            textField.bottomAnchor.constraint(equalTo: errorSubTitle.topAnchor, constant: -5)
         ])
     }
 }

@@ -20,7 +20,7 @@ final class StartViewController: UIViewController {
         return image
     }()
     
-    private let righttMan: UIImageView = {
+    private let rightMan: UIImageView = {
         let image = UIImageView()
         image.image = image.randomStandingPeople()
         image.transform = CGAffineTransform(scaleX: -1, y: 1)
@@ -82,7 +82,7 @@ final class StartViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [loginView, leftMan, righttMan].forEach{ view.addSubview($0)}
+        [loginView, leftMan, rightMan].forEach{ view.addSubview($0)}
         [titleLogin, textLogin, emailButton, facebookButton, twitterButton].forEach{ loginView.addSubview($0)}
         
         view.backgroundColor = StandartColors.startBackgroundColor
@@ -96,16 +96,14 @@ final class StartViewController: UIViewController {
             loginView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
             loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            loginView.heightAnchor.constraint(equalToConstant: 404),
+            loginView.heightAnchor.constraint(equalToConstant: 414),
             
             titleLogin.centerXAnchor.constraint(equalTo: loginView.centerXAnchor),
             titleLogin.topAnchor.constraint(equalTo: loginView.topAnchor, constant: 24),
             
-            textLogin.centerXAnchor.constraint(equalTo: loginView.centerXAnchor),
             textLogin.topAnchor.constraint(equalTo: titleLogin.bottomAnchor, constant: 16),
             textLogin.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
             textLogin.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
-            textLogin.heightAnchor.constraint(equalToConstant: 72),
             
             emailButton.topAnchor.constraint(equalTo: textLogin.bottomAnchor, constant: 16),
             emailButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
@@ -124,10 +122,10 @@ final class StartViewController: UIViewController {
             leftMan.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             leftMan.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 11),
             
-            righttMan.heightAnchor.constraint(equalToConstant: 462),
-            righttMan.widthAnchor.constraint(equalToConstant: 204),
-            righttMan.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            righttMan.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 3),
+            rightMan.heightAnchor.constraint(equalToConstant: 462),
+            rightMan.widthAnchor.constraint(equalToConstant: 204),
+            rightMan.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            rightMan.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 3),
         ])
     }
 }
