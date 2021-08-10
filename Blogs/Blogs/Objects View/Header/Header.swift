@@ -28,7 +28,7 @@ final class Header: UIView {
     convenience init(title: String, leftIcon: IconImage, rightIcon: IconImage) {
         self.init()
         
-        self.title.editText(text: title)
+        self.title.editText(text: title.isEmpty ? " " : title)
         self.leftIcon = leftIcon
         self.rightIcon = rightIcon
         

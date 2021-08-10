@@ -11,6 +11,7 @@ import UIKit
 final class StartViewController: UIViewController {
 	private let output: StartViewOutput
     
+    //MARK: Объявление перменных
     private let leftMan: UIImageView = {
         let image = UIImageView()
         image.image = image.randomStandingPeople()
@@ -68,18 +69,11 @@ final class StartViewController: UIViewController {
         return button
     }()
     
-    private let arrayButton: [String] = ["Email", "Facebook", "Twitter"]
-    
     init(output: StartViewOutput) {
         self.output = output
 
         super.init(nibName: nil, bundle: nil)
     }
-    
-//    
-//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//    }
 
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
@@ -94,20 +88,6 @@ final class StartViewController: UIViewController {
         view.backgroundColor = StandartColors.startBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
-    
-//    private func returnButtons(array: [String]) -> [SecondBigButton] {
-//        let arrayButton: [SecondBigButton] = []
-//        var tag = 1
-//
-//        for value in array {
-//            let button = SecondBigButton(text: value, icon: .none)
-//            button.tag = tag
-//            tag += 1
-//        }
-//
-//        return arrayButton
-//    }
-    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
