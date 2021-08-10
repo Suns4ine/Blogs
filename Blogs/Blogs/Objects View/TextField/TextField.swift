@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-protocol TextFieldDelegate {
+protocol TextFieldDelegateProtocol {
     func action(text: String)
 }
 
 final class TextField: UIView, UITextFieldDelegate {
     
-    var delegate: TextFieldDelegate?
+    var delegate: TextFieldDelegateProtocol?
     
     private let nameText: Text = {
         let text = Text(text: "nameText", size: .little)
@@ -64,7 +64,7 @@ final class TextField: UIView, UITextFieldDelegate {
     private override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setup()
+      //  setup()
     }
     
     required init?(coder: NSCoder) {

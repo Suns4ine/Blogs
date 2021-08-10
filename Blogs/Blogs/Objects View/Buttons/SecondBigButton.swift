@@ -98,7 +98,7 @@ final class SecondBigButton: UIView {
         button.addTarget(target, action: action, for: event)
     }
     
-    func newButtonColor(color: UIColor) {
+    func editColor(color: UIColor) {
         button.backgroundColor = color
     }
     
