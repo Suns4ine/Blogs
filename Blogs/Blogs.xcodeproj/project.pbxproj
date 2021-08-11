@@ -50,6 +50,13 @@
 		35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263426AF2DBC000F4E84 /* IconImage.swift */; };
 		35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263926AF707A000F4E84 /* TwoButtons.swift */; };
 		35DB448A26C40923002EB53B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB448926C40923002EB53B /* TabBarController.swift */; };
+		35DB44A426C4392E002EB53B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB449E26C4392E002EB53B /* HomePresenter.swift */; };
+		35DB44A526C4392E002EB53B /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB449F26C4392E002EB53B /* HomeRouter.swift */; };
+		35DB44A626C4392E002EB53B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44A026C4392E002EB53B /* HomeViewController.swift */; };
+		35DB44A726C4392E002EB53B /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44A126C4392E002EB53B /* HomeProtocols.swift */; };
+		35DB44A826C4392E002EB53B /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44A226C4392E002EB53B /* HomeInteractor.swift */; };
+		35DB44A926C4392E002EB53B /* HomeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44A326C4392E002EB53B /* HomeContainer.swift */; };
+		35DB44AF26C44587002EB53B /* BlogsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44AE26C44587002EB53B /* BlogsTableViewCell.swift */; };
 		35E020B926C1812A00C99280 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020B826C1812A00C99280 /* Avatar.swift */; };
 		35E020BE26C18FE800C99280 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020BD26C18FE800C99280 /* TextField.swift */; };
 		35E020D326C1FBA100C99280 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020CD26C1FBA100C99280 /* LoginPresenter.swift */; };
@@ -143,6 +150,13 @@
 		35CE263426AF2DBC000F4E84 /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
 		35CE263926AF707A000F4E84 /* TwoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtons.swift; sourceTree = "<group>"; };
 		35DB448926C40923002EB53B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		35DB449E26C4392E002EB53B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		35DB449F26C4392E002EB53B /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		35DB44A026C4392E002EB53B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		35DB44A126C4392E002EB53B /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		35DB44A226C4392E002EB53B /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		35DB44A326C4392E002EB53B /* HomeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContainer.swift; sourceTree = "<group>"; };
+		35DB44AE26C44587002EB53B /* BlogsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsTableViewCell.swift; sourceTree = "<group>"; };
 		35E020B826C1812A00C99280 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		35E020BD26C18FE800C99280 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		35E020CD26C1FBA100C99280 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -230,7 +244,6 @@
 		3557F2D526AD65A6001DA6BB /* Blogs */ = {
 			isa = PBXGroup;
 			children = (
-				35DB448826C408FB002EB53B /* TabBar */,
 				35E020F826C309E000C99280 /* Screens */,
 				35E020C726C1C8E400C99280 /* Objects View */,
 				35E020C326C1C79100C99280 /* Application */,
@@ -325,6 +338,28 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		35DB449D26C4390F002EB53B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				35DB44AD26C44578002EB53B /* View */,
+				35DB449E26C4392E002EB53B /* HomePresenter.swift */,
+				35DB449F26C4392E002EB53B /* HomeRouter.swift */,
+				35DB44A126C4392E002EB53B /* HomeProtocols.swift */,
+				35DB44A226C4392E002EB53B /* HomeInteractor.swift */,
+				35DB44A326C4392E002EB53B /* HomeContainer.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		35DB44AD26C44578002EB53B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35DB44A026C4392E002EB53B /* HomeViewController.swift */,
+				35DB44AE26C44587002EB53B /* BlogsTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		35E020C226C1C76B00C99280 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +440,8 @@
 		35E020F826C309E000C99280 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				35DB449D26C4390F002EB53B /* Home */,
+				35DB448826C408FB002EB53B /* TabBar */,
 				35E020F926C30A2500C99280 /* SignUp */,
 				35E020DC26C1FBAB00C99280 /* Login */,
 				35E020DD26C1FC9B00C99280 /* Start */,
@@ -727,10 +764,12 @@
 				3557F34826AE4DAB001DA6BB /* StandartColors.swift in Sources */,
 				35E020E726C1FCBE00C99280 /* StartProtocols.swift in Sources */,
 				35E020BE26C18FE800C99280 /* TextField.swift in Sources */,
+				35DB44A626C4392E002EB53B /* HomeViewController.swift in Sources */,
 				35E020E426C1FCBE00C99280 /* StartPresenter.swift in Sources */,
 				35E020D326C1FBA100C99280 /* LoginPresenter.swift in Sources */,
 				3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */,
 				35CE262A26AF2BFB000F4E84 /* FirstSmallButton.swift in Sources */,
+				35DB44A926C4392E002EB53B /* HomeContainer.swift in Sources */,
 				3557F2E126AD65A7001DA6BB /* Blogs.xcdatamodeld in Sources */,
 				356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */,
 				35FFE52826B02DF70032321B /* SubTitle.swift in Sources */,
@@ -743,7 +782,10 @@
 				35E0210426C30A3B00C99280 /* SignUpInteractor.swift in Sources */,
 				35E0210026C30A3B00C99280 /* SignUpPresenter.swift in Sources */,
 				35E020D526C1FBA100C99280 /* LoginViewController.swift in Sources */,
+				35DB44A526C4392E002EB53B /* HomeRouter.swift in Sources */,
 				35E0210126C30A3B00C99280 /* SignUpRouter.swift in Sources */,
+				35DB44AF26C44587002EB53B /* BlogsTableViewCell.swift in Sources */,
+				35DB44A726C4392E002EB53B /* HomeProtocols.swift in Sources */,
 				3557F36726AE54BA001DA6BB /* FirstBigButton.swift in Sources */,
 				35E020D426C1FBA100C99280 /* LoginRouter.swift in Sources */,
 				35E020D726C1FBA100C99280 /* LoginInteractor.swift in Sources */,
@@ -758,8 +800,10 @@
 				35E020F426C2B3AB00C99280 /* UIImagesExtension.swift in Sources */,
 				35E020E526C1FCBE00C99280 /* StartRouter.swift in Sources */,
 				3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */,
+				35DB44A826C4392E002EB53B /* HomeInteractor.swift in Sources */,
 				35E020B926C1812A00C99280 /* Avatar.swift in Sources */,
 				35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */,
+				35DB44A426C4392E002EB53B /* HomePresenter.swift in Sources */,
 				35E020E926C1FCBE00C99280 /* StartContainer.swift in Sources */,
 				35DB448A26C40923002EB53B /* TabBarController.swift in Sources */,
 				35E0210326C30A3B00C99280 /* SignUpProtocols.swift in Sources */,

@@ -18,16 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        class ViewOutPut: SignUpViewOutput {
+        class SomeViewOutPut: HomeViewOutput {
             
         }
                 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let tabBar = TabBarController()
-        window?.rootViewController =  UINavigationController(rootViewController: tabBar)
-        //tabBar.setViewControllers([homeController, searchController, savedController, profileController], animated: true)//UINavigationController(rootViewController: TabBarController())
+        //let tabBar = HomeViewController(output: ViewOutPut)
+        window?.rootViewController = UINavigationController(rootViewController:  HomeViewController(output: SomeViewOutPut.init()))
         window?.makeKeyAndVisible()
     }
 
