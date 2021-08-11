@@ -55,6 +55,7 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBar.delegate = self
         tabBar.tintColor = StandartColors.selectedItemTintColor
         tabBar.unselectedItemTintColor = StandartColors.smallIconColor
         tabBar.barTintColor = StandartColors.tabBarBackgroundColor

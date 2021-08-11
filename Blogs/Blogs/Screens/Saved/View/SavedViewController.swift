@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  SavedViewController.swift
 //  Blogs
 //
 //  Created by Vyacheslav Pronin on 11.08.2021.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
-	private let output: HomeViewOutput
+final class SavedViewController: UIViewController {
+	private let output: SavedViewOutput
 
-    //MARK: Объявление переменных
-    private var arrayBlogs: [String] = ["1", "2", "2", "4", "5", "6", "1", "2", "2", "4", "5", "6", "1", "2", "2", "4", "5", "6"]
+    //MARK: Объявлены переменные
+    private let savedArray: [String] = ["1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6"]
     
     private let header: Header = {
-        let header = Header(title: "Блоги",
+        let header = Header(title: "Понравившиеся",
                             leftIcon: .init(icon: .alignJustify, size: .small),
-                            rightIcon: .init(icon: .bell, size: .small))
+                            rightIcon: .init(icon: .none, size: .small))
         return header
     }()
     
-    private let blogsTableView: UITableView = {
+    private let savedTableView: UITableView = {
         let table = UITableView()
         table.showsVerticalScrollIndicator = false
         table.backgroundColor = .clear
@@ -32,7 +32,7 @@ final class HomeViewController: UIViewController {
         return table
     }()
     
-    init(output: HomeViewOutput) {
+    init(output: SavedViewOutput) {
         self.output = output
 
         super.init(nibName: nil, bundle: nil)
@@ -45,13 +45,14 @@ final class HomeViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, blogsTableView].forEach{ view.addSubview($0)}
+        [header, savedTableView].forEach{ view.addSubview($0)}
+        
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        blogsTableView.delegate = self
-        blogsTableView.dataSource = self
-        blogsTableView.register(BlogsTableViewCell.self, forCellReuseIdentifier: BlogsTableViewCell.identifier)
+        savedTableView.delegate = self
+        savedTableView.dataSource = self
+        savedTableView.register(SavedTableViewCell.self, forCellReuseIdentifier: SavedTableViewCell.identifier)
 	}
     
     override func viewDidLayoutSubviews() {
@@ -62,31 +63,31 @@ final class HomeViewController: UIViewController {
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            blogsTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 8),
-            blogsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            blogsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            blogsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+            savedTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 4),
+            savedTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            savedTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            savedTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayBlogs.count
+        return savedArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: BlogsTableViewCell.identifier,
-                for: indexPath) as? BlogsTableViewCell else { return .init() }
+                withIdentifier: SavedTableViewCell.identifier,
+                for: indexPath) as? SavedTableViewCell else { return .init() }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 428
+        return 168
     }
 }
 
-extension HomeViewController: HomeViewInput {
+extension SavedViewController: SavedViewInput {
 }
