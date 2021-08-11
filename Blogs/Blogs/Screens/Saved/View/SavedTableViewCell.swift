@@ -34,6 +34,7 @@ final class SavedTableViewCell: UITableViewCell {
         let subtitle = SubTitle(text: "nameSubTitle", size: .narrowerLittle)
         subtitle.sizeToFit()
         subtitle.editAligent(aligent: .left)
+        subtitle.editColor(color: StandartColors.textColor)
         return subtitle
     }()
     
@@ -41,6 +42,7 @@ final class SavedTableViewCell: UITableViewCell {
         let subtitle = SubTitle(text: " • dateSubTitle", size: .narrowerLittle)
         subtitle.sizeToFit()
         subtitle.editAligent(aligent: .left)
+        subtitle.editColor(color: StandartColors.textColor)
         return subtitle
     }()
     

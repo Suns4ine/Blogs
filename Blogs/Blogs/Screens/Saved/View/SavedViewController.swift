@@ -12,13 +12,23 @@ final class SavedViewController: UIViewController {
 	private let output: SavedViewOutput
 
     //MARK: Объявлены переменные
-    private let savedArray: [String] = ["1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6"]
+    private var savedArray: [String] = ["1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6"] {
+        didSet {
+            emptyArrayTitle.isHidden = savedArray.isEmpty ? false : true
+        }
+    }
     
     private let header: Header = {
         let header = Header(title: "Понравившиеся",
                             leftIcon: .init(icon: .alignJustify, size: .small),
                             rightIcon: .init(icon: .none, size: .small))
         return header
+    }()
+    
+    private lazy var emptyArrayTitle: Title = {
+        let title = Title(text: "Здесь пока ничего нет", size: .big)
+        title.sizeToFit()
+        return title
     }()
     
     private let savedTableView: UITableView = {
@@ -45,10 +55,11 @@ final class SavedViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, savedTableView].forEach{ view.addSubview($0)}
+        [header, savedTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        emptyArrayTitle.isHidden = savedArray.isEmpty ? false : true
         
         savedTableView.delegate = self
         savedTableView.dataSource = self
@@ -66,7 +77,11 @@ final class SavedViewController: UIViewController {
             savedTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 4),
             savedTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             savedTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            savedTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+            savedTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            
+            emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
+            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
     }
 }

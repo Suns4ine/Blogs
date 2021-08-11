@@ -12,7 +12,11 @@ final class HomeViewController: UIViewController {
 	private let output: HomeViewOutput
 
     //MARK: Объявление переменных
-    private var arrayBlogs: [String] = ["1", "2", "2", "4", "5", "6", "1", "2", "2", "4", "5", "6", "1", "2", "2", "4", "5", "6"]
+    private var arrayBlogs: [String] = ["1", "2", "2", "4", "5", "6", "1", "2", "2", "4", "5", "6", "1", "2", "2", "4", "5", "6"] {
+        didSet {
+            emptyArrayTitle.isHidden = arrayBlogs.isEmpty ? false : true
+        }
+    }
     
     private let header: Header = {
         let header = Header(title: "Блоги",
@@ -32,6 +36,12 @@ final class HomeViewController: UIViewController {
         return table
     }()
     
+    private lazy var emptyArrayTitle: Title = {
+        let title = Title(text: "Здесь пока ничего нет", size: .big)
+        title.sizeToFit()
+        return title
+    }()
+    
     init(output: HomeViewOutput) {
         self.output = output
 
@@ -45,9 +55,10 @@ final class HomeViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, blogsTableView].forEach{ view.addSubview($0)}
+        [header, blogsTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        emptyArrayTitle.isHidden = arrayBlogs.isEmpty ? false : true
         
         blogsTableView.delegate = self
         blogsTableView.dataSource = self
@@ -65,7 +76,11 @@ final class HomeViewController: UIViewController {
             blogsTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 8),
             blogsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             blogsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            blogsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+            blogsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            
+            emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
+            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
     }
 }
