@@ -8,78 +8,57 @@
 import Foundation
 import UIKit
 
-final class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
-    private var addVC = false
-    
-    private lazy var homeController: SomeViewController = {
-        let home = SomeViewController()
-        home.title = "Home"
-        home.tabBarItem.image = UIImage(named: Icons.home1.rawValue)
-        return home
+    private let homeController: UIViewController = {
+        let controller = UIViewController()
+        controller.title = "Home"
+        controller.tabBarItem.image = UIImage(named: Icons.home1.rawValue)
+        controller.view.backgroundColor = StandartColors.tabBarBackgroundColor
+        return controller
     }()
     
-    private lazy var  searchController: SomeViewController = {
-        let search = SomeViewController()
-        search.title = "Search"
-        search.tabBarItem.image = UIImage(named: Icons.search.rawValue)
-    return search
+    private let searchController: UIViewController = {
+        let controller = UIViewController()
+        controller.title = "Search"
+        controller.tabBarItem.image = UIImage(named: Icons.search.rawValue)
+        controller.view.backgroundColor = StandartColors.tabBarBackgroundColor
+    return controller
     }()
     
-    private lazy var  savedController: SomeViewController = {
-        let saved = SomeViewController()
-        saved.title = "Saved"
-        saved.tabBarItem.image = UIImage(named: Icons.star.rawValue)
-        return saved
+    private let savedController: UIViewController = {
+        let controller = UIViewController()
+        controller.title = "Saved"
+        controller.tabBarItem.image = UIImage(named: Icons.star.rawValue)
+        controller.view.backgroundColor = StandartColors.tabBarBackgroundColor
+        return controller
     }()
     
-    private lazy var  profileController: UIViewController = {
-        let profile = UIViewController()
-        profile.title = "Profile"
-        profile.tabBarItem.image = UIImage(named: Icons.user.rawValue)
-        return profile
+    private let  profileController: UIViewController = {
+        let controller = UIViewController()
+        controller.title = "Profile"
+        controller.tabBarItem.image = UIImage(named: Icons.user.rawValue)
+        controller.view.backgroundColor = StandartColors.tabBarBackgroundColor
+        return controller
     }()
     
-    private lazy var borderView: UIView = {
+    private let borderView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = StandartColors.borderColor
         return view
     }()
-    
-    override func loadView() {
-        super.loadView()
-        
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.delegate = self
         tabBar.tintColor = StandartColors.selectedItemTintColor
         tabBar.unselectedItemTintColor = StandartColors.smallIconColor
         tabBar.barTintColor = StandartColors.tabBarBackgroundColor
-        //tabBar.isTranslucent = false
+        tabBar.isTranslucent = false
         [borderView].forEach{ tabBar.addSubview($0) }
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        //tabBar.isTranslucent = false
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        setViewControllers()
-    }
-
-    private func setViewControllers() {
-        if addVC == false {
-            self.setViewControllers([homeController, searchController, savedController, profileController], animated: true)
-            addVC = true
-        }
+        self.setViewControllers([homeController, searchController, savedController, profileController], animated: true)
     }
     
     override func viewDidLayoutSubviews() {
