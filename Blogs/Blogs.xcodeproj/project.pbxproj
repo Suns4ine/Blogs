@@ -49,6 +49,7 @@
 		35CE262A26AF2BFB000F4E84 /* FirstSmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */; };
 		35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263426AF2DBC000F4E84 /* IconImage.swift */; };
 		35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263926AF707A000F4E84 /* TwoButtons.swift */; };
+		35DB448A26C40923002EB53B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB448926C40923002EB53B /* TabBarController.swift */; };
 		35E020B926C1812A00C99280 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020B826C1812A00C99280 /* Avatar.swift */; };
 		35E020BE26C18FE800C99280 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020BD26C18FE800C99280 /* TextField.swift */; };
 		35E020D326C1FBA100C99280 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020CD26C1FBA100C99280 /* LoginPresenter.swift */; };
@@ -141,6 +142,7 @@
 		35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSmallButton.swift; sourceTree = "<group>"; };
 		35CE263426AF2DBC000F4E84 /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
 		35CE263926AF707A000F4E84 /* TwoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtons.swift; sourceTree = "<group>"; };
+		35DB448926C40923002EB53B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		35E020B826C1812A00C99280 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		35E020BD26C18FE800C99280 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		35E020CD26C1FBA100C99280 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		3557F2D526AD65A6001DA6BB /* Blogs */ = {
 			isa = PBXGroup;
 			children = (
+				35DB448826C408FB002EB53B /* TabBar */,
 				35E020F826C309E000C99280 /* Screens */,
 				35E020C726C1C8E400C99280 /* Objects View */,
 				35E020C326C1C79100C99280 /* Application */,
@@ -312,6 +315,14 @@
 				3557F34726AE4DAB001DA6BB /* StandartColors.swift */,
 			);
 			path = ColorsApplication;
+			sourceTree = "<group>";
+		};
+		35DB448826C408FB002EB53B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				35DB448926C40923002EB53B /* TabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		35E020C226C1C76B00C99280 /* Resources */ = {
@@ -750,6 +761,7 @@
 				35E020B926C1812A00C99280 /* Avatar.swift in Sources */,
 				35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */,
 				35E020E926C1FCBE00C99280 /* StartContainer.swift in Sources */,
+				35DB448A26C40923002EB53B /* TabBarController.swift in Sources */,
 				35E0210326C30A3B00C99280 /* SignUpProtocols.swift in Sources */,
 				35FFE51A26B01CBB0032321B /* Header.swift in Sources */,
 			);
@@ -849,7 +861,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -904,7 +916,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -21,11 +21,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         class ViewOutPut: SignUpViewOutput {
             
         }
-        
+                
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(rootViewController: SignUpViewController(output: ViewOutPut.init()))
+        let tabBar = TabBarController()
+        window?.rootViewController =  UINavigationController(rootViewController: tabBar)
+        //tabBar.setViewControllers([homeController, searchController, savedController, profileController], animated: true)//UINavigationController(rootViewController: TabBarController())
         window?.makeKeyAndVisible()
     }
 

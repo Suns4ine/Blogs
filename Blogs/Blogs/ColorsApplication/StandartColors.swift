@@ -84,4 +84,8 @@ final class StandartColors: ColorsApplicationProtocol {
     
     static var backgroundAvatarColor: UIColor = .firstYellow
     
+    static var tabBarBackgroundColor: UIColor = .firstWhite
+    
+    static var selectedItemTintColor: UIColor = .firstBlue
+    
 }

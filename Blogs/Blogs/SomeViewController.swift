@@ -63,7 +63,7 @@ final class SomeViewController: UIViewController {
 
             twoButons.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             twoButons.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            twoButons.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
+            twoButons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             
             avatar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             avatar.centerYAnchor.constraint(equalTo: view.centerYAnchor),
