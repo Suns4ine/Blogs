@@ -25,7 +25,7 @@ final class SubTitle: UIView, TextProtocol {
         label.backgroundColor = .clear
         label.textAlignment = .center
         label.font = .firstTitleFont
-        label.textColor = StandartColors.SubTitleColor
+        label.textColor = StandartColors.subTitleColor
         label.numberOfLines = 0
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false

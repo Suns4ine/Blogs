@@ -42,7 +42,7 @@ final class TextField: UIView, UITextFieldDelegate {
         textField.font = .secondTextFont
         textField.layer.cornerRadius = 16
         textField.layer.borderWidth = 2
-        textField.layer.borderColor = StandartColors.TitleColor.cgColor
+        textField.layer.borderColor = StandartColors.titleColor.cgColor
         textField.backgroundColor = StandartColors.standartBackgroundColor
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.delegate = self

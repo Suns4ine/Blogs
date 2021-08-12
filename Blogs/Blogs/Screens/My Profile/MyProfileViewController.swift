@@ -18,7 +18,7 @@ final class MyProfileViewController: UIViewController {
     private lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
-        scroll.backgroundColor = .firstSunnyRed
+        scroll.backgroundColor = .clear
         //scroll.layer.zPosition = -1
         scroll.showsVerticalScrollIndicator = false
         scroll.showsHorizontalScrollIndicator = false
@@ -38,7 +38,6 @@ final class MyProfileViewController: UIViewController {
         view.layer.zPosition = 0
         view.backgroundColor = StandartColors.myProfileColor
         view.translatesAutoresizingMaskIntoConstraints = false
-        //view.layer.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 32)
         return view
     }()
     
@@ -49,11 +48,13 @@ final class MyProfileViewController: UIViewController {
     
     private let nameTitle: Title = {
         let title = Title(text: "Name and Surname Title", size: .meb36)
+        title.editColor(color: StandartColors.anotherTitleColor)
         return title
     }()
     
     private let nameTagSubtitle: SubTitle = {
         let subtitle = SubTitle(text: "nameTagSubtitle", size: .mm15)
+        subtitle.editColor(color: StandartColors.anotherSubTitleColor)
         return subtitle
     }()
     
@@ -65,7 +66,7 @@ final class MyProfileViewController: UIViewController {
     private let statisticView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .firstYellow
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -76,7 +77,8 @@ final class MyProfileViewController: UIViewController {
     }()
 
     private let aboutMeText: Text = {
-        let text = Text(text: "aboutMeText Wireframe is still important for ideation. It will help you to quickly test idea.", size: .mm15)
+        let text = Text(text: "aboutMeText Wireframe is still important for ideation. It will help you to quickly test idea.",
+                        size: .mm15)
         text.editAligent(aligent: .natural)
         return text
     }()
@@ -110,52 +112,79 @@ final class MyProfileViewController: UIViewController {
         return button
     }()
     
-    ///////////////////////////////////
-    private let firstView: UIView = {
+    private let extraProfileView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .secondPink
+        view.backgroundColor = StandartColors.myProfileColor
+        view.layer.zPosition = -1
         return view
     }()
     
-    private let secondView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .secondBlue
-        return view
+    private let numberBlogTitle: SubTitle = {
+        let title = SubTitle(text: "123456", size: .meb24)
+        title.editColor(color: StandartColors.anotherSubTitleColor)
+        title.sizeToFit()
+        return title
     }()
-    private let thirdView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .secondBlack
-        return view
+    
+    private let numberBlogNameTitle: SubTitle = {
+        let title = SubTitle(text: "blogs", size: .mm15)
+        title.editColor(color: StandartColors.anotherSubTitleColor)
+        title.sizeToFit()
+        return title
     }()
-    private let fourthView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .secondYellow
-        return view
+    
+    private let followersBlogTitle: SubTitle = {
+        let title = SubTitle(text: "123456", size: .meb24)
+        title.editColor(color: StandartColors.anotherSubTitleColor)
+        title.sizeToFit()
+        return title
     }()
+
+    private let followersBlogNameTitle: SubTitle = {
+        let title = SubTitle(text: "followers", size: .mm15)
+        title.editColor(color: StandartColors.anotherSubTitleColor)
+        title.sizeToFit()
+        return title
+    }()
+    
+    private let follovingBlogTitle: SubTitle = {
+        let title = SubTitle(text: "123456", size: .meb24)
+        title.editColor(color: StandartColors.anotherSubTitleColor)
+        title.sizeToFit()
+        return title
+    }()
+    
+    private let follovingBlogNameTitle: SubTitle = {
+        let title = SubTitle(text: "folloving", size: .mm15)
+        title.editColor(color: StandartColors.anotherSubTitleColor)
+        title.sizeToFit()
+        return title
+    }()
+
+    
+    private func addSubViewInScrollView() {
+        let array = [ profileView, header, avatar, nameTitle, nameTagSubtitle,
+                      editButton, statisticView, aboutMeSubTitle, aboutMeText,
+                      myBlogsSubTitle, createBolgButton, blogTableView, moreBlogButton,
+                      numberBlogTitle, followersBlogTitle, follovingBlogTitle, numberBlogNameTitle,
+                      followersBlogNameTitle, follovingBlogNameTitle]
+        
+        array.forEach{ scrollView.addSubview($0)}
+    }
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        view.addSubview(scrollView)
-        [ profileView, header, avatar, nameTitle, nameTagSubtitle,
-          editButton, statisticView, aboutMeSubTitle, aboutMeText,
-          myBlogsSubTitle, createBolgButton, blogTableView, moreBlogButton ].forEach{ scrollView.addSubview($0)}
-        scrollView.delegate =  self
+        [extraProfileView, scrollView].forEach{ view.addSubview($0)}
+        addSubViewInScrollView()
         
-        [firstView, secondView, thirdView, fourthView].forEach{scrollView.addSubview($0)}//Elfkbnm
-
+        scrollView.delegate =  self
         blogTableView.delegate = self
         blogTableView.dataSource = self
         blogTableView.register(SavedTableViewCell.self, forCellReuseIdentifier: SavedTableViewCell.identifier)
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
-       // scrollView.contentSize.width = view.bounds.width
-        scrollView.frame = view.frame
-        //scrollView.contentSize.height = view.bounds.height * 6
-        scrollView.contentSize = CGSize(width: view.bounds.width, height: view.bounds.height * 6)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     init(output: MyProfileViewOutput) {
@@ -179,12 +208,14 @@ final class MyProfileViewController: UIViewController {
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-          //  scrollView.contentLayoutGuide.heightAnchor.constraint(equalToConstant:  view.bounds.height * 6),
-
-            
-            header.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            header.topAnchor.constraint(equalTo: scrollView.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            extraProfileView.topAnchor.constraint(equalTo: view.topAnchor),
+            extraProfileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            extraProfileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            extraProfileView.bottomAnchor.constraint(equalTo: header.topAnchor),
 
             avatar.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             avatar.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 25.5),
@@ -209,6 +240,36 @@ final class MyProfileViewController: UIViewController {
             statisticView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -43),
             statisticView.heightAnchor.constraint(equalToConstant: 60),
             
+            followersBlogTitle.topAnchor.constraint(equalTo: statisticView.topAnchor),
+            followersBlogTitle.centerXAnchor.constraint(equalTo: statisticView.centerXAnchor),
+            followersBlogTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
+            followersBlogTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
+            
+            followersBlogNameTitle.topAnchor.constraint(equalTo: followersBlogTitle.bottomAnchor, constant: 8),
+            followersBlogNameTitle.centerXAnchor.constraint(equalTo: followersBlogTitle.centerXAnchor),
+            followersBlogNameTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
+            followersBlogNameTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
+
+            numberBlogTitle.topAnchor.constraint(equalTo: statisticView.topAnchor),
+            numberBlogTitle.leadingAnchor.constraint(equalTo: statisticView.leadingAnchor),
+            numberBlogTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
+            numberBlogTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
+            
+            numberBlogNameTitle.topAnchor.constraint(equalTo: numberBlogTitle.bottomAnchor, constant: 8),
+            numberBlogNameTitle.centerXAnchor.constraint(equalTo: numberBlogTitle.centerXAnchor),
+            numberBlogNameTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
+            numberBlogNameTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
+            
+            follovingBlogTitle.topAnchor.constraint(equalTo: statisticView.topAnchor),
+            follovingBlogTitle.trailingAnchor.constraint(equalTo: statisticView.trailingAnchor),
+            follovingBlogTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
+            follovingBlogTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
+            
+            follovingBlogNameTitle.topAnchor.constraint(equalTo: follovingBlogTitle.bottomAnchor, constant: 8),
+            follovingBlogNameTitle.centerXAnchor.constraint(equalTo: follovingBlogTitle.centerXAnchor),
+            follovingBlogNameTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
+            follovingBlogNameTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
+            
             profileView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -231,20 +292,40 @@ final class MyProfileViewController: UIViewController {
             createBolgButton.topAnchor.constraint(equalTo: myBlogsSubTitle.bottomAnchor, constant: 24),
             createBolgButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             createBolgButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            
-            blogTableView.topAnchor.constraint(equalTo: createBolgButton.bottomAnchor, constant: 24),
-            blogTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            blogTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            blogTableView.heightAnchor.constraint(equalToConstant: heightBlogTableView),
-            //blogTableView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-           // blogTableView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
-            
-            moreBlogButton.topAnchor.constraint(equalTo: blogTableView.bottomAnchor, constant: 24),
-            moreBlogButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            moreBlogButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            moreBlogButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
-
         ])
+        
+        if arrayBlogs.isEmpty {
+            NSLayoutConstraint.activate([
+                createBolgButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
+            ])
+        } else if arrayBlogs.count <= 5 {
+            NSLayoutConstraint.activate([
+                blogTableView.topAnchor.constraint(equalTo: createBolgButton.bottomAnchor, constant: 12),
+                blogTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                blogTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                blogTableView.heightAnchor.constraint(equalToConstant: heightBlogTableView),
+                blogTableView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -12)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                blogTableView.topAnchor.constraint(equalTo: createBolgButton.bottomAnchor, constant: 12),
+                blogTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                blogTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                blogTableView.heightAnchor.constraint(equalToConstant: heightBlogTableView),
+                
+                moreBlogButton.topAnchor.constraint(equalTo: blogTableView.bottomAnchor, constant: 12),
+                moreBlogButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+                moreBlogButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+                moreBlogButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
+            ])
+        }
+        
+        setupCustom()
+    }
+    
+    //MARK: Кастомные настройки, так как до viewDidLayoutSubviews они не работают
+    private func setupCustom() {
+        profileView.layer.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 32)
     }
     
     //MARK: Отключаем горизонтальную прокрутку

@@ -10,9 +10,9 @@ import UIKit
 
 final class StandartColors: ColorsApplicationProtocol {
     
-    static var TitleColor: UIColor = .firstBlack
+    static var titleColor: UIColor = .firstBlack
     
-    static var SubTitleColor: UIColor = .firstBlack
+    static var subTitleColor: UIColor = .firstBlack
     
     static var textColor: UIColor =  .secondBlack
     
@@ -84,8 +84,14 @@ final class StandartColors: ColorsApplicationProtocol {
     
     static var backgroundAvatarColor: UIColor = .firstYellow
     
-    static var tabBarBackgroundColor: UIColor = .firstWhite
+    static var tabBarBackgroundColor: UIColor = .thirdWhite
     
     static var selectedItemTintColor: UIColor = .firstBlue
+    
+    static var anotherTitleColor: UIColor = .secondWhite
+    
+    static var anotherSubTitleColor: UIColor = .secondWhite
+    
+    static var anotherTextColor: UIColor =  .secondWhite
     
 }

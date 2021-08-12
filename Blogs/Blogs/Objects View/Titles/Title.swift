@@ -20,7 +20,7 @@ final class Title: UIView, TextProtocol {
         label.backgroundColor = .clear
         label.textAlignment = .center
         label.font = .firstTitleFont
-        label.textColor = StandartColors.TitleColor
+        label.textColor = StandartColors.titleColor
         label.numberOfLines = 0
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false

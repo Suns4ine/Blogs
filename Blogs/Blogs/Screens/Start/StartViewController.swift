@@ -45,7 +45,7 @@ final class StartViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = StandartColors.firstLoginBackgroundColor
         view.layer.cornerRadius = 16
-        view.layer.borderColor = StandartColors.TitleColor.cgColor
+        view.layer.borderColor = StandartColors.titleColor.cgColor
         view.layer.borderWidth = 2
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.zPosition = 2

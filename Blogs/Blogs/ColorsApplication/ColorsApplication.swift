@@ -15,8 +15,8 @@ enum ColorsApplication {
 
 protocol ColorsApplicationProtocol {
     
-    static var TitleColor: UIColor { get }
-    static var SubTitleColor: UIColor { get }
+    static var titleColor: UIColor { get }
+    static var subTitleColor: UIColor { get }
     static var textColor: UIColor { get }
     static var textErrorColor: UIColor { get }
     static var textForTextfieldBackgroundColor: UIColor { get }
@@ -54,6 +54,9 @@ protocol ColorsApplicationProtocol {
     static var backgroundAvatarColor: UIColor { get }
     static var tabBarBackgroundColor: UIColor { get }
     static var selectedItemTintColor: UIColor { get }
+    static var anotherTitleColor: UIColor { get }
+    static var anotherSubTitleColor: UIColor { get }
+    static var anotherTextColor: UIColor { get }
 }
 
 extension UIColor {
