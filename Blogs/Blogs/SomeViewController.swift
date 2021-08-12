@@ -32,7 +32,7 @@ final class SomeViewController: UIViewController {
     //MARK: Titles
     
     private let bigTitle: Title = {
-        let title = Title(text: "Если ты видишь этот экран, то значит что-то пошло не так", size: .standart)
+        let title = Title(text: "Если ты видишь этот экран, то значит что-то пошло не так", size: .meb27)
         return title
     }()
     

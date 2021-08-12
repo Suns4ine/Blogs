@@ -18,6 +18,7 @@ extension UIFont {
     static let fourthSubTitleFont = UIFont(name: "Montserrat-Bold", size: 17)
     static let fifthSubTitleFont = UIFont(name: "Montserrat-Medium", size: 15)
     static let sixthSubTitleFont = UIFont(name: "Montserrat-ExtraBold", size: 12)
+    static let seventhSubTitleFont = UIFont(name: "Montserrat-Bold", size: 21)
     
     static let firstTextFont = UIFont(name: "Montserrat-Medium", size: 21)
     static let secondTextFont = UIFont(name: "Montserrat-Medium", size: 17)

@@ -25,7 +25,7 @@ final class LoginViewController: UIViewController {
     }()
     
     private let LoginTitle: Title = {
-        let title = Title(text: "Логин", size: .big)
+        let title = Title(text: "Логин", size: .meb36)
         return title
     }()
     

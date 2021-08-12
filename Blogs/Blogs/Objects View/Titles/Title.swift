@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 enum SizeTitle {
-    case big
-    case standart
+    case meb36
+    case meb27
 }
 
 final class Title: UIView, TextProtocol {
@@ -55,8 +55,8 @@ final class Title: UIView, TextProtocol {
     private func returnFontForTitle(size: SizeTitle) -> UIFont? {
         
         switch size {
-        case .big: return .firstTitleFont
-        case .standart: return .secondTitleFont
+        case .meb36: return .firstTitleFont
+        case .meb27: return .secondTitleFont
         default: return .secondTitleFont
             
         }

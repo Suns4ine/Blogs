@@ -9,12 +9,13 @@ import Foundation
 import UIKit
 
 enum SizeSubTitle {
-    case biggest
-    case big
-    case standart
-    case widerLittle
-    case narrowerLittle
-    case small
+    case meb24
+    case meb21
+    case mb21
+    case meb17
+    case mb17
+    case mm15
+    case meb12
 }
 
 final class SubTitle: UIView, TextProtocol {
@@ -59,12 +60,13 @@ final class SubTitle: UIView, TextProtocol {
     private func returnFontForTitle(size: SizeSubTitle) -> UIFont? {
         
         switch size {
-        case .biggest: return .firstSubTitleFont
-        case .big: return .secondSubTitleFont
-        case .standart: return .thirdSubTitleFont
-        case .widerLittle: return .fourthSubTitleFont
-        case .narrowerLittle: return .fifthSubTitleFont
-        case .small: return .sixthSubTitleFont
+        case .meb24: return .firstSubTitleFont
+        case .meb21: return .secondSubTitleFont
+        case .meb17: return .thirdSubTitleFont
+        case .mb17: return .fourthSubTitleFont
+        case .mm15: return .fifthSubTitleFont
+        case .meb12: return .sixthSubTitleFont
+        case .mb21: return .seventhSubTitleFont
         default: return .secondSubTitleFont
             
         }

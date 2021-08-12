@@ -31,12 +31,12 @@ final class StartViewController: UIViewController {
     
 
     private let titleLogin: Title = {
-        let title = Title(text: "Логин", size: .big)
+        let title = Title(text: "Логин", size: .meb36)
         return title
     }()
     
     private let textLogin: Text = {
-        let text = Text(text: "You don’t think you should login first and behave like human not robot.", size: .standart)
+        let text = Text(text: "You don’t think you should login first and behave like human not robot.", size: .mm17)
         text.sizeToFit()
         return text
     }()

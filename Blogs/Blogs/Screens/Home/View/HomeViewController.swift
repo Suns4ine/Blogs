@@ -37,7 +37,7 @@ final class HomeViewController: UIViewController {
     }()
     
     private lazy var emptyArrayTitle: Title = {
-        let title = Title(text: "Здесь пока ничего нет", size: .big)
+        let title = Title(text: "Здесь пока ничего нет", size: .meb36)
         title.sizeToFit()
         return title
     }()

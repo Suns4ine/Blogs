@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 enum SizeText {
-    case big
-    case standart
-    case little
-    case small
+    case mm21
+    case mm17
+    case mm15
+    case mm13
 }
 
 final class Text: UIView, TextProtocol {
@@ -60,10 +60,10 @@ final class Text: UIView, TextProtocol {
     private func returnFontForTitle(size: SizeText) -> UIFont? {
         
         switch size {
-        case .big: return .firstTextFont
-        case .standart: return .secondTextFont
-        case .little: return .thirdTextFont
-        case .small: return .fourthTextFont
+        case .mm21: return .firstTextFont
+        case .mm17: return .secondTextFont
+        case .mm15: return .thirdTextFont
+        case .mm13: return .fourthTextFont
         default: return .secondTextFont
             
         }

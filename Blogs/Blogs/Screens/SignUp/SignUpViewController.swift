@@ -18,12 +18,12 @@ final class SignUpViewController: UIViewController {
     }()
     
     private let signUpTitle: Title = {
-        let title = Title(text: "Регистрация", size: .big)
+        let title = Title(text: "Регистрация", size: .meb36)
         return title
     }()
     
     private let text: Text = {
-        let text = Text(text: "You have chance to create new account if you really want to.", size: .standart)
+        let text = Text(text: "You have chance to create new account if you really want to.", size: .mm17)
         text.editAligent(aligent: .left)
         text.sizeToFit()
         return text

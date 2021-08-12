@@ -25,15 +25,17 @@ final class TabBarController: UITabBarController {
     return controller
     }()
     
-    private let savedController: SomeViewController = {
-        let controller = SomeViewController()
+    class SavedOutput: SavedViewOutput { }
+    private lazy var savedController: SavedViewController = {
+        let controller = SavedViewController(output: SavedOutput.init())
         controller.title = "Saved"
         controller.tabBarItem.image = UIImage(named: Icons.star.rawValue)
         return controller
     }()
     
-    private let  profileController: SomeViewController = {
-        let controller = SomeViewController()
+    class MyProfileOutput: MyProfileViewOutput { }
+    private let  profileController: MyProfileViewController = {
+        let controller = MyProfileViewController(output: MyProfileOutput.init())
         controller.title = "Profile"
         controller.tabBarItem.image = UIImage(named: Icons.user.rawValue)
         return controller
@@ -48,11 +50,12 @@ final class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
+        tabBar.isTranslucent = false
         tabBar.tintColor = StandartColors.selectedItemTintColor
         tabBar.unselectedItemTintColor = StandartColors.smallIconColor
         tabBar.barTintColor = StandartColors.tabBarBackgroundColor
-        tabBar.isTranslucent = false
         [borderView].forEach{ tabBar.addSubview($0) }
         
         self.setViewControllers([homeController, searchController, savedController, profileController], animated: true)

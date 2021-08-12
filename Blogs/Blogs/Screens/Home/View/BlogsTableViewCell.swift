@@ -36,26 +36,26 @@ final class BlogsTableViewCell: UITableViewCell {
     }()
     
     private let title: Title = {
-        let title = Title(text: "Title Blog", size: .big)
+        let title = Title(text: "Title Blog", size: .meb36)
         title.editAligent(aligent: .natural)
         return title
     }()
     
     private let dateSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "dateSubTitle", size: .narrowerLittle)
+        let subtitle = SubTitle(text: "dateSubTitle", size: .mm15)
         subtitle.sizeToFit()
         return subtitle
     }()
     
     private let nameSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "nameSubTitle", size: .widerLittle)
+        let subtitle = SubTitle(text: "nameSubTitle", size: .mb17)
         subtitle.sizeToFit()
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
     
     private let tagSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "tagSubTitle ", size: .narrowerLittle)
+        let subtitle = SubTitle(text: "tagSubTitle ", size: .mm15)
         subtitle.sizeToFit()
         subtitle.editAligent(aligent: .right)
         return subtitle

@@ -26,7 +26,7 @@ final class SavedViewController: UIViewController {
     }()
     
     private lazy var emptyArrayTitle: Title = {
-        let title = Title(text: "Здесь пока ничего нет", size: .big)
+        let title = Title(text: "Здесь пока ничего нет", size: .meb36)
         title.sizeToFit()
         return title
     }()
@@ -77,7 +77,7 @@ final class SavedViewController: UIViewController {
             savedTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 4),
             savedTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             savedTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            savedTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            savedTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
             emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),

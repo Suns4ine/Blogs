@@ -17,13 +17,13 @@ final class TextField: UIView, UITextFieldDelegate {
     var delegate: TextFieldDelegateProtocol?
     
     private let nameSubTitle: SubTitle = {
-        let text = SubTitle(text: "nameText", size: .narrowerLittle)
+        let text = SubTitle(text: "nameText", size: .mm15)
         text.editAligent(aligent: .left)
         return text
     }()
     
     private let errorSubTitle: SubTitle = {
-        let text = SubTitle(text: "errorText", size: .narrowerLittle)
+        let text = SubTitle(text: "errorText", size: .mm15)
         text.editAligent(aligent: .left)
         text.editColor(color: StandartColors.textErrorColor)
         return text

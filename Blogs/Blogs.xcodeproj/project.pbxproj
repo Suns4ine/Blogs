@@ -10,6 +10,12 @@
 		07A729722FAEC71FA373C421 /* Pods_BlogsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 100283F2411D352A14DD6A78 /* Pods_BlogsTests.framework */; };
 		237DC3E0C564E2A279C53456 /* Pods_Blogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92001B53180CB04A8B476183 /* Pods_Blogs.framework */; };
 		35028DC826C4747D00FF9D68 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DC726C4747D00FF9D68 /* SavedTableViewCell.swift */; };
+		35028DD326C544D000FF9D68 /* MyProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DCD26C544D000FF9D68 /* MyProfilePresenter.swift */; };
+		35028DD426C544D000FF9D68 /* MyProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DCE26C544D000FF9D68 /* MyProfileRouter.swift */; };
+		35028DD526C544D000FF9D68 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DCF26C544D000FF9D68 /* MyProfileViewController.swift */; };
+		35028DD626C544D000FF9D68 /* MyProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DD026C544D000FF9D68 /* MyProfileProtocols.swift */; };
+		35028DD726C544D000FF9D68 /* MyProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DD126C544D000FF9D68 /* MyProfileInteractor.swift */; };
+		35028DD826C544D000FF9D68 /* MyProfileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DD226C544D000FF9D68 /* MyProfileContainer.swift */; };
 		3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D626AD65A6001DA6BB /* AppDelegate.swift */; };
 		3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */; };
 		3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */; };
@@ -111,6 +117,12 @@
 /* Begin PBXFileReference section */
 		100283F2411D352A14DD6A78 /* Pods_BlogsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlogsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35028DC726C4747D00FF9D68 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
+		35028DCD26C544D000FF9D68 /* MyProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfilePresenter.swift; sourceTree = "<group>"; };
+		35028DCE26C544D000FF9D68 /* MyProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileRouter.swift; sourceTree = "<group>"; };
+		35028DCF26C544D000FF9D68 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		35028DD026C544D000FF9D68 /* MyProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileProtocols.swift; sourceTree = "<group>"; };
+		35028DD126C544D000FF9D68 /* MyProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInteractor.swift; sourceTree = "<group>"; };
+		35028DD226C544D000FF9D68 /* MyProfileContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileContainer.swift; sourceTree = "<group>"; };
 		3557F2D326AD65A6001DA6BB /* Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3557F2D626AD65A6001DA6BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +245,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35028DCC26C544AF00FF9D68 /* My Profile */ = {
+			isa = PBXGroup;
+			children = (
+				35028DCD26C544D000FF9D68 /* MyProfilePresenter.swift */,
+				35028DCE26C544D000FF9D68 /* MyProfileRouter.swift */,
+				35028DCF26C544D000FF9D68 /* MyProfileViewController.swift */,
+				35028DD026C544D000FF9D68 /* MyProfileProtocols.swift */,
+				35028DD126C544D000FF9D68 /* MyProfileInteractor.swift */,
+				35028DD226C544D000FF9D68 /* MyProfileContainer.swift */,
+			);
+			path = "My Profile";
+			sourceTree = "<group>";
+		};
 		3557F2CA26AD65A6001DA6BB = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +501,7 @@
 		35E020F826C309E000C99280 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				35028DCC26C544AF00FF9D68 /* My Profile */,
 				35DB44B926C46E4C002EB53B /* Saved */,
 				35DB449D26C4390F002EB53B /* Home */,
 				35DB448826C408FB002EB53B /* TabBar */,
@@ -810,28 +836,34 @@
 				35DB44C226C46E5F002EB53B /* SavedViewController.swift in Sources */,
 				35DB44C326C46E5F002EB53B /* SavedProtocols.swift in Sources */,
 				35DB44A926C4392E002EB53B /* HomeContainer.swift in Sources */,
+				35028DD726C544D000FF9D68 /* MyProfileInteractor.swift in Sources */,
 				3557F2E126AD65A7001DA6BB /* Blogs.xcdatamodeld in Sources */,
 				35DB44C026C46E5F002EB53B /* SavedPresenter.swift in Sources */,
 				356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */,
 				35FFE52826B02DF70032321B /* SubTitle.swift in Sources */,
 				356BE4E126B116E400FFD1F9 /* Text.swift in Sources */,
 				35E020D626C1FBA100C99280 /* LoginProtocols.swift in Sources */,
+				35028DD426C544D000FF9D68 /* MyProfileRouter.swift in Sources */,
 				3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */,
 				35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */,
 				3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */,
 				35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */,
 				35E0210426C30A3B00C99280 /* SignUpInteractor.swift in Sources */,
 				35E0210026C30A3B00C99280 /* SignUpPresenter.swift in Sources */,
+				35028DD626C544D000FF9D68 /* MyProfileProtocols.swift in Sources */,
 				35E020D526C1FBA100C99280 /* LoginViewController.swift in Sources */,
 				35DB44A526C4392E002EB53B /* HomeRouter.swift in Sources */,
+				35028DD826C544D000FF9D68 /* MyProfileContainer.swift in Sources */,
 				35E0210126C30A3B00C99280 /* SignUpRouter.swift in Sources */,
 				35DB44AF26C44587002EB53B /* BlogsTableViewCell.swift in Sources */,
+				35028DD326C544D000FF9D68 /* MyProfilePresenter.swift in Sources */,
 				35DB44A726C4392E002EB53B /* HomeProtocols.swift in Sources */,
 				3557F36726AE54BA001DA6BB /* FirstBigButton.swift in Sources */,
 				35E020D426C1FBA100C99280 /* LoginRouter.swift in Sources */,
 				35E020D726C1FBA100C99280 /* LoginInteractor.swift in Sources */,
 				3557F36F26AE54E0001DA6BB /* FontsExtension.swift in Sources */,
 				35DB44C126C46E5F002EB53B /* SavedRouter.swift in Sources */,
+				35028DD526C544D000FF9D68 /* MyProfileViewController.swift in Sources */,
 				35E020D826C1FBA100C99280 /* LoginContainer.swift in Sources */,
 				35E0210226C30A3B00C99280 /* SignUpViewController.swift in Sources */,
 				35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */,
