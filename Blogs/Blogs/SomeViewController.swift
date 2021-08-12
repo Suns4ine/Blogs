@@ -64,12 +64,12 @@ final class SomeViewController: UIViewController {
             twoButons.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             twoButons.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             twoButons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
-            
+
             avatar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             avatar.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
+
             bigTitle.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
-            bigTitle.bottomAnchor.constraint(equalTo: avatar.topAnchor, constant: -20),
+            bigTitle.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -20),
             bigTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             bigTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
 

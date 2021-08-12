@@ -76,7 +76,7 @@ final class HomeViewController: UIViewController {
             blogsTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 8),
             blogsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             blogsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            blogsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            blogsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
             emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),

@@ -52,7 +52,6 @@ final class IconImage: UIView {
     }
     
     private func setup() {
-       // [button].forEach{ addSubview($0)}
         if !name.isEmpty {
             [button, image].forEach{ addSubview($0)}
         }
@@ -76,16 +75,20 @@ final class IconImage: UIView {
             
             self.heightAnchor.constraint(equalToConstant: size),
             self.widthAnchor.constraint(equalToConstant: size),
-            
-            image.topAnchor.constraint(equalTo: self.topAnchor),
-            image.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            image.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            image.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
-            button.topAnchor.constraint(equalTo: self.topAnchor),
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            button.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            button.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+        
+        if !name.isEmpty {
+            NSLayoutConstraint.activate([
+                image.topAnchor.constraint(equalTo: self.topAnchor),
+                image.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                image.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                image.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                
+                button.topAnchor.constraint(equalTo: self.topAnchor),
+                button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                button.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                button.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            ])
+        }
     }
 }

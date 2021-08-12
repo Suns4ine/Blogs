@@ -8,37 +8,34 @@
 import Foundation
 import UIKit
 
-final class TabBarController: UITabBarController, UITabBarControllerDelegate {
+final class TabBarController: UITabBarController {
     
-    private let homeController: UIViewController = {
-        let controller = UIViewController()
+    class HomeOutPut: HomeViewOutput { }
+    private lazy var homeController: HomeViewController = {
+        let controller = HomeViewController(output: HomeOutPut.init())
         controller.title = "Home"
         controller.tabBarItem.image = UIImage(named: Icons.home1.rawValue)
-        controller.view.backgroundColor = StandartColors.tabBarBackgroundColor
         return controller
     }()
     
-    private let searchController: UIViewController = {
-        let controller = UIViewController()
+    private let searchController: SomeViewController = {
+        let controller = SomeViewController()
         controller.title = "Search"
         controller.tabBarItem.image = UIImage(named: Icons.search.rawValue)
-        controller.view.backgroundColor = StandartColors.tabBarBackgroundColor
     return controller
     }()
     
-    private let savedController: UIViewController = {
-        let controller = UIViewController()
+    private let savedController: SomeViewController = {
+        let controller = SomeViewController()
         controller.title = "Saved"
         controller.tabBarItem.image = UIImage(named: Icons.star.rawValue)
-        controller.view.backgroundColor = StandartColors.tabBarBackgroundColor
         return controller
     }()
     
-    private let  profileController: UIViewController = {
-        let controller = UIViewController()
+    private let  profileController: SomeViewController = {
+        let controller = SomeViewController()
         controller.title = "Profile"
         controller.tabBarItem.image = UIImage(named: Icons.user.rawValue)
-        controller.view.backgroundColor = StandartColors.tabBarBackgroundColor
         return controller
     }()
     

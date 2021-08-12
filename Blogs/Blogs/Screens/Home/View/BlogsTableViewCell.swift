@@ -104,8 +104,8 @@ final class BlogsTableViewCell: UITableViewCell {
             
             title.topAnchor.constraint(equalTo: blogView.topAnchor, constant: 108),
             title.leadingAnchor.constraint(equalTo: blogView.leadingAnchor, constant: 24),
-            title.trailingAnchor.constraint(equalTo: blogView.trailingAnchor, constant: -24),
-            title.bottomAnchor.constraint(equalTo: nameSubTitle.topAnchor, constant: -12),
+            title.trailingAnchor.constraint(lessThanOrEqualTo: blogView.trailingAnchor, constant: -24),
+            title.bottomAnchor.constraint(lessThanOrEqualTo: nameSubTitle.topAnchor, constant: -12),
             
             tagSubTitle.bottomAnchor.constraint(equalTo: blogView.bottomAnchor, constant: -24),
             tagSubTitle.trailingAnchor.constraint(equalTo: blogView.trailingAnchor, constant: -24),
