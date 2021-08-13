@@ -19,7 +19,6 @@ final class MyProfileViewController: UIViewController {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.backgroundColor = .clear
-        //scroll.layer.zPosition = -1
         scroll.showsVerticalScrollIndicator = false
         scroll.showsHorizontalScrollIndicator = false
         return scroll
@@ -29,13 +28,11 @@ final class MyProfileViewController: UIViewController {
         let header = Header(title: "",
                             leftIcon: .init(icon: .alignJustify, size: .small),
                             rightIcon: .init(icon: .none, size: .small))
-        header.layer.zPosition = 1
         return header
     }()
     
     private let profileView: UIView = {
         let view = UIView()
-        view.layer.zPosition = 0
         view.backgroundColor = StandartColors.myProfileColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -116,7 +113,6 @@ final class MyProfileViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = StandartColors.myProfileColor
-        view.layer.zPosition = -1
         return view
     }()
     
@@ -164,7 +160,7 @@ final class MyProfileViewController: UIViewController {
 
     
     private func addSubViewInScrollView() {
-        let array = [ profileView, header, avatar, nameTitle, nameTagSubtitle,
+        let array = [ profileView, avatar, header, nameTitle, nameTagSubtitle,
                       editButton, statisticView, aboutMeSubTitle, aboutMeText,
                       myBlogsSubTitle, createBolgButton, blogTableView, moreBlogButton,
                       numberBlogTitle, followersBlogTitle, follovingBlogTitle, numberBlogNameTitle,
@@ -208,6 +204,9 @@ final class MyProfileViewController: UIViewController {
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
+            avatar.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            avatar.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 25.5),
+            
             header.topAnchor.constraint(equalTo: scrollView.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -215,10 +214,7 @@ final class MyProfileViewController: UIViewController {
             extraProfileView.topAnchor.constraint(equalTo: view.topAnchor),
             extraProfileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             extraProfileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            extraProfileView.bottomAnchor.constraint(equalTo: header.topAnchor),
-
-            avatar.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            avatar.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 25.5),
+            extraProfileView.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -10),
 
             nameTitle.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 21),
             nameTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38),
@@ -336,19 +332,6 @@ final class MyProfileViewController: UIViewController {
 
 extension MyProfileViewController: MyProfileViewInput, UIScrollViewDelegate {
 }
-
-extension CALayer {
-  func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-    let maskPath = UIBezierPath(roundedRect: bounds,
-                                byRoundingCorners: corners,
-                                cornerRadii: CGSize(width: radius, height: radius))
-
-    let shape = CAShapeLayer()
-    shape.path = maskPath.cgPath
-    mask = shape
-  }
-}
-
 
 extension MyProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

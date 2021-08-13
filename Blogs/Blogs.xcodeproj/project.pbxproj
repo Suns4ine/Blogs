@@ -16,6 +16,7 @@
 		35028DD626C544D000FF9D68 /* MyProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DD026C544D000FF9D68 /* MyProfileProtocols.swift */; };
 		35028DD726C544D000FF9D68 /* MyProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DD126C544D000FF9D68 /* MyProfileInteractor.swift */; };
 		35028DD826C544D000FF9D68 /* MyProfileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DD226C544D000FF9D68 /* MyProfileContainer.swift */; };
+		35028DF926C5ED6700FF9D68 /* AnotherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DF826C5ED6700FF9D68 /* AnotherExtension.swift */; };
 		3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D626AD65A6001DA6BB /* AppDelegate.swift */; };
 		3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */; };
 		3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */; };
@@ -123,6 +124,7 @@
 		35028DD026C544D000FF9D68 /* MyProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileProtocols.swift; sourceTree = "<group>"; };
 		35028DD126C544D000FF9D68 /* MyProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInteractor.swift; sourceTree = "<group>"; };
 		35028DD226C544D000FF9D68 /* MyProfileContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileContainer.swift; sourceTree = "<group>"; };
+		35028DF826C5ED6700FF9D68 /* AnotherExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherExtension.swift; sourceTree = "<group>"; };
 		3557F2D326AD65A6001DA6BB /* Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3557F2D626AD65A6001DA6BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			children = (
 				3557F36E26AE54E0001DA6BB /* FontsExtension.swift */,
 				35E020F326C2B3AB00C99280 /* UIImagesExtension.swift */,
+				35028DF826C5ED6700FF9D68 /* AnotherExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				3557F36726AE54BA001DA6BB /* FirstBigButton.swift in Sources */,
 				35E020D426C1FBA100C99280 /* LoginRouter.swift in Sources */,
 				35E020D726C1FBA100C99280 /* LoginInteractor.swift in Sources */,
+				35028DF926C5ED6700FF9D68 /* AnotherExtension.swift in Sources */,
 				3557F36F26AE54E0001DA6BB /* FontsExtension.swift in Sources */,
 				35DB44C126C46E5F002EB53B /* SavedRouter.swift in Sources */,
 				35028DD526C544D000FF9D68 /* MyProfileViewController.swift in Sources */,
