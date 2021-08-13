@@ -99,6 +99,12 @@
 		35B109B626C6D9C5003E3D44 /* EditProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109B026C6D9C5003E3D44 /* EditProfileProtocols.swift */; };
 		35B109B726C6D9C5003E3D44 /* EditProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109B126C6D9C5003E3D44 /* EditProfileInteractor.swift */; };
 		35B109B826C6D9C5003E3D44 /* EditProfileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109B226C6D9C5003E3D44 /* EditProfileContainer.swift */; };
+		35B109C626C71E7D003E3D44 /* AdditionBlogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C026C71E7D003E3D44 /* AdditionBlogPresenter.swift */; };
+		35B109C726C71E7D003E3D44 /* AdditionBlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C126C71E7D003E3D44 /* AdditionBlogRouter.swift */; };
+		35B109C826C71E7D003E3D44 /* AdditionBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C226C71E7D003E3D44 /* AdditionBlogViewController.swift */; };
+		35B109C926C71E7D003E3D44 /* AdditionBlogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C326C71E7D003E3D44 /* AdditionBlogProtocols.swift */; };
+		35B109CA26C71E7D003E3D44 /* AdditionBlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C426C71E7D003E3D44 /* AdditionBlogInteractor.swift */; };
+		35B109CB26C71E7D003E3D44 /* AdditionBlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C526C71E7D003E3D44 /* AdditionBlogContainer.swift */; };
 		35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondBigButton.swift */; };
 		35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261A26AEBDEC000F4E84 /* Icons.swift */; };
 		35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */; };
@@ -262,6 +268,12 @@
 		35B109B026C6D9C5003E3D44 /* EditProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileProtocols.swift; sourceTree = "<group>"; };
 		35B109B126C6D9C5003E3D44 /* EditProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInteractor.swift; sourceTree = "<group>"; };
 		35B109B226C6D9C5003E3D44 /* EditProfileContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileContainer.swift; sourceTree = "<group>"; };
+		35B109C026C71E7D003E3D44 /* AdditionBlogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionBlogPresenter.swift; sourceTree = "<group>"; };
+		35B109C126C71E7D003E3D44 /* AdditionBlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionBlogRouter.swift; sourceTree = "<group>"; };
+		35B109C226C71E7D003E3D44 /* AdditionBlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionBlogViewController.swift; sourceTree = "<group>"; };
+		35B109C326C71E7D003E3D44 /* AdditionBlogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionBlogProtocols.swift; sourceTree = "<group>"; };
+		35B109C426C71E7D003E3D44 /* AdditionBlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionBlogInteractor.swift; sourceTree = "<group>"; };
+		35B109C526C71E7D003E3D44 /* AdditionBlogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionBlogContainer.swift; sourceTree = "<group>"; };
 		35CE261526AEBA66000F4E84 /* SecondBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBigButton.swift; sourceTree = "<group>"; };
 		35CE261A26AEBDEC000F4E84 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBigButton.swift; sourceTree = "<group>"; };
@@ -564,6 +576,19 @@
 			path = "Edit Profile";
 			sourceTree = "<group>";
 		};
+		35B109BF26C71E5A003E3D44 /* Addition Blog */ = {
+			isa = PBXGroup;
+			children = (
+				35B109C026C71E7D003E3D44 /* AdditionBlogPresenter.swift */,
+				35B109C126C71E7D003E3D44 /* AdditionBlogRouter.swift */,
+				35B109C226C71E7D003E3D44 /* AdditionBlogViewController.swift */,
+				35B109C326C71E7D003E3D44 /* AdditionBlogProtocols.swift */,
+				35B109C426C71E7D003E3D44 /* AdditionBlogInteractor.swift */,
+				35B109C526C71E7D003E3D44 /* AdditionBlogContainer.swift */,
+			);
+			path = "Addition Blog";
+			sourceTree = "<group>";
+		};
 		35CE261026AE8829000F4E84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,6 +740,7 @@
 		35E020F826C309E000C99280 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				35B109BF26C71E5A003E3D44 /* Addition Blog */,
 				35B109AC26C6D9AB003E3D44 /* Edit Profile */,
 				35B1099926C6D535003E3D44 /* Draft Blogs */,
 				35B1098626C6BF1F003E3D44 /* About the Application */,
@@ -1046,6 +1072,8 @@
 			files = (
 				35B1096B26C6B110003E3D44 /* PasswordChangeInteractor.swift in Sources */,
 				35E020E626C1FCBE00C99280 /* StartViewController.swift in Sources */,
+				35B109C626C71E7D003E3D44 /* AdditionBlogPresenter.swift in Sources */,
+				35B109C926C71E7D003E3D44 /* AdditionBlogProtocols.swift in Sources */,
 				35B1095826C6AAF0003E3D44 /* ChoiceColorRouter.swift in Sources */,
 				35E020E826C1FCBE00C99280 /* StartInteractor.swift in Sources */,
 				35B109A126C6D559003E3D44 /* DraftBlogsRouter.swift in Sources */,
@@ -1055,6 +1083,7 @@
 				3557F34826AE4DAB001DA6BB /* StandartColors.swift in Sources */,
 				35028E1A26C69C5A00FF9D68 /* ChoiceLanguageContainer.swift in Sources */,
 				35E020E726C1FCBE00C99280 /* StartProtocols.swift in Sources */,
+				35B109CA26C71E7D003E3D44 /* AdditionBlogInteractor.swift in Sources */,
 				35E020BE26C18FE800C99280 /* TextField.swift in Sources */,
 				35B1096A26C6B110003E3D44 /* PasswordChangeProtocols.swift in Sources */,
 				35DB44A626C4392E002EB53B /* HomeViewController.swift in Sources */,
@@ -1130,11 +1159,13 @@
 				35028E0926C5F47200FF9D68 /* AnotherProfileInteractor.swift in Sources */,
 				35B1099026C6BF4D003E3D44 /* AboutTheApplicationProtocols.swift in Sources */,
 				35CE262526AF2A44000F4E84 /* ThirdSmallButton.swift in Sources */,
+				35B109CB26C71E7D003E3D44 /* AdditionBlogContainer.swift in Sources */,
 				35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */,
 				35B1098E26C6BF4D003E3D44 /* AboutTheApplicationRouter.swift in Sources */,
 				35FFE52026B020690032321B /* Title.swift in Sources */,
 				35B109B526C6D9C5003E3D44 /* EditProfileViewController.swift in Sources */,
 				35E020F426C2B3AB00C99280 /* UIImagesExtension.swift in Sources */,
+				35B109C726C71E7D003E3D44 /* AdditionBlogRouter.swift in Sources */,
 				35E020E526C1FCBE00C99280 /* StartRouter.swift in Sources */,
 				35B109A026C6D559003E3D44 /* DraftBlogsPresenter.swift in Sources */,
 				35B109B426C6D9C5003E3D44 /* EditProfileRouter.swift in Sources */,
@@ -1153,6 +1184,7 @@
 				35B1097E26C6B99C003E3D44 /* HelpInteractor.swift in Sources */,
 				35B1096826C6B110003E3D44 /* PasswordChangeRouter.swift in Sources */,
 				35028E0626C5F47200FF9D68 /* AnotherProfileRouter.swift in Sources */,
+				35B109C826C71E7D003E3D44 /* AdditionBlogViewController.swift in Sources */,
 				35E0210326C30A3B00C99280 /* SignUpProtocols.swift in Sources */,
 				35DB44C426C46E5F002EB53B /* SavedInteractor.swift in Sources */,
 				35FFE51A26B01CBB0032321B /* Header.swift in Sources */,

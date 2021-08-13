@@ -72,7 +72,7 @@ final class EditProfileViewController: UIViewController {
     
     
     private let aboutMeText: Text = {
-        let text = Text(text: "Hacker Cup is Facebook's annual open programming competition. Open to participants around the world, we invite you to apply problem-solving and algorithmic coding skills to advance through each year’s online rounds, win prizes, and have a chance to make it to the global finals and win the grand prize. Hacker Cup is Facebook's annual open programming competition. Open to participants around the world, we invite you to apply problem-solving and algorithmic coding skills to advance through each year’s online rounds, win prizes, and have a chance to make it to the global finals and win the grand prize.", size: .mm17)
+        let text = Text(text: "aboutMeText", size: .mm17)
         text.editScrollEnabled(edit: true)
         text.editAligent(aligent: .natural)
         text.editWorkInText(edit: true)
