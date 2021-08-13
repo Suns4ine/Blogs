@@ -117,7 +117,5 @@ final class Header: UIView {
             rightIcon.centerYAnchor.constraint(equalTo: title.centerYAnchor),
             
         ])
-        
-        debugPrint(leadingSize, tralingSize)
     }
 }
