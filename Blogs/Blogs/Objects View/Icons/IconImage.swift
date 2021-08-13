@@ -18,8 +18,8 @@ enum sizeIcon: CGFloat {
 
 final class IconImage: UIView {
     
-    private var size: CGFloat = 24
-    private var name: String = ""
+    private (set) var size: CGFloat = 24
+    private (set) var name: String = ""
     
     private let image: UIImageView = {
         let imageView = UIImageView()
