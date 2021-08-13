@@ -32,7 +32,7 @@ final class AnotherProfileViewController: UIViewController {
     
     private let header: Header = {
         let header = Header(title: "",
-                            leftIcon: .init(icon: .alignJustify, size: .small),
+                            leftIcon: .init(icon: .outline2, size: .standart),
                             rightIcon: .init(icon: .none, size: .small))
         return header
     }()
