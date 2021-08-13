@@ -18,8 +18,9 @@ final class TabBarController: UITabBarController {
         return controller
     }()
     
-    private let searchController: SomeViewController = {
-        let controller = SomeViewController()
+    class SomeOutPut: ChoiceLanguageViewOutput { }
+    private let searchController: ChoiceLanguageViewController = {
+        let controller = ChoiceLanguageViewController(output: SomeOutPut.init())
         controller.title = "Search"
         controller.tabBarItem.image = UIImage(named: Icons.search.rawValue)
     return controller
