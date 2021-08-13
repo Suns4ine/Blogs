@@ -75,6 +75,12 @@
 		35B1096A26C6B110003E3D44 /* PasswordChangeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096426C6B110003E3D44 /* PasswordChangeProtocols.swift */; };
 		35B1096B26C6B110003E3D44 /* PasswordChangeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096526C6B110003E3D44 /* PasswordChangeInteractor.swift */; };
 		35B1096C26C6B110003E3D44 /* PasswordChangeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096626C6B110003E3D44 /* PasswordChangeContainer.swift */; };
+		35B1097A26C6B99C003E3D44 /* HelpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097426C6B99C003E3D44 /* HelpPresenter.swift */; };
+		35B1097B26C6B99C003E3D44 /* HelpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097526C6B99C003E3D44 /* HelpRouter.swift */; };
+		35B1097C26C6B99C003E3D44 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097626C6B99C003E3D44 /* HelpViewController.swift */; };
+		35B1097D26C6B99C003E3D44 /* HelpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097726C6B99C003E3D44 /* HelpProtocols.swift */; };
+		35B1097E26C6B99C003E3D44 /* HelpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097826C6B99C003E3D44 /* HelpInteractor.swift */; };
+		35B1097F26C6B99C003E3D44 /* HelpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097926C6B99C003E3D44 /* HelpContainer.swift */; };
 		35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondBigButton.swift */; };
 		35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261A26AEBDEC000F4E84 /* Icons.swift */; };
 		35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */; };
@@ -214,6 +220,12 @@
 		35B1096426C6B110003E3D44 /* PasswordChangeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeProtocols.swift; sourceTree = "<group>"; };
 		35B1096526C6B110003E3D44 /* PasswordChangeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeInteractor.swift; sourceTree = "<group>"; };
 		35B1096626C6B110003E3D44 /* PasswordChangeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeContainer.swift; sourceTree = "<group>"; };
+		35B1097426C6B99C003E3D44 /* HelpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPresenter.swift; sourceTree = "<group>"; };
+		35B1097526C6B99C003E3D44 /* HelpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpRouter.swift; sourceTree = "<group>"; };
+		35B1097626C6B99C003E3D44 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		35B1097726C6B99C003E3D44 /* HelpProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpProtocols.swift; sourceTree = "<group>"; };
+		35B1097826C6B99C003E3D44 /* HelpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpInteractor.swift; sourceTree = "<group>"; };
+		35B1097926C6B99C003E3D44 /* HelpContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpContainer.swift; sourceTree = "<group>"; };
 		35CE261526AEBA66000F4E84 /* SecondBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBigButton.swift; sourceTree = "<group>"; };
 		35CE261A26AEBDEC000F4E84 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBigButton.swift; sourceTree = "<group>"; };
@@ -464,6 +476,19 @@
 			path = "Password Change";
 			sourceTree = "<group>";
 		};
+		35B1097326C6B98C003E3D44 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				35B1097426C6B99C003E3D44 /* HelpPresenter.swift */,
+				35B1097526C6B99C003E3D44 /* HelpRouter.swift */,
+				35B1097626C6B99C003E3D44 /* HelpViewController.swift */,
+				35B1097726C6B99C003E3D44 /* HelpProtocols.swift */,
+				35B1097826C6B99C003E3D44 /* HelpInteractor.swift */,
+				35B1097926C6B99C003E3D44 /* HelpContainer.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
 		35CE261026AE8829000F4E84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,6 +640,7 @@
 		35E020F826C309E000C99280 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				35B1097326C6B98C003E3D44 /* Help */,
 				35B1096026C6B0EC003E3D44 /* Password Change */,
 				35B1095026C6AAC9003E3D44 /* Choice Color */,
 				35028E0E26C69C1700FF9D68 /* Choice Language */,
@@ -956,6 +982,7 @@
 				35028E1626C69C5A00FF9D68 /* ChoiceLanguageRouter.swift in Sources */,
 				35E020E426C1FCBE00C99280 /* StartPresenter.swift in Sources */,
 				35DB44C526C46E5F002EB53B /* SavedContainer.swift in Sources */,
+				35B1097F26C6B99C003E3D44 /* HelpContainer.swift in Sources */,
 				35028E1826C69C5A00FF9D68 /* ChoiceLanguageProtocols.swift in Sources */,
 				35B1095B26C6AAF0003E3D44 /* ChoiceColorInteractor.swift in Sources */,
 				35E020D326C1FBA100C99280 /* LoginPresenter.swift in Sources */,
@@ -977,10 +1004,13 @@
 				35028E1926C69C5A00FF9D68 /* ChoiceLanguageInteractor.swift in Sources */,
 				35E020D626C1FBA100C99280 /* LoginProtocols.swift in Sources */,
 				35028DD426C544D000FF9D68 /* MyProfileRouter.swift in Sources */,
+				35B1097B26C6B99C003E3D44 /* HelpRouter.swift in Sources */,
 				3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */,
 				35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */,
+				35B1097D26C6B99C003E3D44 /* HelpProtocols.swift in Sources */,
 				3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */,
 				35B1096926C6B110003E3D44 /* PasswordChangeViewController.swift in Sources */,
+				35B1097C26C6B99C003E3D44 /* HelpViewController.swift in Sources */,
 				35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */,
 				35E0210426C30A3B00C99280 /* SignUpInteractor.swift in Sources */,
 				35E0210026C30A3B00C99280 /* SignUpPresenter.swift in Sources */,
@@ -1001,6 +1031,7 @@
 				3557F36F26AE54E0001DA6BB /* FontsExtension.swift in Sources */,
 				35DB44C126C46E5F002EB53B /* SavedRouter.swift in Sources */,
 				35028DD526C544D000FF9D68 /* MyProfileViewController.swift in Sources */,
+				35B1097A26C6B99C003E3D44 /* HelpPresenter.swift in Sources */,
 				35028E0A26C5F47200FF9D68 /* AnotherProfileContainer.swift in Sources */,
 				35E020D826C1FBA100C99280 /* LoginContainer.swift in Sources */,
 				35E0210226C30A3B00C99280 /* SignUpViewController.swift in Sources */,
@@ -1023,6 +1054,7 @@
 				35B1096726C6B110003E3D44 /* PasswordChangePresenter.swift in Sources */,
 				35E020E926C1FCBE00C99280 /* StartContainer.swift in Sources */,
 				35DB448A26C40923002EB53B /* TabBarController.swift in Sources */,
+				35B1097E26C6B99C003E3D44 /* HelpInteractor.swift in Sources */,
 				35B1096826C6B110003E3D44 /* PasswordChangeRouter.swift in Sources */,
 				35028E0626C5F47200FF9D68 /* AnotherProfileRouter.swift in Sources */,
 				35E0210326C30A3B00C99280 /* SignUpProtocols.swift in Sources */,

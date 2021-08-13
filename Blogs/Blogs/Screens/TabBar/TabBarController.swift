@@ -18,9 +18,9 @@ final class TabBarController: UITabBarController {
         return controller
     }()
     
-    class SomeOutPut: PasswordChangeViewOutput { }
-    private let searchController: PasswordChangeViewController = {
-        let controller = PasswordChangeViewController(output: SomeOutPut.init())
+    class SomeOutPut: HelpViewOutput { }
+    private let searchController: HelpViewController = {
+        let controller = HelpViewController(output: SomeOutPut.init())
         controller.title = "Search"
         controller.tabBarItem.image = UIImage(named: Icons.search.rawValue)
     return controller
