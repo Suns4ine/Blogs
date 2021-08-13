@@ -174,6 +174,7 @@ final class MyProfileViewController: UIViewController {
         [extraProfileView, scrollView].forEach{ view.addSubview($0)}
         addSubViewInScrollView()
         
+        moreBlogButton.isHidden = arrayBlogs.count > 5 ? false : true
         scrollView.delegate =  self
         blogTableView.delegate = self
         blogTableView.dataSource = self

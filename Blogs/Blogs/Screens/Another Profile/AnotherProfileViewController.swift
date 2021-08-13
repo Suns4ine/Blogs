@@ -14,8 +14,8 @@ final class AnotherProfileViewController: UIViewController {
     //MARK: Объявление переменных
     private var arrayBlogs: [String] = ["", "", "", "", "", ""] {
         didSet {
-            emptyTitle.isHidden = arrayBlogs.isEmpty ? true : false
-            moreBlogButton.isHidden = arrayBlogs.count > 5 ? true : false
+            emptyTitle.isHidden = arrayBlogs.isEmpty ? false : true
+            moreBlogButton.isHidden = arrayBlogs.count > 5 ? false : true
         }
     }
     

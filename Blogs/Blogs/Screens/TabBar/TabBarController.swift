@@ -33,9 +33,9 @@ final class TabBarController: UITabBarController {
         return controller
     }()
     
-    class MyProfileOutput: AnotherProfileViewOutput { }
-    private let  profileController: AnotherProfileViewController = {
-        let controller = AnotherProfileViewController(output: MyProfileOutput.init())
+    class MyProfileOutput: MyProfileViewOutput { }
+    private let  profileController: MyProfileViewController = {
+        let controller = MyProfileViewController(output: MyProfileOutput.init())
         controller.title = "Profile"
         controller.tabBarItem.image = UIImage(named: Icons.user.rawValue)
         return controller
