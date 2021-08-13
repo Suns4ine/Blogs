@@ -14,7 +14,7 @@ final class AdditionBlogViewController: UIViewController {
     //MARK: Объявление переменных
     private let header: Header = {
         let header = Header(title: "",
-                            leftIcon: .init(icon: .outline2, size: .size48),
+                            leftIcon: .init(icon: .outline3, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         return header
     }()

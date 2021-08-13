@@ -20,6 +20,9 @@ final class IconImage: UIView {
     
     private (set) var size: CGFloat = 24
     private (set) var name: String = ""
+    private var constShadow: CGFloat = 2
+    
+    private let shadowIconArray: [Icons] = [.fill1, .fill2, .fill3, .outline1, .outline2, .outline3, .logo]
     
     private let image: UIImageView = {
         let imageView = UIImageView()
@@ -34,9 +37,20 @@ final class IconImage: UIView {
         return button
     }()
     
+    private let shadowView: UIView = {
+        let view = UIView()
+        view.isHidden = true
+        view.backgroundColor = StandartColors.shadowColor
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     convenience  init(icon: Icons, size: sizeIcon) {
         self.init()
         
+        constShadow = size.rawValue > 24 ? 4 : constShadow
+        shadowView.isHidden = shadowIconArray.contains(icon) ? false : true
+        shadowView.layer.cornerRadius = size.rawValue/2
         name = icon.rawValue
         image.image = UIImage(named: name)
         self.size = size.rawValue
@@ -53,7 +67,7 @@ final class IconImage: UIView {
     
     private func setup() {
         if !name.isEmpty {
-            [button, image].forEach{ addSubview($0)}
+            [shadowView, image, button].forEach{ addSubview($0)}
         }
         
         self.backgroundColor = .clear
@@ -87,7 +101,12 @@ final class IconImage: UIView {
                 button.topAnchor.constraint(equalTo: self.topAnchor),
                 button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 button.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                button.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+                button.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                
+                shadowView.topAnchor.constraint(equalTo: image.topAnchor, constant: constShadow),
+                shadowView.leadingAnchor.constraint(equalTo: image.leadingAnchor),
+                shadowView.trailingAnchor.constraint(equalTo: image.trailingAnchor),
+                shadowView.bottomAnchor.constraint(equalTo: image.bottomAnchor, constant: constShadow)
             ])
         }
     }
