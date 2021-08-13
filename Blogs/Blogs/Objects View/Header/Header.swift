@@ -16,12 +16,12 @@ final class Header: UIView {
     }()
     
     private lazy var leftIcon: IconImage = {
-        let image = IconImage(icon: .none, size: .small)
+        let image = IconImage(icon: .none, size: .size24)
         return image
     }()
 
     private lazy var rightIcon: IconImage = {
-        let image = IconImage(icon: .none, size: .small)
+        let image = IconImage(icon: .none, size: .size24)
         return image
     }()
     

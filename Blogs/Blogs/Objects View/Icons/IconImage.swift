@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 enum sizeIcon: CGFloat {
-    case finely = 14
-    case small = 24
-    case standart = 48
-    case big = 120
-    case biggest = 150
+    case size14 = 14
+    case size24 = 24
+    case size48 = 48
+    case size120 = 120
+    case size150 = 150
 }
 
 final class IconImage: UIView {

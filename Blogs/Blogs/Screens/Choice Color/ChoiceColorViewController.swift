@@ -20,8 +20,8 @@ final class ChoiceColorViewController: UIViewController {
     
     private let header: Header = {
         let header = Header(title: "Расцветка",
-                            leftIcon: .init(icon: .outline2, size: .standart),
-                            rightIcon: .init(icon: .none, size: .small))
+                            leftIcon: .init(icon: .outline2, size: .size48),
+                            rightIcon: .init(icon: .none, size: .size24))
         return header
     }()
     

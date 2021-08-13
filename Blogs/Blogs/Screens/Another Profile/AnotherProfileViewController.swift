@@ -32,8 +32,8 @@ final class AnotherProfileViewController: UIViewController {
     
     private let header: Header = {
         let header = Header(title: "",
-                            leftIcon: .init(icon: .outline2, size: .standart),
-                            rightIcon: .init(icon: .none, size: .small))
+                            leftIcon: .init(icon: .outline2, size: .size48),
+                            rightIcon: .init(icon: .none, size: .size24))
         return header
     }()
     
@@ -45,7 +45,7 @@ final class AnotherProfileViewController: UIViewController {
     }()
     
     private let avatar: Avatar = {
-        let avatar = Avatar(image: nil, size: .big)
+        let avatar = Avatar(image: nil, size: .size170)
         return avatar
     }()
     

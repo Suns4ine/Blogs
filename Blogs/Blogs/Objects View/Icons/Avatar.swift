@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 
 enum SizeAvatar: CGFloat {
-    case big = 170
-    case standart = 100
-    case small = 60
+    case size170 = 170
+    case size100 = 100
+    case size60 = 60
 }
 
 final class Avatar: UIView {
     
-    private lazy var avatarViewHeightConstraint: NSLayoutConstraint = self.heightAnchor.constraint(equalToConstant: SizeAvatar.standart.rawValue)
-    private lazy var avatarViewWidthConstraint: NSLayoutConstraint  = self.widthAnchor.constraint(equalToConstant: SizeAvatar.standart.rawValue)
+    private lazy var avatarViewHeightConstraint: NSLayoutConstraint = self.heightAnchor.constraint(equalToConstant: SizeAvatar.size100.rawValue)
+    private lazy var avatarViewWidthConstraint: NSLayoutConstraint  = self.widthAnchor.constraint(equalToConstant: SizeAvatar.size100.rawValue)
     
     private lazy var imageView: UIImageView = {
         let image = UIImageView()
@@ -63,18 +63,18 @@ final class Avatar: UIView {
     
     private func editConstraint(size: SizeAvatar) {
         switch size {
-        case .big:
-            avatarViewWidthConstraint.constant = SizeAvatar.big.rawValue
-            avatarViewHeightConstraint.constant = SizeAvatar.big.rawValue
-        case .standart:
-            avatarViewWidthConstraint.constant = SizeAvatar.standart.rawValue
-            avatarViewHeightConstraint.constant = SizeAvatar.standart.rawValue
-        case .small:
-            avatarViewWidthConstraint.constant = SizeAvatar.small.rawValue
-            avatarViewHeightConstraint.constant = SizeAvatar.small.rawValue
+        case .size170:
+            avatarViewWidthConstraint.constant = SizeAvatar.size170.rawValue
+            avatarViewHeightConstraint.constant = SizeAvatar.size170.rawValue
+        case .size100:
+            avatarViewWidthConstraint.constant = SizeAvatar.size100.rawValue
+            avatarViewHeightConstraint.constant = SizeAvatar.size100.rawValue
+        case .size60:
+            avatarViewWidthConstraint.constant = SizeAvatar.size60.rawValue
+            avatarViewHeightConstraint.constant = SizeAvatar.size60.rawValue
         default:
-            avatarViewWidthConstraint.constant = SizeAvatar.standart.rawValue
-            avatarViewHeightConstraint.constant = SizeAvatar.standart.rawValue
+            avatarViewWidthConstraint.constant = SizeAvatar.size100.rawValue
+            avatarViewHeightConstraint.constant = SizeAvatar.size100.rawValue
         }
         
         imageView.layer.cornerRadius = avatarViewWidthConstraint.constant / 2

@@ -79,7 +79,7 @@ func returnIconColor(icon: Icons, size: sizeIcon) -> UIColor {
     switch (icon, size) {
     case (.facebook, _): return StandartColors.facebookColor
     case (.twitter, _): return StandartColors.twitterColor
-    //case (_, .big): return .clear
+    //case (_, .size170): return .clear
     case(.heartFill, _): return StandartColors.filledHeartColor
     default: return StandartColors.smallIconColor
     }

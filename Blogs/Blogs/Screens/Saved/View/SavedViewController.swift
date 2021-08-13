@@ -20,8 +20,8 @@ final class SavedViewController: UIViewController {
     
     private let header: Header = {
         let header = Header(title: "Понравившиеся",
-                            leftIcon: .init(icon: .alignJustify, size: .small),
-                            rightIcon: .init(icon: .none, size: .small))
+                            leftIcon: .init(icon: .alignJustify, size: .size24),
+                            rightIcon: .init(icon: .none, size: .size24))
         return header
     }()
     

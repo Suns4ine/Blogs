@@ -20,8 +20,8 @@ final class HomeViewController: UIViewController {
     
     private let header: Header = {
         let header = Header(title: "Блоги",
-                            leftIcon: .init(icon: .alignJustify, size: .small),
-                            rightIcon: .init(icon: .bell, size: .small))
+                            leftIcon: .init(icon: .alignJustify, size: .size24),
+                            rightIcon: .init(icon: .bell, size: .size24))
         return header
     }()
     

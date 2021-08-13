@@ -18,9 +18,9 @@ final class TabBarController: UITabBarController {
         return controller
     }()
     
-    class SomeOutPut: ChoiceColorViewOutput { }
-    private let searchController: ChoiceColorViewController = {
-        let controller = ChoiceColorViewController(output: SomeOutPut.init())
+    class SomeOutPut: PasswordChangeViewOutput { }
+    private let searchController: PasswordChangeViewController = {
+        let controller = PasswordChangeViewController(output: SomeOutPut.init())
         controller.title = "Search"
         controller.tabBarItem.image = UIImage(named: Icons.search.rawValue)
     return controller

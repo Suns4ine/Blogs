@@ -69,6 +69,12 @@
 		35B1095A26C6AAF0003E3D44 /* ChoiceColorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1095426C6AAF0003E3D44 /* ChoiceColorProtocols.swift */; };
 		35B1095B26C6AAF0003E3D44 /* ChoiceColorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1095526C6AAF0003E3D44 /* ChoiceColorInteractor.swift */; };
 		35B1095C26C6AAF0003E3D44 /* ChoiceColorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1095626C6AAF0003E3D44 /* ChoiceColorContainer.swift */; };
+		35B1096726C6B110003E3D44 /* PasswordChangePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096126C6B110003E3D44 /* PasswordChangePresenter.swift */; };
+		35B1096826C6B110003E3D44 /* PasswordChangeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096226C6B110003E3D44 /* PasswordChangeRouter.swift */; };
+		35B1096926C6B110003E3D44 /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096326C6B110003E3D44 /* PasswordChangeViewController.swift */; };
+		35B1096A26C6B110003E3D44 /* PasswordChangeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096426C6B110003E3D44 /* PasswordChangeProtocols.swift */; };
+		35B1096B26C6B110003E3D44 /* PasswordChangeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096526C6B110003E3D44 /* PasswordChangeInteractor.swift */; };
+		35B1096C26C6B110003E3D44 /* PasswordChangeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096626C6B110003E3D44 /* PasswordChangeContainer.swift */; };
 		35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondBigButton.swift */; };
 		35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261A26AEBDEC000F4E84 /* Icons.swift */; };
 		35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */; };
@@ -202,6 +208,12 @@
 		35B1095426C6AAF0003E3D44 /* ChoiceColorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceColorProtocols.swift; sourceTree = "<group>"; };
 		35B1095526C6AAF0003E3D44 /* ChoiceColorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceColorInteractor.swift; sourceTree = "<group>"; };
 		35B1095626C6AAF0003E3D44 /* ChoiceColorContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceColorContainer.swift; sourceTree = "<group>"; };
+		35B1096126C6B110003E3D44 /* PasswordChangePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangePresenter.swift; sourceTree = "<group>"; };
+		35B1096226C6B110003E3D44 /* PasswordChangeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeRouter.swift; sourceTree = "<group>"; };
+		35B1096326C6B110003E3D44 /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
+		35B1096426C6B110003E3D44 /* PasswordChangeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeProtocols.swift; sourceTree = "<group>"; };
+		35B1096526C6B110003E3D44 /* PasswordChangeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeInteractor.swift; sourceTree = "<group>"; };
+		35B1096626C6B110003E3D44 /* PasswordChangeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeContainer.swift; sourceTree = "<group>"; };
 		35CE261526AEBA66000F4E84 /* SecondBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBigButton.swift; sourceTree = "<group>"; };
 		35CE261A26AEBDEC000F4E84 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBigButton.swift; sourceTree = "<group>"; };
@@ -439,6 +451,19 @@
 			path = "Choice Color";
 			sourceTree = "<group>";
 		};
+		35B1096026C6B0EC003E3D44 /* Password Change */ = {
+			isa = PBXGroup;
+			children = (
+				35B1096126C6B110003E3D44 /* PasswordChangePresenter.swift */,
+				35B1096226C6B110003E3D44 /* PasswordChangeRouter.swift */,
+				35B1096326C6B110003E3D44 /* PasswordChangeViewController.swift */,
+				35B1096426C6B110003E3D44 /* PasswordChangeProtocols.swift */,
+				35B1096526C6B110003E3D44 /* PasswordChangeInteractor.swift */,
+				35B1096626C6B110003E3D44 /* PasswordChangeContainer.swift */,
+			);
+			path = "Password Change";
+			sourceTree = "<group>";
+		};
 		35CE261026AE8829000F4E84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +615,7 @@
 		35E020F826C309E000C99280 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				35B1096026C6B0EC003E3D44 /* Password Change */,
 				35B1095026C6AAC9003E3D44 /* Choice Color */,
 				35028E0E26C69C1700FF9D68 /* Choice Language */,
 				35028DFD26C5F44A00FF9D68 /* Another Profile */,
@@ -914,6 +940,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35B1096B26C6B110003E3D44 /* PasswordChangeInteractor.swift in Sources */,
 				35E020E626C1FCBE00C99280 /* StartViewController.swift in Sources */,
 				35B1095826C6AAF0003E3D44 /* ChoiceColorRouter.swift in Sources */,
 				35E020E826C1FCBE00C99280 /* StartInteractor.swift in Sources */,
@@ -924,6 +951,7 @@
 				35028E1A26C69C5A00FF9D68 /* ChoiceLanguageContainer.swift in Sources */,
 				35E020E726C1FCBE00C99280 /* StartProtocols.swift in Sources */,
 				35E020BE26C18FE800C99280 /* TextField.swift in Sources */,
+				35B1096A26C6B110003E3D44 /* PasswordChangeProtocols.swift in Sources */,
 				35DB44A626C4392E002EB53B /* HomeViewController.swift in Sources */,
 				35028E1626C69C5A00FF9D68 /* ChoiceLanguageRouter.swift in Sources */,
 				35E020E426C1FCBE00C99280 /* StartPresenter.swift in Sources */,
@@ -940,6 +968,7 @@
 				35028DD726C544D000FF9D68 /* MyProfileInteractor.swift in Sources */,
 				3557F2E126AD65A7001DA6BB /* Blogs.xcdatamodeld in Sources */,
 				35DB44C026C46E5F002EB53B /* SavedPresenter.swift in Sources */,
+				35B1096C26C6B110003E3D44 /* PasswordChangeContainer.swift in Sources */,
 				356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */,
 				35028E0526C5F47200FF9D68 /* AnotherProfilePresenter.swift in Sources */,
 				35FFE52826B02DF70032321B /* SubTitle.swift in Sources */,
@@ -951,6 +980,7 @@
 				3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */,
 				35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */,
 				3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */,
+				35B1096926C6B110003E3D44 /* PasswordChangeViewController.swift in Sources */,
 				35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */,
 				35E0210426C30A3B00C99280 /* SignUpInteractor.swift in Sources */,
 				35E0210026C30A3B00C99280 /* SignUpPresenter.swift in Sources */,
@@ -990,8 +1020,10 @@
 				35028DC826C4747D00FF9D68 /* SavedTableViewCell.swift in Sources */,
 				35DB44A426C4392E002EB53B /* HomePresenter.swift in Sources */,
 				35028E1526C69C5A00FF9D68 /* ChoiceLanguagePresenter.swift in Sources */,
+				35B1096726C6B110003E3D44 /* PasswordChangePresenter.swift in Sources */,
 				35E020E926C1FCBE00C99280 /* StartContainer.swift in Sources */,
 				35DB448A26C40923002EB53B /* TabBarController.swift in Sources */,
+				35B1096826C6B110003E3D44 /* PasswordChangeRouter.swift in Sources */,
 				35028E0626C5F47200FF9D68 /* AnotherProfileRouter.swift in Sources */,
 				35E0210326C30A3B00C99280 /* SignUpProtocols.swift in Sources */,
 				35DB44C426C46E5F002EB53B /* SavedInteractor.swift in Sources */,

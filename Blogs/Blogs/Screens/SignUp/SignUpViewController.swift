@@ -13,7 +13,7 @@ final class SignUpViewController: UIViewController {
 
     //MARK: Объявление переменных
     private let header: Header = {
-        let header = Header(title: "", leftIcon: .init(icon: .outline1, size: .standart), rightIcon: .init(icon: .none, size: .small))
+        let header = Header(title: "", leftIcon: .init(icon: .outline1, size: .size48), rightIcon: .init(icon: .none, size: .size24))
         return header
     }()
     

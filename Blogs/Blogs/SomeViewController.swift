@@ -11,13 +11,13 @@ final class SomeViewController: UIViewController {
     
     private let headerView: Header = {
         let header = Header(title: "Error Screen",
-                            leftIcon: .init(icon: .none, size: .small),
-                            rightIcon: .init(icon: .none, size: .small))
+                            leftIcon: .init(icon: .none, size: .size24),
+                            rightIcon: .init(icon: .none, size: .size24))
         return header
     }()
     
     private let avatar: Avatar = {
-        let avatar = Avatar(image: UIImage(named: "peep-2"), size: .standart)
+        let avatar = Avatar(image: UIImage(named: "peep-2"), size: .size100)
         avatar.addTarget(self, action: #selector(backController))
         return avatar
     }()

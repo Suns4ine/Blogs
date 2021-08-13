@@ -13,7 +13,7 @@ final class SecondBigButton: UIView {
     private var hasIcon = false
     
     private lazy var iconImage: IconImage = {
-        let image = IconImage(icon: .none, size: .small)
+        let image = IconImage(icon: .none, size: .size24)
         image.layer.zPosition = 3
         image.newColorImage(color: label.textColor)
         return image
@@ -67,7 +67,7 @@ final class SecondBigButton: UIView {
         self.init()
         
         hasIcon = icon == .none ? false : true
-        iconImage = IconImage(icon: icon, size: .small)
+        iconImage = IconImage(icon: icon, size: .size24)
         iconImage.layer.zPosition = 3
         iconImage.newColorImage(color: label.textColor)
         

@@ -31,7 +31,7 @@ final class BlogsTableViewCell: UITableViewCell {
     }()
     
     private let avatar: Avatar = {
-        let avatar = Avatar(image: nil, size: .small)
+        let avatar = Avatar(image: nil, size: .size60)
         return avatar
     }()
     

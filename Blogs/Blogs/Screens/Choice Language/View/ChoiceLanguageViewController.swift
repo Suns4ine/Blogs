@@ -20,8 +20,8 @@ final class ChoiceLanguageViewController: UIViewController {
     
     private let header: Header = {
         let header = Header(title: "Язык",
-                            leftIcon: .init(icon: .outline2, size: .standart),
-                            rightIcon: .init(icon: .none, size: .small))
+                            leftIcon: .init(icon: .outline2, size: .size48),
+                            rightIcon: .init(icon: .none, size: .size24))
         return header
     }()
     

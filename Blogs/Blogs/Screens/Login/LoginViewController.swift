@@ -14,13 +14,13 @@ final class LoginViewController: UIViewController {
     //MARK: Объявление переменных
     private let header: Header = {
         let header = Header(title: "",
-                            leftIcon: .init(icon: .outline3, size: .standart),
-                            rightIcon: .init(icon: .none, size: .small))
+                            leftIcon: .init(icon: .outline3, size: .size48),
+                            rightIcon: .init(icon: .none, size: .size24))
         return header
     }()
     
     private let logo: IconImage = {
-        let icon = IconImage(icon: .logo, size: .big)
+        let icon = IconImage(icon: .logo, size: .size120)
         return icon
     }()
     
