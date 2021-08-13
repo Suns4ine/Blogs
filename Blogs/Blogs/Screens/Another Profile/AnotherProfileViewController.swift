@@ -1,18 +1,24 @@
 //
-//  MyProfileViewController.swift
+//  AnotherProfileViewController.swift
 //  Blogs
 //
-//  Created by Vyacheslav Pronin on 12.08.2021.
+//  Created by Vyacheslav Pronin on 13.08.2021.
 //  
 //
 
 import UIKit
 
-final class MyProfileViewController: UIViewController {
-	private let output: MyProfileViewOutput
+final class AnotherProfileViewController: UIViewController {
+	private let output: AnotherProfileViewOutput
 
     //MARK: Объявление переменных
-    private var arrayBlogs: [String] = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    private var arrayBlogs: [String] = ["", "", "", "", "", ""] {
+        didSet {
+            emptyTitle.isHidden = arrayBlogs.isEmpty ? true : false
+            moreBlogButton.isHidden = arrayBlogs.count > 5 ? true : false
+        }
+    }
+    
     private lazy var heightBlogTableView: CGFloat = CGFloat(arrayBlogs.count > 5 ? 5 * 168 : arrayBlogs.count * 168)
     
     private lazy var scrollView: UIScrollView = {
@@ -33,7 +39,7 @@ final class MyProfileViewController: UIViewController {
     
     private let profileView: UIView = {
         let view = UIView()
-        view.backgroundColor = StandartColors.myProfileColor
+        view.backgroundColor = StandartColors.anotherProfileColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -55,8 +61,8 @@ final class MyProfileViewController: UIViewController {
         return subtitle
     }()
     
-    private let editButton: ThirdBigButton = {
-       let button = ThirdBigButton(text: "editButton")
+    private let followButton: ThirdBigButton = {
+       let button = ThirdBigButton(text: "followButton")
         return button
     }()
     
@@ -67,28 +73,29 @@ final class MyProfileViewController: UIViewController {
         return view
     }()
     
-    private let aboutMeSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "aboutMeSubTitle", size: .mb21)
+    private let aboutAnotherSubTitle: SubTitle = {
+        let subtitle = SubTitle(text: "aboutAnotherSubTitle", size: .mb21)
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
 
-    private let aboutMeText: Text = {
-        let text = Text(text: "aboutMeText Wireframe is still important for ideation. It will help you to quickly test idea.",
+    private let aboutAnotherText: Text = {
+        let text = Text(text: "aboutAnotherText Wireframe is still important for ideation. It will help you to quickly test idea.",
                         size: .mm15)
         text.editAligent(aligent: .natural)
         return text
     }()
     
-    private let myBlogsSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "myBlogsSubTitle", size: .mb21)
+    private let anotherBlogsSubTitle: SubTitle = {
+        let subtitle = SubTitle(text: "anotherBlogsSubTitle", size: .mb21)
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
     
-    private let createBolgButton: FirstBigButton = {
-        let button = FirstBigButton(text: "createBolgButton")
-        return button
+    private let emptyTitle: Title = {
+        let title = Title(text: "Another Profile doesn't have blogs yet. If they appear, they will lie here.",
+                          size: .meb27)
+        return title
     }()
     
     private let blogTableView: UITableView = {
@@ -112,7 +119,7 @@ final class MyProfileViewController: UIViewController {
     private let extraProfileView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = StandartColors.myProfileColor
+        view.backgroundColor = StandartColors.anotherProfileColor
         return view
     }()
     
@@ -157,20 +164,30 @@ final class MyProfileViewController: UIViewController {
         title.sizeToFit()
         return title
     }()
-
     
     private func addSubViewInScrollView() {
         let array = [ profileView, avatar, header, nameTitle, nameTagSubtitle,
-                      editButton, statisticView, aboutMeSubTitle, aboutMeText,
-                      myBlogsSubTitle, createBolgButton, blogTableView, moreBlogButton,
+                      followButton, statisticView, aboutAnotherSubTitle, aboutAnotherText,
+                      anotherBlogsSubTitle, emptyTitle, blogTableView, moreBlogButton,
                       numberBlogTitle, followersBlogTitle, follovingBlogTitle, numberBlogNameTitle,
                       followersBlogNameTitle, follovingBlogNameTitle]
         
         array.forEach{ scrollView.addSubview($0)}
     }
     
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    init(output: AnotherProfileViewOutput) {
+        self.output = output
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         [extraProfileView, scrollView].forEach{ view.addSubview($0)}
         addSubViewInScrollView()
         
@@ -181,17 +198,9 @@ final class MyProfileViewController: UIViewController {
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    init(output: MyProfileViewOutput) {
-        self.output = output
-
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        
+        emptyTitle.isHidden = arrayBlogs.isEmpty ? false : true
+        moreBlogButton.isHidden = arrayBlogs.count > 5 ? false : true
     }
     
     override func viewDidLayoutSubviews() {
@@ -226,12 +235,12 @@ final class MyProfileViewController: UIViewController {
             nameTagSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -38),
             nameTagSubtitle.heightAnchor.constraint(equalToConstant: 24),
             
-            editButton.topAnchor.constraint(equalTo: nameTagSubtitle.bottomAnchor, constant: 24),
-            editButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            editButton.leadingAnchor.constraint(lessThanOrEqualTo: view.leadingAnchor, constant: 44),
-            editButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -44),
+            followButton.topAnchor.constraint(equalTo: nameTagSubtitle.bottomAnchor, constant: 24),
+            followButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            followButton.leadingAnchor.constraint(lessThanOrEqualTo: view.leadingAnchor, constant: 44),
+            followButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -44),
             
-            statisticView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 32),
+            statisticView.topAnchor.constraint(equalTo: followButton.bottomAnchor, constant: 32),
             statisticView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
             statisticView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -43),
             statisticView.heightAnchor.constraint(equalToConstant: 60),
@@ -271,32 +280,31 @@ final class MyProfileViewController: UIViewController {
             profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             profileView.bottomAnchor.constraint(equalTo: statisticView.bottomAnchor, constant: 36),
             
-            aboutMeSubTitle.topAnchor.constraint(equalTo: profileView.bottomAnchor, constant: 24),
-            aboutMeSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            aboutMeSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            aboutMeSubTitle.heightAnchor.constraint(equalToConstant: 28),
+            aboutAnotherSubTitle.topAnchor.constraint(equalTo: profileView.bottomAnchor, constant: 24),
+            aboutAnotherSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            aboutAnotherSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            aboutAnotherSubTitle.heightAnchor.constraint(equalToConstant: 28),
 
-            aboutMeText.topAnchor.constraint(equalTo: aboutMeSubTitle.bottomAnchor, constant: 16),
-            aboutMeText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            aboutMeText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            aboutAnotherText.topAnchor.constraint(equalTo: aboutAnotherSubTitle.bottomAnchor, constant: 16),
+            aboutAnotherText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            aboutAnotherText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
 
-            myBlogsSubTitle.topAnchor.constraint(equalTo: aboutMeText.bottomAnchor, constant: 30),
-            myBlogsSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            myBlogsSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            myBlogsSubTitle.heightAnchor.constraint(equalToConstant: 28),
-
-            createBolgButton.topAnchor.constraint(equalTo: myBlogsSubTitle.bottomAnchor, constant: 24),
-            createBolgButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            createBolgButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            anotherBlogsSubTitle.topAnchor.constraint(equalTo: aboutAnotherText.bottomAnchor, constant: 30),
+            anotherBlogsSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            anotherBlogsSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            anotherBlogsSubTitle.heightAnchor.constraint(equalToConstant: 28),
         ])
         
         if arrayBlogs.isEmpty {
             NSLayoutConstraint.activate([
-                createBolgButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
+                emptyTitle.topAnchor.constraint(equalTo: anotherBlogsSubTitle.bottomAnchor, constant: 24),
+                emptyTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+                emptyTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+                emptyTitle.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24),
             ])
         } else if arrayBlogs.count <= 5 {
             NSLayoutConstraint.activate([
-                blogTableView.topAnchor.constraint(equalTo: createBolgButton.bottomAnchor, constant: 12),
+                blogTableView.topAnchor.constraint(equalTo: anotherBlogsSubTitle.bottomAnchor, constant: 12),
                 blogTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 blogTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 blogTableView.heightAnchor.constraint(equalToConstant: heightBlogTableView),
@@ -304,7 +312,7 @@ final class MyProfileViewController: UIViewController {
             ])
         } else {
             NSLayoutConstraint.activate([
-                blogTableView.topAnchor.constraint(equalTo: createBolgButton.bottomAnchor, constant: 12),
+                blogTableView.topAnchor.constraint(equalTo: anotherBlogsSubTitle.bottomAnchor, constant: 12),
                 blogTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 blogTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 blogTableView.heightAnchor.constraint(equalToConstant: heightBlogTableView),
@@ -328,12 +336,13 @@ final class MyProfileViewController: UIViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.contentOffset.x = 0.0
     }
+    
 }
 
-extension MyProfileViewController: MyProfileViewInput, UIScrollViewDelegate {
+extension AnotherProfileViewController: AnotherProfileViewInput {
 }
 
-extension MyProfileViewController: UITableViewDelegate, UITableViewDataSource {
+extension AnotherProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayBlogs.count > 5 ? 5 : arrayBlogs.count
     }

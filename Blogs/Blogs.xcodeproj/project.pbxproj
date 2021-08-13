@@ -17,6 +17,12 @@
 		35028DD726C544D000FF9D68 /* MyProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DD126C544D000FF9D68 /* MyProfileInteractor.swift */; };
 		35028DD826C544D000FF9D68 /* MyProfileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DD226C544D000FF9D68 /* MyProfileContainer.swift */; };
 		35028DF926C5ED6700FF9D68 /* AnotherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DF826C5ED6700FF9D68 /* AnotherExtension.swift */; };
+		35028E0526C5F47200FF9D68 /* AnotherProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DFF26C5F47200FF9D68 /* AnotherProfilePresenter.swift */; };
+		35028E0626C5F47200FF9D68 /* AnotherProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E0026C5F47200FF9D68 /* AnotherProfileRouter.swift */; };
+		35028E0726C5F47200FF9D68 /* AnotherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E0126C5F47200FF9D68 /* AnotherProfileViewController.swift */; };
+		35028E0826C5F47200FF9D68 /* AnotherProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E0226C5F47200FF9D68 /* AnotherProfileProtocols.swift */; };
+		35028E0926C5F47200FF9D68 /* AnotherProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E0326C5F47200FF9D68 /* AnotherProfileInteractor.swift */; };
+		35028E0A26C5F47200FF9D68 /* AnotherProfileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E0426C5F47200FF9D68 /* AnotherProfileContainer.swift */; };
 		3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D626AD65A6001DA6BB /* AppDelegate.swift */; };
 		3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */; };
 		3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */; };
@@ -125,6 +131,12 @@
 		35028DD126C544D000FF9D68 /* MyProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInteractor.swift; sourceTree = "<group>"; };
 		35028DD226C544D000FF9D68 /* MyProfileContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileContainer.swift; sourceTree = "<group>"; };
 		35028DF826C5ED6700FF9D68 /* AnotherExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherExtension.swift; sourceTree = "<group>"; };
+		35028DFF26C5F47200FF9D68 /* AnotherProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherProfilePresenter.swift; sourceTree = "<group>"; };
+		35028E0026C5F47200FF9D68 /* AnotherProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherProfileRouter.swift; sourceTree = "<group>"; };
+		35028E0126C5F47200FF9D68 /* AnotherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherProfileViewController.swift; sourceTree = "<group>"; };
+		35028E0226C5F47200FF9D68 /* AnotherProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherProfileProtocols.swift; sourceTree = "<group>"; };
+		35028E0326C5F47200FF9D68 /* AnotherProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherProfileInteractor.swift; sourceTree = "<group>"; };
+		35028E0426C5F47200FF9D68 /* AnotherProfileContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherProfileContainer.swift; sourceTree = "<group>"; };
 		3557F2D326AD65A6001DA6BB /* Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3557F2D626AD65A6001DA6BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -258,6 +270,19 @@
 				35028DD226C544D000FF9D68 /* MyProfileContainer.swift */,
 			);
 			path = "My Profile";
+			sourceTree = "<group>";
+		};
+		35028DFD26C5F44A00FF9D68 /* Another Profile */ = {
+			isa = PBXGroup;
+			children = (
+				35028DFF26C5F47200FF9D68 /* AnotherProfilePresenter.swift */,
+				35028E0026C5F47200FF9D68 /* AnotherProfileRouter.swift */,
+				35028E0126C5F47200FF9D68 /* AnotherProfileViewController.swift */,
+				35028E0226C5F47200FF9D68 /* AnotherProfileProtocols.swift */,
+				35028E0326C5F47200FF9D68 /* AnotherProfileInteractor.swift */,
+				35028E0426C5F47200FF9D68 /* AnotherProfileContainer.swift */,
+			);
+			path = "Another Profile";
 			sourceTree = "<group>";
 		};
 		3557F2CA26AD65A6001DA6BB = {
@@ -504,6 +529,7 @@
 		35E020F826C309E000C99280 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				35028DFD26C5F44A00FF9D68 /* Another Profile */,
 				35028DCC26C544AF00FF9D68 /* My Profile */,
 				35DB44B926C46E4C002EB53B /* Saved */,
 				35DB449D26C4390F002EB53B /* Home */,
@@ -827,6 +853,7 @@
 			files = (
 				35E020E626C1FCBE00C99280 /* StartViewController.swift in Sources */,
 				35E020E826C1FCBE00C99280 /* StartInteractor.swift in Sources */,
+				35028E0726C5F47200FF9D68 /* AnotherProfileViewController.swift in Sources */,
 				3557F34826AE4DAB001DA6BB /* StandartColors.swift in Sources */,
 				35E020E726C1FCBE00C99280 /* StartProtocols.swift in Sources */,
 				35E020BE26C18FE800C99280 /* TextField.swift in Sources */,
@@ -843,6 +870,7 @@
 				3557F2E126AD65A7001DA6BB /* Blogs.xcdatamodeld in Sources */,
 				35DB44C026C46E5F002EB53B /* SavedPresenter.swift in Sources */,
 				356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */,
+				35028E0526C5F47200FF9D68 /* AnotherProfilePresenter.swift in Sources */,
 				35FFE52826B02DF70032321B /* SubTitle.swift in Sources */,
 				356BE4E126B116E400FFD1F9 /* Text.swift in Sources */,
 				35E020D626C1FBA100C99280 /* LoginProtocols.swift in Sources */,
@@ -863,15 +891,18 @@
 				35DB44A726C4392E002EB53B /* HomeProtocols.swift in Sources */,
 				3557F36726AE54BA001DA6BB /* FirstBigButton.swift in Sources */,
 				35E020D426C1FBA100C99280 /* LoginRouter.swift in Sources */,
+				35028E0826C5F47200FF9D68 /* AnotherProfileProtocols.swift in Sources */,
 				35E020D726C1FBA100C99280 /* LoginInteractor.swift in Sources */,
 				35028DF926C5ED6700FF9D68 /* AnotherExtension.swift in Sources */,
 				3557F36F26AE54E0001DA6BB /* FontsExtension.swift in Sources */,
 				35DB44C126C46E5F002EB53B /* SavedRouter.swift in Sources */,
 				35028DD526C544D000FF9D68 /* MyProfileViewController.swift in Sources */,
+				35028E0A26C5F47200FF9D68 /* AnotherProfileContainer.swift in Sources */,
 				35E020D826C1FBA100C99280 /* LoginContainer.swift in Sources */,
 				35E0210226C30A3B00C99280 /* SignUpViewController.swift in Sources */,
 				35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */,
 				35E0210526C30A3B00C99280 /* SignUpContainer.swift in Sources */,
+				35028E0926C5F47200FF9D68 /* AnotherProfileInteractor.swift in Sources */,
 				35CE262526AF2A44000F4E84 /* ThirdSmallButton.swift in Sources */,
 				35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */,
 				35FFE52026B020690032321B /* Title.swift in Sources */,
@@ -885,6 +916,7 @@
 				35DB44A426C4392E002EB53B /* HomePresenter.swift in Sources */,
 				35E020E926C1FCBE00C99280 /* StartContainer.swift in Sources */,
 				35DB448A26C40923002EB53B /* TabBarController.swift in Sources */,
+				35028E0626C5F47200FF9D68 /* AnotherProfileRouter.swift in Sources */,
 				35E0210326C30A3B00C99280 /* SignUpProtocols.swift in Sources */,
 				35DB44C426C46E5F002EB53B /* SavedInteractor.swift in Sources */,
 				35FFE51A26B01CBB0032321B /* Header.swift in Sources */,
