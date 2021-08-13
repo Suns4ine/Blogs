@@ -72,6 +72,14 @@ final class TextField: UIView, UITextFieldDelegate {
         errorSubTitle.editText(text: text)
     }
     
+    func editNameColor(color: UIColor) {
+        nameSubTitle.editColor(color: color)
+    }
+    
+    func editErrorColor(color: UIColor) {
+        errorSubTitle.editColor(color: color)
+    }
+    
     private func setup() {
         [nameSubTitle, errorSubTitle, textField].forEach{ addSubview($0)}
         

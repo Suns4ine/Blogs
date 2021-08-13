@@ -15,7 +15,7 @@ final class MyProfileViewController: UIViewController {
     private var arrayBlogs: [String] = ["1", "2", "3", "4", "5", "6", "7", "8"]
     private lazy var heightBlogTableView: CGFloat = CGFloat(arrayBlogs.count > 5 ? 5 * 168 : arrayBlogs.count * 168)
     
-    private lazy var scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.backgroundColor = .clear

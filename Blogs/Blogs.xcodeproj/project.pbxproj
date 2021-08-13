@@ -93,6 +93,12 @@
 		35B109A326C6D559003E3D44 /* DraftBlogsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1099D26C6D559003E3D44 /* DraftBlogsProtocols.swift */; };
 		35B109A426C6D559003E3D44 /* DraftBlogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1099E26C6D559003E3D44 /* DraftBlogsInteractor.swift */; };
 		35B109A526C6D559003E3D44 /* DraftBlogsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1099F26C6D559003E3D44 /* DraftBlogsContainer.swift */; };
+		35B109B326C6D9C5003E3D44 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109AD26C6D9C5003E3D44 /* EditProfilePresenter.swift */; };
+		35B109B426C6D9C5003E3D44 /* EditProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109AE26C6D9C5003E3D44 /* EditProfileRouter.swift */; };
+		35B109B526C6D9C5003E3D44 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109AF26C6D9C5003E3D44 /* EditProfileViewController.swift */; };
+		35B109B626C6D9C5003E3D44 /* EditProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109B026C6D9C5003E3D44 /* EditProfileProtocols.swift */; };
+		35B109B726C6D9C5003E3D44 /* EditProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109B126C6D9C5003E3D44 /* EditProfileInteractor.swift */; };
+		35B109B826C6D9C5003E3D44 /* EditProfileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109B226C6D9C5003E3D44 /* EditProfileContainer.swift */; };
 		35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondBigButton.swift */; };
 		35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261A26AEBDEC000F4E84 /* Icons.swift */; };
 		35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */; };
@@ -250,6 +256,12 @@
 		35B1099D26C6D559003E3D44 /* DraftBlogsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftBlogsProtocols.swift; sourceTree = "<group>"; };
 		35B1099E26C6D559003E3D44 /* DraftBlogsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftBlogsInteractor.swift; sourceTree = "<group>"; };
 		35B1099F26C6D559003E3D44 /* DraftBlogsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftBlogsContainer.swift; sourceTree = "<group>"; };
+		35B109AD26C6D9C5003E3D44 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
+		35B109AE26C6D9C5003E3D44 /* EditProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileRouter.swift; sourceTree = "<group>"; };
+		35B109AF26C6D9C5003E3D44 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		35B109B026C6D9C5003E3D44 /* EditProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileProtocols.swift; sourceTree = "<group>"; };
+		35B109B126C6D9C5003E3D44 /* EditProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInteractor.swift; sourceTree = "<group>"; };
+		35B109B226C6D9C5003E3D44 /* EditProfileContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileContainer.swift; sourceTree = "<group>"; };
 		35CE261526AEBA66000F4E84 /* SecondBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBigButton.swift; sourceTree = "<group>"; };
 		35CE261A26AEBDEC000F4E84 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBigButton.swift; sourceTree = "<group>"; };
@@ -539,6 +551,19 @@
 			path = "Draft Blogs";
 			sourceTree = "<group>";
 		};
+		35B109AC26C6D9AB003E3D44 /* Edit Profile */ = {
+			isa = PBXGroup;
+			children = (
+				35B109AD26C6D9C5003E3D44 /* EditProfilePresenter.swift */,
+				35B109AE26C6D9C5003E3D44 /* EditProfileRouter.swift */,
+				35B109AF26C6D9C5003E3D44 /* EditProfileViewController.swift */,
+				35B109B026C6D9C5003E3D44 /* EditProfileProtocols.swift */,
+				35B109B126C6D9C5003E3D44 /* EditProfileInteractor.swift */,
+				35B109B226C6D9C5003E3D44 /* EditProfileContainer.swift */,
+			);
+			path = "Edit Profile";
+			sourceTree = "<group>";
+		};
 		35CE261026AE8829000F4E84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +715,7 @@
 		35E020F826C309E000C99280 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				35B109AC26C6D9AB003E3D44 /* Edit Profile */,
 				35B1099926C6D535003E3D44 /* Draft Blogs */,
 				35B1098626C6BF1F003E3D44 /* About the Application */,
 				35B1097326C6B98C003E3D44 /* Help */,
@@ -1033,6 +1059,7 @@
 				35B1096A26C6B110003E3D44 /* PasswordChangeProtocols.swift in Sources */,
 				35DB44A626C4392E002EB53B /* HomeViewController.swift in Sources */,
 				35028E1626C69C5A00FF9D68 /* ChoiceLanguageRouter.swift in Sources */,
+				35B109B626C6D9C5003E3D44 /* EditProfileProtocols.swift in Sources */,
 				35E020E426C1FCBE00C99280 /* StartPresenter.swift in Sources */,
 				35DB44C526C46E5F002EB53B /* SavedContainer.swift in Sources */,
 				35B109A226C6D559003E3D44 /* DraftBlogsViewController.swift in Sources */,
@@ -1042,6 +1069,7 @@
 				35E020D326C1FBA100C99280 /* LoginPresenter.swift in Sources */,
 				3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */,
 				35B1094926C6A776003E3D44 /* ChoiceTableViewCell.swift in Sources */,
+				35B109B726C6D9C5003E3D44 /* EditProfileInteractor.swift in Sources */,
 				35CE262A26AF2BFB000F4E84 /* FirstSmallButton.swift in Sources */,
 				35DB44C226C46E5F002EB53B /* SavedViewController.swift in Sources */,
 				35DB44C326C46E5F002EB53B /* SavedProtocols.swift in Sources */,
@@ -1073,6 +1101,7 @@
 				35E0210426C30A3B00C99280 /* SignUpInteractor.swift in Sources */,
 				35E0210026C30A3B00C99280 /* SignUpPresenter.swift in Sources */,
 				35028DD626C544D000FF9D68 /* MyProfileProtocols.swift in Sources */,
+				35B109B326C6D9C5003E3D44 /* EditProfilePresenter.swift in Sources */,
 				35E020D526C1FBA100C99280 /* LoginViewController.swift in Sources */,
 				35DB44A526C4392E002EB53B /* HomeRouter.swift in Sources */,
 				35028DD826C544D000FF9D68 /* MyProfileContainer.swift in Sources */,
@@ -1104,10 +1133,13 @@
 				35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */,
 				35B1098E26C6BF4D003E3D44 /* AboutTheApplicationRouter.swift in Sources */,
 				35FFE52026B020690032321B /* Title.swift in Sources */,
+				35B109B526C6D9C5003E3D44 /* EditProfileViewController.swift in Sources */,
 				35E020F426C2B3AB00C99280 /* UIImagesExtension.swift in Sources */,
 				35E020E526C1FCBE00C99280 /* StartRouter.swift in Sources */,
 				35B109A026C6D559003E3D44 /* DraftBlogsPresenter.swift in Sources */,
+				35B109B426C6D9C5003E3D44 /* EditProfileRouter.swift in Sources */,
 				3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */,
+				35B109B826C6D9C5003E3D44 /* EditProfileContainer.swift in Sources */,
 				35DB44A826C4392E002EB53B /* HomeInteractor.swift in Sources */,
 				35B1095C26C6AAF0003E3D44 /* ChoiceColorContainer.swift in Sources */,
 				35E020B926C1812A00C99280 /* Avatar.swift in Sources */,

@@ -19,6 +19,7 @@ final class Text: UIView, TextProtocol {
     
     private let textView: UITextView = {
         let text = UITextView()
+        text.tintColor = StandartColors.enteredTextColor
         text.backgroundColor = .clear
         text.textAlignment = .center
         text.font = .firstTextFont
