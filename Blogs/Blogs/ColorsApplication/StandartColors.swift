@@ -56,7 +56,7 @@ final class StandartColors: ColorsApplicationProtocol {
     
     static var createBlogBackgroundColor: UIColor = .thirdSunnyRed
     
-    static var additionBlogColor: UIColor = .secondYellow
+    static var utilitiesBlogBackgroundColor: UIColor = .secondYellow
     
     static var firstButtonColor: UIColor = .firstYellow
     

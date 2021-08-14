@@ -38,7 +38,7 @@ protocol ColorsApplicationProtocol {
     static var backgroundProfileColor: UIColor { get }
     static var notificationColor: UIColor { get }
     static var createBlogBackgroundColor: UIColor { get }
-    static var additionBlogColor: UIColor { get }
+    static var utilitiesBlogBackgroundColor: UIColor { get }
     static var firstButtonColor: UIColor { get }
     static var secondButtonColor: UIColor { get }
     static var thirdButtonColor: UIColor { get }
