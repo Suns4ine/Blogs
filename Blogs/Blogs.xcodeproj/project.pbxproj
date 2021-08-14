@@ -111,6 +111,12 @@
 		35B109DD26C7FEEB003E3D44 /* MyBlogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109D726C7FEEB003E3D44 /* MyBlogProtocols.swift */; };
 		35B109DE26C7FEEB003E3D44 /* MyBlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109D826C7FEEB003E3D44 /* MyBlogInteractor.swift */; };
 		35B109DF26C7FEEB003E3D44 /* MyBlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109D926C7FEEB003E3D44 /* MyBlogContainer.swift */; };
+		35B109F026C85010003E3D44 /* AnotherBlogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109EA26C8500F003E3D44 /* AnotherBlogPresenter.swift */; };
+		35B109F126C85010003E3D44 /* AnotherBlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109EB26C8500F003E3D44 /* AnotherBlogRouter.swift */; };
+		35B109F226C85010003E3D44 /* AnotherBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109EC26C8500F003E3D44 /* AnotherBlogViewController.swift */; };
+		35B109F326C85010003E3D44 /* AnotherBlogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109ED26C8500F003E3D44 /* AnotherBlogProtocols.swift */; };
+		35B109F426C85010003E3D44 /* AnotherBlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109EE26C8500F003E3D44 /* AnotherBlogInteractor.swift */; };
+		35B109F526C85010003E3D44 /* AnotherBlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109EF26C8500F003E3D44 /* AnotherBlogContainer.swift */; };
 		35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondBigButton.swift */; };
 		35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261A26AEBDEC000F4E84 /* Icons.swift */; };
 		35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */; };
@@ -286,6 +292,12 @@
 		35B109D726C7FEEB003E3D44 /* MyBlogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBlogProtocols.swift; sourceTree = "<group>"; };
 		35B109D826C7FEEB003E3D44 /* MyBlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBlogInteractor.swift; sourceTree = "<group>"; };
 		35B109D926C7FEEB003E3D44 /* MyBlogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBlogContainer.swift; sourceTree = "<group>"; };
+		35B109EA26C8500F003E3D44 /* AnotherBlogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogPresenter.swift; sourceTree = "<group>"; };
+		35B109EB26C8500F003E3D44 /* AnotherBlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogRouter.swift; sourceTree = "<group>"; };
+		35B109EC26C8500F003E3D44 /* AnotherBlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogViewController.swift; sourceTree = "<group>"; };
+		35B109ED26C8500F003E3D44 /* AnotherBlogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogProtocols.swift; sourceTree = "<group>"; };
+		35B109EE26C8500F003E3D44 /* AnotherBlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogInteractor.swift; sourceTree = "<group>"; };
+		35B109EF26C8500F003E3D44 /* AnotherBlogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogContainer.swift; sourceTree = "<group>"; };
 		35CE261526AEBA66000F4E84 /* SecondBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBigButton.swift; sourceTree = "<group>"; };
 		35CE261A26AEBDEC000F4E84 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBigButton.swift; sourceTree = "<group>"; };
@@ -614,6 +626,19 @@
 			path = "My Blog";
 			sourceTree = "<group>";
 		};
+		35B109E926C84FEA003E3D44 /* Another Blog */ = {
+			isa = PBXGroup;
+			children = (
+				35B109EA26C8500F003E3D44 /* AnotherBlogPresenter.swift */,
+				35B109EB26C8500F003E3D44 /* AnotherBlogRouter.swift */,
+				35B109EC26C8500F003E3D44 /* AnotherBlogViewController.swift */,
+				35B109ED26C8500F003E3D44 /* AnotherBlogProtocols.swift */,
+				35B109EE26C8500F003E3D44 /* AnotherBlogInteractor.swift */,
+				35B109EF26C8500F003E3D44 /* AnotherBlogContainer.swift */,
+			);
+			path = "Another Blog";
+			sourceTree = "<group>";
+		};
 		35CE261026AE8829000F4E84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,6 +790,7 @@
 		35E020F826C309E000C99280 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				35B109E926C84FEA003E3D44 /* Another Blog */,
 				35B109D326C7FED6003E3D44 /* My Blog */,
 				35B109BF26C71E5A003E3D44 /* Addition Blog */,
 				35B109AC26C6D9AB003E3D44 /* Edit Profile */,
@@ -1111,6 +1137,7 @@
 				3557F34826AE4DAB001DA6BB /* StandartColors.swift in Sources */,
 				35028E1A26C69C5A00FF9D68 /* ChoiceLanguageContainer.swift in Sources */,
 				35E020E726C1FCBE00C99280 /* StartProtocols.swift in Sources */,
+				35B109F326C85010003E3D44 /* AnotherBlogProtocols.swift in Sources */,
 				35B109CA26C71E7D003E3D44 /* AdditionBlogInteractor.swift in Sources */,
 				35E020BE26C18FE800C99280 /* TextField.swift in Sources */,
 				35B1096A26C6B110003E3D44 /* PasswordChangeProtocols.swift in Sources */,
@@ -1123,6 +1150,7 @@
 				35B1097F26C6B99C003E3D44 /* HelpContainer.swift in Sources */,
 				35028E1826C69C5A00FF9D68 /* ChoiceLanguageProtocols.swift in Sources */,
 				35B1095B26C6AAF0003E3D44 /* ChoiceColorInteractor.swift in Sources */,
+				35B109F026C85010003E3D44 /* AnotherBlogPresenter.swift in Sources */,
 				35E020D326C1FBA100C99280 /* LoginPresenter.swift in Sources */,
 				3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */,
 				35B1094926C6A776003E3D44 /* ChoiceTableViewCell.swift in Sources */,
@@ -1141,6 +1169,8 @@
 				35B1098D26C6BF4D003E3D44 /* AboutTheApplicationPresenter.swift in Sources */,
 				35FFE52826B02DF70032321B /* SubTitle.swift in Sources */,
 				356BE4E126B116E400FFD1F9 /* Text.swift in Sources */,
+				35B109F526C85010003E3D44 /* AnotherBlogContainer.swift in Sources */,
+				35B109F126C85010003E3D44 /* AnotherBlogRouter.swift in Sources */,
 				35028E1726C69C5A00FF9D68 /* ChoiceLanguageViewController.swift in Sources */,
 				35028E1926C69C5A00FF9D68 /* ChoiceLanguageInteractor.swift in Sources */,
 				35E020D626C1FBA100C99280 /* LoginProtocols.swift in Sources */,
@@ -1161,6 +1191,7 @@
 				35B109B326C6D9C5003E3D44 /* EditProfilePresenter.swift in Sources */,
 				35E020D526C1FBA100C99280 /* LoginViewController.swift in Sources */,
 				35B109DA26C7FEEB003E3D44 /* MyBlogPresenter.swift in Sources */,
+				35B109F426C85010003E3D44 /* AnotherBlogInteractor.swift in Sources */,
 				35DB44A526C4392E002EB53B /* HomeRouter.swift in Sources */,
 				35028DD826C544D000FF9D68 /* MyProfileContainer.swift in Sources */,
 				35E0210126C30A3B00C99280 /* SignUpRouter.swift in Sources */,
@@ -1183,6 +1214,7 @@
 				35B109DC26C7FEEB003E3D44 /* MyBlogViewController.swift in Sources */,
 				35E020D826C1FBA100C99280 /* LoginContainer.swift in Sources */,
 				35E0210226C30A3B00C99280 /* SignUpViewController.swift in Sources */,
+				35B109F226C85010003E3D44 /* AnotherBlogViewController.swift in Sources */,
 				35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */,
 				35E0210526C30A3B00C99280 /* SignUpContainer.swift in Sources */,
 				35B109A426C6D559003E3D44 /* DraftBlogsInteractor.swift in Sources */,

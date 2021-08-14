@@ -18,9 +18,9 @@ final class TabBarController: UITabBarController {
         return controller
     }()
     
-    class SomeOutPut: MyBlogViewOutput { }
-    private let searchController: MyBlogViewController = {
-        let controller = MyBlogViewController(output: SomeOutPut.init())
+    class SomeOutPut: AnotherBlogViewOutput { }
+    private let searchController: AnotherBlogViewController = {
+        let controller = AnotherBlogViewController(output: SomeOutPut.init())
         controller.title = "Search"
         controller.tabBarItem.image = UIImage(named: Icons.search.rawValue)
     return controller

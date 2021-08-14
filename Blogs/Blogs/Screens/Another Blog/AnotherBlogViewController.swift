@@ -1,5 +1,5 @@
 //
-//  MyBlogViewController.swift
+//  AnotherBlogViewController.swift
 //  Blogs
 //
 //  Created by Vyacheslav Pronin on 14.08.2021.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-final class MyBlogViewController: UIViewController {
-	private let output: MyBlogViewOutput
+final class AnotherBlogViewController: UIViewController {
+	private let output: AnotherBlogViewOutput
 
     //MARK: Объявление переменных
     
@@ -54,8 +54,8 @@ final class MyBlogViewController: UIViewController {
         return text
     }()
     
-    private let editButton: FirstSmallButton = {
-        let button = FirstSmallButton(text: "editButton")
+    private let followButton: FirstSmallButton = {
+        let button = FirstSmallButton(text: "followButton")
         button.sizeToFit()
         return button
     }()
@@ -101,7 +101,7 @@ final class MyBlogViewController: UIViewController {
         return subtitle
     }()
     
-    init(output: MyBlogViewOutput) {
+    init(output: AnotherBlogViewOutput) {
         self.output = output
 
         super.init(nibName: nil, bundle: nil)
@@ -112,21 +112,20 @@ final class MyBlogViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         [scrollView].forEach{ view.addSubview($0)}
         addSubViewInScrollView()
         
         view.backgroundColor = StandartColors.blogBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-	}
+    }
     
     private func addSubViewInScrollView() {
         let array = [header, titleBlog, text, tagSubtitle,
-                     tagText, editButton, nameSubTitle, dateSubTitle,
+                     tagText, followButton, nameSubTitle, dateSubTitle,
                      separatorView, shareIcon, shareSubtitle, likeIcon,
                      likeSubtitle]
-        
         array.forEach{ scrollView.addSubview($0)}
     }
     
@@ -159,20 +158,20 @@ final class MyBlogViewController: UIViewController {
             tagText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             tagText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
-            editButton.topAnchor.constraint(equalTo: tagText.bottomAnchor, constant: 12),
-            editButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            editButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -36),
-            editButton.leadingAnchor.constraint(greaterThanOrEqualTo: view.centerXAnchor, constant: 24),
+            followButton.topAnchor.constraint(equalTo: tagText.bottomAnchor, constant: 12),
+            followButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            followButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -36),
+            followButton.leadingAnchor.constraint(greaterThanOrEqualTo: view.centerXAnchor, constant: 24),
             
             nameSubTitle.topAnchor.constraint(equalTo: tagText.bottomAnchor, constant: 12),
             nameSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             nameSubTitle.heightAnchor.constraint(equalToConstant: 24),
-            nameSubTitle.trailingAnchor.constraint(equalTo: editButton.leadingAnchor, constant: -5),
+            nameSubTitle.trailingAnchor.constraint(equalTo: followButton.leadingAnchor, constant: -5),
             
             dateSubTitle.heightAnchor.constraint(equalToConstant: 16),
             dateSubTitle.topAnchor.constraint(equalTo: nameSubTitle.bottomAnchor),
             dateSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            dateSubTitle.trailingAnchor.constraint(equalTo: editButton.leadingAnchor, constant: -5),
+            dateSubTitle.trailingAnchor.constraint(equalTo: followButton.leadingAnchor, constant: -5),
             
             separatorView.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 21),
             separatorView.widthAnchor.constraint(equalToConstant: 2),
@@ -198,5 +197,5 @@ final class MyBlogViewController: UIViewController {
     }
 }
 
-extension MyBlogViewController: MyBlogViewInput {
+extension AnotherBlogViewController: AnotherBlogViewInput {
 }
