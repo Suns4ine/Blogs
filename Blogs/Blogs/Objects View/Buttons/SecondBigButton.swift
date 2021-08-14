@@ -51,7 +51,7 @@ final class SecondBigButton: UIView {
     private let button: UIButton = {
         let button = UIButton()
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        button.backgroundColor = .firstBlack
+        button.backgroundColor = StandartColors.secondButtonColor
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = .firstBigButtonFont
         button.setTitleColor(StandartColors.secondTextButtonColor, for: .normal)

@@ -22,7 +22,7 @@ final class ThirdSmallButton: UIView {
     private let button: UIButton = {
         let button = UIButton()
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        button.backgroundColor = .thirdWhite
+        button.backgroundColor = StandartColors.thirdButtonColor
         button.titleLabel?.font = .firstSmallButtonFont
         button.setTitleColor(StandartColors.firstTextButtonColor, for: .normal)
         button.layer.borderColor = StandartColors.borderColor.cgColor

@@ -22,7 +22,7 @@ final class FirstSmallButton: UIView {
     private let button: UIButton = {
         let button = UIButton()
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        button.backgroundColor = .firstYellow
+        button.backgroundColor = StandartColors.firstButtonColor
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = .firstSmallButtonFont
         button.setTitleColor(StandartColors.firstTextButtonColor, for: .normal)
