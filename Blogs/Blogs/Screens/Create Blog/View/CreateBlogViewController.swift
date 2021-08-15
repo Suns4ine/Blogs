@@ -57,7 +57,7 @@ final class CreateBlogViewController: UIViewController {
     }()
     
     private let text: Text = {
-        let text = Text(text: "Well we all have always had a dream to get into FAANG+ companies, and I did too. I have given many, yes many interviews at top Indian product based companies and noted a pattern in the questions that they ask as opposed to early startups and service based companies. Hold on tight!! and assemble focus, as I walk you through some of the questions/topics that are most commonly asked by these companies.", size: .mm17)
+        let text = Text(text: "text", size: .mm17)
         text.editAligent(aligent: .natural)
         text.editScrollEnabled(edit: true)
         text.editWorkInText(edit: true)

@@ -18,9 +18,9 @@ final class TabBarController: UITabBarController {
         return controller
     }()
     
-    class SomeOutPut: CreateBlogViewOutput { }
-    private let searchController: CreateBlogViewController = {
-        let controller = CreateBlogViewController(output: SomeOutPut.init())
+    class SomeOutPut: SearchViewOutput { }
+    private let searchController: SearchViewController = {
+        let controller = SearchViewController(output: SomeOutPut.init())
         controller.title = "Search"
         controller.tabBarItem.image = UIImage(named: Icons.search.rawValue)
     return controller
@@ -34,9 +34,9 @@ final class TabBarController: UITabBarController {
         return controller
     }()
     
-    class MyProfileOutput: AnotherProfileViewOutput { }
-    private let  profileController: AnotherProfileViewController = {
-        let controller = AnotherProfileViewController(output: MyProfileOutput.init())
+    class MyProfileOutput: MyProfileViewOutput { }
+    private let  profileController: MyProfileViewController = {
+        let controller = MyProfileViewController(output: MyProfileOutput.init())
         controller.title = "Profile"
         controller.tabBarItem.image = UIImage(named: Icons.user.rawValue)
         return controller

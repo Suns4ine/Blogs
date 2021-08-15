@@ -12,6 +12,11 @@ final class SavedTableViewCell: UITableViewCell {
     
     static let identifier = "SavedTableViewCell"
     
+    private var indentLeading: CGFloat = 12
+    private var indentTrailing: CGFloat = 12
+    private var indentTop: CGFloat = 12
+    private var indentBot: CGFloat = 12
+    
     private let savedView: UIView = {
         let view = UIView()
         view.backgroundColor = StandartColors.blogCellColor
@@ -58,6 +63,11 @@ final class SavedTableViewCell: UITableViewCell {
         setup()
     }
     
+    func ediTindentHeight(top: CGFloat, bot: CGFloat) {
+        indentTop = top
+        indentBot = bot
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -72,10 +82,10 @@ final class SavedTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            savedView.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
-            savedView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            savedView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-            savedView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
+            savedView.topAnchor.constraint(equalTo: self.topAnchor, constant: indentTop),
+            savedView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: indentLeading * 2),
+            savedView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -indentTrailing * 2),
+            savedView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -indentBot),
             
             shadowView.topAnchor.constraint(equalTo: savedView.topAnchor),
             shadowView.leadingAnchor.constraint(equalTo: savedView.leadingAnchor),
