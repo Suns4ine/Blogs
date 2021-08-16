@@ -29,6 +29,16 @@ final class SomeViewController: UIViewController {
         return buttons
     }()
     
+    private lazy var toggleSwitchButton: ToggleButton = {
+       let swiftySwitch = ToggleButton()
+        swiftySwitch.addTarget(self, action: #selector(backController), for: .touchUpInside)
+        //swiftySwitch.sizeToFit()
+        swiftySwitch.translatesAutoresizingMaskIntoConstraints = false
+        return swiftySwitch
+    }()
+    
+    
+    
     //MARK: Titles
     
     private let bigTitle: Title = {
@@ -38,7 +48,12 @@ final class SomeViewController: UIViewController {
     
     @objc
     func backController() {
-        self.navigationController?.popViewController(animated: true)
+        if toggleSwitchButton.flag {
+            debugPrint(toggleSwitchButton.flag)
+        } else {
+            debugPrint(toggleSwitchButton.flag)
+        }
+        //self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
@@ -47,7 +62,7 @@ final class SomeViewController: UIViewController {
         self.view.backgroundColor = .firstSunnyRed
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
-        [twoButons, headerView, avatar, bigTitle].forEach {
+        [twoButons, headerView, avatar, bigTitle, toggleSwitchButton].forEach {
             view.addSubview($0)
         }
     }
@@ -71,7 +86,12 @@ final class SomeViewController: UIViewController {
             bigTitle.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
             bigTitle.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -20),
             bigTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            bigTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+            bigTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            
+            toggleSwitchButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            toggleSwitchButton.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 10),
+//            swiftySwitch.heightAnchor.constraint(equalToConstant: 36),
+//            swiftySwitch.widthAnchor.constraint(equalToConstant: 60)
 
         ])
     }

@@ -57,6 +57,9 @@ protocol ColorsApplicationProtocol {
     static var anotherTitleColor: UIColor { get }
     static var anotherSubTitleColor: UIColor { get }
     static var anotherTextColor: UIColor { get }
+    static var settingCellBackgroundColor: UIColor { get }
+    static var toggleSwitchOnColor: UIColor { get }
+    static var toggleSwitchOffColor: UIColor { get }
 }
 
 extension UIColor {

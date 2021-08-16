@@ -94,4 +94,10 @@ final class StandartColors: ColorsApplicationProtocol {
     
     static var anotherTextColor: UIColor =  .secondWhite
     
+    static var settingCellBackgroundColor: UIColor =  .thirdWhite
+    
+    static var toggleSwitchOnColor: UIColor = .secondYellow
+    
+    static var toggleSwitchOffColor: UIColor = .thirdBlue
+    
 }
