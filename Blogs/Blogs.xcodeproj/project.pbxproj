@@ -63,6 +63,14 @@
 		356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */; };
 		356BE4E126B116E400FFD1F9 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4E026B116E400FFD1F9 /* Text.swift */; };
 		3597349826C9D0E100086C12 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3597349726C9D0E100086C12 /* ToggleButton.swift */; };
+		359734A626C9FE9700086C12 /* PreviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A026C9FE9700086C12 /* PreviewPresenter.swift */; };
+		359734A726C9FE9700086C12 /* PreviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A126C9FE9700086C12 /* PreviewRouter.swift */; };
+		359734A826C9FE9700086C12 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A226C9FE9700086C12 /* PreviewViewController.swift */; };
+		359734A926C9FE9700086C12 /* PreviewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A326C9FE9700086C12 /* PreviewProtocols.swift */; };
+		359734AA26C9FE9700086C12 /* PreviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A426C9FE9700086C12 /* PreviewInteractor.swift */; };
+		359734AB26C9FE9700086C12 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A526C9FE9700086C12 /* PreviewContainer.swift */; };
+		359734C326CAC34200086C12 /* PreviewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734C226CAC34200086C12 /* PreviewPageViewController.swift */; };
+		359734D126CACF5600086C12 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734D026CACF5600086C12 /* PageViewController.swift */; };
 		35B1094926C6A776003E3D44 /* ChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1094826C6A776003E3D44 /* ChoiceTableViewCell.swift */; };
 		35B1095726C6AAF0003E3D44 /* ChoiceColorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1095126C6AAF0003E3D44 /* ChoiceColorPresenter.swift */; };
 		35B1095826C6AAF0003E3D44 /* ChoiceColorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1095226C6AAF0003E3D44 /* ChoiceColorRouter.swift */; };
@@ -265,6 +273,14 @@
 		356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProtocol.swift; sourceTree = "<group>"; };
 		356BE4E026B116E400FFD1F9 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		3597349726C9D0E100086C12 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		359734A026C9FE9700086C12 /* PreviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPresenter.swift; sourceTree = "<group>"; };
+		359734A126C9FE9700086C12 /* PreviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewRouter.swift; sourceTree = "<group>"; };
+		359734A226C9FE9700086C12 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		359734A326C9FE9700086C12 /* PreviewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProtocols.swift; sourceTree = "<group>"; };
+		359734A426C9FE9700086C12 /* PreviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewInteractor.swift; sourceTree = "<group>"; };
+		359734A526C9FE9700086C12 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
+		359734C226CAC34200086C12 /* PreviewPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPageViewController.swift; sourceTree = "<group>"; };
+		359734D026CACF5600086C12 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		35B1094826C6A776003E3D44 /* ChoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewCell.swift; sourceTree = "<group>"; };
 		35B1095126C6AAF0003E3D44 /* ChoiceColorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceColorPresenter.swift; sourceTree = "<group>"; };
 		35B1095226C6AAF0003E3D44 /* ChoiceColorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceColorRouter.swift; sourceTree = "<group>"; };
@@ -554,6 +570,29 @@
 				3597349726C9D0E100086C12 /* ToggleButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		3597349F26C9FE4400086C12 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				359734B226CA03EF00086C12 /* View */,
+				359734A026C9FE9700086C12 /* PreviewPresenter.swift */,
+				359734A126C9FE9700086C12 /* PreviewRouter.swift */,
+				359734A326C9FE9700086C12 /* PreviewProtocols.swift */,
+				359734A426C9FE9700086C12 /* PreviewInteractor.swift */,
+				359734A526C9FE9700086C12 /* PreviewContainer.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		359734B226CA03EF00086C12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				359734A226C9FE9700086C12 /* PreviewViewController.swift */,
+				359734C226CAC34200086C12 /* PreviewPageViewController.swift */,
+				359734D026CACF5600086C12 /* PageViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		35B1094726C6A74C003E3D44 /* View */ = {
@@ -890,6 +929,7 @@
 		35E020F826C309E000C99280 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3597349F26C9FE4400086C12 /* Preview */,
 				35B10A2B26C97FC7003E3D44 /* Setting */,
 				35B10A1826C87412003E3D44 /* Search */,
 				35B109FC26C85D91003E3D44 /* Create Blog */,
@@ -1241,6 +1281,7 @@
 				35028E0726C5F47200FF9D68 /* AnotherProfileViewController.swift in Sources */,
 				3557F34826AE4DAB001DA6BB /* StandartColors.swift in Sources */,
 				35028E1A26C69C5A00FF9D68 /* ChoiceLanguageContainer.swift in Sources */,
+				359734AB26C9FE9700086C12 /* PreviewContainer.swift in Sources */,
 				3597349826C9D0E100086C12 /* ToggleButton.swift in Sources */,
 				35E020E726C1FCBE00C99280 /* StartProtocols.swift in Sources */,
 				35B10A0826C85DAC003E3D44 /* CreateBlogContainer.swift in Sources */,
@@ -1252,6 +1293,7 @@
 				35DB44A626C4392E002EB53B /* HomeViewController.swift in Sources */,
 				35028E1626C69C5A00FF9D68 /* ChoiceLanguageRouter.swift in Sources */,
 				35B109B626C6D9C5003E3D44 /* EditProfileProtocols.swift in Sources */,
+				359734A626C9FE9700086C12 /* PreviewPresenter.swift in Sources */,
 				35B10A0326C85DAC003E3D44 /* CreateBlogPresenter.swift in Sources */,
 				35E020E426C1FCBE00C99280 /* StartPresenter.swift in Sources */,
 				35DB44C526C46E5F002EB53B /* SavedContainer.swift in Sources */,
@@ -1261,6 +1303,7 @@
 				35B1095B26C6AAF0003E3D44 /* ChoiceColorInteractor.swift in Sources */,
 				35B109F026C85010003E3D44 /* AnotherBlogPresenter.swift in Sources */,
 				35E020D326C1FBA100C99280 /* LoginPresenter.swift in Sources */,
+				359734A826C9FE9700086C12 /* PreviewViewController.swift in Sources */,
 				3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */,
 				35B1094926C6A776003E3D44 /* ChoiceTableViewCell.swift in Sources */,
 				35B109B726C6D9C5003E3D44 /* EditProfileInteractor.swift in Sources */,
@@ -1277,6 +1320,7 @@
 				356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */,
 				35B10A2326C8742B003E3D44 /* SearchRouter.swift in Sources */,
 				35028E0526C5F47200FF9D68 /* AnotherProfilePresenter.swift in Sources */,
+				359734A926C9FE9700086C12 /* PreviewProtocols.swift in Sources */,
 				35B1098D26C6BF4D003E3D44 /* AboutTheApplicationPresenter.swift in Sources */,
 				35B10A3926C97FD8003E3D44 /* SettingInteractor.swift in Sources */,
 				35FFE52826B02DF70032321B /* SubTitle.swift in Sources */,
@@ -1299,6 +1343,7 @@
 				35B1097C26C6B99C003E3D44 /* HelpViewController.swift in Sources */,
 				35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */,
 				35E0210426C30A3B00C99280 /* SignUpInteractor.swift in Sources */,
+				359734D126CACF5600086C12 /* PageViewController.swift in Sources */,
 				35E0210026C30A3B00C99280 /* SignUpPresenter.swift in Sources */,
 				35B10A2626C8742B003E3D44 /* SearchInteractor.swift in Sources */,
 				35028DD626C544D000FF9D68 /* MyProfileProtocols.swift in Sources */,
@@ -1360,6 +1405,7 @@
 				35DB44A826C4392E002EB53B /* HomeInteractor.swift in Sources */,
 				35B1095C26C6AAF0003E3D44 /* ChoiceColorContainer.swift in Sources */,
 				35E020B926C1812A00C99280 /* Avatar.swift in Sources */,
+				359734C326CAC34200086C12 /* PreviewPageViewController.swift in Sources */,
 				35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */,
 				35028DC826C4747D00FF9D68 /* SavedTableViewCell.swift in Sources */,
 				35DB44A426C4392E002EB53B /* HomePresenter.swift in Sources */,
@@ -1369,7 +1415,9 @@
 				35E020E926C1FCBE00C99280 /* StartContainer.swift in Sources */,
 				35DB448A26C40923002EB53B /* TabBarController.swift in Sources */,
 				35B1097E26C6B99C003E3D44 /* HelpInteractor.swift in Sources */,
+				359734AA26C9FE9700086C12 /* PreviewInteractor.swift in Sources */,
 				35B1096826C6B110003E3D44 /* PasswordChangeRouter.swift in Sources */,
+				359734A726C9FE9700086C12 /* PreviewRouter.swift in Sources */,
 				35028E0626C5F47200FF9D68 /* AnotherProfileRouter.swift in Sources */,
 				35B109DE26C7FEEB003E3D44 /* MyBlogInteractor.swift in Sources */,
 				35B109C826C71E7D003E3D44 /* AdditionBlogViewController.swift in Sources */,

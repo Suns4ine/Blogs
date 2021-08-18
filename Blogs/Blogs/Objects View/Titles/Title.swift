@@ -11,6 +11,7 @@ import UIKit
 enum SizeTitle {
     case meb36
     case meb27
+    case meb24
 }
 
 final class Title: UIView, TextProtocol {
@@ -57,6 +58,7 @@ final class Title: UIView, TextProtocol {
         switch size {
         case .meb36: return .firstTitleFont
         case .meb27: return .secondTitleFont
+        case .meb24: return .thirdTitleFont
         default: return .secondTitleFont
             
         }

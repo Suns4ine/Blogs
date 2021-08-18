@@ -32,6 +32,8 @@ final class StandartColors: ColorsApplicationProtocol {
     
     static var launchBackgorundColor: UIColor = .firstBlue
     
+    static var previewBackgroundColor: UIColor = .firstBlue
+    
     static var startBackgroundColor: UIColor = .firstYellow
     
     static var firstLoginBackgroundColor: UIColor = .thirdWhite

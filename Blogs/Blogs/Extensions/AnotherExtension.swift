@@ -22,3 +22,24 @@ extension CALayer {
   }
 }
 
+public extension UIViewController {
+
+   /// Adds child view controller to the parent.
+   ///
+   /// - Parameter child: Child view controller.
+   func add(_ child: UIViewController) {
+       addChild(child)
+       view.addSubview(child.view)
+       child.didMove(toParent: self)
+   }
+
+   /// It removes the child view controller from the parent.
+   func remove() {
+       guard parent != nil else {
+           return
+       }
+       willMove(toParent: nil)
+       removeFromParent()
+       view.removeFromSuperview()
+   }
+}

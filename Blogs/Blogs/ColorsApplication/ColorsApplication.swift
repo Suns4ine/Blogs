@@ -26,6 +26,7 @@ protocol ColorsApplicationProtocol {
     static var shadowColor: UIColor { get }
     static var borderColor: UIColor { get }
     static var launchBackgorundColor: UIColor { get }
+    static var previewBackgroundColor: UIColor { get }
     static var startBackgroundColor: UIColor { get }
     static var firstLoginBackgroundColor: UIColor { get }
     static var secondLoginBackgroundColor: UIColor { get }

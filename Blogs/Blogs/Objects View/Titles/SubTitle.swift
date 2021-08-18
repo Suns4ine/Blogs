@@ -16,6 +16,7 @@ enum SizeSubTitle {
     case mb17
     case mm15
     case meb12
+    case mm21
 }
 
 final class SubTitle: UIView, TextProtocol {
@@ -67,6 +68,7 @@ final class SubTitle: UIView, TextProtocol {
         case .mm15: return .fifthSubTitleFont
         case .meb12: return .sixthSubTitleFont
         case .mb21: return .seventhSubTitleFont
+        case .mm21: return .eighthSubTitleFont
         default: return .secondSubTitleFont
             
         }
