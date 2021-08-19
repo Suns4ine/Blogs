@@ -18,9 +18,9 @@ final class TabBarController: UITabBarController {
         return controller
     }()
     
-    class SomeOutPut: StartViewOutput { }
-    private let searchController: StartViewController = {
-        let controller = StartViewController(output: SomeOutPut.init())
+    class SomeOutPut: AnotherProfileViewOutput { }
+    private let searchController: AnotherProfileViewController = {
+        let controller = AnotherProfileViewController(output: SomeOutPut.init())
         controller.title = "Search"
         controller.tabBarItem.image = UIImage(named: Icons.search.rawValue)
     return controller

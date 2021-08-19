@@ -48,24 +48,31 @@ final class Header: UIView {
         case (let left, let right) where left.name.isEmpty && right.name.isEmpty:
             leadingSize = 24
             tralingSize = 24
+            title.editAligent(aligent: .center)
         case (let left, _) where left.size <= 24 && !left.name.isEmpty:
             leadingSize = left.size + 29
             tralingSize = left.size + 29
+            title.editAligent(aligent: .center)
         case (_ , let right) where right.size <= 24  && !right.name.isEmpty:
             leadingSize = right.size + 29
             tralingSize = right.size + 29
+            title.editAligent(aligent: .center)
         case (let left, let right) where left.size > 24 && !left.name.isEmpty && right.size > 24 && !right.name.isEmpty :
             leadingSize = left.size + 29
             tralingSize = right.size + 29
+            title.editAligent(aligent: .center)
         case(let left, _) where left.size > 24 && !left.name.isEmpty:
             leadingSize = left.size + 29
             tralingSize = 24
+            title.editAligent(aligent: .left)
         case(_, let right) where right.size > 24 && !right.name.isEmpty:
             leadingSize = 24
             tralingSize = right.size + 29
+            title.editAligent(aligent: .right)
         default:
             leadingSize = 24
             tralingSize = 24
+            title.editAligent(aligent: .center)
         }
     }
     
@@ -107,14 +114,14 @@ final class Header: UIView {
             title.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             title.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 18),
             title.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -24),
-            title.widthAnchor.constraint(equalToConstant: self.frame.width -
-                                            (48 + leftIcon.frame.width + self.rightIcon.frame.width)),
+            title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leadingSize),
+            title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -tralingSize),
 
             leftIcon.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             leftIcon.centerYAnchor.constraint(equalTo: title.centerYAnchor),
 
             rightIcon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-            rightIcon.centerYAnchor.constraint(equalTo: title.centerYAnchor),
+            rightIcon.centerYAnchor.constraint(equalTo: title.centerYAnchor)
             
         ])
     }
