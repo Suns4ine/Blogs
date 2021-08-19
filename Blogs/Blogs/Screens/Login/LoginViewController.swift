@@ -36,6 +36,7 @@ final class LoginViewController: UIViewController {
     
     private let passwordTextField: TextField = {
         let textfiled = TextField(name: "Пароль", shadowText: "", error: "Пароль")
+        textfiled.editSecureTextEntry(entry: true)
         return textfiled
     }()
     
@@ -43,11 +44,6 @@ final class LoginViewController: UIViewController {
         let button = FirstBigButton(text: "Войти")
         return button
     }()
-    
-//    private let signUnButton: ThirdSmallButton = {
-//        let button = ThirdSmallButton(text: "Зарегистрироваться")
-//        return button
-//    }()
     
     private let signUpButton: UIButton = {
         let button = UIButton()

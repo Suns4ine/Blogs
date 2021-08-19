@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         //let tabBar = HomeViewController(output: ViewOutPut)
-        window?.rootViewController = UINavigationController(rootViewController:  PreviewViewController(output: SomeViewOutPut.init()))
+        window?.rootViewController = UINavigationController(rootViewController:  TabBarController())
         window?.rootViewController?.navigationController?.setNavigationBarHidden(true, animated: false)
         window?.makeKeyAndVisible()
     }

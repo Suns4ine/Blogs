@@ -14,7 +14,7 @@ final class StartViewController: UIViewController {
     //MARK: Объявление перменных
     private let leftMan: UIImageView = {
         let image = UIImageView()
-        image.image = image.randomStandingPeople()
+        image.image = UIImage(named: "peep-standing-1")
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.zPosition = 1
         return image
@@ -22,7 +22,7 @@ final class StartViewController: UIViewController {
     
     private let rightMan: UIImageView = {
         let image = UIImageView()
-        image.image = image.randomStandingPeople()
+        image.image = UIImage(named: "svg-editor-image")
         image.transform = CGAffineTransform(scaleX: -1, y: 1)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.zPosition = 1
@@ -118,12 +118,12 @@ final class StartViewController: UIViewController {
             twitterButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
             
             leftMan.heightAnchor.constraint(equalToConstant: 462),
-            leftMan.widthAnchor.constraint(equalToConstant: 204),
+            leftMan.widthAnchor.constraint(equalToConstant: 174),
             leftMan.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            leftMan.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 11),
+            leftMan.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             
-            rightMan.heightAnchor.constraint(equalToConstant: 462),
-            rightMan.widthAnchor.constraint(equalToConstant: 204),
+            rightMan.heightAnchor.constraint(equalToConstant: 503),
+            rightMan.widthAnchor.constraint(equalToConstant: 222),
             rightMan.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             rightMan.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 3),
         ])

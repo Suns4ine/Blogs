@@ -15,6 +15,8 @@ protocol TextFieldDelegateProtocol {
 final class TextField: UIView, UITextFieldDelegate {
     
     var delegate: TextFieldDelegateProtocol?
+    private var isSecureTextEntry = false
+    private var password: String = ""
     
     private let nameSubTitle: SubTitle = {
         let text = SubTitle(text: "nameText", size: .mm15)
@@ -80,6 +82,10 @@ final class TextField: UIView, UITextFieldDelegate {
         errorSubTitle.editColor(color: color)
     }
     
+    func editSecureTextEntry(entry: Bool) {
+        isSecureTextEntry = entry
+    }
+    
     private func setup() {
         [nameSubTitle, errorSubTitle, textField].forEach{ addSubview($0)}
         
@@ -88,10 +94,29 @@ final class TextField: UIView, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    self.resignFirstResponder() 
-    delegate?.action(text: textField.text ?? "")
+    self.resignFirstResponder()
+        if isSecureTextEntry {
+            delegate?.action(text: password)
+        } else {
+            delegate?.action(text: textField.text ?? "")
+        }
     return true
 }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        if isSecureTextEntry {
+            if string.isEmpty {
+                password = String(password.dropLast())
+                textField.text = String(textField.text?.dropLast() ?? "")
+            } else {
+                password = password + string
+                textField.text = (textField.text ?? "") + "●"
+            }
+            return false
+        }
+        return true
+    }
     
 
     override func layoutSubviews() {

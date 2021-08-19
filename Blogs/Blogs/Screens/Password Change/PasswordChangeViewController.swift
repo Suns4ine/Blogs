@@ -19,16 +19,19 @@ final class PasswordChangeViewController: UIViewController {
     
     private let oldPasswordTextfield: TextField = {
         let textfield = TextField(name: "oldPasswordTextfield", shadowText: "", error: "oldPasswordTextfield")
+        textfield.editSecureTextEntry(entry: true)
         return textfield
     }()
     
     private let newPasswordTextfield: TextField = {
         let textfield = TextField(name: "newPasswordTextfield", shadowText: "", error: "newPasswordTextfield")
+        textfield.editSecureTextEntry(entry: true)
         return textfield
     }()
 
     private let repeatPasswordTextfield: TextField = {
         let textfield = TextField(name: "repeatPasswordTextfield", shadowText: "", error: "repeatPasswordTextfield")
+        textfield.editSecureTextEntry(entry: true)
         return textfield
     }()
 

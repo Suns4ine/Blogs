@@ -13,7 +13,9 @@ final class SignUpViewController: UIViewController {
 
     //MARK: Объявление переменных
     private let header: Header = {
-        let header = Header(title: "", leftIcon: .init(icon: .outline1, size: .size48), rightIcon: .init(icon: .none, size: .size24))
+        let header = Header(title: "",
+                            leftIcon: .init(icon: .outline1, size: .size48),
+                            rightIcon: .init(icon: .none, size: .size24))
         return header
     }()
     
@@ -41,6 +43,7 @@ final class SignUpViewController: UIViewController {
     
     private let passwordTextField: TextField = {
         let textfiled = TextField(name: "Пароль", shadowText: "", error: "Пароль")
+        textfiled.editSecureTextEntry(entry: true)
         return textfiled
     }()
     
