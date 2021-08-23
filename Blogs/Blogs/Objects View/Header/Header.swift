@@ -65,10 +65,12 @@ final class Header: UIView {
             leadingSize = left.size + 29
             tralingSize = 24
             title.editAligent(aligent: .left)
+            title.editText(text:  "  " + text)
         case(_, let right) where right.size > 24 && !right.name.isEmpty:
             leadingSize = 24
             tralingSize = right.size + 29
             title.editAligent(aligent: .right)
+            title.editText(text: text + "  ")
         default:
             leadingSize = 24
             tralingSize = 24
@@ -96,6 +98,10 @@ final class Header: UIView {
     
     func editTitle(text: String) {
         title.editText(text: text)
+    }
+    
+    func editAligent(aligent: NSTextAlignment) {
+        title.editAligent(aligent: aligent)
     }
     
     private func setup() {

@@ -19,6 +19,9 @@ protocol StartViewInput: class {
 }
 
 protocol StartViewOutput: class {
+    func didTapEmailButton()
+    func didTapFacebookButton()
+    func didTapTwitterButton()
 }
 
 protocol StartInteractorInput: class {
@@ -28,4 +31,5 @@ protocol StartInteractorOutput: class {
 }
 
 protocol StartRouterInput: class {
+    func openLoginViewController()
 }

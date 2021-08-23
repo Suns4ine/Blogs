@@ -16,6 +16,7 @@ final class LoginViewController: UIViewController {
         let header = Header(title: "",
                             leftIcon: .init(icon: .outline3, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -42,6 +43,7 @@ final class LoginViewController: UIViewController {
     
     private let signInButton: FirstBigButton = {
         let button = FirstBigButton(text: "Войти")
+        button.addTarget(self, action: #selector(tapSignInButton))
         return button
     }()
     
@@ -53,6 +55,7 @@ final class LoginViewController: UIViewController {
         button.setTitle("Или зарегистрироваться", for: .normal)
         button.titleLabel?.font = .fourthTextFont
         button.setTitleColor(StandartColors.textErrorColor, for: .normal)
+        button.addTarget(self, action: #selector(tapSignUpButton), for: .touchUpInside)
         return button
     }()
     
@@ -104,6 +107,21 @@ final class LoginViewController: UIViewController {
             signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signUpButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 15)
         ])
+    }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapSignInButton() {
+        output.didTapSignInButton()
+    }
+    
+    @objc
+    private func tapSignUpButton() {
+        output.didTapSignUpButton()
     }
 }
 

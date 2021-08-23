@@ -19,6 +19,9 @@ protocol LoginViewInput: class {
 }
 
 protocol LoginViewOutput: class {
+    func didTapBackButton()
+    func didTapSignInButton()
+    func didTapSignUpButton()
 }
 
 protocol LoginInteractorInput: class {
@@ -28,4 +31,7 @@ protocol LoginInteractorOutput: class {
 }
 
 protocol LoginRouterInput: class {
+    func popViewController()
+    func openTabBarViewController()
+    func openSignUpViewController()
 }

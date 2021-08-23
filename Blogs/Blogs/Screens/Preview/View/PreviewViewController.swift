@@ -69,12 +69,15 @@ final class PreviewViewController: UIViewController , SomeProtocol {
     
     private let twoButtons: TwoButtons = {
         let buttons = TwoButtons(stringLeading: "Пропуск", stringTrailing: "Далее")
+        buttons.addTrailingButtonTarget(self, action: #selector(tapTralingButton))
+        buttons.addLeadingButtonTarget(self, action: #selector(tapLeadingButton))
         buttons.layer.zPosition = 2
         return buttons
     }()
     
     private let startedButton: SecondBigButton = {
         let button = SecondBigButton(text: "startedButton", icon: .none)
+        button.addTarget(self, action: #selector(tapStartButton))
         button.alpha = 0.0
         return button
     }()
@@ -225,7 +228,28 @@ final class PreviewViewController: UIViewController , SomeProtocol {
         [twoButtons, circle, sliderView, startedButton].forEach{ view.addSubview($0) }
         [smallCircleOne, smallCircleTwo, smallCircleThree].forEach{ sliderView.addSubview($0) }
     }
+    
+    @objc
+    private func tapTralingButton() {
+        output.didTapTralingButton()
+    }
+    
+    @objc
+    private func tapLeadingButton() {
+        output.didTapLeadingButton()
+    }
+    
+    @objc
+    private func tapStartButton() {
+        output.didTapStartButton()
+    }
 }
 
 extension PreviewViewController: PreviewViewInput {
+    func presentViewController() {
+        let controller = StartContainer.assemble(with: .init()).viewController
+        
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }

@@ -245,6 +245,11 @@ final class AnotherProfileViewController: UIViewController {
             statisticView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -43),
             statisticView.heightAnchor.constraint(equalToConstant: 60),
             
+            profileView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            profileView.bottomAnchor.constraint(equalTo: statisticView.bottomAnchor, constant: 36),
+            
             followersBlogTitle.topAnchor.constraint(equalTo: statisticView.topAnchor),
             followersBlogTitle.centerXAnchor.constraint(equalTo: statisticView.centerXAnchor),
             followersBlogTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
@@ -274,11 +279,6 @@ final class AnotherProfileViewController: UIViewController {
             follovingBlogNameTitle.centerXAnchor.constraint(equalTo: follovingBlogTitle.centerXAnchor),
             follovingBlogNameTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
             follovingBlogNameTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
-            
-            profileView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            profileView.bottomAnchor.constraint(equalTo: statisticView.bottomAnchor, constant: 36),
             
             aboutAnotherSubTitle.topAnchor.constraint(equalTo: profileView.bottomAnchor, constant: 24),
             aboutAnotherSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
@@ -324,7 +324,7 @@ final class AnotherProfileViewController: UIViewController {
             ])
         }
         
-        setupCustom()
+       // setupCustom()
     }
     
     //MARK: Кастомные настройки, так как до viewDidLayoutSubviews они не работают

@@ -23,6 +23,8 @@ final class LoginContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return LoginContainer(view: viewController, input: presenter, router: router)
 	}

@@ -25,6 +25,18 @@ extension LoginPresenter: LoginModuleInput {
 }
 
 extension LoginPresenter: LoginViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapSignInButton() {
+        router.openTabBarViewController()
+    }
+    
+    func didTapSignUpButton() {
+        router.openSignUpViewController()
+    }
+    
 }
 
 extension LoginPresenter: LoginInteractorOutput {

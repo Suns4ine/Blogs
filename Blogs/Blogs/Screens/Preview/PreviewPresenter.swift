@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class PreviewPresenter {
 	weak var view: PreviewViewInput?
@@ -25,6 +26,18 @@ extension PreviewPresenter: PreviewModuleInput {
 }
 
 extension PreviewPresenter: PreviewViewOutput {
+    func didTapTralingButton() {
+        debugPrint("didTapTralingButton")
+    }
+    
+    func didTapLeadingButton() {
+        router.openStartViewController()
+    }
+    
+    func didTapStartButton() {
+        router.openStartViewController()
+    }
+    
 }
 
 extension PreviewPresenter: PreviewInteractorOutput {

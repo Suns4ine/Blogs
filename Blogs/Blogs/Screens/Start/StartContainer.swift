@@ -24,6 +24,8 @@ final class StartContainer {
 
 		interactor.output = presenter
 
+        router.sourceViewCintroller = viewController
+        
         return StartContainer(view: viewController, input: presenter, router: router)
 	}
 

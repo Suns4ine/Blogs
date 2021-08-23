@@ -54,17 +54,20 @@ final class StartViewController: UIViewController {
     
     private let emailButton: SecondBigButton = {
         let button = SecondBigButton(text: "Email", icon: .mail)
+        button.addTarget(self, action: #selector(tapEmailButton))
         return button
     }()
     
     private let facebookButton: SecondBigButton = {
         let button = SecondBigButton(text: "Facebook", icon: .facebook)
+        button.addTarget(self, action: #selector(tapFacebookButton))
         button.editColor(color: StandartColors.facebookColor)
         return button
     }()
     
     private let twitterButton: SecondBigButton = {
         let button = SecondBigButton(text: "twitter", icon: .twitter)
+        button.addTarget(self, action: #selector(tapTwitterButton))
         button.editColor(color: StandartColors.twitterColor)
         return button
     }()
@@ -127,6 +130,21 @@ final class StartViewController: UIViewController {
             rightMan.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             rightMan.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 3),
         ])
+    }
+    
+    @objc
+    private func tapEmailButton() {
+        output.didTapEmailButton()
+    }
+    
+    @objc
+    private func tapFacebookButton() {
+        output.didTapFacebookButton()
+    }
+    
+    @objc
+    private func tapTwitterButton() {
+        output.didTapTwitterButton()
     }
 }
 
