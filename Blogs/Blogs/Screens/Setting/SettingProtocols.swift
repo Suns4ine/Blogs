@@ -19,6 +19,8 @@ protocol SettingViewInput: class {
 }
 
 protocol SettingViewOutput: class {
+    func didTapBackButton()
+    func didTapSettingTableViewCell()
 }
 
 protocol SettingInteractorInput: class {
@@ -28,4 +30,5 @@ protocol SettingInteractorOutput: class {
 }
 
 protocol SettingRouterInput: class {
+    func popViewController()
 }

@@ -19,6 +19,9 @@ protocol HomeViewInput: class {
 }
 
 protocol HomeViewOutput: class {
+    func didTapSettingButton()
+    func didTapBellButton()
+    func didTapBlogsTableViewCell()
 }
 
 protocol HomeInteractorInput: class {
@@ -28,4 +31,5 @@ protocol HomeInteractorOutput: class {
 }
 
 protocol HomeRouterInput: class {
+    func openSettingViewController()
 }

@@ -25,6 +25,18 @@ extension HomePresenter: HomeModuleInput {
 }
 
 extension HomePresenter: HomeViewOutput {
+    func didTapBellButton() {
+        debugPrint("didTapBellButton")
+    }
+    
+    func didTapSettingButton() {
+        router.openSettingViewController()
+    }
+    
+    func didTapBlogsTableViewCell() {
+        debugPrint("didTapBlogsTableViewCell")
+    }
+    
 }
 
 extension HomePresenter: HomeInteractorOutput {

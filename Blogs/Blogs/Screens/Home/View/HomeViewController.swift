@@ -22,6 +22,8 @@ final class HomeViewController: UIViewController {
         let header = Header(title: "Блоги",
                             leftIcon: .init(icon: .alignJustify, size: .size24),
                             rightIcon: .init(icon: .bell, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapSettingButton))
+        header.addRightIconTarget(self, action: #selector(tapBellButton))
         return header
     }()
     
@@ -31,7 +33,6 @@ final class HomeViewController: UIViewController {
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
         table.separatorStyle = .none
-        table.allowsSelection = false
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -83,6 +84,22 @@ final class HomeViewController: UIViewController {
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
     }
+     
+    @objc
+    private func tapSettingButton() {
+        output.didTapSettingButton()
+    }
+    
+    @objc
+    private func tapBellButton() {
+        output.didTapBellButton()
+    }
+    
+    
+    @objc
+    private func tapBlogsTableViewCell() {
+        output.didTapBlogsTableViewCell()
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -100,6 +117,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 428
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        debugPrint(indexPath.row)
+        tapBlogsTableViewCell()
     }
 }
 

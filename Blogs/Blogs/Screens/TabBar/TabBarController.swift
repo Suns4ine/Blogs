@@ -10,20 +10,21 @@ import UIKit
 
 final class TabBarController: UITabBarController {
     
-    class HomeOutPut: HomeViewOutput { }
+    
+    private let homeContainer = HomeContainer.assemble(with: .init())
     private lazy var homeController: HomeViewController = {
-        let controller = HomeViewController(output: HomeOutPut.init())
+        let controller = homeContainer.viewController
         controller.title = "Home"
         controller.tabBarItem.image = UIImage(named: Icons.home1.rawValue)
-        return controller
+        return controller as! HomeViewController
     }()
     
-    class SomeOutPut: SettingViewOutput { }
-    private let searchController: SettingViewController = {
-        let controller = SettingViewController(output: SomeOutPut.init())
+    private let searchContainer = SearchContainer.assemble(with: .init())
+    private lazy var searchController: SearchViewController = {
+        let controller = searchContainer.viewController
         controller.title = "Search"
         controller.tabBarItem.image = UIImage(named: Icons.search.rawValue)
-    return controller
+    return controller as! SearchViewController
     }()
     
     class SavedOutput: SavedViewOutput { }

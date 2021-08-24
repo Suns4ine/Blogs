@@ -25,6 +25,14 @@ extension SearchPresenter: SearchModuleInput {
 }
 
 extension SearchPresenter: SearchViewOutput {
+    func didTapSettingButton() {
+        router.openSettingViewController()
+    }
+    
+    func didTapBlogsTableViewCell() {
+        debugPrint("didTapBlogsTableViewCell")
+    }
+    
 }
 
 extension SearchPresenter: SearchInteractorOutput {

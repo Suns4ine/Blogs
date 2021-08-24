@@ -23,6 +23,8 @@ final class SignUpContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return SignUpContainer(view: viewController, input: presenter, router: router)
 	}

@@ -25,6 +25,13 @@ extension SettingPresenter: SettingModuleInput {
 }
 
 extension SettingPresenter: SettingViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapSettingTableViewCell() {
+        debugPrint("didTapSettingTableViewCell")
+    }
 }
 
 extension SettingPresenter: SettingInteractorOutput {

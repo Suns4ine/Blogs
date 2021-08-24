@@ -76,6 +76,7 @@ final class SavedTableViewCell: UITableViewCell {
         [shadowView, savedView, nameSubTitle, dateSubTitle, title].forEach{ addSubview($0)}
         
         self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
     
     override func layoutSubviews() {

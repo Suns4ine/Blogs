@@ -19,6 +19,8 @@ protocol SearchViewInput: class {
 }
 
 protocol SearchViewOutput: class {
+    func didTapSettingButton()
+    func didTapBlogsTableViewCell()
 }
 
 protocol SearchInteractorInput: class {
@@ -28,4 +30,5 @@ protocol SearchInteractorOutput: class {
 }
 
 protocol SearchRouterInput: class {
+    func openSettingViewController()
 }

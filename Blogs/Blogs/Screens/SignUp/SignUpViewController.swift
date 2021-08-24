@@ -16,6 +16,7 @@ final class SignUpViewController: UIViewController {
         let header = Header(title: "",
                             leftIcon: .init(icon: .outline1, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -49,6 +50,7 @@ final class SignUpViewController: UIViewController {
     
     private let registerButton: FirstBigButton = {
         let button = FirstBigButton(text: "Зарегистрироваться")
+        button.addTarget(self, action: #selector(tapRegisterButton))
         return button
     }()
     
@@ -102,6 +104,16 @@ final class SignUpViewController: UIViewController {
             registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapRegisterButton() {
+        output.didTapRegisterButton()
     }
 }
 

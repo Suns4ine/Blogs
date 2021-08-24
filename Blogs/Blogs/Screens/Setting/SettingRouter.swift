@@ -9,7 +9,11 @@
 import UIKit
 
 final class SettingRouter {
+    weak var sourceViewController: UIViewController?
 }
 
 extension SettingRouter: SettingRouterInput {
+    func popViewController() {
+        self.sourceViewController?.navigationController?.popViewController(animated: true)
+    }
 }

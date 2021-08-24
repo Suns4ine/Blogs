@@ -23,6 +23,8 @@ final class HomeContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return HomeContainer(view: viewController, input: presenter, router: router)
 	}

@@ -25,6 +25,14 @@ extension SignUpPresenter: SignUpModuleInput {
 }
 
 extension SignUpPresenter: SignUpViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapRegisterButton() {
+        router.openTabBarViewController()
+    }
+    
 }
 
 extension SignUpPresenter: SignUpInteractorOutput {

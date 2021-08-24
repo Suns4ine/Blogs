@@ -72,9 +72,10 @@ final class BlogsTableViewCell: UITableViewCell {
     }
     
     private func setup() {
-        [shadowView, blogView, avatar, title, dateSubTitle, nameSubTitle, tagSubTitle].forEach{ addSubview($0)}
+        [shadowView, blogView, avatar, title, dateSubTitle, nameSubTitle, tagSubTitle].forEach{ contentView.addSubview($0)}
         
         self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
     
     override func layoutSubviews() {

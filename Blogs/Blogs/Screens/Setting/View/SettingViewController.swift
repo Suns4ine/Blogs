@@ -18,6 +18,7 @@ final class SettingViewController: UIViewController {
         let header = Header(title: "Настройки",
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -27,7 +28,7 @@ final class SettingViewController: UIViewController {
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
         table.separatorStyle = .none
-        table.allowsSelection = false
+        //table.allowsSelection = false
         table.translatesAutoresizingMaskIntoConstraints = false
         table.alwaysBounceVertical = false
         return table
@@ -70,6 +71,16 @@ final class SettingViewController: UIViewController {
             settingTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapSettingTableViewCell() {
+        output.didTapSettingTableViewCell()
+    }
 }
 
 extension SettingViewController: SettingViewInput {
@@ -108,5 +119,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 3: return 84
         default: return 0
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        debugPrint(indexPath.row)
+        tapSettingTableViewCell()
     }
 }

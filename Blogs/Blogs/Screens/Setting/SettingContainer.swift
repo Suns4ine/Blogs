@@ -23,6 +23,8 @@ final class SettingContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return SettingContainer(view: viewController, input: presenter, router: router)
 	}

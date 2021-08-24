@@ -130,10 +130,11 @@ final class SettingTableViewCell: UITableViewCell {
     }
     
     private func setup() {
-        [backgroundSettingView, title, subtitle, button, icon, togleButton].forEach{ self.contentView.addSubview($0)}
+        [backgroundSettingView, title, subtitle, button, icon, togleButton].forEach{ contentView.addSubview($0)}
         selectCell(cell: typeCell)
         
         self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
     
     override func layoutSubviews() {

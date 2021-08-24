@@ -22,6 +22,7 @@ final class SearchViewController: UIViewController {
         let header = Header(title: "Поиск",
                             leftIcon: .init(icon: .alignJustify, size: .size24),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapSettingButton))
         return header
     }()
     
@@ -67,7 +68,6 @@ final class SearchViewController: UIViewController {
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
         table.separatorStyle = .none
-        table.allowsSelection = false
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -124,6 +124,17 @@ final class SearchViewController: UIViewController {
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
     }
+    
+    @objc
+    private func tapSettingButton() {
+        output.didTapSettingButton()
+    }
+    
+    @objc
+    private func tapSearchTableViewCell() {
+        output.didTapBlogsTableViewCell()
+    }
+    
 }
 
 extension SearchViewController: SearchViewInput {
@@ -146,5 +157,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UITe
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 168
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        debugPrint(indexPath.row)
+        tapSearchTableViewCell()
     }
 }

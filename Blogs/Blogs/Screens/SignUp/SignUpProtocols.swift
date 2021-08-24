@@ -19,6 +19,8 @@ protocol SignUpViewInput: class {
 }
 
 protocol SignUpViewOutput: class {
+    func didTapBackButton()
+    func didTapRegisterButton()
 }
 
 protocol SignUpInteractorInput: class {
@@ -28,4 +30,6 @@ protocol SignUpInteractorOutput: class {
 }
 
 protocol SignUpRouterInput: class {
+    func openTabBarViewController()
+    func popViewController()
 }
