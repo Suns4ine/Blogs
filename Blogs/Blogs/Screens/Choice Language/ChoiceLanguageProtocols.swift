@@ -19,6 +19,8 @@ protocol ChoiceLanguageViewInput: class {
 }
 
 protocol ChoiceLanguageViewOutput: class {
+    func didTapBackButton()
+    func didTapLanguageTableViewCell()
 }
 
 protocol ChoiceLanguageInteractorInput: class {
@@ -28,4 +30,5 @@ protocol ChoiceLanguageInteractorOutput: class {
 }
 
 protocol ChoiceLanguageRouterInput: class {
+    func popViewController()
 }

@@ -19,6 +19,7 @@ protocol AboutTheApplicationViewInput: class {
 }
 
 protocol AboutTheApplicationViewOutput: class {
+    func didTapBackButton()
 }
 
 protocol AboutTheApplicationInteractorInput: class {
@@ -28,4 +29,5 @@ protocol AboutTheApplicationInteractorOutput: class {
 }
 
 protocol AboutTheApplicationRouterInput: class {
+    func popViewController()
 }

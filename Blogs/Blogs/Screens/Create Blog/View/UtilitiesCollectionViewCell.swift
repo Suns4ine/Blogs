@@ -37,10 +37,10 @@ final class UtilitiesCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            icon.topAnchor.constraint(equalTo: self.topAnchor),
-            icon.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            icon.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            icon.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            icon.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            icon.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            icon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            icon.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
         ])
     }
 }

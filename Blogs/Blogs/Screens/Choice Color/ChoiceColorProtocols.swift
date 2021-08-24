@@ -19,6 +19,8 @@ protocol ChoiceColorViewInput: class {
 }
 
 protocol ChoiceColorViewOutput: class {
+    func didTapBackButton()
+    func didTapColorTableViewCell()
 }
 
 protocol ChoiceColorInteractorInput: class {
@@ -28,4 +30,5 @@ protocol ChoiceColorInteractorOutput: class {
 }
 
 protocol ChoiceColorRouterInput: class {
+    func popViewController()
 }

@@ -23,6 +23,8 @@ final class PasswordChangeContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return PasswordChangeContainer(view: viewController, input: presenter, router: router)
 	}

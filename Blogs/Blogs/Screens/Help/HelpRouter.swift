@@ -9,7 +9,11 @@
 import UIKit
 
 final class HelpRouter {
+    weak var sourceViewController: UIViewController?
 }
 
 extension HelpRouter: HelpRouterInput {
+    func popViewController() {
+        self.sourceViewController?.navigationController?.popViewController(animated: true)
+    }
 }

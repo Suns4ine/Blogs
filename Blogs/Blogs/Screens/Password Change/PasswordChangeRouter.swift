@@ -9,7 +9,11 @@
 import UIKit
 
 final class PasswordChangeRouter {
+    weak var sourceViewController: UIViewController?
 }
 
 extension PasswordChangeRouter: PasswordChangeRouterInput {
+    func popViewController() {
+        self.sourceViewController?.navigationController?.popViewController(animated: true)
+    }
 }

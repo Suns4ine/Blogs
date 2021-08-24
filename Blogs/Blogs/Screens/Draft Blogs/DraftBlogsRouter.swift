@@ -9,7 +9,11 @@
 import UIKit
 
 final class DraftBlogsRouter {
+    weak var sourceViewController: UIViewController?
 }
 
 extension DraftBlogsRouter: DraftBlogsRouterInput {
+    func popViewController() {
+        self.sourceViewController?.navigationController?.popViewController(animated: true)
+    }
 }

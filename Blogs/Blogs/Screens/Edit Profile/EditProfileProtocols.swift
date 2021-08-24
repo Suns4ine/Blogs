@@ -19,6 +19,9 @@ protocol EditProfileViewInput: class {
 }
 
 protocol EditProfileViewOutput: class {
+    func didTapBackButton()
+    func didTapEditAvatarButton()
+    func didTapSaveButton()
 }
 
 protocol EditProfileInteractorInput: class {
@@ -28,4 +31,5 @@ protocol EditProfileInteractorOutput: class {
 }
 
 protocol EditProfileRouterInput: class {
+    func popViewController()
 }

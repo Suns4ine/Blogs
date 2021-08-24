@@ -25,6 +25,23 @@ extension CreateBlogPresenter: CreateBlogModuleInput {
 }
 
 extension CreateBlogPresenter: CreateBlogViewOutput {
+    
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapNextButton() {
+        router.openAdditionBlogViewController()
+    }
+    
+    func didTapDraftButton() {
+        router.openDraftBlogsViewController()
+    }
+    
+    func didTapUtilitiesCollectionViewCell() {
+        debugPrint("didTapUtilitiesCollectionViewCell")
+    }
+    
 }
 
 extension CreateBlogPresenter: CreateBlogInteractorOutput {

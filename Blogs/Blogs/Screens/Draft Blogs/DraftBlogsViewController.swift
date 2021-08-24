@@ -22,6 +22,7 @@ final class DraftBlogsViewController: UIViewController {
         let header = Header(title: "Черновики",
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -37,7 +38,6 @@ final class DraftBlogsViewController: UIViewController {
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
         table.separatorStyle = .none
-        table.allowsSelection = false
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -84,6 +84,16 @@ final class DraftBlogsViewController: UIViewController {
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
     }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapDraftTableViewCell() {
+        output.didTapDraftTableViewCell()
+    }
 }
 
 extension DraftBlogsViewController: DraftBlogsViewInput {
@@ -104,5 +114,10 @@ extension DraftBlogsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 168
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        debugPrint(indexPath.row)
+        tapDraftTableViewCell()
     }
 }

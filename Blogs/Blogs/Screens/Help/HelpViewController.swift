@@ -16,6 +16,7 @@ final class HelpViewController: UIViewController {
         let header = Header(title: "Помощь",
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -70,6 +71,11 @@ final class HelpViewController: UIViewController {
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
     }
     
     //MARK: Тест текствью

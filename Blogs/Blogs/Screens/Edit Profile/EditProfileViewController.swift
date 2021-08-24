@@ -25,6 +25,7 @@ final class EditProfileViewController: UIViewController {
         let header = Header(title: "Редактирование",
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -35,6 +36,7 @@ final class EditProfileViewController: UIViewController {
     
     private let editAvatarButton: ThirdSmallButton = {
         let button = ThirdSmallButton(text: "editAvatarButton")
+        button.addTarget(self, action: #selector(tapEditAvatarButton))
         return button
     }()
     
@@ -93,6 +95,7 @@ final class EditProfileViewController: UIViewController {
     
     private let saveButton: SecondBigButton = {
         let button = SecondBigButton(text: "saveButton", icon: .none)
+        button.addTarget(self, action: #selector(tapSaveButton))
         return button
     }()
     
@@ -178,6 +181,21 @@ final class EditProfileViewController: UIViewController {
             saveButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
             
         ])
+    }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapEditAvatarButton() {
+        output.didTapEditAvatarButton()
+    }
+    
+    @objc
+    private func tapSaveButton() {
+        output.didTapSaveButton()
     }
     
     //MARK: Отключаем горизонтальную прокрутку

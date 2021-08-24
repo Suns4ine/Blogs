@@ -25,6 +25,14 @@ extension AdditionBlogPresenter: AdditionBlogModuleInput {
 }
 
 extension AdditionBlogPresenter: AdditionBlogViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapNextButton() {
+        router.openMyProfileViewController()
+    }
+    
 }
 
 extension AdditionBlogPresenter: AdditionBlogInteractorOutput {

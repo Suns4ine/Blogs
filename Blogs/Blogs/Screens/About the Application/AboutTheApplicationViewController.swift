@@ -16,6 +16,7 @@ final class AboutTheApplicationViewController: UIViewController {
         let header = Header(title: "Об Приложении",
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -70,6 +71,11 @@ final class AboutTheApplicationViewController: UIViewController {
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
     }
     
     //MARK: Тест текствью

@@ -22,6 +22,7 @@ final class ChoiceLanguageViewController: UIViewController {
         let header = Header(title: "Язык",
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -31,7 +32,6 @@ final class ChoiceLanguageViewController: UIViewController {
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
         table.separatorStyle = .none
-        table.allowsSelection = false
         table.translatesAutoresizingMaskIntoConstraints = false
         table.alwaysBounceVertical = false
         return table
@@ -85,6 +85,16 @@ final class ChoiceLanguageViewController: UIViewController {
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
     }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapLanguageTableViewCell() {
+        output.didTapLanguageTableViewCell()
+    }
 }
 
 extension ChoiceLanguageViewController: ChoiceLanguageViewInput {
@@ -98,13 +108,18 @@ extension ChoiceLanguageViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard  let cell = tableView.dequeueReusableCell(
                 withIdentifier: ChoiceTableViewCell.identifier,
-                for: indexPath) as? SavedTableViewCell else { return .init() }
+                for: indexPath) as? ChoiceTableViewCell else { return .init() }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 84
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        debugPrint(indexPath.row)
+        tapLanguageTableViewCell()
     }
 }
  

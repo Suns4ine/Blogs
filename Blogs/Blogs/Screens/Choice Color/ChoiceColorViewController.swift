@@ -22,6 +22,7 @@ final class ChoiceColorViewController: UIViewController {
         let header = Header(title: "Расцветка",
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -31,7 +32,6 @@ final class ChoiceColorViewController: UIViewController {
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
         table.separatorStyle = .none
-        table.allowsSelection = false
         table.translatesAutoresizingMaskIntoConstraints = false
         table.alwaysBounceVertical = false
         return table
@@ -86,6 +86,16 @@ final class ChoiceColorViewController: UIViewController {
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
     }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapColorTableViewCell() {
+        output.didTapColorTableViewCell()
+    }
 }
 
 extension ChoiceColorViewController: ChoiceColorViewInput {
@@ -99,12 +109,17 @@ extension ChoiceColorViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard  let cell = tableView.dequeueReusableCell(
                 withIdentifier: ChoiceTableViewCell.identifier,
-                for: indexPath) as? SavedTableViewCell else { return .init() }
+                for: indexPath) as? ChoiceTableViewCell else { return .init() }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 84
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        debugPrint(indexPath.row)
+        tapColorTableViewCell()
     }
 }

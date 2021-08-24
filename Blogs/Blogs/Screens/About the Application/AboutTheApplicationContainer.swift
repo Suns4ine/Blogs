@@ -23,6 +23,8 @@ final class AboutTheApplicationContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return AboutTheApplicationContainer(view: viewController, input: presenter, router: router)
 	}

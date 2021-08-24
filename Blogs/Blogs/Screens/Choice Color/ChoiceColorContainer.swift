@@ -23,6 +23,8 @@ final class ChoiceColorContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return ChoiceColorContainer(view: viewController, input: presenter, router: router)
 	}

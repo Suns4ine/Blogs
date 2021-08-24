@@ -35,12 +35,12 @@ final class TabBarController: UITabBarController {
         return controller as! SavedViewController
     }()
     
-    private let myProfileContainer = AnotherProfileContainer.assemble(with: .init())
-    private lazy var profileController: AnotherProfileViewController = {
+    private let myProfileContainer = MyProfileContainer.assemble(with: .init())
+    private lazy var profileController: UIViewController = {
         let controller = myProfileContainer.viewController
         controller.title = "Profile"
         controller.tabBarItem.image = UIImage(named: Icons.user.rawValue)
-        return controller as! AnotherProfileViewController
+        return controller
     }()
     
     private let borderView: UIView = {

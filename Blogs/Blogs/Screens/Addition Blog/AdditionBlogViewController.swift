@@ -16,11 +16,13 @@ final class AdditionBlogViewController: UIViewController {
         let header = Header(title: "",
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
     private let nextButton: ThirdSmallButton = {
         let button = ThirdSmallButton(text: "nextButton")
+        button.addTarget(self, action: #selector(tapNextButton))
         return button
     }()
     
@@ -161,6 +163,16 @@ final class AdditionBlogViewController: UIViewController {
             tagErrorSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             tagErrorSubTitle.heightAnchor.constraint(equalToConstant: 20),
         ])
+    }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapNextButton() {
+        output.didTapNextButton()
     }
 }
 

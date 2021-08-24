@@ -25,6 +25,14 @@ extension ChoiceColorPresenter: ChoiceColorModuleInput {
 }
 
 extension ChoiceColorPresenter: ChoiceColorViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapColorTableViewCell() {
+        debugPrint("didTapColorTableViewCell")
+    }
+    
 }
 
 extension ChoiceColorPresenter: ChoiceColorInteractorOutput {

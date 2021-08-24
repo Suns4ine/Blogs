@@ -19,6 +19,8 @@ protocol AdditionBlogViewInput: class {
 }
 
 protocol AdditionBlogViewOutput: class {
+    func didTapBackButton()
+    func didTapNextButton()
 }
 
 protocol AdditionBlogInteractorInput: class {
@@ -28,4 +30,6 @@ protocol AdditionBlogInteractorOutput: class {
 }
 
 protocol AdditionBlogRouterInput: class {
+    func openMyProfileViewController()
+    func popViewController()
 }

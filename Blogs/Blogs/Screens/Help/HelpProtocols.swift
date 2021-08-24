@@ -19,6 +19,7 @@ protocol HelpViewInput: class {
 }
 
 protocol HelpViewOutput: class {
+    func didTapBackButton()
 }
 
 protocol HelpInteractorInput: class {
@@ -28,4 +29,5 @@ protocol HelpInteractorOutput: class {
 }
 
 protocol HelpRouterInput: class {
+    func popViewController()
 }

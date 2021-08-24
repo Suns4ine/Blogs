@@ -25,6 +25,14 @@ extension PasswordChangePresenter: PasswordChangeModuleInput {
 }
 
 extension PasswordChangePresenter: PasswordChangeViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapSaveButton() {
+        router.popViewController()
+    }
+    
 }
 
 extension PasswordChangePresenter: PasswordChangeInteractorOutput {

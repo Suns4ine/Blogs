@@ -17,16 +17,19 @@ final class CreateBlogViewController: UIViewController {
         let header = Header(title: "",
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
     private let nextButton: ThirdSmallButton = {
         let button = ThirdSmallButton(text: "nextButton")
+        button.addTarget(self, action: #selector(tapNextButton))
         return button
     }()
     
     private let draftButton: ThirdSmallButton = {
         let button = ThirdSmallButton(text: "draftButton")
+        button.addTarget(self, action: #selector(tapDraftButton))
         return button
     }()
     
@@ -125,6 +128,26 @@ final class CreateBlogViewController: UIViewController {
             text.bottomAnchor.constraint(equalTo: utilitiesView.topAnchor, constant: -14)
         ])
     }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapNextButton() {
+        output.didTapNextButton()
+    }
+    
+    @objc
+    private func tapDraftButton() {
+        output.didTapDraftButton()
+    }
+    
+    @objc
+    private func tapUtilitiesCollectionViewCell() {
+        output.didTapUtilitiesCollectionViewCell()
+    }
 }
 
 extension CreateBlogViewController: CreateBlogViewInput {
@@ -146,11 +169,16 @@ extension CreateBlogViewController: UICollectionViewDelegate, UICollectionViewDa
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 24, height: 24)
+        return CGSize(width: 44, height: 44)
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 24
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        debugPrint(indexPath.row)
+        
     }
 }

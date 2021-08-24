@@ -28,9 +28,10 @@ final class ChoiceTableViewCell: UITableViewCell {
     }
     
     private func setup() {
-        [button].forEach{ self.contentView.addSubview($0)}
+        [button].forEach{ contentView.addSubview($0)}
         
         self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
     
     override func layoutSubviews() {

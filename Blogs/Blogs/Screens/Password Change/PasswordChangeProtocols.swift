@@ -19,6 +19,8 @@ protocol PasswordChangeViewInput: class {
 }
 
 protocol PasswordChangeViewOutput: class {
+    func didTapBackButton()
+    func didTapSaveButton()
 }
 
 protocol PasswordChangeInteractorInput: class {
@@ -28,4 +30,5 @@ protocol PasswordChangeInteractorOutput: class {
 }
 
 protocol PasswordChangeRouterInput: class {
+    func popViewController()
 }

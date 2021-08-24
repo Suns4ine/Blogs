@@ -25,6 +25,14 @@ extension DraftBlogsPresenter: DraftBlogsModuleInput {
 }
 
 extension DraftBlogsPresenter: DraftBlogsViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapDraftTableViewCell() {
+        debugPrint("didTapDraftTableViewCell")
+    }
+    
 }
 
 extension DraftBlogsPresenter: DraftBlogsInteractorOutput {

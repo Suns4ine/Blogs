@@ -13,7 +13,10 @@ final class PasswordChangeViewController: UIViewController {
 
     //MARK: Объявление переменных
     private let header: Header = {
-        let header = Header(title: "Пароль", leftIcon: .init(icon: .outline2, size: .size48), rightIcon: .init(icon: .none, size: .size24))
+        let header = Header(title: "Пароль",
+                            leftIcon: .init(icon: .outline2, size: .size48),
+                            rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -37,6 +40,7 @@ final class PasswordChangeViewController: UIViewController {
 
     private let saveButton: FirstBigButton = {
         let button = FirstBigButton(text: "saveButton")
+        button.addTarget(self, action: #selector(tapSaveButton))
         return button
     }()
     
@@ -84,6 +88,16 @@ final class PasswordChangeViewController: UIViewController {
             saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
 
         ])
+    }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapSaveButton() {
+        output.didTapSaveButton()
     }
 }
 

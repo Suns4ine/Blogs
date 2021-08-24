@@ -23,6 +23,8 @@ final class ChoiceLanguageContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return ChoiceLanguageContainer(view: viewController, input: presenter, router: router)
 	}

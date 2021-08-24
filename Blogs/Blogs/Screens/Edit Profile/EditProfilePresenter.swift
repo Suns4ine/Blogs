@@ -25,6 +25,18 @@ extension EditProfilePresenter: EditProfileModuleInput {
 }
 
 extension EditProfilePresenter: EditProfileViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapEditAvatarButton() {
+        debugPrint("didTapEditAvatarButton")
+    }
+    
+    func didTapSaveButton() {
+        router.popViewController()
+    }
+    
 }
 
 extension EditProfilePresenter: EditProfileInteractorOutput {

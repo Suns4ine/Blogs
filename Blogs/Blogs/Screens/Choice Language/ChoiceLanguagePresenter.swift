@@ -25,6 +25,14 @@ extension ChoiceLanguagePresenter: ChoiceLanguageModuleInput {
 }
 
 extension ChoiceLanguagePresenter: ChoiceLanguageViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapLanguageTableViewCell() {
+        debugPrint("didTapLanguageTableViewCell")
+    }
+    
 }
 
 extension ChoiceLanguagePresenter: ChoiceLanguageInteractorOutput {

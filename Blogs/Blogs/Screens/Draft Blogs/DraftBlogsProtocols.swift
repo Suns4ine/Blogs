@@ -19,6 +19,8 @@ protocol DraftBlogsViewInput: class {
 }
 
 protocol DraftBlogsViewOutput: class {
+    func didTapBackButton()
+    func didTapDraftTableViewCell()
 }
 
 protocol DraftBlogsInteractorInput: class {
@@ -28,4 +30,5 @@ protocol DraftBlogsInteractorOutput: class {
 }
 
 protocol DraftBlogsRouterInput: class {
+    func popViewController()
 }
