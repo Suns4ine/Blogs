@@ -19,6 +19,10 @@ protocol AnotherBlogViewInput: class {
 }
 
 protocol AnotherBlogViewOutput: class {
+    func didTapBackButton()
+    func didTapFollowButton()
+    func didTaplikeIcon()
+    func didTapShareIcon()
 }
 
 protocol AnotherBlogInteractorInput: class {
@@ -28,4 +32,5 @@ protocol AnotherBlogInteractorOutput: class {
 }
 
 protocol AnotherBlogRouterInput: class {
+    func popViewController()
 }

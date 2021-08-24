@@ -23,6 +23,8 @@ final class MyBlogContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return MyBlogContainer(view: viewController, input: presenter, router: router)
 	}

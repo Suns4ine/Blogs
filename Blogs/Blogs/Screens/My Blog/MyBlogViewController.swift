@@ -26,6 +26,7 @@ final class MyBlogViewController: UIViewController {
         let header = Header(title: "",
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -56,6 +57,7 @@ final class MyBlogViewController: UIViewController {
     
     private let editButton: FirstSmallButton = {
         let button = FirstSmallButton(text: "editButton")
+        button.addTarget(self, action: #selector(tapEditButton))
         button.sizeToFit()
         return button
     }()
@@ -81,11 +83,13 @@ final class MyBlogViewController: UIViewController {
     
     private let likeIcon: IconImage = {
         let icon = IconImage(icon: .heart, size: .size24)
+        icon.addTarget(self, action: #selector(taplikeIcon))
         return icon
     }()
     
     private let shareIcon: IconImage = {
         let icon = IconImage(icon: .share, size: .size24)
+        icon.addTarget(self, action: #selector(tapShareIcon))
         return icon
     }()
     
@@ -195,6 +199,26 @@ final class MyBlogViewController: UIViewController {
             shareSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12)
             
         ])
+    }
+    
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapEditButton() {
+        output.didTapEditButton()
+    }
+    
+    @objc
+    private func taplikeIcon() {
+        output.didTaplikeIcon()
+    }
+    
+    @objc
+    private func tapShareIcon() {
+        output.didTapShareIcon()
     }
 }
 

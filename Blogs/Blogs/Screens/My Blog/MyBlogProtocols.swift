@@ -19,6 +19,11 @@ protocol MyBlogViewInput: class {
 }
 
 protocol MyBlogViewOutput: class {
+    func didTapBackButton()
+    func didTapEditButton()
+    func didTaplikeIcon()
+    func didTapShareIcon()
+    
 }
 
 protocol MyBlogInteractorInput: class {
@@ -28,4 +33,6 @@ protocol MyBlogInteractorOutput: class {
 }
 
 protocol MyBlogRouterInput: class {
+    func openCreateBlogViewController()
+    func popViewController()
 }

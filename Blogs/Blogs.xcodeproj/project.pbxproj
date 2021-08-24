@@ -60,6 +60,12 @@
 		3557F34826AE4DAB001DA6BB /* StandartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F34726AE4DAB001DA6BB /* StandartColors.swift */; };
 		3557F36726AE54BA001DA6BB /* FirstBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F36626AE54BA001DA6BB /* FirstBigButton.swift */; };
 		3557F36F26AE54E0001DA6BB /* FontsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F36E26AE54E0001DA6BB /* FontsExtension.swift */; };
+		35595AD626D524BF0080B184 /* MyMoreBlogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD026D524BF0080B184 /* MyMoreBlogsPresenter.swift */; };
+		35595AD726D524BF0080B184 /* MyMoreBlogsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD126D524BF0080B184 /* MyMoreBlogsRouter.swift */; };
+		35595AD826D524BF0080B184 /* MyMoreBlogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD226D524BF0080B184 /* MyMoreBlogsViewController.swift */; };
+		35595AD926D524BF0080B184 /* MyMoreBlogsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD326D524BF0080B184 /* MyMoreBlogsProtocols.swift */; };
+		35595ADA26D524BF0080B184 /* MyMoreBlogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD426D524BF0080B184 /* MyMoreBlogsInteractor.swift */; };
+		35595ADB26D524BF0080B184 /* MyMoreBlogsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD526D524BF0080B184 /* MyMoreBlogsContainer.swift */; };
 		356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */; };
 		356BE4E126B116E400FFD1F9 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4E026B116E400FFD1F9 /* Text.swift */; };
 		3597349826C9D0E100086C12 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3597349726C9D0E100086C12 /* ToggleButton.swift */; };
@@ -270,6 +276,12 @@
 		3557F34726AE4DAB001DA6BB /* StandartColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartColors.swift; sourceTree = "<group>"; };
 		3557F36626AE54BA001DA6BB /* FirstBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBigButton.swift; sourceTree = "<group>"; };
 		3557F36E26AE54E0001DA6BB /* FontsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsExtension.swift; sourceTree = "<group>"; };
+		35595AD026D524BF0080B184 /* MyMoreBlogsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoreBlogsPresenter.swift; sourceTree = "<group>"; };
+		35595AD126D524BF0080B184 /* MyMoreBlogsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoreBlogsRouter.swift; sourceTree = "<group>"; };
+		35595AD226D524BF0080B184 /* MyMoreBlogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoreBlogsViewController.swift; sourceTree = "<group>"; };
+		35595AD326D524BF0080B184 /* MyMoreBlogsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoreBlogsProtocols.swift; sourceTree = "<group>"; };
+		35595AD426D524BF0080B184 /* MyMoreBlogsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoreBlogsInteractor.swift; sourceTree = "<group>"; };
+		35595AD526D524BF0080B184 /* MyMoreBlogsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoreBlogsContainer.swift; sourceTree = "<group>"; };
 		356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProtocol.swift; sourceTree = "<group>"; };
 		356BE4E026B116E400FFD1F9 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		3597349726C9D0E100086C12 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
@@ -570,6 +582,19 @@
 				3597349726C9D0E100086C12 /* ToggleButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		35595ACF26D524990080B184 /* My more Blogs */ = {
+			isa = PBXGroup;
+			children = (
+				35595AD026D524BF0080B184 /* MyMoreBlogsPresenter.swift */,
+				35595AD126D524BF0080B184 /* MyMoreBlogsRouter.swift */,
+				35595AD226D524BF0080B184 /* MyMoreBlogsViewController.swift */,
+				35595AD326D524BF0080B184 /* MyMoreBlogsProtocols.swift */,
+				35595AD426D524BF0080B184 /* MyMoreBlogsInteractor.swift */,
+				35595AD526D524BF0080B184 /* MyMoreBlogsContainer.swift */,
+			);
+			path = "My more Blogs";
 			sourceTree = "<group>";
 		};
 		3597349F26C9FE4400086C12 /* Preview */ = {
@@ -929,6 +954,7 @@
 		35E020F826C309E000C99280 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				35595ACF26D524990080B184 /* My more Blogs */,
 				3597349F26C9FE4400086C12 /* Preview */,
 				35B10A2B26C97FC7003E3D44 /* Setting */,
 				35B10A1826C87412003E3D44 /* Search */,
@@ -1294,6 +1320,7 @@
 				35028E1626C69C5A00FF9D68 /* ChoiceLanguageRouter.swift in Sources */,
 				35B109B626C6D9C5003E3D44 /* EditProfileProtocols.swift in Sources */,
 				359734A626C9FE9700086C12 /* PreviewPresenter.swift in Sources */,
+				35595AD626D524BF0080B184 /* MyMoreBlogsPresenter.swift in Sources */,
 				35B10A0326C85DAC003E3D44 /* CreateBlogPresenter.swift in Sources */,
 				35E020E426C1FCBE00C99280 /* StartPresenter.swift in Sources */,
 				35DB44C526C46E5F002EB53B /* SavedContainer.swift in Sources */,
@@ -1343,6 +1370,7 @@
 				35B1097C26C6B99C003E3D44 /* HelpViewController.swift in Sources */,
 				35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */,
 				35E0210426C30A3B00C99280 /* SignUpInteractor.swift in Sources */,
+				35595ADB26D524BF0080B184 /* MyMoreBlogsContainer.swift in Sources */,
 				359734D126CACF5600086C12 /* PageViewController.swift in Sources */,
 				35E0210026C30A3B00C99280 /* SignUpPresenter.swift in Sources */,
 				35B10A2626C8742B003E3D44 /* SearchInteractor.swift in Sources */,
@@ -1363,6 +1391,7 @@
 				3557F36726AE54BA001DA6BB /* FirstBigButton.swift in Sources */,
 				35E020D426C1FBA100C99280 /* LoginRouter.swift in Sources */,
 				35028E0826C5F47200FF9D68 /* AnotherProfileProtocols.swift in Sources */,
+				35595AD926D524BF0080B184 /* MyMoreBlogsProtocols.swift in Sources */,
 				35E020D726C1FBA100C99280 /* LoginInteractor.swift in Sources */,
 				35B10A2526C8742B003E3D44 /* SearchProtocols.swift in Sources */,
 				35B10A0626C85DAC003E3D44 /* CreateBlogProtocols.swift in Sources */,
@@ -1379,6 +1408,7 @@
 				35B10A0726C85DAC003E3D44 /* CreateBlogInteractor.swift in Sources */,
 				35E020D826C1FBA100C99280 /* LoginContainer.swift in Sources */,
 				35E0210226C30A3B00C99280 /* SignUpViewController.swift in Sources */,
+				35595AD826D524BF0080B184 /* MyMoreBlogsViewController.swift in Sources */,
 				35B109F226C85010003E3D44 /* AnotherBlogViewController.swift in Sources */,
 				35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */,
 				35B10A2726C8742B003E3D44 /* SearchContainer.swift in Sources */,
@@ -1399,6 +1429,8 @@
 				35B109A026C6D559003E3D44 /* DraftBlogsPresenter.swift in Sources */,
 				35B10A3F26C99CB6003E3D44 /* SettingTableViewCell.swift in Sources */,
 				35B109B426C6D9C5003E3D44 /* EditProfileRouter.swift in Sources */,
+				35595ADA26D524BF0080B184 /* MyMoreBlogsInteractor.swift in Sources */,
+				35595AD726D524BF0080B184 /* MyMoreBlogsRouter.swift in Sources */,
 				35B10A0526C85DAC003E3D44 /* CreateBlogViewController.swift in Sources */,
 				3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */,
 				35B109B826C6D9C5003E3D44 /* EditProfileContainer.swift in Sources */,

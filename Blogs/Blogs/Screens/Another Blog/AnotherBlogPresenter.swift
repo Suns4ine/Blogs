@@ -25,6 +25,22 @@ extension AnotherBlogPresenter: AnotherBlogModuleInput {
 }
 
 extension AnotherBlogPresenter: AnotherBlogViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapFollowButton() {
+        debugPrint("didTapFollowButton")
+    }
+    
+    func didTaplikeIcon() {
+        debugPrint("didTaplikeIcon")
+    }
+    
+    func didTapShareIcon() {
+        debugPrint("didTapShareIcon")
+    }
+    
 }
 
 extension AnotherBlogPresenter: AnotherBlogInteractorOutput {

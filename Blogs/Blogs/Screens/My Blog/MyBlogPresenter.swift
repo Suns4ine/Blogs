@@ -25,6 +25,22 @@ extension MyBlogPresenter: MyBlogModuleInput {
 }
 
 extension MyBlogPresenter: MyBlogViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapEditButton() {
+        router.openCreateBlogViewController()
+    }
+    
+    func didTaplikeIcon() {
+        debugPrint("didTaplikeIcon")
+    }
+    
+    func didTapShareIcon() {
+        debugPrint("didTapShareIcon")
+    }
+    
 }
 
 extension MyBlogPresenter: MyBlogInteractorOutput {
