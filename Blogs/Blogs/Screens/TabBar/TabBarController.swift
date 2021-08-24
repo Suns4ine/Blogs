@@ -35,7 +35,7 @@ final class TabBarController: UITabBarController {
         return controller as! SavedViewController
     }()
     
-    private let myProfileContainer = MyMoreBlogsContainer.assemble(with: .init())
+    private let myProfileContainer = AnotherMoreBlogsContainer.assemble(with: .init())
     private lazy var profileController: UIViewController = {
         let controller = myProfileContainer.viewController
         controller.title = "Profile"

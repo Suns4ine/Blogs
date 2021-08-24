@@ -66,6 +66,12 @@
 		35595AD926D524BF0080B184 /* MyMoreBlogsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD326D524BF0080B184 /* MyMoreBlogsProtocols.swift */; };
 		35595ADA26D524BF0080B184 /* MyMoreBlogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD426D524BF0080B184 /* MyMoreBlogsInteractor.swift */; };
 		35595ADB26D524BF0080B184 /* MyMoreBlogsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD526D524BF0080B184 /* MyMoreBlogsContainer.swift */; };
+		35595AE926D528DD0080B184 /* AnotherMoreBlogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE326D528DD0080B184 /* AnotherMoreBlogsPresenter.swift */; };
+		35595AEA26D528DD0080B184 /* AnotherMoreBlogsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE426D528DD0080B184 /* AnotherMoreBlogsRouter.swift */; };
+		35595AEB26D528DD0080B184 /* AnotherMoreBlogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE526D528DD0080B184 /* AnotherMoreBlogsViewController.swift */; };
+		35595AEC26D528DD0080B184 /* AnotherMoreBlogsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE626D528DD0080B184 /* AnotherMoreBlogsProtocols.swift */; };
+		35595AED26D528DD0080B184 /* AnotherMoreBlogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE726D528DD0080B184 /* AnotherMoreBlogsInteractor.swift */; };
+		35595AEE26D528DD0080B184 /* AnotherMoreBlogsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE826D528DD0080B184 /* AnotherMoreBlogsContainer.swift */; };
 		356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */; };
 		356BE4E126B116E400FFD1F9 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4E026B116E400FFD1F9 /* Text.swift */; };
 		3597349826C9D0E100086C12 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3597349726C9D0E100086C12 /* ToggleButton.swift */; };
@@ -282,6 +288,12 @@
 		35595AD326D524BF0080B184 /* MyMoreBlogsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoreBlogsProtocols.swift; sourceTree = "<group>"; };
 		35595AD426D524BF0080B184 /* MyMoreBlogsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoreBlogsInteractor.swift; sourceTree = "<group>"; };
 		35595AD526D524BF0080B184 /* MyMoreBlogsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoreBlogsContainer.swift; sourceTree = "<group>"; };
+		35595AE326D528DD0080B184 /* AnotherMoreBlogsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoreBlogsPresenter.swift; sourceTree = "<group>"; };
+		35595AE426D528DD0080B184 /* AnotherMoreBlogsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoreBlogsRouter.swift; sourceTree = "<group>"; };
+		35595AE526D528DD0080B184 /* AnotherMoreBlogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoreBlogsViewController.swift; sourceTree = "<group>"; };
+		35595AE626D528DD0080B184 /* AnotherMoreBlogsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoreBlogsProtocols.swift; sourceTree = "<group>"; };
+		35595AE726D528DD0080B184 /* AnotherMoreBlogsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoreBlogsInteractor.swift; sourceTree = "<group>"; };
+		35595AE826D528DD0080B184 /* AnotherMoreBlogsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoreBlogsContainer.swift; sourceTree = "<group>"; };
 		356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProtocol.swift; sourceTree = "<group>"; };
 		356BE4E026B116E400FFD1F9 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		3597349726C9D0E100086C12 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
@@ -595,6 +607,19 @@
 				35595AD526D524BF0080B184 /* MyMoreBlogsContainer.swift */,
 			);
 			path = "My more Blogs";
+			sourceTree = "<group>";
+		};
+		35595AE226D528C20080B184 /* Another more Blogs */ = {
+			isa = PBXGroup;
+			children = (
+				35595AE326D528DD0080B184 /* AnotherMoreBlogsPresenter.swift */,
+				35595AE426D528DD0080B184 /* AnotherMoreBlogsRouter.swift */,
+				35595AE526D528DD0080B184 /* AnotherMoreBlogsViewController.swift */,
+				35595AE626D528DD0080B184 /* AnotherMoreBlogsProtocols.swift */,
+				35595AE726D528DD0080B184 /* AnotherMoreBlogsInteractor.swift */,
+				35595AE826D528DD0080B184 /* AnotherMoreBlogsContainer.swift */,
+			);
+			path = "Another more Blogs";
 			sourceTree = "<group>";
 		};
 		3597349F26C9FE4400086C12 /* Preview */ = {
@@ -954,6 +979,7 @@
 		35E020F826C309E000C99280 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				35595AE226D528C20080B184 /* Another more Blogs */,
 				35595ACF26D524990080B184 /* My more Blogs */,
 				3597349F26C9FE4400086C12 /* Preview */,
 				35B10A2B26C97FC7003E3D44 /* Setting */,
@@ -1301,6 +1327,7 @@
 				35B10A3526C97FD8003E3D44 /* SettingPresenter.swift in Sources */,
 				35B1095826C6AAF0003E3D44 /* ChoiceColorRouter.swift in Sources */,
 				35E020E826C1FCBE00C99280 /* StartInteractor.swift in Sources */,
+				35595AEA26D528DD0080B184 /* AnotherMoreBlogsRouter.swift in Sources */,
 				35B109A126C6D559003E3D44 /* DraftBlogsRouter.swift in Sources */,
 				35B1095926C6AAF0003E3D44 /* ChoiceColorViewController.swift in Sources */,
 				35B1095A26C6AAF0003E3D44 /* ChoiceColorProtocols.swift in Sources */,
@@ -1315,6 +1342,7 @@
 				35B109CA26C71E7D003E3D44 /* AdditionBlogInteractor.swift in Sources */,
 				35E020BE26C18FE800C99280 /* TextField.swift in Sources */,
 				35B1096A26C6B110003E3D44 /* PasswordChangeProtocols.swift in Sources */,
+				35595AEE26D528DD0080B184 /* AnotherMoreBlogsContainer.swift in Sources */,
 				35B10A3A26C97FD8003E3D44 /* SettingContainer.swift in Sources */,
 				35DB44A626C4392E002EB53B /* HomeViewController.swift in Sources */,
 				35028E1626C69C5A00FF9D68 /* ChoiceLanguageRouter.swift in Sources */,
@@ -1330,6 +1358,7 @@
 				35B1095B26C6AAF0003E3D44 /* ChoiceColorInteractor.swift in Sources */,
 				35B109F026C85010003E3D44 /* AnotherBlogPresenter.swift in Sources */,
 				35E020D326C1FBA100C99280 /* LoginPresenter.swift in Sources */,
+				35595AE926D528DD0080B184 /* AnotherMoreBlogsPresenter.swift in Sources */,
 				359734A826C9FE9700086C12 /* PreviewViewController.swift in Sources */,
 				3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */,
 				35B1094926C6A776003E3D44 /* ChoiceTableViewCell.swift in Sources */,
@@ -1359,6 +1388,7 @@
 				35028E1926C69C5A00FF9D68 /* ChoiceLanguageInteractor.swift in Sources */,
 				35E020D626C1FBA100C99280 /* LoginProtocols.swift in Sources */,
 				35028DD426C544D000FF9D68 /* MyProfileRouter.swift in Sources */,
+				35595AED26D528DD0080B184 /* AnotherMoreBlogsInteractor.swift in Sources */,
 				35B1099226C6BF4D003E3D44 /* AboutTheApplicationContainer.swift in Sources */,
 				35B1097B26C6B99C003E3D44 /* HelpRouter.swift in Sources */,
 				3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */,
@@ -1394,6 +1424,7 @@
 				35595AD926D524BF0080B184 /* MyMoreBlogsProtocols.swift in Sources */,
 				35E020D726C1FBA100C99280 /* LoginInteractor.swift in Sources */,
 				35B10A2526C8742B003E3D44 /* SearchProtocols.swift in Sources */,
+				35595AEB26D528DD0080B184 /* AnotherMoreBlogsViewController.swift in Sources */,
 				35B10A0626C85DAC003E3D44 /* CreateBlogProtocols.swift in Sources */,
 				35028DF926C5ED6700FF9D68 /* AnotherExtension.swift in Sources */,
 				3557F36F26AE54E0001DA6BB /* FontsExtension.swift in Sources */,
@@ -1430,6 +1461,7 @@
 				35B10A3F26C99CB6003E3D44 /* SettingTableViewCell.swift in Sources */,
 				35B109B426C6D9C5003E3D44 /* EditProfileRouter.swift in Sources */,
 				35595ADA26D524BF0080B184 /* MyMoreBlogsInteractor.swift in Sources */,
+				35595AEC26D528DD0080B184 /* AnotherMoreBlogsProtocols.swift in Sources */,
 				35595AD726D524BF0080B184 /* MyMoreBlogsRouter.swift in Sources */,
 				35B10A0526C85DAC003E3D44 /* CreateBlogViewController.swift in Sources */,
 				3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */,
