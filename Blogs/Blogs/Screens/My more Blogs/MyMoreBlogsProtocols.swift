@@ -19,6 +19,8 @@ protocol MyMoreBlogsViewInput: class {
 }
 
 protocol MyMoreBlogsViewOutput: class {
+    func didTapBackButton()
+    func didTapMyBlogsTableViewCell()
 }
 
 protocol MyMoreBlogsInteractorInput: class {
@@ -28,4 +30,5 @@ protocol MyMoreBlogsInteractorOutput: class {
 }
 
 protocol MyMoreBlogsRouterInput: class {
+    func popViewController()
 }

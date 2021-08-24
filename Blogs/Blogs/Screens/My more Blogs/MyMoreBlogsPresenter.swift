@@ -25,6 +25,14 @@ extension MyMoreBlogsPresenter: MyMoreBlogsModuleInput {
 }
 
 extension MyMoreBlogsPresenter: MyMoreBlogsViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapMyBlogsTableViewCell() {
+        debugPrint("didTapMyBlogsTableViewCell")
+    }
+    
 }
 
 extension MyMoreBlogsPresenter: MyMoreBlogsInteractorOutput {

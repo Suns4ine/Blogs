@@ -9,7 +9,11 @@
 import UIKit
 
 final class MyMoreBlogsRouter {
+    weak var sourceViewController: UIViewController?
 }
 
 extension MyMoreBlogsRouter: MyMoreBlogsRouterInput {
+    func popViewController() {
+        self.sourceViewController?.navigationController?.popViewController(animated: true)
+    }
 }

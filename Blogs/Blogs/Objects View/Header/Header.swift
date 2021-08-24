@@ -100,6 +100,10 @@ final class Header: UIView {
         title.editText(text: text)
     }
     
+    func editTitleColor(color: UIColor) {
+        title.editColor(color: color)
+    }
+    
     func editAligent(aligent: NSTextAlignment) {
         title.editAligent(aligent: aligent)
     }
