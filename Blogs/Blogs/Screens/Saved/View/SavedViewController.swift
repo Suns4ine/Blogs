@@ -22,6 +22,7 @@ final class SavedViewController: UIViewController {
         let header = Header(title: "Понравившиеся",
                             leftIcon: .init(icon: .alignJustify, size: .size24),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapSettingButton))
         return header
     }()
     
@@ -37,7 +38,6 @@ final class SavedViewController: UIViewController {
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
         table.separatorStyle = .none
-        table.allowsSelection = false
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -84,6 +84,16 @@ final class SavedViewController: UIViewController {
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
     }
+    
+    @objc
+    private func tapSettingButton() {
+        output.didTapSettingButton()
+    }
+    
+    @objc
+    private func tapSavedTableViewCell() {
+        output.didTapSavedTableViewCell()
+    }
 }
 
 extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -101,6 +111,11 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 168
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        debugPrint(indexPath.row)
+        tapSavedTableViewCell()
     }
 }
 

@@ -9,7 +9,16 @@
 import UIKit
 
 final class AnotherProfileRouter {
+    weak var sourceViewController: UIViewController?
 }
 
 extension AnotherProfileRouter: AnotherProfileRouterInput {
+    func popViewController() {
+        self.sourceViewController?.navigationController?.popViewController(animated: true)
+    }
+    
+    func openAnotherMoreBlogsViewController() {
+        
+    }
+    
 }

@@ -25,6 +25,27 @@ extension MyProfilePresenter: MyProfileModuleInput {
 }
 
 extension MyProfilePresenter: MyProfileViewOutput {
+    func didTapSettingButton() {
+        router.openSettingViewController()
+    }
+    
+    func didTapEditButton() {
+        router.openEditProfileViewController()
+    }
+    
+    func didTapCreateBolgButton() {
+        router.openCreateBlogViewController()
+    }
+    
+    func didTapBlogTableViewCell() {
+        debugPrint("didTapBlogTableViewCell")
+    }
+    
+    func didTapMoreBlogButton() {
+        debugPrint("NO WORK")
+        router.openMyMoreBlogsViewController()
+    }
+    
 }
 
 extension MyProfilePresenter: MyProfileInteractorOutput {

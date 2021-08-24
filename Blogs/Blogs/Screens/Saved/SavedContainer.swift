@@ -23,6 +23,8 @@ final class SavedContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return SavedContainer(view: viewController, input: presenter, router: router)
 	}

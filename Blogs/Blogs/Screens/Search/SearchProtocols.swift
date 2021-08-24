@@ -20,7 +20,7 @@ protocol SearchViewInput: class {
 
 protocol SearchViewOutput: class {
     func didTapSettingButton()
-    func didTapBlogsTableViewCell()
+    func didTapSearchTableViewCell()
 }
 
 protocol SearchInteractorInput: class {

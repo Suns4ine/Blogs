@@ -34,6 +34,7 @@ final class AnotherProfileViewController: UIViewController {
         let header = Header(title: "",
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()
     
@@ -62,7 +63,8 @@ final class AnotherProfileViewController: UIViewController {
     }()
     
     private let followButton: ThirdBigButton = {
-       let button = ThirdBigButton(text: "followButton")
+        let button = ThirdBigButton(text: "followButton")
+        button.addTarget(self, action: #selector(tapFollowButton))
         return button
     }()
     
@@ -104,7 +106,6 @@ final class AnotherProfileViewController: UIViewController {
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
         table.separatorStyle = .none
-        table.allowsSelection = false
         table.translatesAutoresizingMaskIntoConstraints = false
         table.isScrollEnabled = false
         table.sizeToFit()
@@ -113,6 +114,7 @@ final class AnotherProfileViewController: UIViewController {
     
     private let moreBlogButton: SecondBigButton = {
         let button = SecondBigButton(text: "moreBlogButton", icon: .none)
+        button.addTarget(self, action: #selector(tapMoreBlogButton))
         return button
     }()
     
@@ -337,6 +339,26 @@ final class AnotherProfileViewController: UIViewController {
         scrollView.contentOffset.x = 0.0
     }
     
+    @objc
+    private func tapBackButton() {
+        output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapFollowButton() {
+        output.didTapFollowButton()
+    }
+    
+    @objc
+    private func tapBlogTableViewCell() {
+        output.didTapBlogTableViewCell()
+    }
+    
+    @objc
+    private func tapMoreBlogButton() {
+        output.didTapMoreBlogButton()
+    }
+    
 }
 
 extension AnotherProfileViewController: AnotherProfileViewInput {
@@ -357,5 +379,10 @@ extension AnotherProfileViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 168
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        debugPrint(indexPath.row)
+        tapBlogTableViewCell()
     }
 }

@@ -19,6 +19,10 @@ protocol AnotherProfileViewInput: class {
 }
 
 protocol AnotherProfileViewOutput: class {
+    func didTapBackButton()
+    func didTapFollowButton()
+    func didTapBlogTableViewCell()
+    func didTapMoreBlogButton()
 }
 
 protocol AnotherProfileInteractorInput: class {
@@ -28,4 +32,6 @@ protocol AnotherProfileInteractorOutput: class {
 }
 
 protocol AnotherProfileRouterInput: class {
+    func popViewController()
+    func openAnotherMoreBlogsViewController()
 }

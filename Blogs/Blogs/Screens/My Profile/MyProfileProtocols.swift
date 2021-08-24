@@ -19,6 +19,12 @@ protocol MyProfileViewInput: class {
 }
 
 protocol MyProfileViewOutput: class {
+    func didTapSettingButton()
+    func didTapEditButton()
+    func didTapCreateBolgButton()
+    func didTapBlogTableViewCell()
+    func didTapMoreBlogButton()
+    
 }
 
 protocol MyProfileInteractorInput: class {
@@ -28,4 +34,8 @@ protocol MyProfileInteractorOutput: class {
 }
 
 protocol MyProfileRouterInput: class {
+    func openSettingViewController()
+    func openEditProfileViewController()
+    func openCreateBlogViewController()
+    func openMyMoreBlogsViewController()
 }

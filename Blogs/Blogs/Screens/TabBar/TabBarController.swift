@@ -27,20 +27,20 @@ final class TabBarController: UITabBarController {
     return controller as! SearchViewController
     }()
     
-    class SavedOutput: SavedViewOutput { }
+    private let savedhContainer = SavedContainer.assemble(with: .init())
     private lazy var savedController: SavedViewController = {
-        let controller = SavedViewController(output: SavedOutput.init())
+        let controller = savedhContainer.viewController
         controller.title = "Saved"
         controller.tabBarItem.image = UIImage(named: Icons.star.rawValue)
-        return controller
+        return controller as! SavedViewController
     }()
     
-    class MyProfileOutput: MyProfileViewOutput { }
-    private let  profileController: MyProfileViewController = {
-        let controller = MyProfileViewController(output: MyProfileOutput.init())
+    private let myProfileContainer = AnotherProfileContainer.assemble(with: .init())
+    private lazy var profileController: AnotherProfileViewController = {
+        let controller = myProfileContainer.viewController
         controller.title = "Profile"
         controller.tabBarItem.image = UIImage(named: Icons.user.rawValue)
-        return controller
+        return controller as! AnotherProfileViewController
     }()
     
     private let borderView: UIView = {

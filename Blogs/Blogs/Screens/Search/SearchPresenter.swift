@@ -29,8 +29,8 @@ extension SearchPresenter: SearchViewOutput {
         router.openSettingViewController()
     }
     
-    func didTapBlogsTableViewCell() {
-        debugPrint("didTapBlogsTableViewCell")
+    func didTapSearchTableViewCell() {
+        debugPrint("didTapSearchTableViewCell")
     }
     
 }

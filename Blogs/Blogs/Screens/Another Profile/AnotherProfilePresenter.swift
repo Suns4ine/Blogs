@@ -25,6 +25,23 @@ extension AnotherProfilePresenter: AnotherProfileModuleInput {
 }
 
 extension AnotherProfilePresenter: AnotherProfileViewOutput {
+    func didTapBackButton() {
+        router.popViewController()
+    }
+    
+    func didTapFollowButton() {
+        debugPrint("didTapFollowButton")
+    }
+    
+    func didTapBlogTableViewCell() {
+        debugPrint("didTapBlogTableViewCell")
+    }
+    
+    func didTapMoreBlogButton() {
+        debugPrint("NO WORK")
+        router.openAnotherMoreBlogsViewController()
+    }
+    
 }
 
 extension AnotherProfilePresenter: AnotherProfileInteractorOutput {

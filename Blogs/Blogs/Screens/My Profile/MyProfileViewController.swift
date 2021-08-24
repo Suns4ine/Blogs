@@ -28,6 +28,7 @@ final class MyProfileViewController: UIViewController {
         let header = Header(title: "",
                             leftIcon: .init(icon: .alignJustify, size: .size24),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.addLeftIconTarget(self, action: #selector(tapSettingButton))
         return header
     }()
     
@@ -56,7 +57,8 @@ final class MyProfileViewController: UIViewController {
     }()
     
     private let editButton: ThirdBigButton = {
-       let button = ThirdBigButton(text: "editButton")
+        let button = ThirdBigButton(text: "editButton")
+        button.addTarget(self, action: #selector(tapEditButton))
         return button
     }()
     
@@ -88,6 +90,7 @@ final class MyProfileViewController: UIViewController {
     
     private let createBolgButton: FirstBigButton = {
         let button = FirstBigButton(text: "createBolgButton")
+        button.addTarget(self, action: #selector(tapCreateBolgButton))
         return button
     }()
     
@@ -97,7 +100,6 @@ final class MyProfileViewController: UIViewController {
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
         table.separatorStyle = .none
-        table.allowsSelection = false
         table.translatesAutoresizingMaskIntoConstraints = false
         table.isScrollEnabled = false
         table.sizeToFit()
@@ -106,6 +108,7 @@ final class MyProfileViewController: UIViewController {
     
     private let moreBlogButton: SecondBigButton = {
         let button = SecondBigButton(text: "moreBlogButton", icon: .none)
+        button.addTarget(self, action: #selector(tapMoreBlogButton))
         return button
     }()
     
@@ -317,7 +320,7 @@ final class MyProfileViewController: UIViewController {
             ])
         }
         
-        setupCustom()
+        //setupCustom()
     }
     
     //MARK: Кастомные настройки, так как до viewDidLayoutSubviews они не работают
@@ -328,6 +331,31 @@ final class MyProfileViewController: UIViewController {
     //MARK: Отключаем горизонтальную прокрутку
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.contentOffset.x = 0.0
+    }
+    
+    @objc
+    private func tapSettingButton() {
+        output.didTapSettingButton()
+    }
+    
+    @objc
+    private func tapEditButton() {
+        output.didTapEditButton()
+    }
+    
+    @objc
+    private func tapCreateBolgButton() {
+        output.didTapCreateBolgButton()
+    }
+    
+    @objc
+    private func tapBlogTableViewCell() {
+        output.didTapBlogTableViewCell()
+    }
+    
+    @objc
+    private func tapMoreBlogButton() {
+        output.didTapMoreBlogButton()
     }
 }
 
@@ -349,5 +377,10 @@ extension MyProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 168
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        debugPrint(indexPath.row)
+        tapBlogTableViewCell()
     }
 }

@@ -25,6 +25,14 @@ extension SavedPresenter: SavedModuleInput {
 }
 
 extension SavedPresenter: SavedViewOutput {
+    func didTapSettingButton() {
+        router.openSettingViewController()
+    }
+    
+    func didTapSavedTableViewCell() {
+        debugPrint("didTapSavedTableViewCell")
+    }
+    
 }
 
 extension SavedPresenter: SavedInteractorOutput {

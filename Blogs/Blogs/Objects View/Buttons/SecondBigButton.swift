@@ -87,8 +87,8 @@ final class SecondBigButton: UIView {
     }
     
     private func setup() {
-        [shadowView,  someView, label, button].forEach{ addSubview($0)}
         if hasIcon { addSubview(iconImage)}
+        [shadowView,  someView, label, button].forEach{ addSubview($0)}
         
         self.backgroundColor = .clear
         self.translatesAutoresizingMaskIntoConstraints = false

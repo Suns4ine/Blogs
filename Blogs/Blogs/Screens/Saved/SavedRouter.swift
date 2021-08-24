@@ -9,7 +9,12 @@
 import UIKit
 
 final class SavedRouter {
+    weak var sourceViewController: UIViewController?
 }
 
 extension SavedRouter: SavedRouterInput {
+    func openSettingViewController() {
+        let container = SettingContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
 }

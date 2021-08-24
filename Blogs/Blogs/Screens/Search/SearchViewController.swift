@@ -132,7 +132,7 @@ final class SearchViewController: UIViewController {
     
     @objc
     private func tapSearchTableViewCell() {
-        output.didTapBlogsTableViewCell()
+        output.didTapSearchTableViewCell()
     }
     
 }

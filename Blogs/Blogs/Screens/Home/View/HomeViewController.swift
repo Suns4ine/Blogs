@@ -95,7 +95,6 @@ final class HomeViewController: UIViewController {
         output.didTapBellButton()
     }
     
-    
     @objc
     private func tapBlogsTableViewCell() {
         output.didTapBlogsTableViewCell()

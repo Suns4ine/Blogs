@@ -23,6 +23,8 @@ final class MyProfileContainer {
 		presenter.moduleOutput = context.moduleOutput
 
 		interactor.output = presenter
+        
+        router.sourceViewController = viewController
 
         return MyProfileContainer(view: viewController, input: presenter, router: router)
 	}

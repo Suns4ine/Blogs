@@ -19,6 +19,8 @@ protocol SavedViewInput: class {
 }
 
 protocol SavedViewOutput: class {
+    func didTapSettingButton()
+    func didTapSavedTableViewCell()
 }
 
 protocol SavedInteractorInput: class {
@@ -28,4 +30,5 @@ protocol SavedInteractorOutput: class {
 }
 
 protocol SavedRouterInput: class {
+    func openSettingViewController()
 }
