@@ -113,7 +113,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        output.didTapBlogsTableViewCell(at: indexPath)
+        output.didTapSavedTableViewCell(at: indexPath)
     }
 }
 

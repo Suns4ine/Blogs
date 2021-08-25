@@ -29,7 +29,7 @@ extension SavedPresenter: SavedViewOutput {
         interactor.fetchBlogs()
     }
     
-    func didTapBlogsTableViewCell(at indexPath: IndexPath) {
+    func didTapSavedTableViewCell(at indexPath: IndexPath) {
         interactor.getBlog(at: indexPath)
     }
     

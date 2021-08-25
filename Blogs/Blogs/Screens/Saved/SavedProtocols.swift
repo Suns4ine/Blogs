@@ -22,7 +22,7 @@ protocol SavedViewInput: class {
 protocol SavedViewOutput: class {
     func fetchBlogsCell()
     func didTapSettingButton()
-    func didTapBlogsTableViewCell(at indexPath: IndexPath)
+    func didTapSavedTableViewCell(at indexPath: IndexPath)
 }
 
 protocol SavedInteractorInput: class {

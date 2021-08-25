@@ -25,15 +25,28 @@ extension SearchPresenter: SearchModuleInput {
 }
 
 extension SearchPresenter: SearchViewOutput {
+    func fetchBlogsCell() {
+        interactor.fetchBlogs()
+    }
+    
+    func didTapSearchTableViewCell(at indexPath: IndexPath) {
+        interactor.getBlog(at: indexPath)
+    }
+    
     func didTapSettingButton() {
         router.openSettingViewController()
     }
-    
-    func didTapSearchTableViewCell() {
-        debugPrint("didTapSearchTableViewCell")
-    }
-    
 }
 
 extension SearchPresenter: SearchInteractorOutput {
+    func blogsDidRecieve(_ blogs: [Blog]) {
+        let section = StandartBlogSectionViewModel()
+        blogs.forEach{ section.rows.append(StandartBlogCellViewModel.init(blog: $0))}
+        view?.reloadData(for: section)
+    }
+    
+    func blogDidRecieve(_ blog: Blog) {
+        router.openBlogViewController(with: blog)
+    }
+    
 }

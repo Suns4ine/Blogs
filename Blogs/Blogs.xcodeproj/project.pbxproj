@@ -810,9 +810,9 @@
 		35B10A1826C87412003E3D44 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				35B10A1E26C8742B003E3D44 /* SearchViewController.swift */,
 				35B10A1C26C8742B003E3D44 /* SearchPresenter.swift */,
 				35B10A1D26C8742B003E3D44 /* SearchRouter.swift */,
-				35B10A1E26C8742B003E3D44 /* SearchViewController.swift */,
 				35B10A1F26C8742B003E3D44 /* SearchProtocols.swift */,
 				35B10A2026C8742B003E3D44 /* SearchInteractor.swift */,
 				35B10A2126C8742B003E3D44 /* SearchContainer.swift */,

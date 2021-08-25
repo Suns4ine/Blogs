@@ -12,9 +12,9 @@ final class SearchViewController: UIViewController {
 	private let output: SearchViewOutput
 
     //MARK: Объявлены переменные
-    private var searchArray: [String] = ["1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6"] {
+    private var section: StandartBlogSectionRowPresentable = StandartBlogSectionViewModel() {
         didSet {
-            emptyArrayTitle.isHidden = searchArray.isEmpty ? false : true
+            emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
         }
     }
     
@@ -89,7 +89,9 @@ final class SearchViewController: UIViewController {
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        emptyArrayTitle.isHidden = searchArray.isEmpty ? false : true
+        emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
+        
+        output.fetchBlogsCell()
         
         searchTableView.delegate = self
         searchTableView.dataSource = self
@@ -119,7 +121,7 @@ final class SearchViewController: UIViewController {
             searchTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             searchTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
-            emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
+            emptyArrayTitle.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
@@ -130,37 +132,38 @@ final class SearchViewController: UIViewController {
         output.didTapSettingButton()
     }
     
-    @objc
-    private func tapSearchTableViewCell() {
-        output.didTapSearchTableViewCell()
-    }
-    
 }
 
 extension SearchViewController: SearchViewInput {
+    func reloadData(for section: StandartBlogSectionViewModel) {
+        self.section = section
+        searchTableView.reloadData()
+    }
+    
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchArray.count
+        return self.section.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let viewModel = section.rows[indexPath.row]
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: StandartBlogTableViewCell.identifier,
+                withIdentifier: viewModel.cellIdentifier,
                 for: indexPath) as? StandartBlogTableViewCell else { return .init() }
         
-        
+        cell.viewModel = viewModel
         cell.ediTindentHeight(top: 22, bot: 2)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 168
+        return section.rows[indexPath.row].cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         debugPrint(indexPath.row)
-        tapSearchTableViewCell()
+        output.didTapSearchTableViewCell(at: indexPath)
     }
 }
