@@ -1,5 +1,5 @@
 //
-//  BlogCellViewModel.swift
+//  StandartBlogCellViewModel.swift
 //  Blogs
 //
 //  Created by Vyacheslav Pronin on 25.08.2021.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BlogCellViewModel: BlogCellIdentifiable {
+final class StandartBlogCellViewModel: StandartBlogCellIdentifiable {
     
     let title: String
     let dateSubTitle: String
@@ -18,11 +18,11 @@ class BlogCellViewModel: BlogCellIdentifiable {
     let user: User
     
     var cellIdentifier: String {
-        "BlogsTableViewCell"
+        "StandartBlogTableViewCell"
     }
     
     var cellHeight: CGFloat {
-        428
+        168
     }
     
     init(blog: Blog) {
@@ -36,7 +36,7 @@ class BlogCellViewModel: BlogCellIdentifiable {
     
 }
 
-class BlogSectionViewModel: BlogSectionRowPresentable {
-    var rows: [BlogCellIdentifiable] = []
+final class StandartBlogSectionViewModel: StandartBlogSectionRowPresentable {
+    var rows: [StandartBlogCellIdentifiable] = []
     
 }

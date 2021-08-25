@@ -63,7 +63,7 @@ final class DraftBlogsViewController: UIViewController {
         
         draftTableView.delegate = self
         draftTableView.dataSource = self
-        draftTableView.register(SavedTableViewCell.self, forCellReuseIdentifier: SavedTableViewCell.identifier)
+        draftTableView.register(StandartBlogTableViewCell.self, forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
     }
     
     override func viewDidLayoutSubviews() {
@@ -106,8 +106,8 @@ extension DraftBlogsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: SavedTableViewCell.identifier,
-                for: indexPath) as? SavedTableViewCell else { return .init() }
+                withIdentifier: StandartBlogTableViewCell.identifier,
+                for: indexPath) as? StandartBlogTableViewCell else { return .init() }
         
         return cell
     }

@@ -16,13 +16,13 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
     }
     
     private func updateViews() {
-        guard let cellViewModel = viewModel as? BlogCellViewModel else { return }
-        title.editText(text: cellViewModel.title)
-        nameSubTitle.editText(text: cellViewModel.nameSubTitle)
-        dateSubTitle.editText(text: cellViewModel.dateSubTitle)
-        tagSubTitle.editText(text: cellViewModel.tagSubTitle)
-        avatar.editImage(image: cellViewModel.user.avatar)
-        BlogsTableViewCell.identifier = cellViewModel.cellIdentifier
+        guard let viewModel = viewModel as? BlogCellViewModel else { return }
+        title.editText(text: viewModel.title)
+        nameSubTitle.editText(text: viewModel.nameSubTitle)
+        dateSubTitle.editText(text: viewModel.dateSubTitle)
+        tagSubTitle.editText(text: viewModel.tagSubTitle)
+        avatar.editImage(image: viewModel.user.avatar)
+        BlogsTableViewCell.identifier = viewModel.cellIdentifier
     }
     
     static var identifier = "BlogsTableViewCell"

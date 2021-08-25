@@ -25,15 +25,29 @@ extension SavedPresenter: SavedModuleInput {
 }
 
 extension SavedPresenter: SavedViewOutput {
+    func fetchBlogsCell() {
+        interactor.fetchBlogs()
+    }
+    
+    func didTapBlogsTableViewCell(at indexPath: IndexPath) {
+        interactor.getBlog(at: indexPath)
+    }
+    
     func didTapSettingButton() {
         router.openSettingViewController()
     }
-    
-    func didTapSavedTableViewCell() {
-        debugPrint("didTapSavedTableViewCell")
-    }
-    
 }
 
 extension SavedPresenter: SavedInteractorOutput {
+    func blogsDidRecieve(_ blogs: [Blog]) {
+        let section = StandartBlogSectionViewModel()
+        blogs.forEach{ section.rows.append(StandartBlogCellViewModel.init(blog: $0))}
+        view?.reloadData(for: section)
+
+    }
+    
+    func blogDidRecieve(_ blog: Blog) {
+        router.openBlogViewController(with: blog)
+    }
+    
 }

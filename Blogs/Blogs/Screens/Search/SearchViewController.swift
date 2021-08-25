@@ -93,7 +93,7 @@ final class SearchViewController: UIViewController {
         
         searchTableView.delegate = self
         searchTableView.dataSource = self
-        searchTableView.register(SavedTableViewCell.self, forCellReuseIdentifier: SavedTableViewCell.identifier)
+        searchTableView.register(StandartBlogTableViewCell.self, forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
     }
     
     override func viewDidLayoutSubviews() {
@@ -147,8 +147,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UITe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: SavedTableViewCell.identifier,
-                for: indexPath) as? SavedTableViewCell else { return .init() }
+                withIdentifier: StandartBlogTableViewCell.identifier,
+                for: indexPath) as? StandartBlogTableViewCell else { return .init() }
         
         
         cell.ediTindentHeight(top: 22, bot: 2)

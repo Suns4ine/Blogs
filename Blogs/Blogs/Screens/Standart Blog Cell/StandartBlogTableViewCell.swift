@@ -1,5 +1,5 @@
 //
-//  SavedTableViewCell.swift
+//  StandartBlogTableViewCell.swift
 //  Blogs
 //
 //  Created by Vyacheslav Pronin on 12.08.2021.
@@ -8,9 +8,22 @@
 import Foundation
 import UIKit
 
-final class SavedTableViewCell: UITableViewCell {
+final class StandartBlogTableViewCell: UITableViewCell, StandartBlogCellModelRepresentable {
+    var viewModel: StandartBlogCellIdentifiable? {
+        didSet {
+            updateViews()
+        }
+    }
     
-    static let identifier = "SavedTableViewCell"
+    private func updateViews() {
+        guard let viewModel = viewModel as? StandartBlogCellViewModel else { return }
+        nameSubTitle.editText(text: viewModel.nameSubTitle)
+        dateSubTitle.editText(text: viewModel.dateSubTitle)
+        title.editText(text: viewModel.title)
+        StandartBlogTableViewCell.identifier = viewModel.cellIdentifier
+    }
+    
+    static var identifier = "StandartBlogTableViewCell"
     
     private var indentLeading: CGFloat = 12
     private var indentTrailing: CGFloat = 12

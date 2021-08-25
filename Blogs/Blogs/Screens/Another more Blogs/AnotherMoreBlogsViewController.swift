@@ -64,7 +64,7 @@ final class AnotherMoreBlogsViewController: UIViewController {
         
         anotherBlogsTableView.delegate = self
         anotherBlogsTableView.dataSource = self
-        anotherBlogsTableView.register(SavedTableViewCell.self, forCellReuseIdentifier: SavedTableViewCell.identifier)
+        anotherBlogsTableView.register(StandartBlogTableViewCell.self, forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
     }
     
     override func viewDidLayoutSubviews() {
@@ -107,8 +107,8 @@ extension AnotherMoreBlogsViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: SavedTableViewCell.identifier,
-                for: indexPath) as? SavedTableViewCell else { return .init() }
+                withIdentifier: StandartBlogTableViewCell.identifier,
+                for: indexPath) as? StandartBlogTableViewCell else { return .init() }
         
         return cell
     }

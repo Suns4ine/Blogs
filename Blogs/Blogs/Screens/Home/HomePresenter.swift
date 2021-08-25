@@ -38,12 +38,10 @@ extension HomePresenter: HomeViewOutput {
     }
     
     func didTapBlogsTableViewCell(at indexPath: IndexPath) {
-        debugPrint("didTapBlogsTableViewCell")
         interactor.getBlog(at: indexPath)
     }
     
     func didTapAvatarTableViewCell(at indexPath: Int) {
-        debugPrint(indexPath)
         interactor.getUser(at: indexPath)
     }
     

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		07A729722FAEC71FA373C421 /* Pods_BlogsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 100283F2411D352A14DD6A78 /* Pods_BlogsTests.framework */; };
 		237DC3E0C564E2A279C53456 /* Pods_Blogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92001B53180CB04A8B476183 /* Pods_Blogs.framework */; };
-		35028DC826C4747D00FF9D68 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DC726C4747D00FF9D68 /* SavedTableViewCell.swift */; };
+		35028DC826C4747D00FF9D68 /* StandartBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DC726C4747D00FF9D68 /* StandartBlogTableViewCell.swift */; };
 		35028DD326C544D000FF9D68 /* MyProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DCD26C544D000FF9D68 /* MyProfilePresenter.swift */; };
 		35028DD426C544D000FF9D68 /* MyProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DCE26C544D000FF9D68 /* MyProfileRouter.swift */; };
 		35028DD526C544D000FF9D68 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DCF26C544D000FF9D68 /* MyProfileViewController.swift */; };
@@ -204,6 +204,8 @@
 		35FDAC1C26D637AD00A84B99 /* BlogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC1B26D637AD00A84B99 /* BlogCellViewModel.swift */; };
 		35FDAC2126D63B4600A84B99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC2026D63B4600A84B99 /* User.swift */; };
 		35FDAC2626D651B500A84B99 /* BlogCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC2526D651B500A84B99 /* BlogCellProtocol.swift */; };
+		35FDAC3B26D69EBC00A84B99 /* StandartBlogCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC3A26D69EBC00A84B99 /* StandartBlogCellProtocol.swift */; };
+		35FDAC4926D6A3F700A84B99 /* StandartBlogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC4826D6A3F700A84B99 /* StandartBlogCellViewModel.swift */; };
 		35FFE51A26B01CBB0032321B /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51926B01CBB0032321B /* Header.swift */; };
 		35FFE52026B020690032321B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51F26B020690032321B /* Title.swift */; };
 		35FFE52826B02DF70032321B /* SubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE52726B02DF70032321B /* SubTitle.swift */; };
@@ -229,7 +231,7 @@
 
 /* Begin PBXFileReference section */
 		100283F2411D352A14DD6A78 /* Pods_BlogsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlogsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		35028DC726C4747D00FF9D68 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
+		35028DC726C4747D00FF9D68 /* StandartBlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartBlogTableViewCell.swift; sourceTree = "<group>"; };
 		35028DCD26C544D000FF9D68 /* MyProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfilePresenter.swift; sourceTree = "<group>"; };
 		35028DCE26C544D000FF9D68 /* MyProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileRouter.swift; sourceTree = "<group>"; };
 		35028DCF26C544D000FF9D68 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
@@ -430,6 +432,8 @@
 		35FDAC1B26D637AD00A84B99 /* BlogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCellViewModel.swift; sourceTree = "<group>"; };
 		35FDAC2026D63B4600A84B99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		35FDAC2526D651B500A84B99 /* BlogCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCellProtocol.swift; sourceTree = "<group>"; };
+		35FDAC3A26D69EBC00A84B99 /* StandartBlogCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartBlogCellProtocol.swift; sourceTree = "<group>"; };
+		35FDAC4826D6A3F700A84B99 /* StandartBlogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartBlogCellViewModel.swift; sourceTree = "<group>"; };
 		35FFE51926B01CBB0032321B /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		35FFE51F26B020690032321B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		35FFE52726B02DF70032321B /* SubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitle.swift; sourceTree = "<group>"; };
@@ -868,8 +872,7 @@
 		35DB449D26C4390F002EB53B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				35FDAC1A26D6376C00A84B99 /* BlogCell */,
-				35DB44AD26C44578002EB53B /* View */,
+				35DB44A026C4392E002EB53B /* HomeViewController.swift */,
 				35DB449E26C4392E002EB53B /* HomePresenter.swift */,
 				35DB449F26C4392E002EB53B /* HomeRouter.swift */,
 				35DB44A126C4392E002EB53B /* HomeProtocols.swift */,
@@ -879,18 +882,10 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		35DB44AD26C44578002EB53B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				35DB44A026C4392E002EB53B /* HomeViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		35DB44B926C46E4C002EB53B /* Saved */ = {
 			isa = PBXGroup;
 			children = (
-				35DB44CC26C46F1F002EB53B /* View */,
+				35DB44BC26C46E5F002EB53B /* SavedViewController.swift */,
 				35DB44BA26C46E5F002EB53B /* SavedPresenter.swift */,
 				35DB44BB26C46E5F002EB53B /* SavedRouter.swift */,
 				35DB44BD26C46E5F002EB53B /* SavedProtocols.swift */,
@@ -898,15 +893,6 @@
 				35DB44BF26C46E5F002EB53B /* SavedContainer.swift */,
 			);
 			path = Saved;
-			sourceTree = "<group>";
-		};
-		35DB44CC26C46F1F002EB53B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				35DB44BC26C46E5F002EB53B /* SavedViewController.swift */,
-				35028DC726C4747D00FF9D68 /* SavedTableViewCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		35E020C226C1C76B00C99280 /* Resources */ = {
@@ -1009,10 +995,12 @@
 				35028DCC26C544AF00FF9D68 /* My Profile */,
 				35DB44B926C46E4C002EB53B /* Saved */,
 				35DB449D26C4390F002EB53B /* Home */,
-				35DB448826C408FB002EB53B /* TabBar */,
 				35E020F926C30A2500C99280 /* SignUp */,
 				35E020DC26C1FBAB00C99280 /* Login */,
 				35E020DD26C1FC9B00C99280 /* Start */,
+				35DB448826C408FB002EB53B /* TabBar */,
+				35FDAC3926D69DFA00A84B99 /* Standart Blog Cell */,
+				35FDAC1A26D6376C00A84B99 /* Blog Cell */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1030,14 +1018,24 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		35FDAC1A26D6376C00A84B99 /* BlogCell */ = {
+		35FDAC1A26D6376C00A84B99 /* Blog Cell */ = {
 			isa = PBXGroup;
 			children = (
 				35DB44AE26C44587002EB53B /* BlogsTableViewCell.swift */,
 				35FDAC1B26D637AD00A84B99 /* BlogCellViewModel.swift */,
 				35FDAC2526D651B500A84B99 /* BlogCellProtocol.swift */,
 			);
-			path = BlogCell;
+			path = "Blog Cell";
+			sourceTree = "<group>";
+		};
+		35FDAC3926D69DFA00A84B99 /* Standart Blog Cell */ = {
+			isa = PBXGroup;
+			children = (
+				35028DC726C4747D00FF9D68 /* StandartBlogTableViewCell.swift */,
+				35FDAC4826D6A3F700A84B99 /* StandartBlogCellViewModel.swift */,
+				35FDAC3A26D69EBC00A84B99 /* StandartBlogCellProtocol.swift */,
+			);
+			path = "Standart Blog Cell";
 			sourceTree = "<group>";
 		};
 		35FFE51826B01CA00032321B /* Header */ = {
@@ -1401,6 +1399,7 @@
 				359734A926C9FE9700086C12 /* PreviewProtocols.swift in Sources */,
 				35B1098D26C6BF4D003E3D44 /* AboutTheApplicationPresenter.swift in Sources */,
 				35FDAC1626D6342A00A84B99 /* Blog.swift in Sources */,
+				35FDAC3B26D69EBC00A84B99 /* StandartBlogCellProtocol.swift in Sources */,
 				35B10A3926C97FD8003E3D44 /* SettingInteractor.swift in Sources */,
 				35FFE52826B02DF70032321B /* SubTitle.swift in Sources */,
 				35B10A2426C8742B003E3D44 /* SearchViewController.swift in Sources */,
@@ -1435,6 +1434,7 @@
 				35B109F426C85010003E3D44 /* AnotherBlogInteractor.swift in Sources */,
 				35DB44A526C4392E002EB53B /* HomeRouter.swift in Sources */,
 				35028DD826C544D000FF9D68 /* MyProfileContainer.swift in Sources */,
+				35FDAC4926D6A3F700A84B99 /* StandartBlogCellViewModel.swift in Sources */,
 				35E0210126C30A3B00C99280 /* SignUpRouter.swift in Sources */,
 				35DB44AF26C44587002EB53B /* BlogsTableViewCell.swift in Sources */,
 				35028DD326C544D000FF9D68 /* MyProfilePresenter.swift in Sources */,
@@ -1495,7 +1495,7 @@
 				35E020B926C1812A00C99280 /* Avatar.swift in Sources */,
 				359734C326CAC34200086C12 /* PreviewPageViewController.swift in Sources */,
 				35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */,
-				35028DC826C4747D00FF9D68 /* SavedTableViewCell.swift in Sources */,
+				35028DC826C4747D00FF9D68 /* StandartBlogTableViewCell.swift in Sources */,
 				35DB44A426C4392E002EB53B /* HomePresenter.swift in Sources */,
 				35B10A3826C97FD8003E3D44 /* SettingProtocols.swift in Sources */,
 				35028E1526C69C5A00FF9D68 /* ChoiceLanguagePresenter.swift in Sources */,

@@ -196,7 +196,7 @@ final class AnotherProfileViewController: UIViewController {
         scrollView.delegate =  self
         blogTableView.delegate = self
         blogTableView.dataSource = self
-        blogTableView.register(SavedTableViewCell.self, forCellReuseIdentifier: SavedTableViewCell.identifier)
+        blogTableView.register(StandartBlogTableViewCell.self, forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -371,8 +371,8 @@ extension AnotherProfileViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: SavedTableViewCell.identifier,
-                for: indexPath) as? SavedTableViewCell else { return .init() }
+                withIdentifier: StandartBlogTableViewCell.identifier,
+                for: indexPath) as? StandartBlogTableViewCell else { return .init() }
         
         return cell
     }
