@@ -61,6 +61,14 @@ final class Avatar: UIView {
         button.addTarget(target, action: action, for: event)
     }
     
+    func addTag(_ tag: Int) {
+        button.tag = tag
+    }
+    
+    func editImage(image: UIImage) {
+        imageView.image = image
+    }
+    
     private func editConstraint(size: SizeAvatar) {
         switch size {
         case .size170:

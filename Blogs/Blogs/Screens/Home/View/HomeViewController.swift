@@ -12,9 +12,9 @@ final class HomeViewController: UIViewController {
 	private let output: HomeViewOutput
 
     //MARK: Объявление переменных
-    private var arrayBlogs: [String] = ["1", "2", "2", "4", "5", "6", "1", "2", "2", "4", "5", "6", "1", "2", "2", "4", "5", "6"] {
+    private var section: BlogSectionRowPresentable = BlogSectionViewModel() {
         didSet {
-            emptyArrayTitle.isHidden = arrayBlogs.isEmpty ? false : true
+            emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
         }
     }
     
@@ -59,7 +59,9 @@ final class HomeViewController: UIViewController {
         [header, blogsTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        emptyArrayTitle.isHidden = arrayBlogs.isEmpty ? false : true
+        emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
+        
+        output.fetchBlogsCell()
         
         blogsTableView.delegate = self
         blogsTableView.dataSource = self
@@ -96,33 +98,44 @@ final class HomeViewController: UIViewController {
     }
     
     @objc
-    private func tapBlogsTableViewCell() {
-        output.didTapBlogsTableViewCell()
+    private func tapAvatarTableViewCell( _ button: UIButton) {
+        let buttonTag = button.tag
+        output.didTapAvatarTableViewCell(at: buttonTag)
     }
+    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayBlogs.count
+        return self.section.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let viewModel = section.rows[indexPath.row]
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: BlogsTableViewCell.identifier,
+                withIdentifier: viewModel.cellIdentifier,
                 for: indexPath) as? BlogsTableViewCell else { return .init() }
+        
+        cell.viewModel = viewModel
+        cell.addTag(indexPath.row)
+        cell.addTargetAvatar(self, action: #selector(tapAvatarTableViewCell))
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 428
+        return section.rows[indexPath.row].cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         debugPrint(indexPath.row)
-        tapBlogsTableViewCell()
+        output.didTapBlogsTableViewCell(at: indexPath)
     }
 }
 
 extension HomeViewController: HomeViewInput {
+    func reloadData(for section: BlogSectionViewModel) {
+        self.section = section
+        blogsTableView.reloadData()
+    }
 }

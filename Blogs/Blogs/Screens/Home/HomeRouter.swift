@@ -13,8 +13,19 @@ final class HomeRouter {
 }
 
 extension HomeRouter: HomeRouterInput {
+    
     func openSettingViewController() {
         let container = SettingContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
+    func openBlogViewController(with blog: Blog) {
+        let container = AnotherBlogContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
+    func openAnotherProfileController(with user: User) {
+        let container = AnotherProfileContainer.assemble(with: .init())
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 }

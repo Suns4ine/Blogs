@@ -38,7 +38,6 @@ extension AnotherProfilePresenter: AnotherProfileViewOutput {
     }
     
     func didTapMoreBlogButton() {
-        debugPrint("NO WORK")
         router.openAnotherMoreBlogsViewController()
     }
     

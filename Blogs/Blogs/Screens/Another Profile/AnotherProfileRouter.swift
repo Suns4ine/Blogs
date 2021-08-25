@@ -18,7 +18,8 @@ extension AnotherProfileRouter: AnotherProfileRouterInput {
     }
     
     func openAnotherMoreBlogsViewController() {
-        
+        let container = AnotherMoreBlogsContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     
 }

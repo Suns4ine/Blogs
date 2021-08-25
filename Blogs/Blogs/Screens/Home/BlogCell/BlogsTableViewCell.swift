@@ -8,9 +8,24 @@
 import Foundation
 import UIKit
 
-final class BlogsTableViewCell: UITableViewCell {
+final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
+    var viewModel: BlogCellIdentifiable? {
+        didSet {
+            updateViews()
+        }
+    }
     
-    static let identifier = "BlogsTableViewCell"
+    private func updateViews() {
+        guard let cellViewModel = viewModel as? BlogCellViewModel else { return }
+        title.editText(text: cellViewModel.title)
+        nameSubTitle.editText(text: cellViewModel.nameSubTitle)
+        dateSubTitle.editText(text: cellViewModel.dateSubTitle)
+        tagSubTitle.editText(text: cellViewModel.tagSubTitle)
+        avatar.editImage(image: cellViewModel.user.avatar)
+        BlogsTableViewCell.identifier = cellViewModel.cellIdentifier
+    }
+    
+    static var identifier = "BlogsTableViewCell"
     
     private let blogView: UIView = {
         let view = UIView()
@@ -113,5 +128,13 @@ final class BlogsTableViewCell: UITableViewCell {
             tagSubTitle.leadingAnchor.constraint(equalTo: dateSubTitle.trailingAnchor, constant: 16),
             tagSubTitle.heightAnchor.constraint(equalToConstant: 20)
         ])
+    }
+    
+    func addTargetAvatar(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        avatar.addTarget(target, action: action, for: event)
+    }
+    
+    func addTag(_ tag: Int) {
+        avatar.addTag(tag)
     }
 }

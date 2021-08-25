@@ -200,6 +200,10 @@
 		35E0210326C30A3B00C99280 /* SignUpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020FD26C30A3A00C99280 /* SignUpProtocols.swift */; };
 		35E0210426C30A3B00C99280 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020FE26C30A3A00C99280 /* SignUpInteractor.swift */; };
 		35E0210526C30A3B00C99280 /* SignUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020FF26C30A3B00C99280 /* SignUpContainer.swift */; };
+		35FDAC1626D6342A00A84B99 /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC1526D6342A00A84B99 /* Blog.swift */; };
+		35FDAC1C26D637AD00A84B99 /* BlogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC1B26D637AD00A84B99 /* BlogCellViewModel.swift */; };
+		35FDAC2126D63B4600A84B99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC2026D63B4600A84B99 /* User.swift */; };
+		35FDAC2626D651B500A84B99 /* BlogCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC2526D651B500A84B99 /* BlogCellProtocol.swift */; };
 		35FFE51A26B01CBB0032321B /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51926B01CBB0032321B /* Header.swift */; };
 		35FFE52026B020690032321B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51F26B020690032321B /* Title.swift */; };
 		35FFE52826B02DF70032321B /* SubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE52726B02DF70032321B /* SubTitle.swift */; };
@@ -422,6 +426,10 @@
 		35E020FD26C30A3A00C99280 /* SignUpProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProtocols.swift; sourceTree = "<group>"; };
 		35E020FE26C30A3A00C99280 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		35E020FF26C30A3B00C99280 /* SignUpContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContainer.swift; sourceTree = "<group>"; };
+		35FDAC1526D6342A00A84B99 /* Blog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
+		35FDAC1B26D637AD00A84B99 /* BlogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCellViewModel.swift; sourceTree = "<group>"; };
+		35FDAC2026D63B4600A84B99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		35FDAC2526D651B500A84B99 /* BlogCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCellProtocol.swift; sourceTree = "<group>"; };
 		35FFE51926B01CBB0032321B /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		35FFE51F26B020690032321B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		35FFE52726B02DF70032321B /* SubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitle.swift; sourceTree = "<group>"; };
@@ -534,6 +542,8 @@
 				35CE261126AE8848000F4E84 /* ColorsApplication */,
 				35CE261026AE8829000F4E84 /* Extensions */,
 				3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */,
+				35FDAC1526D6342A00A84B99 /* Blog.swift */,
+				35FDAC2026D63B4600A84B99 /* User.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -858,6 +868,7 @@
 		35DB449D26C4390F002EB53B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				35FDAC1A26D6376C00A84B99 /* BlogCell */,
 				35DB44AD26C44578002EB53B /* View */,
 				35DB449E26C4392E002EB53B /* HomePresenter.swift */,
 				35DB449F26C4392E002EB53B /* HomeRouter.swift */,
@@ -872,7 +883,6 @@
 			isa = PBXGroup;
 			children = (
 				35DB44A026C4392E002EB53B /* HomeViewController.swift */,
-				35DB44AE26C44587002EB53B /* BlogsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1018,6 +1028,16 @@
 				35E020FF26C30A3B00C99280 /* SignUpContainer.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		35FDAC1A26D6376C00A84B99 /* BlogCell */ = {
+			isa = PBXGroup;
+			children = (
+				35DB44AE26C44587002EB53B /* BlogsTableViewCell.swift */,
+				35FDAC1B26D637AD00A84B99 /* BlogCellViewModel.swift */,
+				35FDAC2526D651B500A84B99 /* BlogCellProtocol.swift */,
+			);
+			path = BlogCell;
 			sourceTree = "<group>";
 		};
 		35FFE51826B01CA00032321B /* Header */ = {
@@ -1325,6 +1345,7 @@
 				35B109C626C71E7D003E3D44 /* AdditionBlogPresenter.swift in Sources */,
 				35B109C926C71E7D003E3D44 /* AdditionBlogProtocols.swift in Sources */,
 				35B10A3526C97FD8003E3D44 /* SettingPresenter.swift in Sources */,
+				35FDAC2126D63B4600A84B99 /* User.swift in Sources */,
 				35B1095826C6AAF0003E3D44 /* ChoiceColorRouter.swift in Sources */,
 				35E020E826C1FCBE00C99280 /* StartInteractor.swift in Sources */,
 				35595AEA26D528DD0080B184 /* AnotherMoreBlogsRouter.swift in Sources */,
@@ -1375,9 +1396,11 @@
 				35B1099126C6BF4D003E3D44 /* AboutTheApplicationInteractor.swift in Sources */,
 				356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */,
 				35B10A2326C8742B003E3D44 /* SearchRouter.swift in Sources */,
+				35FDAC2626D651B500A84B99 /* BlogCellProtocol.swift in Sources */,
 				35028E0526C5F47200FF9D68 /* AnotherProfilePresenter.swift in Sources */,
 				359734A926C9FE9700086C12 /* PreviewProtocols.swift in Sources */,
 				35B1098D26C6BF4D003E3D44 /* AboutTheApplicationPresenter.swift in Sources */,
+				35FDAC1626D6342A00A84B99 /* Blog.swift in Sources */,
 				35B10A3926C97FD8003E3D44 /* SettingInteractor.swift in Sources */,
 				35FFE52826B02DF70032321B /* SubTitle.swift in Sources */,
 				35B10A2426C8742B003E3D44 /* SearchViewController.swift in Sources */,
@@ -1442,6 +1465,7 @@
 				35595AD826D524BF0080B184 /* MyMoreBlogsViewController.swift in Sources */,
 				35B109F226C85010003E3D44 /* AnotherBlogViewController.swift in Sources */,
 				35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */,
+				35FDAC1C26D637AD00A84B99 /* BlogCellViewModel.swift in Sources */,
 				35B10A2726C8742B003E3D44 /* SearchContainer.swift in Sources */,
 				35E0210526C30A3B00C99280 /* SignUpContainer.swift in Sources */,
 				35B109A426C6D559003E3D44 /* DraftBlogsInteractor.swift in Sources */,

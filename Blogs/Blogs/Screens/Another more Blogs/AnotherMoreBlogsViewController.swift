@@ -78,7 +78,7 @@ final class AnotherMoreBlogsViewController: UIViewController {
             anotherBlogsTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 4),
             anotherBlogsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             anotherBlogsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            anotherBlogsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            anotherBlogsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),

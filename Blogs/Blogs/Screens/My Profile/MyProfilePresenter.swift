@@ -42,7 +42,6 @@ extension MyProfilePresenter: MyProfileViewOutput {
     }
     
     func didTapMoreBlogButton() {
-        debugPrint("NO WORK")
         router.openMyMoreBlogsViewController()
     }
     

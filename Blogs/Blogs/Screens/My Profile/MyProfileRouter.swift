@@ -29,7 +29,7 @@ extension MyProfileRouter: MyProfileRouterInput {
     }
     
     func openMyMoreBlogsViewController() {
-//        let container = SettingContainer.assemble(with: .init())
-//        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+        let container = MyMoreBlogsContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 }
