@@ -23,6 +23,7 @@ final class UtiliesCellViewModel: UtiliesCellIdentifiable {
     var cellWidth: CGFloat {
        44
     }
+
     
     init(utility: Utility) {
         self.utility = utility
@@ -32,4 +33,8 @@ final class UtiliesCellViewModel: UtiliesCellIdentifiable {
 
 final class UtiliesSectionViewModel: UtiliesSectionRowPresentable {
     var rows: [UtiliesCellIdentifiable] = []
+    
+    var minimumLineSpacing: CGFloat {
+        4
+    }
 }

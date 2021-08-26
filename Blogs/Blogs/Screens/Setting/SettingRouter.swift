@@ -13,6 +13,11 @@ final class SettingRouter {
 }
 
 extension SettingRouter: SettingRouterInput {
+    func openChoiceViewController(with setting: Setting) {
+        let container = ChoiceColorContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
     func popViewController() {
         self.sourceViewController?.navigationController?.popViewController(animated: true)
     }

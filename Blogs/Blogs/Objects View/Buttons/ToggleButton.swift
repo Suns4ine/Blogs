@@ -86,6 +86,10 @@ final class ToggleButton: UIView {
         sliderButton.addTarget(target, action: action, for: event)
     }
     
+    func addTag(_ tag: Int) {
+        sliderButton.tag = tag
+    }
+    
     @objc
     private func newCoordinate() {
         

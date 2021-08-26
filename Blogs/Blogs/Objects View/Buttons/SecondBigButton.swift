@@ -102,6 +102,10 @@ final class SecondBigButton: UIView {
         button.backgroundColor = color
     }
     
+    func addTag(_ tag: Int) {
+        button.tag = tag
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

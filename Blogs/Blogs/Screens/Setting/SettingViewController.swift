@@ -12,7 +12,7 @@ final class SettingViewController: UIViewController {
 	private let output: SettingViewOutput
 
     //MARK: Объявление переенных
-    private var settingArray: [Int] = [1, 1, 2, 2, 2, 2, 3, 3, 4]
+    private var section: SettingSectionRowPresentable = SettingSectionViewModel()
     
     private let header: Header = {
         let header = Header(title: "Настройки",
@@ -28,7 +28,6 @@ final class SettingViewController: UIViewController {
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
         table.separatorStyle = .none
-        //table.allowsSelection = false
         table.translatesAutoresizingMaskIntoConstraints = false
         table.alwaysBounceVertical = false
         return table
@@ -52,6 +51,8 @@ final class SettingViewController: UIViewController {
         self.view.backgroundColor = StandartColors.settingBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
+        output.fetchSettingsCell()
+        
         settingTableView.delegate = self
         settingTableView.dataSource = self
         settingTableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
@@ -68,7 +69,7 @@ final class SettingViewController: UIViewController {
             settingTableView.topAnchor.constraint(equalTo: header.bottomAnchor),
             settingTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             settingTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            settingTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            settingTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -78,51 +79,52 @@ final class SettingViewController: UIViewController {
     }
     
     @objc
-    private func tapSettingTableViewCell() {
-        output.didTapSettingTableViewCell()
+    private func tapSettingButton( _ button: UIButton) {
+        output.didTapSettingButtonTableViewCell(at: button.tag)
+    }
+    
+    @objc
+    private func tapToggleButton( _ button: UIButton) {
+        output.didTapToggleButtonTableViewCell(at: button.tag)
     }
 }
 
 extension SettingViewController: SettingViewInput {
+    func reloadData(for section: SettingSectionViewModel) {
+        self.section = section
+        settingTableView.reloadData()
+    }
 }
 
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingArray.count
+        return self.section.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let viewModel = section.rows[indexPath.row]
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: SettingTableViewCell.identifier,
+                withIdentifier: viewModel.cellIdentifier,
                 for: indexPath) as? SettingTableViewCell else { return .init() }
         
-        switch settingArray[indexPath.row] {
-        case 1:
-            cell.selectCell(cell: .toggle)
-        case 2:
-            cell.selectCell(cell: .screen)
-        case 3:
-            cell.selectCell(cell: .button)
-        default:
-            cell.selectCell(cell: .none)
-        }
+        cell.viewModel = viewModel
         
+        cell.addTargeToggleButton(self, action: #selector(tapToggleButton(_:)))
+        cell.addTargeSettingButton(self, action: #selector(tapSettingButton(_:)))
+        cell.addTag(indexPath.row)
         
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        switch settingArray[indexPath.row] {
-        case 1: return 120
-        case 2: return 76
-        case 3: return 84
-        default: return 0
-        }
+        return section.rows[indexPath.row].cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        debugPrint(indexPath.row)
-        tapSettingTableViewCell()
+        guard let viewModel = section.rows[indexPath.row] as? SettingCellViewModel else { return }
+        
+        if viewModel.condition == .screen {
+            output.didTapSettingTableViewCell(at: indexPath)
+        }
     }
 }

@@ -209,6 +209,9 @@
 		35FDAC6A26D79E1700A84B99 /* UtiliesCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC6926D79E1700A84B99 /* UtiliesCellProtocol.swift */; };
 		35FDAC6F26D79E9E00A84B99 /* UtiliesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC6E26D79E9E00A84B99 /* UtiliesCellViewModel.swift */; };
 		35FDAC7A26D7A45E00A84B99 /* UtiliesIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC7926D7A45E00A84B99 /* UtiliesIcon.swift */; };
+		35FDAC8926D7CAB700A84B99 /* SettingCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC8826D7CAB700A84B99 /* SettingCellProtocol.swift */; };
+		35FDAC9126D7CAFC00A84B99 /* SettingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC9026D7CAFC00A84B99 /* SettingCellViewModel.swift */; };
+		35FDAC9926D7CB8900A84B99 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC9826D7CB8900A84B99 /* Setting.swift */; };
 		35FFE51A26B01CBB0032321B /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51926B01CBB0032321B /* Header.swift */; };
 		35FFE52026B020690032321B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51F26B020690032321B /* Title.swift */; };
 		35FFE52826B02DF70032321B /* SubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE52726B02DF70032321B /* SubTitle.swift */; };
@@ -440,6 +443,9 @@
 		35FDAC6926D79E1700A84B99 /* UtiliesCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtiliesCellProtocol.swift; sourceTree = "<group>"; };
 		35FDAC6E26D79E9E00A84B99 /* UtiliesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtiliesCellViewModel.swift; sourceTree = "<group>"; };
 		35FDAC7926D7A45E00A84B99 /* UtiliesIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtiliesIcon.swift; sourceTree = "<group>"; };
+		35FDAC8826D7CAB700A84B99 /* SettingCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellProtocol.swift; sourceTree = "<group>"; };
+		35FDAC9026D7CAFC00A84B99 /* SettingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellViewModel.swift; sourceTree = "<group>"; };
+		35FDAC9826D7CB8900A84B99 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		35FFE51926B01CBB0032321B /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		35FFE51F26B020690032321B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		35FFE52726B02DF70032321B /* SubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitle.swift; sourceTree = "<group>"; };
@@ -554,6 +560,7 @@
 				3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */,
 				35FDAC1526D6342A00A84B99 /* Blog.swift */,
 				35FDAC2026D63B4600A84B99 /* User.swift */,
+				35FDAC9826D7CB8900A84B99 /* Setting.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -820,7 +827,7 @@
 		35B10A2B26C97FC7003E3D44 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				35B10A4326C99CBC003E3D44 /* View */,
+				35B10A3126C97FD8003E3D44 /* SettingViewController.swift */,
 				35B10A2F26C97FD8003E3D44 /* SettingPresenter.swift */,
 				35B10A3026C97FD8003E3D44 /* SettingRouter.swift */,
 				35B10A3226C97FD8003E3D44 /* SettingProtocols.swift */,
@@ -828,15 +835,6 @@
 				35B10A3426C97FD8003E3D44 /* SettingContainer.swift */,
 			);
 			path = Setting;
-			sourceTree = "<group>";
-		};
-		35B10A4326C99CBC003E3D44 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				35B10A3126C97FD8003E3D44 /* SettingViewController.swift */,
-				35B10A3E26C99CB6003E3D44 /* SettingTableViewCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		35CE261026AE8829000F4E84 /* Extensions */ = {
@@ -976,9 +974,9 @@
 				35595AE226D528C20080B184 /* Another more Blogs */,
 				35595ACF26D524990080B184 /* My more Blogs */,
 				3597349F26C9FE4400086C12 /* Preview */,
+				35FDAC7E26D7C90300A84B99 /* Setting Cell */,
 				35B10A2B26C97FC7003E3D44 /* Setting */,
 				35B10A1826C87412003E3D44 /* Search */,
-				35FDAC6226D79DC100A84B99 /* Utilities Cell */,
 				35B109FC26C85D91003E3D44 /* Create Blog */,
 				35B109E926C84FEA003E3D44 /* Another Blog */,
 				35B109D326C7FED6003E3D44 /* My Blog */,
@@ -1000,6 +998,7 @@
 				35DB448826C408FB002EB53B /* TabBar */,
 				35FDAC3926D69DFA00A84B99 /* Standart Blog Cell */,
 				35FDAC1A26D6376C00A84B99 /* Blog Cell */,
+				35FDAC6226D79DC100A84B99 /* Utilities Cell */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1045,6 +1044,16 @@
 				35FDAC6926D79E1700A84B99 /* UtiliesCellProtocol.swift */,
 			);
 			path = "Utilities Cell";
+			sourceTree = "<group>";
+		};
+		35FDAC7E26D7C90300A84B99 /* Setting Cell */ = {
+			isa = PBXGroup;
+			children = (
+				35B10A3E26C99CB6003E3D44 /* SettingTableViewCell.swift */,
+				35FDAC9026D7CAFC00A84B99 /* SettingCellViewModel.swift */,
+				35FDAC8826D7CAB700A84B99 /* SettingCellProtocol.swift */,
+			);
+			path = "Setting Cell";
 			sourceTree = "<group>";
 		};
 		35FFE51826B01CA00032321B /* Header */ = {
@@ -1405,6 +1414,7 @@
 				35B10A2326C8742B003E3D44 /* SearchRouter.swift in Sources */,
 				35FDAC2626D651B500A84B99 /* BlogCellProtocol.swift in Sources */,
 				35028E0526C5F47200FF9D68 /* AnotherProfilePresenter.swift in Sources */,
+				35FDAC8926D7CAB700A84B99 /* SettingCellProtocol.swift in Sources */,
 				359734A926C9FE9700086C12 /* PreviewProtocols.swift in Sources */,
 				35B1098D26C6BF4D003E3D44 /* AboutTheApplicationPresenter.swift in Sources */,
 				35FDAC1626D6342A00A84B99 /* Blog.swift in Sources */,
@@ -1424,6 +1434,7 @@
 				35B1097B26C6B99C003E3D44 /* HelpRouter.swift in Sources */,
 				3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */,
 				35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */,
+				35FDAC9126D7CAFC00A84B99 /* SettingCellViewModel.swift in Sources */,
 				35B1097D26C6B99C003E3D44 /* HelpProtocols.swift in Sources */,
 				3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */,
 				35B1096926C6B110003E3D44 /* PasswordChangeViewController.swift in Sources */,
@@ -1515,6 +1526,7 @@
 				35E020E926C1FCBE00C99280 /* StartContainer.swift in Sources */,
 				35DB448A26C40923002EB53B /* TabBarController.swift in Sources */,
 				35B1097E26C6B99C003E3D44 /* HelpInteractor.swift in Sources */,
+				35FDAC9926D7CB8900A84B99 /* Setting.swift in Sources */,
 				359734AA26C9FE9700086C12 /* PreviewInteractor.swift in Sources */,
 				35B1096826C6B110003E3D44 /* PasswordChangeRouter.swift in Sources */,
 				359734A726C9FE9700086C12 /* PreviewRouter.swift in Sources */,

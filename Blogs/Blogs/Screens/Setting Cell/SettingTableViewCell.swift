@@ -15,10 +15,30 @@ enum SelectSettingCell: CaseIterable {
     case none
 }
 
-final class SettingTableViewCell: UITableViewCell {
+final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable {
     
-    static let identifier = "SettingTableViewCell"
-    private var typeCell: SelectSettingCell = .none
+    var viewModel: SettingCellIdentifiable? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    private func updateViews() {
+        guard let viewModel = viewModel as? SettingCellViewModel else { return }
+        title.editText(text: viewModel.title)
+        subtitle.editText(text: viewModel.subtitle)
+        icon.editIcon(icon: viewModel.icon)
+        typeCell = viewModel.condition
+        SettingTableViewCell.identifier = viewModel.cellIdentifier
+    }
+    
+    
+    static var identifier = "SettingTableViewCell"
+    private var typeCell: SelectSettingCell = .none {
+        didSet {
+            selectCell(cell: typeCell)
+        }
+    }
     
     private let backgroundSettingView: UIView = {
         let view = UIView()
@@ -62,8 +82,31 @@ final class SettingTableViewCell: UITableViewCell {
         setup()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setup() {
+        [backgroundSettingView, title, subtitle,
+         button, icon, togleButton].forEach{ contentView.addSubview($0)}
+        selectCell(cell: typeCell)
+        
+        self.backgroundColor = .clear
+        self.selectionStyle = .none
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        NSLayoutConstraint.activate([
+            backgroundSettingView.topAnchor.constraint(equalTo: self.topAnchor),
+            backgroundSettingView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            backgroundSettingView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            backgroundSettingView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+        ])
+    }
+    
     func selectCell(cell: SelectSettingCell) {
-        typeCell = cell
         
         [title, subtitle, button, icon, togleButton].forEach{ $0.isHidden = true}
         
@@ -125,26 +168,16 @@ final class SettingTableViewCell: UITableViewCell {
         }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func addTargeSettingButton(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
     }
     
-    private func setup() {
-        [backgroundSettingView, title, subtitle, button, icon, togleButton].forEach{ contentView.addSubview($0)}
-        selectCell(cell: typeCell)
-        
-        self.backgroundColor = .clear
-        self.selectionStyle = .none
+    func addTargeToggleButton(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        togleButton.addTarget(target, action: action, for: event)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        NSLayoutConstraint.activate([
-            backgroundSettingView.topAnchor.constraint(equalTo: self.topAnchor),
-            backgroundSettingView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            backgroundSettingView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            backgroundSettingView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-        ])
+    func addTag(_ tag: Int) {
+        button.addTag(tag)
+        togleButton.addTag(tag)
     }
 }

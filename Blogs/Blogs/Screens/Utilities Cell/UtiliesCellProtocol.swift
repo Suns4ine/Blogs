@@ -16,6 +16,7 @@ protocol UtiliesCellIdentifiable {
 
 protocol UtiliesSectionRowPresentable {
     var rows: [UtiliesCellIdentifiable] { get set }
+    var minimumLineSpacing: CGFloat { get }
 }
 
 

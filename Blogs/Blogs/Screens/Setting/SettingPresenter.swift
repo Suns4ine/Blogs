@@ -25,14 +25,39 @@ extension SettingPresenter: SettingModuleInput {
 }
 
 extension SettingPresenter: SettingViewOutput {
-    func didTapBackButton() {
-        router.popViewController()
+    func didTapSettingButtonTableViewCell(at indexPath: Int) {
+        debugPrint(indexPath)
+        debugPrint("didTapSettingButtonTableViewCell")
     }
     
-    func didTapSettingTableViewCell() {
-        debugPrint("didTapSettingTableViewCell")
+    func didTapToggleButtonTableViewCell(at indexPath: Int) {
+        debugPrint(indexPath)
+        debugPrint("didTapToggleButtonTableViewCell")
+    }
+    
+    func fetchSettingsCell() {
+        interactor.fetchSettings()
+    }
+    
+    func didTapSettingTableViewCell(at indexPath: IndexPath) {
+        interactor.getSetting(at: indexPath)
+    }
+    
+    func didTapBackButton() {
+        router.popViewController()
     }
 }
 
 extension SettingPresenter: SettingInteractorOutput {
+    func settingsDidRecieve(_ settings: [Setting]) {
+        let section = SettingSectionViewModel()
+        settings.forEach{ section.rows.append(SettingCellViewModel.init(setting: $0))}
+        view?.reloadData(for: section)
+
+    }
+    
+    func settingDidRecieve(_ setting: Setting) {
+        router.openChoiceViewController(with: setting)
+    }
+    
 }

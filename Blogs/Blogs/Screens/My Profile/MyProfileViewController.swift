@@ -329,7 +329,6 @@ final class MyProfileViewController: UIViewController {
         }
         
         //setupCustom()
-        debugPrint(heightBlogTableView)
     }
     
     //MARK: Кастомные настройки, так как до viewDidLayoutSubviews они не работают
