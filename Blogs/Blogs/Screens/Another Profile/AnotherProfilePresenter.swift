@@ -25,16 +25,26 @@ extension AnotherProfilePresenter: AnotherProfileModuleInput {
 }
 
 extension AnotherProfilePresenter: AnotherProfileViewOutput {
+    func giveTableHeight() -> Int {
+        let count = interactor.giveBlogsArrayCount()
+        let cellHeight = Int(StandartBlogCellViewModel.init(blog: .init()).cellHeight)
+        return count > 3 ? 3 * cellHeight : count * cellHeight
+    }
+    
+    func fetchBlogsCell() {
+        interactor.fetchBlogs()
+    }
+    
+    func didTapBlogTableViewCell(at indexPath: IndexPath) {
+        interactor.getBlog(at: indexPath)
+    }
+    
     func didTapBackButton() {
         router.popViewController()
     }
     
     func didTapFollowButton() {
         debugPrint("didTapFollowButton")
-    }
-    
-    func didTapBlogTableViewCell() {
-        debugPrint("didTapBlogTableViewCell")
     }
     
     func didTapMoreBlogButton() {
@@ -44,4 +54,14 @@ extension AnotherProfilePresenter: AnotherProfileViewOutput {
 }
 
 extension AnotherProfilePresenter: AnotherProfileInteractorOutput {
+    func blogsDidRecieve(_ blogs: [Blog]) {
+        let section = StandartBlogSectionViewModel()
+        blogs.forEach{ section.rows.append(StandartBlogCellViewModel.init(blog: $0))}
+        view?.reloadData(for: section)
+    }
+    
+    func blogDidRecieve(_ blog: Blog) {
+        router.openBlogViewController(with: blog)
+    }
+    
 }

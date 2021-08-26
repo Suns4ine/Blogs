@@ -13,6 +13,11 @@ final class AnotherProfileRouter {
 }
 
 extension AnotherProfileRouter: AnotherProfileRouterInput {
+    func openBlogViewController(with blog: Blog) {
+        let container = AnotherBlogContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
     func popViewController() {
         self.sourceViewController?.navigationController?.popViewController(animated: true)
     }
