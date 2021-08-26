@@ -52,6 +52,14 @@ final class TwoButtons: UIView {
         trailingButton.addTarget(target, action: action, for: event)
     }
     
+    func editTextLeadingButton(text: String) {
+        leadingButton.editText(text: text)
+    }
+    
+    func editTextTralingButton(text: String) {
+        trailingButton.editText(text: text)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

@@ -12,9 +12,9 @@ final class ChoiceColorViewController: UIViewController {
 	private let output: ChoiceColorViewOutput
 
     //MARK: Объявлние переменных
-    private var colorArray: [String] = ["", "", "", ""] {
+    private var section: ChoiceSectionRowPresentable = ChoiceSectionViewModel() {
         didSet {
-            emptyArrayTitle.isHidden = colorArray.isEmpty ? false : true
+            emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
         }
     }
     
@@ -59,9 +59,11 @@ final class ChoiceColorViewController: UIViewController {
 		super.viewDidLoad()
         [header, colorTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
         
-        emptyArrayTitle.isHidden = colorArray.isEmpty ? false : true
+        emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
         self.view.backgroundColor = StandartColors.settingBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        output.fetchChoicesCell()
         
         colorTableView.delegate = self
         colorTableView.dataSource = self
@@ -93,33 +95,38 @@ final class ChoiceColorViewController: UIViewController {
     }
     
     @objc
-    private func tapColorTableViewCell() {
-        output.didTapColorTableViewCell()
+    private func tapColorTableViewCell(_ button: UIButton) {
+        output.didTapColorTableViewCell(at: button.tag)
     }
 }
 
 extension ChoiceColorViewController: ChoiceColorViewInput {
+    func reloadData(for section: ChoiceSectionViewModel) {
+        self.section = section
+        colorTableView.reloadData()
+    }
+    
 }
 
 extension ChoiceColorViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return colorArray.count
+        return self.section.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let viewModel = section.rows[indexPath.row]
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: ChoiceTableViewCell.identifier,
+                withIdentifier: viewModel.cellIdentifier,
                 for: indexPath) as? ChoiceTableViewCell else { return .init() }
+        
+        cell.viewModel = viewModel
+        cell.addTarget(self, action: #selector(tapColorTableViewCell(_:)))
+        cell.addTag(indexPath.row)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 84
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        debugPrint(indexPath.row)
-        tapColorTableViewCell()
+        return section.rows[indexPath.row].cellHeight
     }
 }

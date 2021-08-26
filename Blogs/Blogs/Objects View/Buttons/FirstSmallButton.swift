@@ -62,6 +62,10 @@ final class FirstSmallButton: UIView {
         button.addTarget(target, action: action, for: event)
     }
     
+    func editText(text: String) {
+        button.setTitle(text, for: .normal)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

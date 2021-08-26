@@ -25,15 +25,29 @@ extension ChoiceColorPresenter: ChoiceColorModuleInput {
 }
 
 extension ChoiceColorPresenter: ChoiceColorViewOutput {
-    func didTapBackButton() {
-        router.popViewController()
+    func fetchChoicesCell() {
+        interactor.fetchChoices()
     }
     
-    func didTapColorTableViewCell() {
-        debugPrint("didTapColorTableViewCell")
+    func didTapColorTableViewCell(at indexPath: Int) {
+        interactor.getChoice(at: indexPath)
+    }
+    
+    func didTapBackButton() {
+        router.popViewController()
     }
     
 }
 
 extension ChoiceColorPresenter: ChoiceColorInteractorOutput {
+    func choicesDidRecieve(_ choices: [Choice]) {
+        let section = ChoiceSectionViewModel()
+        choices.forEach{ section.rows.append(ChoiceCellViewModel.init(choice: $0))}
+        view?.reloadData(for: section)
+    }
+    
+    func choiceDidRecieve(_ choice: Choice) {
+        debugPrint(choice.title)
+    }
+    
 }

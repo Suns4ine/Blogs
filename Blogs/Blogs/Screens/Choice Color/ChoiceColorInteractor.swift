@@ -10,7 +10,19 @@ import Foundation
 
 final class ChoiceColorInteractor {
 	weak var output: ChoiceColorInteractorOutput?
+    
+    private var colorArray: [Choice] = [.init(), .init(), .init(), .init(), .init()]
 }
 
 extension ChoiceColorInteractor: ChoiceColorInteractorInput {
+    
+    func getChoice(at indexPath: Int) {
+        let Choice = colorArray[indexPath]
+        
+        output?.choiceDidRecieve(Choice)
+    }
+    
+    func fetchChoices() {
+        output?.choicesDidRecieve(colorArray)
+    }
 }

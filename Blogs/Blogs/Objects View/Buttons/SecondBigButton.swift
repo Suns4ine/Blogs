@@ -102,6 +102,10 @@ final class SecondBigButton: UIView {
         button.backgroundColor = color
     }
     
+    func editText(text: String) {
+        button.setTitle(text, for: .normal)
+    }
+    
     func addTag(_ tag: Int) {
         button.tag = tag
     }

@@ -62,6 +62,14 @@ final class FirstBigButton: UIView {
         button.addTarget(target, action: action, for: event)
     }
     
+    func editText(text: String) {
+        button.setTitle(text, for: .normal)
+    }
+    
+    func addTag(_ tag: Int) {
+        button.tag = tag
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

@@ -212,6 +212,9 @@
 		35FDAC8926D7CAB700A84B99 /* SettingCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC8826D7CAB700A84B99 /* SettingCellProtocol.swift */; };
 		35FDAC9126D7CAFC00A84B99 /* SettingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC9026D7CAFC00A84B99 /* SettingCellViewModel.swift */; };
 		35FDAC9926D7CB8900A84B99 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC9826D7CB8900A84B99 /* Setting.swift */; };
+		35FDAC9F26D7E07C00A84B99 /* ChoiceCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC9E26D7E07C00A84B99 /* ChoiceCellProtocol.swift */; };
+		35FDACA426D7E0EC00A84B99 /* ChoiceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACA326D7E0EC00A84B99 /* ChoiceCellViewModel.swift */; };
+		35FDACB226D7F63D00A84B99 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACB126D7F63D00A84B99 /* Choice.swift */; };
 		35FFE51A26B01CBB0032321B /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51926B01CBB0032321B /* Header.swift */; };
 		35FFE52026B020690032321B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51F26B020690032321B /* Title.swift */; };
 		35FFE52826B02DF70032321B /* SubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE52726B02DF70032321B /* SubTitle.swift */; };
@@ -446,6 +449,9 @@
 		35FDAC8826D7CAB700A84B99 /* SettingCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellProtocol.swift; sourceTree = "<group>"; };
 		35FDAC9026D7CAFC00A84B99 /* SettingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellViewModel.swift; sourceTree = "<group>"; };
 		35FDAC9826D7CB8900A84B99 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		35FDAC9E26D7E07C00A84B99 /* ChoiceCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCellProtocol.swift; sourceTree = "<group>"; };
+		35FDACA326D7E0EC00A84B99 /* ChoiceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCellViewModel.swift; sourceTree = "<group>"; };
+		35FDACB126D7F63D00A84B99 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		35FFE51926B01CBB0032321B /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		35FFE51F26B020690032321B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		35FFE52726B02DF70032321B /* SubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitle.swift; sourceTree = "<group>"; };
@@ -516,7 +522,7 @@
 		35028E0E26C69C1700FF9D68 /* Choice Language */ = {
 			isa = PBXGroup;
 			children = (
-				35B1094726C6A74C003E3D44 /* View */,
+				35028E1126C69C5A00FF9D68 /* ChoiceLanguageViewController.swift */,
 				35028E0F26C69C5A00FF9D68 /* ChoiceLanguagePresenter.swift */,
 				35028E1026C69C5A00FF9D68 /* ChoiceLanguageRouter.swift */,
 				35028E1226C69C5A00FF9D68 /* ChoiceLanguageProtocols.swift */,
@@ -561,6 +567,7 @@
 				35FDAC1526D6342A00A84B99 /* Blog.swift */,
 				35FDAC2026D63B4600A84B99 /* User.swift */,
 				35FDAC9826D7CB8900A84B99 /* Setting.swift */,
+				35FDACB126D7F63D00A84B99 /* Choice.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -672,21 +679,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		35B1094726C6A74C003E3D44 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				35028E1126C69C5A00FF9D68 /* ChoiceLanguageViewController.swift */,
-				35B1094826C6A776003E3D44 /* ChoiceTableViewCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		35B1095026C6AAC9003E3D44 /* Choice Color */ = {
 			isa = PBXGroup;
 			children = (
+				35B1095326C6AAF0003E3D44 /* ChoiceColorViewController.swift */,
 				35B1095126C6AAF0003E3D44 /* ChoiceColorPresenter.swift */,
 				35B1095226C6AAF0003E3D44 /* ChoiceColorRouter.swift */,
-				35B1095326C6AAF0003E3D44 /* ChoiceColorViewController.swift */,
 				35B1095426C6AAF0003E3D44 /* ChoiceColorProtocols.swift */,
 				35B1095526C6AAF0003E3D44 /* ChoiceColorInteractor.swift */,
 				35B1095626C6AAF0003E3D44 /* ChoiceColorContainer.swift */,
@@ -974,7 +972,6 @@
 				35595AE226D528C20080B184 /* Another more Blogs */,
 				35595ACF26D524990080B184 /* My more Blogs */,
 				3597349F26C9FE4400086C12 /* Preview */,
-				35FDAC7E26D7C90300A84B99 /* Setting Cell */,
 				35B10A2B26C97FC7003E3D44 /* Setting */,
 				35B10A1826C87412003E3D44 /* Search */,
 				35B109FC26C85D91003E3D44 /* Create Blog */,
@@ -986,6 +983,8 @@
 				35B1098626C6BF1F003E3D44 /* About the Application */,
 				35B1097326C6B98C003E3D44 /* Help */,
 				35B1096026C6B0EC003E3D44 /* Password Change */,
+				35FDAC7E26D7C90300A84B99 /* Setting Cell */,
+				35FDAC9D26D7DFCD00A84B99 /* Choice Cell */,
 				35B1095026C6AAC9003E3D44 /* Choice Color */,
 				35028E0E26C69C1700FF9D68 /* Choice Language */,
 				35028DFD26C5F44A00FF9D68 /* Another Profile */,
@@ -1054,6 +1053,16 @@
 				35FDAC8826D7CAB700A84B99 /* SettingCellProtocol.swift */,
 			);
 			path = "Setting Cell";
+			sourceTree = "<group>";
+		};
+		35FDAC9D26D7DFCD00A84B99 /* Choice Cell */ = {
+			isa = PBXGroup;
+			children = (
+				35B1094826C6A776003E3D44 /* ChoiceTableViewCell.swift */,
+				35FDACA326D7E0EC00A84B99 /* ChoiceCellViewModel.swift */,
+				35FDAC9E26D7E07C00A84B99 /* ChoiceCellProtocol.swift */,
+			);
+			path = "Choice Cell";
 			sourceTree = "<group>";
 		};
 		35FFE51826B01CA00032321B /* Header */ = {
@@ -1377,6 +1386,7 @@
 				35B10A0826C85DAC003E3D44 /* CreateBlogContainer.swift in Sources */,
 				35B109F326C85010003E3D44 /* AnotherBlogProtocols.swift in Sources */,
 				35B109CA26C71E7D003E3D44 /* AdditionBlogInteractor.swift in Sources */,
+				35FDACB226D7F63D00A84B99 /* Choice.swift in Sources */,
 				35E020BE26C18FE800C99280 /* TextField.swift in Sources */,
 				35B1096A26C6B110003E3D44 /* PasswordChangeProtocols.swift in Sources */,
 				35595AEE26D528DD0080B184 /* AnotherMoreBlogsContainer.swift in Sources */,
@@ -1418,6 +1428,7 @@
 				359734A926C9FE9700086C12 /* PreviewProtocols.swift in Sources */,
 				35B1098D26C6BF4D003E3D44 /* AboutTheApplicationPresenter.swift in Sources */,
 				35FDAC1626D6342A00A84B99 /* Blog.swift in Sources */,
+				35FDACA426D7E0EC00A84B99 /* ChoiceCellViewModel.swift in Sources */,
 				35FDAC3B26D69EBC00A84B99 /* StandartBlogCellProtocol.swift in Sources */,
 				35B10A3926C97FD8003E3D44 /* SettingInteractor.swift in Sources */,
 				35FFE52826B02DF70032321B /* SubTitle.swift in Sources */,
@@ -1449,6 +1460,7 @@
 				35028DD626C544D000FF9D68 /* MyProfileProtocols.swift in Sources */,
 				35FDAC7A26D7A45E00A84B99 /* UtiliesIcon.swift in Sources */,
 				35B109B326C6D9C5003E3D44 /* EditProfilePresenter.swift in Sources */,
+				35FDAC9F26D7E07C00A84B99 /* ChoiceCellProtocol.swift in Sources */,
 				35B10A3726C97FD8003E3D44 /* SettingViewController.swift in Sources */,
 				35E020D526C1FBA100C99280 /* LoginViewController.swift in Sources */,
 				35B109DA26C7FEEB003E3D44 /* MyBlogPresenter.swift in Sources */,

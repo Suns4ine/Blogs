@@ -8,9 +8,22 @@
 import Foundation
 import UIKit
 
-final class ChoiceTableViewCell: UITableViewCell {
+final class ChoiceTableViewCell: UITableViewCell, ChoiceCellModelRepresentable {
     
-    static let identifier = "ChoiceTableViewCell"
+    var viewModel: ChoiceCellIdentifiable? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    private func updateViews() {
+        guard let viewModel = viewModel as? ChoiceCellViewModel else { return }
+        button.editText(text: viewModel.title)
+        ChoiceTableViewCell.identifier = viewModel.cellIdentifier
+    }
+    
+    
+    static var identifier = "ChoiceTableViewCell"
     
     private let button: FirstBigButton = {
         let button = FirstBigButton(text: "ChoiceTableViewCell")
@@ -43,5 +56,13 @@ final class ChoiceTableViewCell: UITableViewCell {
             button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24)
         ])
+    }
+    
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
+    }
+    
+    func addTag(_ tag: Int) {
+        button.addTag(tag)
     }
 }
