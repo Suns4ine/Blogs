@@ -25,6 +25,9 @@ extension CreateBlogPresenter: CreateBlogModuleInput {
 }
 
 extension CreateBlogPresenter: CreateBlogViewOutput {
+    func fetchUtiliesCell() {
+        interactor.fetchUtilies()
+    }
     
     func didTapBackButton() {
         router.popViewController()
@@ -38,11 +41,21 @@ extension CreateBlogPresenter: CreateBlogViewOutput {
         router.openDraftBlogsViewController()
     }
     
-    func didTapUtilitiesCollectionViewCell() {
-        debugPrint("didTapUtilitiesCollectionViewCell")
+    func didTapUtilitiesCollectionViewCell(at indexPath: IndexPath) {
+        interactor.getUtility(at: indexPath)
     }
     
 }
 
 extension CreateBlogPresenter: CreateBlogInteractorOutput {
+    func utiliesDidRecieve(_ utilies: [Utility]) {
+        let section = UtiliesSectionViewModel()
+        utilies.forEach{ section.rows.append(UtiliesCellViewModel.init(utility: $0))}
+        view?.reloadData(for: section)
+    }
+    
+    func utilityDidRecieve(_ utility: Utility) {
+        debugPrint(utility)
+    }
+    
 }

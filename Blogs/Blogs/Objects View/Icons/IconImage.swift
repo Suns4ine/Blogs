@@ -82,6 +82,14 @@ final class IconImage: UIView {
         button.addTarget(target, action: action, for: event)
     }
     
+    func addTag(_ tag: Int) {
+        button.tag = tag
+    }
+    
+    func editIcon(icon: Icons) {
+        image.image = UIImage(named: icon.rawValue)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

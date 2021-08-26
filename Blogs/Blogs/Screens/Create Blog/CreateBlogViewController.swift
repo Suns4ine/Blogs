@@ -12,7 +12,8 @@ final class CreateBlogViewController: UIViewController {
 	private let output: CreateBlogViewOutput
 
     //MARK: Объявление переменных
-    private var utilitiesArray: [String] = ["", "", "", "", "", "", "", "", "", ""]
+    private var section: UtiliesSectionRowPresentable = UtiliesSectionViewModel()
+    
     private let header: Header = {
         let header = Header(title: "",
                             leftIcon: .init(icon: .outline2, size: .size48),
@@ -89,6 +90,8 @@ final class CreateBlogViewController: UIViewController {
         utilitiesCollectionView.register(UtilitiesCollectionViewCell.self,
                                          forCellWithReuseIdentifier: UtilitiesCollectionViewCell.identifier)
         
+        output.fetchUtiliesCell()
+        
         view.backgroundColor = StandartColors.createBlogBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
@@ -143,33 +146,34 @@ final class CreateBlogViewController: UIViewController {
     private func tapDraftButton() {
         output.didTapDraftButton()
     }
-    
-    @objc
-    private func tapUtilitiesCollectionViewCell() {
-        output.didTapUtilitiesCollectionViewCell()
-    }
 }
 
 extension CreateBlogViewController: CreateBlogViewInput {
+    func reloadData(for section: UtiliesSectionViewModel) {
+        self.section = section
+        utilitiesCollectionView.reloadData()
+    }
+    
 }
 
 extension CreateBlogViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return utilitiesArray.count
+        return self.section.rows.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UtilitiesCollectionViewCell.identifier,
+        let viewModel = section.rows[indexPath.row]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.cellIdentifier,
                                                             for: indexPath) as? UtilitiesCollectionViewCell
                                                             else { return .init() }
+        cell.viewModel = viewModel
         
         return cell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 44, height: 44)
+        return CGSize(width: section.rows[indexPath.row].cellWidth, height: section.rows[indexPath.row].cellHeight)
     }
     
     
@@ -178,7 +182,6 @@ extension CreateBlogViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        debugPrint(indexPath.row)
-        
+        output.didTapUtilitiesCollectionViewCell(at: indexPath)
     }
 }
