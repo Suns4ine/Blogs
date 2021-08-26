@@ -25,15 +25,28 @@ extension AnotherMoreBlogsPresenter: AnotherMoreBlogsModuleInput {
 }
 
 extension AnotherMoreBlogsPresenter: AnotherMoreBlogsViewOutput {
+    func fetchBlogsCell() {
+        interactor.fetchBlogs()
+    }
+    
+    func didTapAnotherBlogsTableViewCell(at indexPath: IndexPath) {
+        interactor.getBlog(at: indexPath)
+    }
+    
     func didTapBackButton() {
         router.popViewController()
     }
-    
-    func didTapAnotherBlogsTableViewCell() {
-        debugPrint("didTapAnotherBlogsTableViewCell")
-    }
-    
 }
 
 extension AnotherMoreBlogsPresenter: AnotherMoreBlogsInteractorOutput {
+    func blogsDidRecieve(_ blogs: [Blog]) {
+        let section = StandartBlogSectionViewModel()
+        blogs.forEach{ section.rows.append(StandartBlogCellViewModel.init(blog: $0))}
+        view?.reloadData(for: section)
+    }
+    
+    func blogDidRecieve(_ blog: Blog) {
+        router.openBlogViewController(with: blog)
+    }
+    
 }
