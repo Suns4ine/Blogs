@@ -16,21 +16,28 @@ protocol MyProfileModuleOutput: class {
 }
 
 protocol MyProfileViewInput: class {
+    func reloadData(for section: StandartBlogSectionViewModel)
 }
 
 protocol MyProfileViewOutput: class {
+    func giveTableHeight() -> Int
+    func fetchBlogsCell()
     func didTapSettingButton()
     func didTapEditButton()
     func didTapCreateBolgButton()
-    func didTapBlogTableViewCell()
     func didTapMoreBlogButton()
-    
+    func didTapBlogTableViewCell(at indexPath: IndexPath)
 }
 
 protocol MyProfileInteractorInput: class {
+    func giveBlogsArrayCount() -> Int
+    func getBlog(at indexPath: IndexPath)
+    func fetchBlogs()
 }
 
 protocol MyProfileInteractorOutput: class {
+    func blogsDidRecieve(_ blogs: [Blog])
+    func blogDidRecieve(_ blog: Blog)
 }
 
 protocol MyProfileRouterInput: class {
@@ -38,4 +45,5 @@ protocol MyProfileRouterInput: class {
     func openEditProfileViewController()
     func openCreateBlogViewController()
     func openMyMoreBlogsViewController()
+    func openBlogViewController(with blog: Blog)
 }

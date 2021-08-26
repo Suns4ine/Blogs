@@ -13,6 +13,7 @@ final class MyProfileRouter {
 }
 
 extension MyProfileRouter: MyProfileRouterInput {
+    
     func openSettingViewController() {
         let container = SettingContainer.assemble(with: .init())
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
@@ -30,6 +31,11 @@ extension MyProfileRouter: MyProfileRouterInput {
     
     func openMyMoreBlogsViewController() {
         let container = MyMoreBlogsContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
+    func openBlogViewController(with blog: Blog) {
+        let container = AnotherBlogContainer.assemble(with: .init())
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 }

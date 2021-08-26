@@ -12,8 +12,14 @@ final class MyProfileViewController: UIViewController {
 	private let output: MyProfileViewOutput
 
     //MARK: Объявление переменных
-    private var arrayBlogs: [String] = ["1", "2", "3", "4", "5", "6", "7", "8"]
-    private lazy var heightBlogTableView: CGFloat = CGFloat(arrayBlogs.count > 5 ? 5 * 168 : arrayBlogs.count * 168)
+    private var section: StandartBlogSectionRowPresentable = StandartBlogSectionViewModel() {
+        didSet {
+            moreBlogButton.isHidden = section.rows.count > 3 ? false : true
+            heightBlogTableView = CGFloat(output.giveTableHeight())
+        }
+    }
+    
+    private lazy var heightBlogTableView: CGFloat = CGFloat(output.giveTableHeight())
     
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -177,11 +183,13 @@ final class MyProfileViewController: UIViewController {
         [extraProfileView, scrollView].forEach{ view.addSubview($0)}
         addSubViewInScrollView()
         
-        moreBlogButton.isHidden = arrayBlogs.count > 5 ? false : true
+        moreBlogButton.isHidden = section.rows.count > 3 ? false : true
         scrollView.delegate =  self
         blogTableView.delegate = self
         blogTableView.dataSource = self
         blogTableView.register(StandartBlogTableViewCell.self, forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
+        
+        output.fetchBlogsCell()
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -294,11 +302,11 @@ final class MyProfileViewController: UIViewController {
             createBolgButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
         ])
         
-        if arrayBlogs.isEmpty {
+        if section.rows.isEmpty {
             NSLayoutConstraint.activate([
                 createBolgButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
             ])
-        } else if arrayBlogs.count <= 5 {
+        } else if section.rows.count <= 3 {
             NSLayoutConstraint.activate([
                 blogTableView.topAnchor.constraint(equalTo: createBolgButton.bottomAnchor, constant: 12),
                 blogTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -321,6 +329,7 @@ final class MyProfileViewController: UIViewController {
         }
         
         //setupCustom()
+        debugPrint(heightBlogTableView)
     }
     
     //MARK: Кастомные настройки, так как до viewDidLayoutSubviews они не работают
@@ -349,38 +358,40 @@ final class MyProfileViewController: UIViewController {
     }
     
     @objc
-    private func tapBlogTableViewCell() {
-        output.didTapBlogTableViewCell()
-    }
-    
-    @objc
     private func tapMoreBlogButton() {
         output.didTapMoreBlogButton()
     }
 }
 
 extension MyProfileViewController: MyProfileViewInput, UIScrollViewDelegate {
+    func reloadData(for section: StandartBlogSectionViewModel) {
+        self.section = section
+        blogTableView.reloadData()
+    }
+    
 }
 
 extension MyProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayBlogs.count > 5 ? 5 : arrayBlogs.count
+        return self.section.rows.count > 3 ? 3 : self.section.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let viewModel = section.rows[indexPath.row]
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: StandartBlogTableViewCell.identifier,
+                withIdentifier: viewModel.cellIdentifier,
                 for: indexPath) as? StandartBlogTableViewCell else { return .init() }
+        cell.viewModel = viewModel
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 168
+        return section.rows[indexPath.row].cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         debugPrint(indexPath.row)
-        tapBlogTableViewCell()
+        output.didTapBlogTableViewCell(at: indexPath)
     }
 }

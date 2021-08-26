@@ -478,9 +478,9 @@
 		35028DCC26C544AF00FF9D68 /* My Profile */ = {
 			isa = PBXGroup;
 			children = (
+				35028DCF26C544D000FF9D68 /* MyProfileViewController.swift */,
 				35028DCD26C544D000FF9D68 /* MyProfilePresenter.swift */,
 				35028DCE26C544D000FF9D68 /* MyProfileRouter.swift */,
-				35028DCF26C544D000FF9D68 /* MyProfileViewController.swift */,
 				35028DD026C544D000FF9D68 /* MyProfileProtocols.swift */,
 				35028DD126C544D000FF9D68 /* MyProfileInteractor.swift */,
 				35028DD226C544D000FF9D68 /* MyProfileContainer.swift */,

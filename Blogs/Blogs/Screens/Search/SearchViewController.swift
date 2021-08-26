@@ -163,7 +163,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UITe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        debugPrint(indexPath.row)
         output.didTapSearchTableViewCell(at: indexPath)
     }
 }
