@@ -12,9 +12,9 @@ final class ChoiceLanguageViewController: UIViewController {
 	private let output: ChoiceLanguageViewOutput
 
     //MARK: Объявлние переменных
-    private var languageArray: [String] = ["", "", "", ""] {
+    private var section: ChoiceSectionRowPresentable = ChoiceSectionViewModel() {
         didSet {
-            emptyArrayTitle.isHidden = languageArray.isEmpty ? false : true
+            emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
         }
     }
     
@@ -58,9 +58,11 @@ final class ChoiceLanguageViewController: UIViewController {
 		super.viewDidLoad()
         [header, languageTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
         
-        emptyArrayTitle.isHidden = languageArray.isEmpty ? false : true
+        emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
         self.view.backgroundColor = StandartColors.settingBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        output.fetchChoicesCell()
         
         languageTableView.delegate = self
         languageTableView.dataSource = self
@@ -92,34 +94,39 @@ final class ChoiceLanguageViewController: UIViewController {
     }
     
     @objc
-    private func tapLanguageTableViewCell() {
-        output.didTapLanguageTableViewCell()
+    private func tapLanguageTableViewCell(_ button: UIButton) {
+        output.didTapLanguageTableViewCell(at: button.tag)
     }
 }
 
 extension ChoiceLanguageViewController: ChoiceLanguageViewInput {
+    func reloadData(for section: ChoiceSectionViewModel) {
+        self.section = section
+        languageTableView.reloadData()
+    }
+    
 }
 
 extension ChoiceLanguageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return languageArray.count
+        return self.section.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let viewModel = section.rows[indexPath.row]
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: ChoiceTableViewCell.identifier,
+                withIdentifier: viewModel.cellIdentifier,
                 for: indexPath) as? ChoiceTableViewCell else { return .init() }
+        
+        cell.viewModel = viewModel
+        cell.addTarget(self, action: #selector(tapLanguageTableViewCell(_:)))
+        cell.addTag(indexPath.row)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 84
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        debugPrint(indexPath.row)
-        tapLanguageTableViewCell()
+        return section.rows[indexPath.row].cellHeight
     }
 }
  

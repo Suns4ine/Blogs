@@ -983,8 +983,6 @@
 				35B1098626C6BF1F003E3D44 /* About the Application */,
 				35B1097326C6B98C003E3D44 /* Help */,
 				35B1096026C6B0EC003E3D44 /* Password Change */,
-				35FDAC7E26D7C90300A84B99 /* Setting Cell */,
-				35FDAC9D26D7DFCD00A84B99 /* Choice Cell */,
 				35B1095026C6AAC9003E3D44 /* Choice Color */,
 				35028E0E26C69C1700FF9D68 /* Choice Language */,
 				35028DFD26C5F44A00FF9D68 /* Another Profile */,
@@ -995,9 +993,7 @@
 				35E020DC26C1FBAB00C99280 /* Login */,
 				35E020DD26C1FC9B00C99280 /* Start */,
 				35DB448826C408FB002EB53B /* TabBar */,
-				35FDAC3926D69DFA00A84B99 /* Standart Blog Cell */,
-				35FDAC1A26D6376C00A84B99 /* Blog Cell */,
-				35FDAC6226D79DC100A84B99 /* Utilities Cell */,
+				35FDACB626D8000E00A84B99 /* Cells */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1063,6 +1059,18 @@
 				35FDAC9E26D7E07C00A84B99 /* ChoiceCellProtocol.swift */,
 			);
 			path = "Choice Cell";
+			sourceTree = "<group>";
+		};
+		35FDACB626D8000E00A84B99 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				35FDAC3926D69DFA00A84B99 /* Standart Blog Cell */,
+				35FDAC1A26D6376C00A84B99 /* Blog Cell */,
+				35FDAC6226D79DC100A84B99 /* Utilities Cell */,
+				35FDAC7E26D7C90300A84B99 /* Setting Cell */,
+				35FDAC9D26D7DFCD00A84B99 /* Choice Cell */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		35FFE51826B01CA00032321B /* Header */ = {

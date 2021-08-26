@@ -25,15 +25,28 @@ extension ChoiceLanguagePresenter: ChoiceLanguageModuleInput {
 }
 
 extension ChoiceLanguagePresenter: ChoiceLanguageViewOutput {
+    func fetchChoicesCell() {
+        interactor.fetchChoices()
+    }
+    
+    func didTapLanguageTableViewCell(at indexPath: Int) {
+        interactor.getChoice(at: indexPath)
+    }
+    
     func didTapBackButton() {
         router.popViewController()
     }
-    
-    func didTapLanguageTableViewCell() {
-        debugPrint("didTapLanguageTableViewCell")
-    }
-    
 }
 
 extension ChoiceLanguagePresenter: ChoiceLanguageInteractorOutput {
+    
+    func choicesDidRecieve(_ choices: [Choice]) {
+        let section = ChoiceSectionViewModel()
+        choices.forEach{ section.rows.append(ChoiceCellViewModel.init(choice: $0))}
+        view?.reloadData(for: section)
+    }
+    
+    func choiceDidRecieve(_ choice: Choice) {
+        debugPrint(choice.title)
+    }
 }
