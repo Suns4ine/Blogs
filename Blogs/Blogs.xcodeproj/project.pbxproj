@@ -613,9 +613,9 @@
 		35595ACF26D524990080B184 /* My more Blogs */ = {
 			isa = PBXGroup;
 			children = (
+				35595AD226D524BF0080B184 /* MyMoreBlogsViewController.swift */,
 				35595AD026D524BF0080B184 /* MyMoreBlogsPresenter.swift */,
 				35595AD126D524BF0080B184 /* MyMoreBlogsRouter.swift */,
-				35595AD226D524BF0080B184 /* MyMoreBlogsViewController.swift */,
 				35595AD326D524BF0080B184 /* MyMoreBlogsProtocols.swift */,
 				35595AD426D524BF0080B184 /* MyMoreBlogsInteractor.swift */,
 				35595AD526D524BF0080B184 /* MyMoreBlogsContainer.swift */,
