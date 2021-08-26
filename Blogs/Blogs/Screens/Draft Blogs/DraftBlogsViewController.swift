@@ -12,9 +12,9 @@ final class DraftBlogsViewController: UIViewController {
 	private let output: DraftBlogsViewOutput
 
     //MARK: Объявлены переменные
-    private var draftArray: [String] = ["1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6"] {
+    private var section: StandartBlogSectionRowPresentable = StandartBlogSectionViewModel() {
         didSet {
-            emptyArrayTitle.isHidden = draftArray.isEmpty ? false : true
+            emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
         }
     }
     
@@ -59,7 +59,9 @@ final class DraftBlogsViewController: UIViewController {
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        emptyArrayTitle.isHidden = draftArray.isEmpty ? false : true
+        emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
+        
+        output.fetchBlogsCell()
         
         draftTableView.delegate = self
         draftTableView.dataSource = self
@@ -89,35 +91,36 @@ final class DraftBlogsViewController: UIViewController {
     private func tapBackButton() {
         output.didTapBackButton()
     }
-    
-    @objc
-    private func tapDraftTableViewCell() {
-        output.didTapDraftTableViewCell()
-    }
 }
 
 extension DraftBlogsViewController: DraftBlogsViewInput {
+    func reloadData(for section: StandartBlogSectionViewModel) {
+        self.section = section
+        draftTableView.reloadData()
+    }
+    
 }
 
 extension DraftBlogsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return draftArray.count
+        return self.section.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let viewModel = section.rows[indexPath.row]
         guard  let cell = tableView.dequeueReusableCell(
-                withIdentifier: StandartBlogTableViewCell.identifier,
+                withIdentifier: viewModel.cellIdentifier,
                 for: indexPath) as? StandartBlogTableViewCell else { return .init() }
+        cell.viewModel = viewModel
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 168
+        return section.rows[indexPath.row].cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        debugPrint(indexPath.row)
-        tapDraftTableViewCell()
+        output.didTapSavedTableViewCell(at: indexPath)
     }
 }

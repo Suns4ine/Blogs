@@ -13,7 +13,13 @@ final class DraftBlogsRouter {
 }
 
 extension DraftBlogsRouter: DraftBlogsRouterInput {
+    
     func popViewController() {
         self.sourceViewController?.navigationController?.popViewController(animated: true)
+    }
+    
+    func openBlogViewController(with blog: Blog) {
+        let container = AnotherBlogContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 }

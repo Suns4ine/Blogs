@@ -723,9 +723,9 @@
 		35B1099926C6D535003E3D44 /* Draft Blogs */ = {
 			isa = PBXGroup;
 			children = (
+				35B1099C26C6D559003E3D44 /* DraftBlogsViewController.swift */,
 				35B1099A26C6D559003E3D44 /* DraftBlogsPresenter.swift */,
 				35B1099B26C6D559003E3D44 /* DraftBlogsRouter.swift */,
-				35B1099C26C6D559003E3D44 /* DraftBlogsViewController.swift */,
 				35B1099D26C6D559003E3D44 /* DraftBlogsProtocols.swift */,
 				35B1099E26C6D559003E3D44 /* DraftBlogsInteractor.swift */,
 				35B1099F26C6D559003E3D44 /* DraftBlogsContainer.swift */,
