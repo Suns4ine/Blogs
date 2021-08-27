@@ -13,7 +13,7 @@ final class HelpViewController: UIViewController {
 
     //MARK: Объявление переменных
     private let header: Header = {
-        let header = Header(title: "Помощь",
+        let header = Header(title: StandartLanguage.headerTitleHelpScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -21,14 +21,16 @@ final class HelpViewController: UIViewController {
     }()
     
     private let text: Text = {
-        let text = Text(text: "text", size: .mm15)
+        let text = Text(text: StandartLanguage.textHelpScreen,
+                        size: .mm15)
         text.editAligent(aligent: .natural)
         text.editScrollEnabled(edit: true)
         return text
     }()
     
     private lazy var emptyArrayTitle: Title = {
-        let title = Title(text: "Здесь пока ничего нет", size: .meb36)
+        let title = Title(text: StandartLanguage.emptyArrayTitleHelpScreen,
+                          size: .meb36)
         title.sizeToFit()
         return title
     }()
@@ -48,7 +50,6 @@ final class HelpViewController: UIViewController {
 		super.viewDidLoad()
         [header, text, emptyArrayTitle].forEach{ view.addSubview($0)}
         
-        text.editText(text: someText)
         emptyArrayTitle.isHidden = someText.isEmpty ? false : true
         self.view.backgroundColor = StandartColors.settingBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)

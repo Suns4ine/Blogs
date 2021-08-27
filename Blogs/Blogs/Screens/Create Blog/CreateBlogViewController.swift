@@ -15,7 +15,7 @@ final class CreateBlogViewController: UIViewController {
     private var section: UtiliesSectionRowPresentable = UtiliesSectionViewModel()
     
     private let header: Header = {
-        let header = Header(title: "",
+        let header = Header(title: StandartLanguage.headerTitleCreateBlogScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -23,13 +23,13 @@ final class CreateBlogViewController: UIViewController {
     }()
     
     private let nextButton: ThirdSmallButton = {
-        let button = ThirdSmallButton(text: "nextButton")
+        let button = ThirdSmallButton(text: StandartLanguage.nextButtonCreateBlogScreen)
         button.addTarget(self, action: #selector(tapNextButton))
         return button
     }()
     
     private let draftButton: ThirdSmallButton = {
-        let button = ThirdSmallButton(text: "draftButton")
+        let button = ThirdSmallButton(text: StandartLanguage.draftButtonCreateBlogScreen)
         button.addTarget(self, action: #selector(tapDraftButton))
         return button
     }()
@@ -61,7 +61,8 @@ final class CreateBlogViewController: UIViewController {
     }()
     
     private let text: Text = {
-        let text = Text(text: "text", size: .mm17)
+        let text = Text(text: StandartLanguage.textCreateBlogScreen,
+                        size: .mm17)
         text.editAligent(aligent: .natural)
         text.editScrollEnabled(edit: true)
         text.editWorkInText(edit: true)

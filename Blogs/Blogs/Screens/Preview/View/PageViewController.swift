@@ -26,13 +26,15 @@ final class PageViewController: UIViewController {
     }()
     
     private let titlePage: Title = {
-        let title = Title(text: "titlePage", size: UIScreen.main.bounds.height <= 667 ? .meb24 : .meb36)
+        let title = Title(text: StandartLanguage.titlePageScreen,
+                          size: UIScreen.main.bounds.height <= 667 ? .meb24 : .meb36)
         title.sizeToFit()
         return title
     }()
     
     private let subtitle: SubTitle = {
-        let subtitle = SubTitle(text: "subtitle", size: UIScreen.main.bounds.height <= 667 ? .mm15 : .mm21)
+        let subtitle = SubTitle(text: StandartLanguage.subtitlePageScreen,
+                                size: UIScreen.main.bounds.height <= 667 ? .mm15 : .mm21)
         subtitle.sizeToFit()
         return subtitle
     }()

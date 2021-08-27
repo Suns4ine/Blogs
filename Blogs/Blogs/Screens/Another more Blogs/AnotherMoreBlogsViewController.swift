@@ -19,7 +19,7 @@ final class AnotherMoreBlogsViewController: UIViewController {
     }
     
     private let header: Header = {
-        let header = Header(title: "Чужие блоги",
+        let header = Header(title: StandartLanguage.headerTitleAnotherMoreBlogsScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -28,7 +28,8 @@ final class AnotherMoreBlogsViewController: UIViewController {
     }()
     
     private lazy var emptyArrayTitle: Title = {
-        let title = Title(text: "Здесь пока ничего нет", size: .meb36)
+        let title = Title(text: StandartLanguage.emptyArrayTitleAnotherMoreBlogsScreen,
+                          size: .meb36)
         title.sizeToFit()
         return title
     }()
@@ -66,7 +67,8 @@ final class AnotherMoreBlogsViewController: UIViewController {
         
         anotherBlogsTableView.delegate = self
         anotherBlogsTableView.dataSource = self
-        anotherBlogsTableView.register(StandartBlogTableViewCell.self, forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
+        anotherBlogsTableView.register(StandartBlogTableViewCell.self,
+                                       forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
     }
     
     override func viewDidLayoutSubviews() {

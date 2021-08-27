@@ -23,7 +23,7 @@ final class AnotherBlogViewController: UIViewController {
     }()
     
     private let header: Header = {
-        let header = Header(title: "",
+        let header = Header(title: StandartLanguage.headerTitleAnotherBlogScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -31,45 +31,51 @@ final class AnotherBlogViewController: UIViewController {
     }()
     
     private let titleBlog: Title = {
-        let title = Title(text: "Work with us and forget about others", size: .meb36)
+        let title = Title(text: StandartLanguage.titleBlogAnotherBlogScreen,
+                          size: .meb36)
         title.editAligent(aligent: .natural)
         title.sizeToFit()
         return title
     }()
     
     private let text: Text = {
-        let text = Text(text: "text", size: .mm17)
+        let text = Text(text: StandartLanguage.textAnotherBlogScreen,
+                        size: .mm17)
         text.editAligent(aligent: .natural)
         return text
     }()
     
     private let tagSubtitle: SubTitle = {
-        let subtitle = SubTitle(text: "tagSubtitle", size: .meb17)
+        let subtitle = SubTitle(text: StandartLanguage.tagSubtitleAnotherBlogScreen,
+                                size: .meb17)
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
     
     private let tagText: Text = {
-        let text = Text(text: "tagText", size: .mm17)
+        let text = Text(text: StandartLanguage.tagTextAnotherBlogScreen,
+                        size: .mm17)
         text.editAligent(aligent: .natural)
         return text
     }()
     
     private let followButton: FirstSmallButton = {
-        let button = FirstSmallButton(text: "followButton")
+        let button = FirstSmallButton(text: StandartLanguage.followButtonAnotherBlogScreen)
         button.addTarget(self, action: #selector(tapFollowButton))
         button.sizeToFit()
         return button
     }()
     
     private let dateSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "dateSubTitle", size: .mm15)
+        let subtitle = SubTitle(text: StandartLanguage.dateSubTitleAnotherBlogScreen,
+                                size: .mm15)
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
     
     private let nameSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "nameSubTitle", size: .mb17)
+        let subtitle = SubTitle(text: StandartLanguage.nameSubTitleAnotherBlogScreen,
+                                size: .mb17)
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
@@ -94,14 +100,16 @@ final class AnotherBlogViewController: UIViewController {
     }()
     
     private let likeSubtitle: SubTitle = {
-        let subtitle = SubTitle(text: "likeSubtitle", size: .meb17)
+        let subtitle = SubTitle(text: StandartLanguage.likeSubtitleAnotherBlogScreen,
+                                size: .meb17)
         subtitle.sizeToFit()
         subtitle.editAligent(aligent: .right)
         return subtitle
     }()
     
     private let shareSubtitle: SubTitle = {
-        let subtitle = SubTitle(text: "shareSubtitle", size: .meb17)
+        let subtitle = SubTitle(text: StandartLanguage.shareSubtitleAnotherBlogScreen,
+                                size: .meb17)
         return subtitle
     }()
     

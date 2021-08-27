@@ -13,7 +13,7 @@ final class AdditionBlogViewController: UIViewController {
 
     //MARK: Объявление переменных
     private let header: Header = {
-        let header = Header(title: "",
+        let header = Header(title: StandartLanguage.headerTitleAdditionBlogScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -21,13 +21,14 @@ final class AdditionBlogViewController: UIViewController {
     }()
     
     private let nextButton: ThirdSmallButton = {
-        let button = ThirdSmallButton(text: "nextButton")
+        let button = ThirdSmallButton(text: StandartLanguage.nextButtonAdditionBlogScreen)
         button.addTarget(self, action: #selector(tapNextButton))
         return button
     }()
     
     private let blogTitleSubTitle : SubTitle = {
-        let subtitle = SubTitle(text: "blogTitleSubTitle", size: .meb24)
+        let subtitle = SubTitle(text: StandartLanguage.blogTitleSubTitleAdditionBlogScreen,
+                                size: .meb24)
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
@@ -44,7 +45,8 @@ final class AdditionBlogViewController: UIViewController {
     }()
     
     private let blogTitleText: Text = {
-        let text = Text(text: "blogTitleText", size: .mm17)
+        let text = Text(text: StandartLanguage.blogTitleTextAdditionBlogScreen,
+                        size: .mm17)
         text.editScrollEnabled(edit: true)
         text.editAligent(aligent: .natural)
         text.editWorkInText(edit: true)
@@ -53,14 +55,16 @@ final class AdditionBlogViewController: UIViewController {
     }()
     
     private let blogTitleErrorSubTitle: SubTitle = {
-        let text = SubTitle(text: "blogTitleErrorSubTitle", size: .mm15)
+        let text = SubTitle(text: StandartLanguage.blogTitleErrorSubTitleAdditionBlogScreen,
+                            size: .mm15)
         text.editAligent(aligent: .left)
         text.editColor(color: StandartColors.textErrorColor)
         return text
     }()
     
     private let tagSubTitle : SubTitle = {
-        let subtitle = SubTitle(text: "tagSubTitle", size: .meb24)
+        let subtitle = SubTitle(text: StandartLanguage.tagSubTitleAdditionBlogScreen,
+                                size: .meb24)
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
@@ -77,7 +81,8 @@ final class AdditionBlogViewController: UIViewController {
     }()
     
     private let tagText: Text = {
-        let text = Text(text: "tagText", size: .mm17)
+        let text = Text(text: StandartLanguage.tagTextAdditionBlogScreen,
+                        size: .mm17)
         text.editScrollEnabled(edit: true)
         text.editAligent(aligent: .natural)
         text.editWorkInText(edit: true)
@@ -86,7 +91,8 @@ final class AdditionBlogViewController: UIViewController {
     }()
     
     private let tagErrorSubTitle: SubTitle = {
-        let text = SubTitle(text: "tagErrorSubTitle", size: .mm15)
+        let text = SubTitle(text: StandartLanguage.tagErrorSubTitleAdditionBlogScreen,
+                            size: .mm15)
         text.editAligent(aligent: .left)
         text.editColor(color: StandartColors.textErrorColor)
         return text

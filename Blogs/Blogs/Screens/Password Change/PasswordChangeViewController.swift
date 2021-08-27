@@ -13,7 +13,7 @@ final class PasswordChangeViewController: UIViewController {
 
     //MARK: Объявление переменных
     private let header: Header = {
-        let header = Header(title: "Пароль",
+        let header = Header(title: StandartLanguage.headerTitlePasswordChangeScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -21,25 +21,31 @@ final class PasswordChangeViewController: UIViewController {
     }()
     
     private let oldPasswordTextfield: TextField = {
-        let textfield = TextField(name: "oldPasswordTextfield", shadowText: "", error: "oldPasswordTextfield")
+        let textfield = TextField(name: StandartLanguage.oldPasswordTextfieldNamePasswordChangeScreen,
+                                  shadowText: StandartLanguage.oldPasswordTextfieldShadowTextPasswordChangeScreen,
+                                  error: StandartLanguage.oldPasswordTextfieldErrorPasswordChangeScreen)
         textfield.editSecureTextEntry(entry: true)
         return textfield
     }()
     
     private let newPasswordTextfield: TextField = {
-        let textfield = TextField(name: "newPasswordTextfield", shadowText: "", error: "newPasswordTextfield")
+        let textfield = TextField(name: StandartLanguage.newPasswordTextfieldNamePasswordChangeScreen,
+                                  shadowText: StandartLanguage.newPasswordTextfieldShadowTextPasswordChangeScreen,
+                                  error: StandartLanguage.newPasswordTextfieldErrorPasswordChangeScreen)
         textfield.editSecureTextEntry(entry: true)
         return textfield
     }()
 
     private let repeatPasswordTextfield: TextField = {
-        let textfield = TextField(name: "repeatPasswordTextfield", shadowText: "", error: "repeatPasswordTextfield")
+        let textfield = TextField(name: StandartLanguage.repeatPasswordTextfieldNamePasswordChangeScreen,
+                                  shadowText: StandartLanguage.repeatPasswordTextfieldShadowTextPasswordChangeScreen,
+                                  error: StandartLanguage.repeatPasswordTextfieldErrorPasswordChangeScreen)
         textfield.editSecureTextEntry(entry: true)
         return textfield
     }()
 
     private let saveButton: FirstBigButton = {
-        let button = FirstBigButton(text: "saveButton")
+        let button = FirstBigButton(text: StandartLanguage.saveButtonPasswordChangeScreen)
         button.addTarget(self, action: #selector(tapSaveButton))
         return button
     }()

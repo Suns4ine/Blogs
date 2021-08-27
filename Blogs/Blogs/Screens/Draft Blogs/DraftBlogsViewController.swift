@@ -19,7 +19,7 @@ final class DraftBlogsViewController: UIViewController {
     }
     
     private let header: Header = {
-        let header = Header(title: "Черновики",
+        let header = Header(title: StandartLanguage.headerTitleDraftBlogsScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -27,7 +27,8 @@ final class DraftBlogsViewController: UIViewController {
     }()
     
     private lazy var emptyArrayTitle: Title = {
-        let title = Title(text: "Здесь пока ничего нет", size: .meb36)
+        let title = Title(text: StandartLanguage.emptyArrayTitleDraftBlogsScreen,
+                          size: .meb36)
         title.sizeToFit()
         return title
     }()

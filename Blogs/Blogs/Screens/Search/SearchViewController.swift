@@ -19,7 +19,7 @@ final class SearchViewController: UIViewController {
     }
     
     private let header: Header = {
-        let header = Header(title: "Поиск",
+        let header = Header(title: StandartLanguage.headerTitleSearchScreen,
                             leftIcon: .init(icon: .alignJustify, size: .size24),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapSettingButton))
@@ -56,7 +56,8 @@ final class SearchViewController: UIViewController {
     }()
     
     private lazy var emptyArrayTitle: Title = {
-        let title = Title(text: "Здесь пока ничего нет", size: .meb36)
+        let title = Title(text: StandartLanguage.emptyArrayTitleSearchScreen,
+                          size: .meb36)
         title.sizeToFit()
         return title
     }()

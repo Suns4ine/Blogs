@@ -19,7 +19,7 @@ final class ChoiceColorViewController: UIViewController {
     }
     
     private let header: Header = {
-        let header = Header(title: "Расцветка",
+        let header = Header(title: StandartLanguage.headerTitleChoiceColorScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -38,7 +38,8 @@ final class ChoiceColorViewController: UIViewController {
     }()
     
     private lazy var emptyArrayTitle: Title = {
-        let title = Title(text: "Здесь пока ничего нет", size: .meb36)
+        let title = Title(text: StandartLanguage.emptyArrayTitleChoiceColorScreen,
+                          size: .meb36)
         title.sizeToFit()
         return title
     }()

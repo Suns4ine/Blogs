@@ -13,7 +13,7 @@ final class AboutTheApplicationViewController: UIViewController {
 
     //MARK: Объявление переменных
     private let header: Header = {
-        let header = Header(title: "Об Приложении",
+        let header = Header(title: StandartLanguage.headerTitleAboutTheApplicationScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -21,14 +21,16 @@ final class AboutTheApplicationViewController: UIViewController {
     }()
     
     private let text: Text = {
-        let text = Text(text: "text", size: .mm15)
+        let text = Text(text: StandartLanguage.textAboutTheApplicationScreen,
+                        size: .mm15)
         text.editAligent(aligent: .natural)
         text.editScrollEnabled(edit: true)
         return text
     }()
     
     private lazy var emptyArrayTitle: Title = {
-        let title = Title(text: "Здесь пока ничего нет", size: .meb36)
+        let title = Title(text: StandartLanguage.emptyArrayTitleAboutTheApplicationScreen,
+                          size: .meb36)
         title.sizeToFit()
         return title
     }()

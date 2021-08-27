@@ -22,7 +22,7 @@ final class EditProfileViewController: UIViewController {
     }()
     
     private let header: Header = {
-        let header = Header(title: "Редактирование",
+        let header = Header(title: StandartLanguage.headerTitleEditProfileScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -35,38 +35,46 @@ final class EditProfileViewController: UIViewController {
     }()
     
     private let editAvatarButton: ThirdSmallButton = {
-        let button = ThirdSmallButton(text: "editAvatarButton")
+        let button = ThirdSmallButton(text: StandartLanguage.editAvatarButtonEditProfileScreen)
         button.addTarget(self, action: #selector(tapEditAvatarButton))
         return button
     }()
     
     private let nameTextfield: TextField = {
-        let textfield = TextField(name: "nameTextfield", shadowText: "", error: "nameTextfield")
+        let textfield = TextField(name: StandartLanguage.nameTextfieldNameEditProfileScreen,
+                                  shadowText: StandartLanguage.nameTextfieldShadowTextEditProfileScreen,
+                                  error: StandartLanguage.tagNameTextfieldErrorEditProfileScreen)
         textfield.editNameColor(color: StandartColors.anotherSubTitleColor)
         return textfield
     }()
     
     private let surnameTextfield: TextField = {
-        let textfield = TextField(name: "surnameTextfield", shadowText: "", error: "surnameTextfield")
+        let textfield = TextField(name: StandartLanguage.surnameTextfieldNameEditProfileScreen,
+                                  shadowText: StandartLanguage.surnameTextfieldShadowTextEditProfileScreen,
+                                  error: StandartLanguage.surnameTextfieldErrorEditProfileScreen)
         textfield.editNameColor(color: StandartColors.anotherSubTitleColor)
         return textfield
     }()
     
     private let tagNameTextfield: TextField = {
-        let textfield = TextField(name: "tagNameTextfield", shadowText: "", error: "tagNameTextfield")
+        let textfield = TextField(name: StandartLanguage.tagNameTextfieldNameEditProfileScreen,
+                                  shadowText: StandartLanguage.tagNameTextfieldShadowTextEditProfileScreen,
+                                  error: StandartLanguage.tagNameTextfieldErrorEditProfileScreen)
         textfield.editNameColor(color: StandartColors.anotherSubTitleColor)
         return textfield
     }()
     
     private let aboutMeSubTitle: SubTitle = {
-        let text = SubTitle(text: "aboutMeSubTitle", size: .mm15)
+        let text = SubTitle(text: StandartLanguage.aboutMeSubTitleEditProfileScreen,
+                            size: .mm15)
         text.editAligent(aligent: .left)
         text.editColor(color: StandartColors.anotherSubTitleColor)
         return text
     }()
     
     private let aboutMeErrorSubTitle: SubTitle = {
-        let text = SubTitle(text: "aboutMeErrorSubTitle", size: .mm15)
+        let text = SubTitle(text: StandartLanguage.aboutMeErrorSubTitleEditProfileScreen,
+                            size: .mm15)
         text.editAligent(aligent: .left)
         text.editColor(color: StandartColors.textErrorColor)
         return text
@@ -74,7 +82,8 @@ final class EditProfileViewController: UIViewController {
     
     
     private let aboutMeText: Text = {
-        let text = Text(text: "aboutMeText", size: .mm17)
+        let text = Text(text: StandartLanguage.aboutMeTextEditProfileScreen,
+                        size: .mm17)
         text.editScrollEnabled(edit: true)
         text.editAligent(aligent: .natural)
         text.editWorkInText(edit: true)
@@ -94,7 +103,8 @@ final class EditProfileViewController: UIViewController {
     }()
     
     private let saveButton: SecondBigButton = {
-        let button = SecondBigButton(text: "saveButton", icon: .none)
+        let button = SecondBigButton(text: StandartLanguage.saveButtonEditProfileScreen,
+                                     icon: .none)
         button.addTarget(self, action: #selector(tapSaveButton))
         return button
     }()

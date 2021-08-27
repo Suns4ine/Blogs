@@ -15,7 +15,7 @@ final class SettingViewController: UIViewController {
     private var section: SettingSectionRowPresentable = SettingSectionViewModel()
     
     private let header: Header = {
-        let header = Header(title: "Настройки",
+        let header = Header(title: StandartLanguage.headerTitleSettingScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
