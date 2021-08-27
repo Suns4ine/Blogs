@@ -205,7 +205,6 @@ final class MyBlogViewController: UIViewController {
             shareSubtitle.leadingAnchor.constraint(equalTo: shareIcon.trailingAnchor, constant: 16),
             shareSubtitle.heightAnchor.constraint(equalToConstant: 24),
             shareSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12)
-            
         ])
     }
     

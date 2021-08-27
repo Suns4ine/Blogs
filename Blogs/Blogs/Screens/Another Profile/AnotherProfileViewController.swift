@@ -41,6 +41,7 @@ final class AnotherProfileViewController: UIViewController {
     
     private let profileView: UIView = {
         let view = UIView()
+        view.layer.cornerRadius = 32
         view.backgroundColor = StandartColors.anotherProfileColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -339,13 +340,6 @@ final class AnotherProfileViewController: UIViewController {
                 moreBlogButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
             ])
         }
-        
-       // setupCustom()
-    }
-    
-    //MARK: Кастомные настройки, так как до viewDidLayoutSubviews они не работают
-    private func setupCustom() {
-        profileView.layer.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 32)
     }
     
     //MARK: Отключаем горизонтальную прокрутку

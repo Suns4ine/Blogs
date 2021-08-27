@@ -25,6 +25,7 @@ final class EditProfileViewController: UIViewController {
         let header = Header(title: StandartLanguage.headerTitleEditProfileScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
+        header.editTitleColor(color: StandartColors.anotherTitleColor)
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
     }()

@@ -66,7 +66,8 @@ final class DraftBlogsViewController: UIViewController {
         
         draftTableView.delegate = self
         draftTableView.dataSource = self
-        draftTableView.register(StandartBlogTableViewCell.self, forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
+        draftTableView.register(StandartBlogTableViewCell.self,
+                                forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
     }
     
     override func viewDidLayoutSubviews() {
@@ -80,7 +81,7 @@ final class DraftBlogsViewController: UIViewController {
             draftTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 4),
             draftTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             draftTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            draftTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            draftTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),

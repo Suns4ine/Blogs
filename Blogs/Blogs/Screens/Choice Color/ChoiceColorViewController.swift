@@ -82,7 +82,7 @@ final class ChoiceColorViewController: UIViewController {
             colorTableView.topAnchor.constraint(equalTo: header.bottomAnchor),
             colorTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             colorTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            colorTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            colorTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),

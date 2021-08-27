@@ -80,7 +80,7 @@ final class SavedViewController: UIViewController {
             savedTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 4),
             savedTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             savedTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            savedTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            savedTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),

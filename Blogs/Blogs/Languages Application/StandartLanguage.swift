@@ -126,7 +126,7 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     static var emptyArrayTitleDraftBlogsScreen: String = "Какой-то текст"
     
     //MARK: Edit Profile Screen
-    static var headerTitleEditProfileScreen: String = ""
+    static var headerTitleEditProfileScreen: String = "Редактирование"
     static var editAvatarButtonEditProfileScreen: String = "Изменить изображение"
     static var nameTextfieldNameEditProfileScreen: String = "Имя"
     static var nameTextfieldShadowTextEditProfileScreen: String = "Имя"

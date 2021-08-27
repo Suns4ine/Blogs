@@ -55,7 +55,8 @@ final class SettingViewController: UIViewController {
         
         settingTableView.delegate = self
         settingTableView.dataSource = self
-        settingTableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
+        settingTableView.register(SettingTableViewCell.self,
+                                  forCellReuseIdentifier: SettingTableViewCell.identifier)
 	}
     
     override func viewDidLayoutSubviews() {

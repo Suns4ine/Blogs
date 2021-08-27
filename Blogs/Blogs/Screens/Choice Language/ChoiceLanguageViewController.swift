@@ -81,7 +81,7 @@ final class ChoiceLanguageViewController: UIViewController {
             languageTableView.topAnchor.constraint(equalTo: header.bottomAnchor),
             languageTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             languageTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            languageTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            languageTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),

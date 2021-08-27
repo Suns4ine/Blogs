@@ -98,7 +98,8 @@ final class SearchViewController: UIViewController {
         
         searchTableView.delegate = self
         searchTableView.dataSource = self
-        searchTableView.register(StandartBlogTableViewCell.self, forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
+        searchTableView.register(StandartBlogTableViewCell.self,
+                                 forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
     }
     
     override func viewDidLayoutSubviews() {
@@ -122,7 +123,7 @@ final class SearchViewController: UIViewController {
             searchTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: -10),
             searchTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             searchTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            searchTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            searchTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             emptyArrayTitle.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
