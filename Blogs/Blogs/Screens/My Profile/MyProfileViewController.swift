@@ -58,7 +58,7 @@ final class MyProfileViewController: UIViewController {
     }()
     
     private let nameTagSubtitle: SubTitle = {
-        let subtitle = SubTitle(text: StandartLanguage.nameSubTitleMyBlogScreen,
+        let subtitle = SubTitle(text: StandartLanguage.nameTagSubtitleMyProfileScreen,
                                 size: .mm15)
         subtitle.editColor(color: StandartColors.anotherSubTitleColor)
         return subtitle
@@ -255,8 +255,8 @@ final class MyProfileViewController: UIViewController {
             editButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -44),
             
             statisticView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 32),
-            statisticView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            statisticView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -43),
+            statisticView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            statisticView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             statisticView.heightAnchor.constraint(equalToConstant: 60),
             
             followersBlogTitle.topAnchor.constraint(equalTo: statisticView.topAnchor),

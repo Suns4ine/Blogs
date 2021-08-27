@@ -34,6 +34,8 @@ final class SearchViewController: UIViewController {
         search.backgroundColor = StandartColors.standartBackgroundColor
         search.translatesAutoresizingMaskIntoConstraints = false
         search.searchTextField.backgroundColor = StandartColors.standartBackgroundColor
+        search.searchTextField.attributedPlaceholder = NSAttributedString(string: StandartLanguage.searchTextFieldShadowTextSearchScreen,
+                                                             attributes: [NSAttributedString.Key.foregroundColor : StandartColors.textForTextfieldBackgroundColor.withAlphaComponent(0.5)])
         
         search.backgroundImage = UIImage()
         search.layer.zPosition = 2

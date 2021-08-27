@@ -257,8 +257,8 @@ final class AnotherProfileViewController: UIViewController {
             followButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -44),
             
             statisticView.topAnchor.constraint(equalTo: followButton.bottomAnchor, constant: 32),
-            statisticView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            statisticView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -43),
+            statisticView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            statisticView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             statisticView.heightAnchor.constraint(equalToConstant: 60),
             
             profileView.topAnchor.constraint(equalTo: scrollView.topAnchor),

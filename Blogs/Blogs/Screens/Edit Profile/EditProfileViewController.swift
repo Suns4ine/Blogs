@@ -43,7 +43,7 @@ final class EditProfileViewController: UIViewController {
     private let nameTextfield: TextField = {
         let textfield = TextField(name: StandartLanguage.nameTextfieldNameEditProfileScreen,
                                   shadowText: StandartLanguage.nameTextfieldShadowTextEditProfileScreen,
-                                  error: StandartLanguage.tagNameTextfieldErrorEditProfileScreen)
+                                  error: StandartLanguage.nameTextfieldErrorEditProfileScreen)
         textfield.editNameColor(color: StandartColors.anotherSubTitleColor)
         return textfield
     }()
