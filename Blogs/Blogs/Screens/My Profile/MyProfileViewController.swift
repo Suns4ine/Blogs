@@ -94,9 +94,9 @@ final class MyProfileViewController: UIViewController {
         return subtitle
     }()
     
-    private let createBolgButton: FirstBigButton = {
-        let button = FirstBigButton(text: "createBolgButton")
-        button.addTarget(self, action: #selector(tapCreateBolgButton))
+    private let createBlogButton: FirstBigButton = {
+        let button = FirstBigButton(text: "createBlogButton")
+        button.addTarget(self, action: #selector(tapCreateBlogButton))
         return button
     }()
     
@@ -171,7 +171,7 @@ final class MyProfileViewController: UIViewController {
     private func addSubViewInScrollView() {
         let array = [ profileView, avatar, header, nameTitle, nameTagSubtitle,
                       editButton, statisticView, aboutMeSubTitle, aboutMeText,
-                      myBlogsSubTitle, createBolgButton, blogTableView, moreBlogButton,
+                      myBlogsSubTitle, createBlogButton, blogTableView, moreBlogButton,
                       numberBlogTitle, followersBlogTitle, follovingBlogTitle, numberBlogNameTitle,
                       followersBlogNameTitle, follovingBlogNameTitle]
         
@@ -297,18 +297,18 @@ final class MyProfileViewController: UIViewController {
             myBlogsSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             myBlogsSubTitle.heightAnchor.constraint(equalToConstant: 28),
 
-            createBolgButton.topAnchor.constraint(equalTo: myBlogsSubTitle.bottomAnchor, constant: 24),
-            createBolgButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            createBolgButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            createBlogButton.topAnchor.constraint(equalTo: myBlogsSubTitle.bottomAnchor, constant: 24),
+            createBlogButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            createBlogButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
         ])
         
         if section.rows.isEmpty {
             NSLayoutConstraint.activate([
-                createBolgButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
+                createBlogButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
             ])
         } else if section.rows.count <= 3 {
             NSLayoutConstraint.activate([
-                blogTableView.topAnchor.constraint(equalTo: createBolgButton.bottomAnchor, constant: 12),
+                blogTableView.topAnchor.constraint(equalTo: createBlogButton.bottomAnchor, constant: 12),
                 blogTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 blogTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 blogTableView.heightAnchor.constraint(equalToConstant: heightBlogTableView),
@@ -316,7 +316,7 @@ final class MyProfileViewController: UIViewController {
             ])
         } else {
             NSLayoutConstraint.activate([
-                blogTableView.topAnchor.constraint(equalTo: createBolgButton.bottomAnchor, constant: 12),
+                blogTableView.topAnchor.constraint(equalTo: createBlogButton.bottomAnchor, constant: 12),
                 blogTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 blogTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 blogTableView.heightAnchor.constraint(equalToConstant: heightBlogTableView),
@@ -352,7 +352,7 @@ final class MyProfileViewController: UIViewController {
     }
     
     @objc
-    private func tapCreateBolgButton() {
+    private func tapCreateBlogButton() {
         output.didTapCreateBolgButton()
     }
     

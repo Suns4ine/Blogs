@@ -215,6 +215,7 @@
 		35FDAC9F26D7E07C00A84B99 /* ChoiceCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC9E26D7E07C00A84B99 /* ChoiceCellProtocol.swift */; };
 		35FDACA426D7E0EC00A84B99 /* ChoiceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACA326D7E0EC00A84B99 /* ChoiceCellViewModel.swift */; };
 		35FDACB226D7F63D00A84B99 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACB126D7F63D00A84B99 /* Choice.swift */; };
+		35FDACBF26D8050900A84B99 /* LanguagesApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACBE26D8050900A84B99 /* LanguagesApplication.swift */; };
 		35FFE51A26B01CBB0032321B /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51926B01CBB0032321B /* Header.swift */; };
 		35FFE52026B020690032321B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51F26B020690032321B /* Title.swift */; };
 		35FFE52826B02DF70032321B /* SubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE52726B02DF70032321B /* SubTitle.swift */; };
@@ -452,6 +453,7 @@
 		35FDAC9E26D7E07C00A84B99 /* ChoiceCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCellProtocol.swift; sourceTree = "<group>"; };
 		35FDACA326D7E0EC00A84B99 /* ChoiceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCellViewModel.swift; sourceTree = "<group>"; };
 		35FDACB126D7F63D00A84B99 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
+		35FDACBE26D8050900A84B99 /* LanguagesApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesApplication.swift; sourceTree = "<group>"; };
 		35FFE51926B01CBB0032321B /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		35FFE51F26B020690032321B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		35FFE52726B02DF70032321B /* SubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitle.swift; sourceTree = "<group>"; };
@@ -561,7 +563,8 @@
 				35E020C726C1C8E400C99280 /* Objects View */,
 				35E020C326C1C79100C99280 /* Application */,
 				35E020C226C1C76B00C99280 /* Resources */,
-				35CE261126AE8848000F4E84 /* ColorsApplication */,
+				35FDACBD26D804A700A84B99 /* Languages Application */,
+				35CE261126AE8848000F4E84 /* Colors Application */,
 				35CE261026AE8829000F4E84 /* Extensions */,
 				3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */,
 				35FDAC1526D6342A00A84B99 /* Blog.swift */,
@@ -845,13 +848,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		35CE261126AE8848000F4E84 /* ColorsApplication */ = {
+		35CE261126AE8848000F4E84 /* Colors Application */ = {
 			isa = PBXGroup;
 			children = (
 				3557F31526AE3A1E001DA6BB /* ColorsApplication.swift */,
 				3557F34726AE4DAB001DA6BB /* StandartColors.swift */,
 			);
-			path = ColorsApplication;
+			path = "Colors Application";
 			sourceTree = "<group>";
 		};
 		35DB448826C408FB002EB53B /* TabBar */ = {
@@ -1071,6 +1074,14 @@
 				35FDAC9D26D7DFCD00A84B99 /* Choice Cell */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		35FDACBD26D804A700A84B99 /* Languages Application */ = {
+			isa = PBXGroup;
+			children = (
+				35FDACBE26D8050900A84B99 /* LanguagesApplication.swift */,
+			);
+			path = "Languages Application";
 			sourceTree = "<group>";
 		};
 		35FFE51826B01CA00032321B /* Header */ = {
@@ -1530,6 +1541,7 @@
 				35595AEC26D528DD0080B184 /* AnotherMoreBlogsProtocols.swift in Sources */,
 				35595AD726D524BF0080B184 /* MyMoreBlogsRouter.swift in Sources */,
 				35B10A0526C85DAC003E3D44 /* CreateBlogViewController.swift in Sources */,
+				35FDACBF26D8050900A84B99 /* LanguagesApplication.swift in Sources */,
 				3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */,
 				35B109B826C6D9C5003E3D44 /* EditProfileContainer.swift in Sources */,
 				35DB44A826C4392E002EB53B /* HomeInteractor.swift in Sources */,

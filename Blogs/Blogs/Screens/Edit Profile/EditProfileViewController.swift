@@ -109,14 +109,20 @@ final class EditProfileViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private func addSubViewInScrollView() {
+        let array = [header, avatar, editAvatarButton, nameTextfield,
+                    surnameTextfield, tagNameTextfield, aboutMeView,
+                    aboutMeText, aboutMeSubTitle, aboutMeErrorSubTitle,
+                    saveButton]
+        
+        array.forEach{ scrollView.addSubview($0) }
+    }
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
         [scrollView].forEach{ view.addSubview($0)}
-        [header, avatar, editAvatarButton, nameTextfield,
-         surnameTextfield, tagNameTextfield, aboutMeView,
-         aboutMeText, aboutMeSubTitle, aboutMeErrorSubTitle,
-         saveButton].forEach{ scrollView.addSubview($0)}
+        addSubViewInScrollView()
         
         self.view.backgroundColor = StandartColors.myProfileColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
