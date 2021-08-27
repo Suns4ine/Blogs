@@ -13,7 +13,7 @@ final class LoginViewController: UIViewController {
     
     //MARK: Объявление переменных
     private let header: Header = {
-        let header = Header(title: "",
+        let header = Header(title: StandartLanguage.headerTitleLoginScreen,
                             leftIcon: .init(icon: .outline3, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -26,23 +26,27 @@ final class LoginViewController: UIViewController {
     }()
     
     private let LoginTitle: Title = {
-        let title = Title(text: "Логин", size: .meb36)
+        let title = Title(text: StandartLanguage.titleLoginScreen, size: .meb36)
         return title
     }()
     
     private let loginTextField: TextField = {
-        let textfiled = TextField(name: "Логин", shadowText: "", error: "Логин")
+        let textfiled = TextField(name: StandartLanguage.loginTextFieldNameLoginScreen,
+                                  shadowText: StandartLanguage.loginTextFieldShadowTextLoginScreen,
+                                  error: StandartLanguage.loginTextFieldErrorLoginScreen)
         return textfiled
     }()
     
     private let passwordTextField: TextField = {
-        let textfiled = TextField(name: "Пароль", shadowText: "", error: "Пароль")
+        let textfiled = TextField(name: StandartLanguage.passwordTextFieldNameLoginScreen,
+                                  shadowText: StandartLanguage.passwordTextFieldShadowTextLoginScreen,
+                                  error: StandartLanguage.passwordTextFieldErrorLoginScreen)
         textfiled.editSecureTextEntry(entry: true)
         return textfiled
     }()
     
     private let signInButton: FirstBigButton = {
-        let button = FirstBigButton(text: "Войти")
+        let button = FirstBigButton(text: StandartLanguage.signInButtonLoginScreen)
         button.addTarget(self, action: #selector(tapSignInButton))
         return button
     }()
@@ -52,7 +56,7 @@ final class LoginViewController: UIViewController {
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
         button.sizeToFit()
-        button.setTitle("Или зарегистрироваться", for: .normal)
+        button.setTitle(StandartLanguage.signUpButtonLoginScreen, for: .normal)
         button.titleLabel?.font = .fourthTextFont
         button.setTitleColor(StandartColors.textErrorColor, for: .normal)
         button.addTarget(self, action: #selector(tapSignUpButton), for: .touchUpInside)

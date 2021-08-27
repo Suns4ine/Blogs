@@ -26,7 +26,7 @@ final class ChoiceTableViewCell: UITableViewCell, ChoiceCellModelRepresentable {
     static var identifier = "ChoiceTableViewCell"
     
     private let button: FirstBigButton = {
-        let button = FirstBigButton(text: "ChoiceTableViewCell")
+        let button = FirstBigButton(text: StandartLanguage.titleChoiceCell)
         return button
     }()
     

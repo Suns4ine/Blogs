@@ -22,8 +22,9 @@ protocol LanguagesApplicationProtocol {
     static var twitterButtonStartScreen: String { get }
     
     //MARK: Login Screen
+    static var headerTitleLoginScreen: String { get }
     static var titleLoginScreen: String { get }
-    static var signInLoginScreen: String { get }
+    static var signInButtonLoginScreen: String { get }
     static var signUpButtonLoginScreen: String { get }
     static var loginTextFieldNameLoginScreen: String { get }
     static var loginTextFieldShadowTextLoginScreen: String { get }
@@ -33,9 +34,10 @@ protocol LanguagesApplicationProtocol {
     static var passwordTextFieldErrorLoginScreen: String { get }
 
     //MARK: Sign Up Screen
+    static var headerTitleSignUpScreen: String { get }
     static var titleSignUpScreen: String { get }
     static var textSignUpScreen: String { get }
-    static var signInButtonSignUpScreen: String { get }
+    static var registerButtonSignUpScreen: String { get }
     static var nameTextFieldNameSignUpScreen: String { get }
     static var nameTextFieldShadowTextSignUpScreen: String { get }
     static var nameTextFieldErrorSignUpScreen: String { get }

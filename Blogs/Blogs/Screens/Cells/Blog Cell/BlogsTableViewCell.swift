@@ -51,26 +51,26 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
     }()
     
     private let title: Title = {
-        let title = Title(text: "Title Blog", size: .meb36)
+        let title = Title(text: StandartLanguage.titleBlogCell, size: .meb36)
         title.editAligent(aligent: .natural)
         return title
     }()
     
     private let dateSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "dateSubTitle", size: .mm15)
+        let subtitle = SubTitle(text: StandartLanguage.dateSubTitleBlogCell, size: .mm15)
         subtitle.sizeToFit()
         return subtitle
     }()
     
     private let nameSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "nameSubTitle", size: .mb17)
+        let subtitle = SubTitle(text: StandartLanguage.nameSubTitleBlogCell, size: .mb17)
         subtitle.sizeToFit()
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
     
     private let tagSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "tagSubTitle ", size: .mm15)
+        let subtitle = SubTitle(text: StandartLanguage.tagSubTitleBlogCell, size: .mm15)
         subtitle.sizeToFit()
         subtitle.editAligent(aligent: .right)
         return subtitle

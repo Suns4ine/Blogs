@@ -19,7 +19,7 @@ final class HomeViewController: UIViewController {
     }
     
     private let header: Header = {
-        let header = Header(title: "Блоги",
+        let header = Header(title: StandartLanguage.headerTitleHomeScreen,
                             leftIcon: .init(icon: .alignJustify, size: .size24),
                             rightIcon: .init(icon: .bell, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapSettingButton))
@@ -38,7 +38,7 @@ final class HomeViewController: UIViewController {
     }()
     
     private lazy var emptyArrayTitle: Title = {
-        let title = Title(text: "Здесь пока ничего нет", size: .meb36)
+        let title = Title(text: StandartLanguage.emptyArrayTitleHomeScreen, size: .meb36)
         title.sizeToFit()
         return title
     }()

@@ -31,7 +31,7 @@ final class MyProfileViewController: UIViewController {
     }()
     
     private let header: Header = {
-        let header = Header(title: "",
+        let header = Header(title: StandartLanguage.headerTitleMyProfileScreen,
                             leftIcon: .init(icon: .alignJustify, size: .size24),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapSettingButton))
@@ -51,19 +51,21 @@ final class MyProfileViewController: UIViewController {
     }()
     
     private let nameTitle: Title = {
-        let title = Title(text: "Name and Surname Title", size: .meb36)
+        let title = Title(text: StandartLanguage.nameTitleMyProfileScreen,
+                          size: .meb36)
         title.editColor(color: StandartColors.anotherTitleColor)
         return title
     }()
     
     private let nameTagSubtitle: SubTitle = {
-        let subtitle = SubTitle(text: "nameTagSubtitle", size: .mm15)
+        let subtitle = SubTitle(text: StandartLanguage.nameSubTitleMyBlogScreen,
+                                size: .mm15)
         subtitle.editColor(color: StandartColors.anotherSubTitleColor)
         return subtitle
     }()
     
     private let editButton: ThirdBigButton = {
-        let button = ThirdBigButton(text: "editButton")
+        let button = ThirdBigButton(text: StandartLanguage.editButtonMyProfileScreen)
         button.addTarget(self, action: #selector(tapEditButton))
         return button
     }()
@@ -76,26 +78,28 @@ final class MyProfileViewController: UIViewController {
     }()
     
     private let aboutMeSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "aboutMeSubTitle", size: .mb21)
+        let subtitle = SubTitle(text: StandartLanguage.aboutMeSubTitleMyProfileScreen,
+                                size: .mb21)
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
 
     private let aboutMeText: Text = {
-        let text = Text(text: "aboutMeText Wireframe is still important for ideation. It will help you to quickly test idea.",
+        let text = Text(text: StandartLanguage.aboutMeTextMyProfileScreen,
                         size: .mm15)
         text.editAligent(aligent: .natural)
         return text
     }()
     
     private let myBlogsSubTitle: SubTitle = {
-        let subtitle = SubTitle(text: "myBlogsSubTitle", size: .mb21)
+        let subtitle = SubTitle(text: StandartLanguage.myBlogsSubTitleMyProfileScreen,
+                                size: .mb21)
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
     
     private let createBlogButton: FirstBigButton = {
-        let button = FirstBigButton(text: "createBlogButton")
+        let button = FirstBigButton(text: StandartLanguage.createBlogButtonMyProfileScreen)
         button.addTarget(self, action: #selector(tapCreateBlogButton))
         return button
     }()
@@ -113,7 +117,8 @@ final class MyProfileViewController: UIViewController {
     }()
     
     private let moreBlogButton: SecondBigButton = {
-        let button = SecondBigButton(text: "moreBlogButton", icon: .none)
+        let button = SecondBigButton(text: StandartLanguage.moreBlogButtonMyProfileScreen,
+                                     icon: .none)
         button.addTarget(self, action: #selector(tapMoreBlogButton))
         return button
     }()
@@ -126,42 +131,48 @@ final class MyProfileViewController: UIViewController {
     }()
     
     private let numberBlogTitle: SubTitle = {
-        let title = SubTitle(text: "123456", size: .meb24)
+        let title = SubTitle(text: StandartLanguage.numberBlogTitleMyProfileScreen,
+                             size: .meb24)
         title.editColor(color: StandartColors.anotherSubTitleColor)
         title.sizeToFit()
         return title
     }()
     
     private let numberBlogNameTitle: SubTitle = {
-        let title = SubTitle(text: "blogs", size: .mm15)
+        let title = SubTitle(text: StandartLanguage.numberBlogNameTitleMyProfileScreen,
+                             size: .mm15)
         title.editColor(color: StandartColors.anotherSubTitleColor)
         title.sizeToFit()
         return title
     }()
     
     private let followersBlogTitle: SubTitle = {
-        let title = SubTitle(text: "123456", size: .meb24)
+        let title = SubTitle(text: StandartLanguage.followersBlogTitleMyProfileScreen,
+                             size: .meb24)
         title.editColor(color: StandartColors.anotherSubTitleColor)
         title.sizeToFit()
         return title
     }()
 
     private let followersBlogNameTitle: SubTitle = {
-        let title = SubTitle(text: "followers", size: .mm15)
+        let title = SubTitle(text: StandartLanguage.followersBlogNameTitleMyProfileScreen,
+                             size: .mm15)
         title.editColor(color: StandartColors.anotherSubTitleColor)
         title.sizeToFit()
         return title
     }()
     
     private let follovingBlogTitle: SubTitle = {
-        let title = SubTitle(text: "123456", size: .meb24)
+        let title = SubTitle(text: StandartLanguage.follovingBlogTitleMyProfileScreen,
+                             size: .meb24)
         title.editColor(color: StandartColors.anotherSubTitleColor)
         title.sizeToFit()
         return title
     }()
     
     private let follovingBlogNameTitle: SubTitle = {
-        let title = SubTitle(text: "folloving", size: .mm15)
+        let title = SubTitle(text: StandartLanguage.follovingBlogNameTitleMyProfileScreen,
+                             size: .mm15)
         title.editColor(color: StandartColors.anotherSubTitleColor)
         title.sizeToFit()
         return title

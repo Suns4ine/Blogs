@@ -13,7 +13,7 @@ final class SignUpViewController: UIViewController {
 
     //MARK: Объявление переменных
     private let header: Header = {
-        let header = Header(title: "",
+        let header = Header(title: StandartLanguage.headerTitleSignUpScreen,
                             leftIcon: .init(icon: .outline1, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
@@ -21,35 +21,41 @@ final class SignUpViewController: UIViewController {
     }()
     
     private let signUpTitle: Title = {
-        let title = Title(text: "Регистрация", size: .meb36)
+        let title = Title(text: StandartLanguage.titleSignUpScreen, size: .meb36)
         return title
     }()
     
     private let text: Text = {
-        let text = Text(text: "You have chance to create new account if you really want to.", size: .mm17)
+        let text = Text(text: StandartLanguage.textSignUpScreen, size: .mm17)
         text.editAligent(aligent: .left)
         text.sizeToFit()
         return text
     }()
     
     private let nameTextField: TextField = {
-        let textfiled = TextField(name: "Имя", shadowText: "", error: "Имя")
+        let textfiled = TextField(name: StandartLanguage.nameTextFieldNameSignUpScreen,
+                                  shadowText: StandartLanguage.nameTextFieldShadowTextSignUpScreen,
+                                  error: StandartLanguage.nameTextFieldErrorSignUpScreen)
         return textfiled
     }()
     
     private let mailTextField: TextField = {
-        let textfiled = TextField(name: "Почта", shadowText: "", error: "Почта")
+        let textfiled = TextField(name: StandartLanguage.mailTextFieldNameSignUpScreen,
+                                  shadowText: StandartLanguage.mailTextFieldShadowTextSignUpScreen,
+                                  error: StandartLanguage.mailTextFieldErrorSignUpScreen)
         return textfiled
     }()
     
     private let passwordTextField: TextField = {
-        let textfiled = TextField(name: "Пароль", shadowText: "", error: "Пароль")
+        let textfiled = TextField(name: StandartLanguage.passwordTextFieldNameSignUpScreen,
+                                  shadowText: StandartLanguage.passwordTextFieldShadowTextSignUpScreen,
+                                  error: StandartLanguage.passwordTextFieldErrorSignUpScreen)
         textfiled.editSecureTextEntry(entry: true)
         return textfiled
     }()
     
     private let registerButton: FirstBigButton = {
-        let button = FirstBigButton(text: "Зарегистрироваться")
+        let button = FirstBigButton(text: StandartLanguage.registerButtonSignUpScreen)
         button.addTarget(self, action: #selector(tapRegisterButton))
         return button
     }()

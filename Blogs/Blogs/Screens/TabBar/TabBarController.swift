@@ -14,7 +14,7 @@ final class TabBarController: UITabBarController {
     private let homeContainer = HomeContainer.assemble(with: .init())
     private lazy var homeController: HomeViewController = {
         let controller = homeContainer.viewController
-        controller.title = "Home"
+        controller.title = StandartLanguage.homeTabBar
         controller.tabBarItem.image = UIImage(named: Icons.home1.rawValue)
         return controller as! HomeViewController
     }()
@@ -22,7 +22,7 @@ final class TabBarController: UITabBarController {
     private let searchContainer = SearchContainer.assemble(with: .init())
     private lazy var searchController: SearchViewController = {
         let controller = searchContainer.viewController
-        controller.title = "Search"
+        controller.title = StandartLanguage.searchTabBar
         controller.tabBarItem.image = UIImage(named: Icons.search.rawValue)
     return controller as! SearchViewController
     }()
@@ -30,7 +30,7 @@ final class TabBarController: UITabBarController {
     private let savedhContainer = SavedContainer.assemble(with: .init())
     private lazy var savedController: SavedViewController = {
         let controller = savedhContainer.viewController
-        controller.title = "Saved"
+        controller.title = StandartLanguage.savedTabBar
         controller.tabBarItem.image = UIImage(named: Icons.star.rawValue)
         return controller as! SavedViewController
     }()
@@ -38,7 +38,7 @@ final class TabBarController: UITabBarController {
     private let myProfileContainer = MyProfileContainer.assemble(with: .init())
     private lazy var profileController: UIViewController = {
         let controller = myProfileContainer.viewController
-        controller.title = "Profile"
+        controller.title = StandartLanguage.profileTabBar
         controller.tabBarItem.image = UIImage(named: Icons.user.rawValue)
         return controller
     }()

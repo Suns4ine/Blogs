@@ -31,12 +31,12 @@ final class StartViewController: UIViewController {
     
 
     private let titleLogin: Title = {
-        let title = Title(text: "Логин", size: .meb36)
+        let title = Title(text: StandartLanguage.titleStartScreen, size: .meb36)
         return title
     }()
     
     private let textLogin: Text = {
-        let text = Text(text: "You don’t think you should login first and behave like human not robot.", size: .mm17)
+        let text = Text(text: StandartLanguage.textStartScreen, size: .mm17)
         text.sizeToFit()
         return text
     }()
@@ -53,20 +53,20 @@ final class StartViewController: UIViewController {
     }()
     
     private let emailButton: SecondBigButton = {
-        let button = SecondBigButton(text: "Email", icon: .mail)
+        let button = SecondBigButton(text: StandartLanguage.mailButtonStartScreen, icon: .mail)
         button.addTarget(self, action: #selector(tapEmailButton))
         return button
     }()
     
     private let facebookButton: SecondBigButton = {
-        let button = SecondBigButton(text: "Facebook", icon: .facebook)
+        let button = SecondBigButton(text: StandartLanguage.facebookButtonStartScreen, icon: .facebook)
         button.addTarget(self, action: #selector(tapFacebookButton))
         button.editColor(color: StandartColors.facebookColor)
         return button
     }()
     
     private let twitterButton: SecondBigButton = {
-        let button = SecondBigButton(text: "twitter", icon: .twitter)
+        let button = SecondBigButton(text: StandartLanguage.twitterButtonStartScreen, icon: .twitter)
         button.addTarget(self, action: #selector(tapTwitterButton))
         button.editColor(color: StandartColors.twitterColor)
         return button
