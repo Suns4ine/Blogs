@@ -70,6 +70,13 @@ final class SignUpViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        nameTextField.clearText()
+        mailTextField.clearText()
+        passwordTextField.clearText()
+    }
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -119,9 +126,24 @@ final class SignUpViewController: UIViewController {
     
     @objc
     private func tapRegisterButton() {
+        output.didFinishNameText(text: nameTextField.textField.text ?? "")
+        output.didFinishMailText(text: mailTextField.textField.text ?? "")
+        output.didFinishPasswordText(text: passwordTextField.password)
         output.didTapRegisterButton()
     }
 }
 
 extension SignUpViewController: SignUpViewInput {
+    func showErrorName(text: String) {
+        nameTextField.editErrorText(text: text)
+    }
+    
+    func showErrorMail(text: String) {
+        mailTextField.editErrorText(text: text)
+    }
+    
+    func showErrorPassword(text: String) {
+        passwordTextField.editErrorText(text: text)
+    }
+    
 }

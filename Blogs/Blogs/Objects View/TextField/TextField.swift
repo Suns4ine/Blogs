@@ -17,6 +17,7 @@ final class TextField: UIView, UITextFieldDelegate {
     var delegate: TextFieldDelegateProtocol?
     private var isSecureTextEntry = false
     private (set) var password: String = ""
+    private var textInPassword: [String] = []
     
     private let nameSubTitle: SubTitle = {
         let text = SubTitle(text: "nameText", size: .mm15)
@@ -86,6 +87,10 @@ final class TextField: UIView, UITextFieldDelegate {
         isSecureTextEntry = entry
     }
     
+    func clearText() {
+        textField.text = ""
+    }
+    
     private func setup() {
         [nameSubTitle, errorSubTitle, textField].forEach{ addSubview($0)}
         
@@ -110,8 +115,10 @@ final class TextField: UIView, UITextFieldDelegate {
                 password = String(password.dropLast())
                 textField.text = String(textField.text?.dropLast() ?? "")
             } else {
+                textInPassword = []
+                textInPassword = Array(repeating: "●", count: string.count)
                 password = password + string
-                textField.text = (textField.text ?? "") + "●"
+                textField.text = (textField.text ?? "") + textInPassword.joined()
             }
             return false
         }

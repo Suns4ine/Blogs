@@ -75,6 +75,12 @@ final class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loginTextField.clearText()
+        passwordTextField.clearText()
+    }
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
         [header, logo, LoginTitle, loginTextField,

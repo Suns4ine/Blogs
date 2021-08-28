@@ -58,12 +58,10 @@ extension LoginInteractor: LoginInteractorInput {
     
     func newLoginText(text: String) {
         login = text
-        debugPrint("login \(login)")
     }
     
     func newPasswordText(text: String) {
         password = text
-        debugPrint("Password \(password)")
     }
     
 }
