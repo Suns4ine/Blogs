@@ -11,7 +11,7 @@ import Foundation
 final class DraftBlogsInteractor {
 	weak var output: DraftBlogsInteractorOutput?
     
-    private var draftArray: [Blog] = [.init(), .init(), .init(), .init(), .init()]
+    private var draftArray: [Blog] = []//[.init(), .init(), .init(), .init(), .init()]
 }
 
 extension DraftBlogsInteractor: DraftBlogsInteractorInput {

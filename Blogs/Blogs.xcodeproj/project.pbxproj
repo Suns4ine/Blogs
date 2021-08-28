@@ -217,6 +217,7 @@
 		35FDACB226D7F63D00A84B99 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACB126D7F63D00A84B99 /* Choice.swift */; };
 		35FDACBF26D8050900A84B99 /* LanguagesApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACBE26D8050900A84B99 /* LanguagesApplication.swift */; };
 		35FDACC426D8D7D800A84B99 /* StandartLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACC326D8D7D700A84B99 /* StandartLanguage.swift */; };
+		35FDACC926DA500200A84B99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35FDACC826DA500000A84B99 /* GoogleService-Info.plist */; };
 		35FFE51A26B01CBB0032321B /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51926B01CBB0032321B /* Header.swift */; };
 		35FFE52026B020690032321B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51F26B020690032321B /* Title.swift */; };
 		35FFE52826B02DF70032321B /* SubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE52726B02DF70032321B /* SubTitle.swift */; };
@@ -456,6 +457,7 @@
 		35FDACB126D7F63D00A84B99 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		35FDACBE26D8050900A84B99 /* LanguagesApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesApplication.swift; sourceTree = "<group>"; };
 		35FDACC326D8D7D700A84B99 /* StandartLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartLanguage.swift; sourceTree = "<group>"; };
+		35FDACC826DA500000A84B99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		35FFE51926B01CBB0032321B /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		35FFE51F26B020690032321B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		35FFE52726B02DF70032321B /* SubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitle.swift; sourceTree = "<group>"; };
@@ -900,6 +902,7 @@
 				3557F2E426AD65A9001DA6BB /* LaunchScreen.storyboard */,
 				3557F2E726AD65A9001DA6BB /* Info.plist */,
 				3557F2DF26AD65A7001DA6BB /* Blogs.xcdatamodeld */,
+				35FDACC826DA500000A84B99 /* GoogleService-Info.plist */,
 				3557F31D26AE4B08001DA6BB /* TypeFont */,
 			);
 			path = Resources;
@@ -1255,6 +1258,7 @@
 				3557F33326AE4B08001DA6BB /* Montserrat-BoldItalic.ttf in Resources */,
 				3557F33126AE4B08001DA6BB /* Montserrat-LightItalic.ttf in Resources */,
 				3557F34326AE4B08001DA6BB /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				35FDACC926DA500200A84B99 /* GoogleService-Info.plist in Resources */,
 				3557F34226AE4B08001DA6BB /* Montserrat-SemiBoldItalic.ttf in Resources */,
 				3557F33C26AE4B08001DA6BB /* Montserrat-ExtraLightItalic.ttf in Resources */,
 			);

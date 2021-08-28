@@ -11,7 +11,9 @@ import Foundation
 final class ChoiceLanguageInteractor {
 	weak var output: ChoiceLanguageInteractorOutput?
     
-    private var languageArray: [Choice] = [.init(), .init(), .init(), .init(), .init()]
+    private var languageArray: [Choice] = [.init(), .init(), .init(), .init(), .init(),.init(),
+                                           .init(), .init(), .init(), .init(), .init(),.init(),
+                                           .init(), .init(), .init(), .init(), .init(),.init(),]
 }
 
 extension ChoiceLanguageInteractor: ChoiceLanguageInteractorInput {

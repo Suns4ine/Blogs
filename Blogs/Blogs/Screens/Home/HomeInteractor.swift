@@ -11,7 +11,7 @@ import Foundation
 final class HomeInteractor {
 	weak var output: HomeInteractorOutput?
     
-    private var arrayBlogs: [Blog] = [.init(), .init(), .init(), .init(), .init(), .init(), .init(), .init()]
+    private var arrayBlogs: [Blog] = []//[.init(), .init(), .init(), .init(), .init(), .init(), .init(), .init()]
     
 }
 

@@ -31,7 +31,7 @@ final class TabBarController: UITabBarController {
     private lazy var savedController: SavedViewController = {
         let controller = savedhContainer.viewController
         controller.title = StandartLanguage.savedTabBar
-        controller.tabBarItem.image = UIImage(named: Icons.star.rawValue)
+        controller.tabBarItem.image = UIImage(named: Icons.heart.rawValue)
         return controller as! SavedViewController
     }()
     

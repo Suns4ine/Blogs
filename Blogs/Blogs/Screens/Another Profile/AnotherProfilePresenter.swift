@@ -23,11 +23,11 @@ final class AnotherProfilePresenter {
 
 extension AnotherProfilePresenter: AnotherProfileModuleInput {
 }
-
+//MARK: Убрать дефолтный блог в giveTableHeight
 extension AnotherProfilePresenter: AnotherProfileViewOutput {
     func giveTableHeight() -> Int {
         let count = interactor.giveBlogsArrayCount()
-        let cellHeight = Int(StandartBlogCellViewModel.init(blog: .init()).cellHeight)
+        let cellHeight = Int(StandartBlogCellViewModel.init(blog: defaultBlog).cellHeight)
         return count > 3 ? 3 * cellHeight : count * cellHeight
     }
     

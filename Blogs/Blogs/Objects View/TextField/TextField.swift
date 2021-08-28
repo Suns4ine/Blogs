@@ -16,7 +16,7 @@ final class TextField: UIView, UITextFieldDelegate {
     
     var delegate: TextFieldDelegateProtocol?
     private var isSecureTextEntry = false
-    private var password: String = ""
+    private (set) var password: String = ""
     
     private let nameSubTitle: SubTitle = {
         let text = SubTitle(text: "nameText", size: .mm15)
@@ -31,7 +31,7 @@ final class TextField: UIView, UITextFieldDelegate {
         return text
     }()
     
-    private lazy var textField: UITextField = {
+    private (set) lazy var textField: UITextField = {
         let textField = UITextField()
         textField.autocorrectionType = UITextAutocorrectionType.no
         textField.keyboardType = UIKeyboardType.default

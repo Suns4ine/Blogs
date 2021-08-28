@@ -9,6 +9,7 @@
 import UIKit
 
 final class LoginViewController: UIViewController {
+    
 	private let output: LoginViewOutput
     
     //MARK: Объявление переменных
@@ -76,7 +77,8 @@ final class LoginViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, logo, LoginTitle, loginTextField, passwordTextField, signInButton, signUpButton].forEach{ view.addSubview($0)}
+        [header, logo, LoginTitle, loginTextField,
+         passwordTextField, signInButton, signUpButton].forEach{ view.addSubview($0)}
         
         self.view.backgroundColor = StandartColors.firstLoginBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -120,6 +122,8 @@ final class LoginViewController: UIViewController {
     
     @objc
     private func tapSignInButton() {
+        output.didFinishLoginText(text: loginTextField.textField.text ?? "")
+        output.didFinishPasswordText(text: passwordTextField.password)
         output.didTapSignInButton()
     }
     
@@ -130,4 +134,12 @@ final class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: LoginViewInput {
+    func showErrorLogin(text: String) {
+        loginTextField.editErrorText(text: text)
+    }
+    
+    func showErrorPassword(text: String) {
+        passwordTextField.editErrorText(text: text)
+    }
+    
 }

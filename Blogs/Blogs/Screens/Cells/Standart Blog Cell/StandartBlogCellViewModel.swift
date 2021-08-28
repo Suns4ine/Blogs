@@ -27,10 +27,10 @@ final class StandartBlogCellViewModel: StandartBlogCellIdentifiable {
     
     init(blog: Blog) {
         title = blog.title
-        nameSubTitle = blog.nameSubTitle
-        dateSubTitle = blog.dateSubTitle
-        tagSubTitle = blog.tagSubTitle
-        avatar = blog.avatar
+        nameSubTitle = blog.finalPost.title
+        dateSubTitle = blog.finalPost.title
+        tagSubTitle = blog.finalPost.title
+        avatar = UIImage()
         user = blog.user
     }
     

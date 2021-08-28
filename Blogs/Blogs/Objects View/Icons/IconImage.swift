@@ -22,6 +22,8 @@ final class IconImage: UIView {
     private (set) var name: String = ""
     private var constShadow: CGFloat = 2
     
+    private var clickAreaButton: CGFloat = 0
+    
     private let shadowIconArray: [Icons] = [.fill1, .fill2, .fill3, .outline1, .outline2, .outline3, .logo]
     
     private let image: UIImageView = {
@@ -106,10 +108,10 @@ final class IconImage: UIView {
                 image.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 image.bottomAnchor.constraint(equalTo: self.bottomAnchor),
                 
-                button.topAnchor.constraint(equalTo: self.topAnchor),
-                button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                button.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                button.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                button.topAnchor.constraint(equalTo: self.topAnchor, constant: -clickAreaButton),
+                button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -clickAreaButton),
+                button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: clickAreaButton),
+                button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: clickAreaButton),
                 
                 shadowView.topAnchor.constraint(equalTo: image.topAnchor, constant: 2),
                 shadowView.leadingAnchor.constraint(equalTo: image.leadingAnchor),

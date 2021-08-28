@@ -25,12 +25,21 @@ extension LoginPresenter: LoginModuleInput {
 }
 
 extension LoginPresenter: LoginViewOutput {
+    func didFinishLoginText(text: String) {
+        interactor.newLoginText(text: text)
+    }
+    
+    func didFinishPasswordText(text: String) {
+        interactor.newPasswordText(text: text)
+    }
+    
     func didTapBackButton() {
         router.popViewController()
     }
-    
+    //MARK: Убрать потом 
     func didTapSignInButton() {
         router.openTabBarViewController()
+        //interactor.verificationOfEnteredData()
     }
     
     func didTapSignUpButton() {
@@ -40,4 +49,16 @@ extension LoginPresenter: LoginViewOutput {
 }
 
 extension LoginPresenter: LoginInteractorOutput {
+    func transferErrorLogin(text: String) {
+        view?.showErrorLogin(text: text)
+    }
+    
+    func transferErrorPassword(text: String) {
+        view?.showErrorPassword(text: text)
+    }
+    
+    func openTabBar() {
+        router.openTabBarViewController()
+    }
+    
 }

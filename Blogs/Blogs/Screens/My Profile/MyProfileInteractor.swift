@@ -11,7 +11,7 @@ import Foundation
 final class MyProfileInteractor {
 	weak var output: MyProfileInteractorOutput?
     
-    private var arrayBlogs: [Blog] = [.init(), .init(), .init(), .init(), .init()]
+    private var arrayBlogs: [Blog] = []//[.init(), .init(), .init(), .init(), .init()]
 }
 
 extension MyProfileInteractor: MyProfileInteractorInput {

@@ -10,7 +10,7 @@ import Foundation
 
 final class SearchInteractor {
 	weak var output: SearchInteractorOutput?
-    private var searchArray: [Blog] = [.init(), .init(), .init(), .init(), .init()]
+    private var searchArray: [Blog] = []//[.init(), .init(), .init(), .init(), .init()]
 }
 
 extension SearchInteractor: SearchInteractorInput {
