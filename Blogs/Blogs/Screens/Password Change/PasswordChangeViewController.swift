@@ -63,7 +63,8 @@ final class PasswordChangeViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, oldPasswordTextfield, newPasswordTextfield, repeatPasswordTextfield, saveButton].forEach{ view.addSubview($0)}
+        [header, oldPasswordTextfield, newPasswordTextfield,
+         repeatPasswordTextfield, saveButton].forEach{ view.addSubview($0)}
         
         self.view.backgroundColor = StandartColors.settingBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -103,9 +104,24 @@ final class PasswordChangeViewController: UIViewController {
     
     @objc
     private func tapSaveButton() {
+        output.didFinishOldPasswordText(text: oldPasswordTextfield.password)
+        output.didFinishNewPasswordText(text: newPasswordTextfield.password)
+        output.didFinishRepeatPasswordText(text: repeatPasswordTextfield.password)
         output.didTapSaveButton()
     }
 }
 
 extension PasswordChangeViewController: PasswordChangeViewInput {
+    func showErrorOldPassword(text: String) {
+        oldPasswordTextfield.editErrorText(text: text)
+    }
+    
+    func showErrorNewPassword(text: String) {
+        newPasswordTextfield.editErrorText(text: text)
+    }
+    
+    func showErrorRepeatPassword(text: String) {
+        repeatPasswordTextfield.editErrorText(text: text)
+    }
+    
 }

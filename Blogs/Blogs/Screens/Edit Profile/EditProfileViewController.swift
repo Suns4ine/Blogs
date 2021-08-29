@@ -46,6 +46,7 @@ final class EditProfileViewController: UIViewController {
                                   shadowText: StandartLanguage.nameTextfieldShadowTextEditProfileScreen,
                                   error: StandartLanguage.nameTextfieldErrorEditProfileScreen)
         textfield.editNameColor(color: StandartColors.anotherSubTitleColor)
+        textfield.editAutocapitalizationType(type: .sentences)
         return textfield
     }()
     
@@ -54,6 +55,7 @@ final class EditProfileViewController: UIViewController {
                                   shadowText: StandartLanguage.surnameTextfieldShadowTextEditProfileScreen,
                                   error: StandartLanguage.surnameTextfieldErrorEditProfileScreen)
         textfield.editNameColor(color: StandartColors.anotherSubTitleColor)
+        textfield.editAutocapitalizationType(type: .sentences)
         return textfield
     }()
     

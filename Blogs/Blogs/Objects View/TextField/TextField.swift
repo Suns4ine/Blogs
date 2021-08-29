@@ -38,6 +38,7 @@ final class TextField: UIView, UITextFieldDelegate {
         textField.keyboardType = UIKeyboardType.default
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        textField.autocapitalizationType = .none
         
         textField.indent(size: 16)
         textField.tintColor = StandartColors.enteredTextColor
@@ -87,6 +88,10 @@ final class TextField: UIView, UITextFieldDelegate {
         isSecureTextEntry = entry
     }
     
+    func editAutocapitalizationType(type: UITextAutocapitalizationType) {
+        textField.autocapitalizationType = type
+    }
+    
     func clearText() {
         textField.text = ""
     }
@@ -114,6 +119,7 @@ final class TextField: UIView, UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
+        
         if isSecureTextEntry {
             if string.isEmpty {
                 password = String(password.dropLast())
@@ -123,6 +129,7 @@ final class TextField: UIView, UITextFieldDelegate {
                 textInPassword = Array(repeating: "●", count: string.count)
                 password = password + string
                 textField.text = (textField.text ?? "") + textInPassword.joined()
+                debugPrint(password)
             }
             return false
         }

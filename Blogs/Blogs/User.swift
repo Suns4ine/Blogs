@@ -11,6 +11,7 @@ import UIKit
 struct User {
     let dateCreate: Date
     var mail: String
+    var password: String
     var identifier: String
     var name: String
     var surname: String
@@ -26,6 +27,7 @@ struct User {
 
 var defaultUser = User(dateCreate: .init(),
                        mail: "mail",
+                       password: "password",
                        identifier: "identifier",
                        name: "name",
                        surname: "surname",
@@ -40,6 +42,7 @@ var defaultUser = User(dateCreate: .init(),
 
 let anotherDefaultUser = User(dateCreate: .init(),
                        mail: "AnotherMail",
+                       password: "AnotherPassword",
                        identifier: "AnotherIdentifier",
                        name: "AnotherName",
                        surname: "AnotherSurname",

@@ -36,6 +36,7 @@ final class SignUpViewController: UIViewController {
         let textfiled = TextField(name: StandartLanguage.nameTextFieldNameSignUpScreen,
                                   shadowText: StandartLanguage.nameTextFieldShadowTextSignUpScreen,
                                   error: StandartLanguage.nameTextFieldErrorSignUpScreen)
+        textfiled.editAutocapitalizationType(type: .sentences)
         return textfiled
     }()
     

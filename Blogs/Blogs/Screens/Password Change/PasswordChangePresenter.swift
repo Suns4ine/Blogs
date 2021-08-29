@@ -25,15 +25,45 @@ extension PasswordChangePresenter: PasswordChangeModuleInput {
 }
 
 extension PasswordChangePresenter: PasswordChangeViewOutput {
+    
+    func didFinishOldPasswordText(text: String) {
+        interactor.giveOldPasswordText(text: text)
+    }
+    
+    func didFinishNewPasswordText(text: String) {
+        interactor.newPasswordText(text: text)
+    }
+    
+    func didFinishRepeatPasswordText(text: String) {
+        interactor.newRepeatPasswordText(text: text)
+    }
+
+    
     func didTapBackButton() {
         router.popViewController()
     }
     
     func didTapSaveButton() {
+        //interactor.verificationOfEnteredData()
         router.popViewController()
     }
     
 }
-
+//MARK: Вернуть обратно верификацию
 extension PasswordChangePresenter: PasswordChangeInteractorOutput {
+    func openBackViewController() {
+        router.popViewController()
+    }
+    
+    func transferErrorOldPassword(text: String) {
+        view?.showErrorOldPassword(text: text)
+    }
+    
+    func transferErrorNewPassword(text: String) {
+        view?.showErrorNewPassword(text: text)
+    }
+    
+    func transferErrorRepeatPassword(text: String) {
+        view?.showErrorRepeatPassword(text: text)
+    }
 }
