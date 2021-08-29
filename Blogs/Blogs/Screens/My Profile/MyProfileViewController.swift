@@ -190,6 +190,12 @@ final class MyProfileViewController: UIViewController {
         array.forEach{ scrollView.addSubview($0)}
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        output.fetchBlogsCell()
+        output.setupTextInViews()
+    }
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
         [extraProfileView, scrollView].forEach{ view.addSubview($0)}
@@ -201,9 +207,6 @@ final class MyProfileViewController: UIViewController {
         blogTableView.dataSource = self
         blogTableView.register(StandartBlogTableViewCell.self,
                                forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
-        
-        output.fetchBlogsCell()
-        output.setupTextInViews()
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)

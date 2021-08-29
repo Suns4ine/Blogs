@@ -17,7 +17,7 @@ enum SizeText {
 
 final class Text: UIView, TextProtocol {
     
-    private let textView: UITextView = {
+    private (set) lazy var textView: UITextView = {
         let text = UITextView()
         text.tintColor = StandartColors.enteredTextColor
         text.backgroundColor = .clear

@@ -29,7 +29,7 @@ struct Post {
     var arrayTags: [String]
 }
 
-let defaultBlog = Blog(user: defaultUser,
+var defaultBlog = Blog(user: defaultUser,
                        dateCreate: .init(),
                        dateEdit: Date.init(),
                        finalPost: Post(date: .init(),

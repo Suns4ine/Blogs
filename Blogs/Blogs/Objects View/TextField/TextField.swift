@@ -91,6 +91,10 @@ final class TextField: UIView, UITextFieldDelegate {
         textField.text = ""
     }
     
+    func addText(text: String) {
+        textField.text = text
+    }
+    
     private func setup() {
         [nameSubTitle, errorSubTitle, textField].forEach{ addSubview($0)}
         

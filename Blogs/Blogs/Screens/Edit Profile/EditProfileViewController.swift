@@ -135,6 +135,8 @@ final class EditProfileViewController: UIViewController {
         [scrollView].forEach{ view.addSubview($0)}
         addSubViewInScrollView()
         
+        output.setupTextInViews()
+        
         self.view.backgroundColor = StandartColors.myProfileColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
@@ -212,6 +214,10 @@ final class EditProfileViewController: UIViewController {
     
     @objc
     private func tapSaveButton() {
+        output.didFinishNameText(text: nameTextfield.textField.text ?? "")
+        output.didFinishSurnameText(text: surnameTextfield.textField.text ?? "")
+        output.didFinishTagNameText(text: tagNameTextfield.textField.text ?? "")
+        output.didFinishAboutMeText(text: aboutMeText.textView.text)
         output.didTapSaveButton()
     }
     
@@ -222,4 +228,28 @@ final class EditProfileViewController: UIViewController {
 }
 
 extension EditProfileViewController: EditProfileViewInput {
+    func showErrorName(text: String) {
+        nameTextfield.editErrorText(text: text)
+    }
+    
+    func showErrorSurname(text: String) {
+        surnameTextfield.editErrorText(text: text)
+    }
+    
+    func showErrorTagName(text: String) {
+        tagNameTextfield.editErrorText(text: text)
+    }
+    
+    func showErrorAboutMe(text: String) {
+        aboutMeErrorSubTitle.editText(text: text)
+    }
+    
+    func updateViews(profile: User) {
+        avatar.editImage(image: profile.avatar)
+        nameTextfield.addText(text: profile.name)
+        surnameTextfield.addText(text: profile.surname)
+        tagNameTextfield.addText(text: profile.tagname)
+        aboutMeText.editText(text: profile.aboutMe)
+    }
+    
 }

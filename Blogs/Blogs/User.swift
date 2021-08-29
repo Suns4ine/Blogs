@@ -24,7 +24,7 @@ struct User {
     var personalSetting: String
 }
 
-let defaultUser = User(dateCreate: .init(),
+var defaultUser = User(dateCreate: .init(),
                        mail: "mail",
                        identifier: "identifier",
                        name: "name",
