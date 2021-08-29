@@ -26,6 +26,10 @@ extension MyProfilePresenter: MyProfileModuleInput {
 
 //MARK: Убрать дефолтный блог
 extension MyProfilePresenter: MyProfileViewOutput {
+    func setupTextInViews() {
+        interactor.giveMyProfile()
+    }
+    
     
     func giveTableHeight() -> Int {
         let count = interactor.giveBlogsArrayCount()
@@ -60,6 +64,11 @@ extension MyProfilePresenter: MyProfileViewOutput {
 }
 
 extension MyProfilePresenter: MyProfileInteractorOutput {
+    
+    func giveAwayMyProfile(profile: User) {
+        view?.updateViews(profile: profile)
+    }
+    
     func blogsDidRecieve(_ blogs: [Blog]) {
         let section = StandartBlogSectionViewModel()
         blogs.forEach{ section.rows.append(StandartBlogCellViewModel.init(blog: $0))}

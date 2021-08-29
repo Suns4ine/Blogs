@@ -11,7 +11,7 @@ import Foundation
 final class MyMoreBlogsInteractor {
 	weak var output: MyMoreBlogsInteractorOutput?
     
-    private var blogArray: [Blog] = []//[.init(), .init(), .init(), .init(), .init()]
+    private var blogArray: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
 }
 
 extension MyMoreBlogsInteractor: MyMoreBlogsInteractorInput {

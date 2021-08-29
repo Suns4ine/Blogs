@@ -199,9 +199,11 @@ final class MyProfileViewController: UIViewController {
         scrollView.delegate =  self
         blogTableView.delegate = self
         blogTableView.dataSource = self
-        blogTableView.register(StandartBlogTableViewCell.self, forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
+        blogTableView.register(StandartBlogTableViewCell.self,
+                               forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
         
         output.fetchBlogsCell()
+        output.setupTextInViews()
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -368,6 +370,18 @@ final class MyProfileViewController: UIViewController {
 }
 
 extension MyProfileViewController: MyProfileViewInput, UIScrollViewDelegate {
+    
+    func updateViews(profile: User) {
+        
+        avatar.editImage(image: profile.avatar)
+        nameTitle.editText(text: profile.name + " " + profile.surname)
+        nameTagSubtitle.editText(text: profile.tagname)
+        aboutMeText.editText(text: profile.aboutMe)
+        numberBlogTitle.editText(text: String(profile.arrayBlogs.count))
+        followersBlogTitle.editText(text: String(profile.arrayFollowers.count))
+        follovingBlogTitle.editText(text: String(profile.arrayFolloving.count))
+    }
+    
     func reloadData(for section: StandartBlogSectionViewModel) {
         self.section = section
         blogTableView.reloadData()

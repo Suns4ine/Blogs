@@ -16,6 +16,7 @@ struct User {
     var surname: String
     var tagname: String
     var arrayBlogs: [Blog]
+    var arrayDrafts: [Blog]
     var arrayFollowers: [User]
     var arrayFolloving: [User]
     var aboutMe: String
@@ -30,8 +31,23 @@ let defaultUser = User(dateCreate: .init(),
                        surname: "surname",
                        tagname: "tagname",
                        arrayBlogs: [],
+                       arrayDrafts: [],
                        arrayFollowers: [],
                        arrayFolloving: [],
                        aboutMe: "About Me",
                        avatar: UIImage(),
                        personalSetting: "personalSetting")
+
+let anotherDefaultUser = User(dateCreate: .init(),
+                       mail: "AnotherMail",
+                       identifier: "AnotherIdentifier",
+                       name: "AnotherName",
+                       surname: "AnotherSurname",
+                       tagname: "AnotherTagname",
+                       arrayBlogs: [],
+                       arrayDrafts: [],
+                       arrayFollowers: [],
+                       arrayFolloving: [],
+                       aboutMe: "About Another",
+                       avatar: UIImage(),
+                       personalSetting: "AnotherPersonalSetting")

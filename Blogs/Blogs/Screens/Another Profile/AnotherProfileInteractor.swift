@@ -12,7 +12,7 @@ final class AnotherProfileInteractor {
 	weak var output: AnotherProfileInteractorOutput?
     
     
-    private var arrayBlogs: [Blog] = []//[.init(), .init(), .init(), .init(), .init()] 
+    private var arrayBlogs: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()] 
 }
 
 extension AnotherProfileInteractor: AnotherProfileInteractorInput {

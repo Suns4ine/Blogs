@@ -12,7 +12,7 @@ final class AnotherMoreBlogsInteractor {
 	weak var output: AnotherMoreBlogsInteractorOutput?
     
     
-    private var blogArray: [Blog] = []//[.init(), .init(), .init(), .init(), .init()]
+    private var blogArray: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
 }
 
 extension AnotherMoreBlogsInteractor: AnotherMoreBlogsInteractorInput {

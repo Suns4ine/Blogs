@@ -11,7 +11,7 @@ import Foundation
 final class SavedInteractor {
 	weak var output: SavedInteractorOutput?
     
-    private var savedArray: [Blog] = []//[.init(), .init(), .init(), .init(), .init(), .init()] 
+    private var savedArray: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init(), .init()] 
 }
 
 extension SavedInteractor: SavedInteractorInput {
