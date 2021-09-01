@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum LanguagesApplication {
-    case rus
-    case eng
+enum LanguagesApplication: String {
+    case rus = "Русский"
+    case eng = "Ангийский"
 }
 
 protocol LanguagesApplicationProtocol {
@@ -83,6 +83,8 @@ protocol LanguagesApplicationProtocol {
     static var nameTitleAnotherProfileScreen: String { get }
     static var nameTagSubtitleAnotherProfileScreen: String { get }
     static var followButtonAnotherProfileScreen: String { get }
+    static var statusOnFollowButtonAnotherProfileScreen: String { get }
+    static var statusOffFollowButtonAnotherProfileScreen: String { get }
     static var aboutAnotherSubTitleAnotherProfileScreen: String { get }
     static var aboutAnotherTextAnotherProfileScreen: String { get }
     static var anotherBlogsSubTitleAnotherProfileScreen: String { get }

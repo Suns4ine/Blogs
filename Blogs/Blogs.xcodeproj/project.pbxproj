@@ -74,6 +74,7 @@
 		35595AEE26D528DD0080B184 /* AnotherMoreBlogsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE826D528DD0080B184 /* AnotherMoreBlogsContainer.swift */; };
 		356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */; };
 		356BE4E126B116E400FFD1F9 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4E026B116E400FFD1F9 /* Text.swift */; };
+		358FC75A26DE4A3800872EC9 /* PersonalSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358FC75926DE4A3700872EC9 /* PersonalSetting.swift */; };
 		3597349826C9D0E100086C12 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3597349726C9D0E100086C12 /* ToggleButton.swift */; };
 		359734A626C9FE9700086C12 /* PreviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A026C9FE9700086C12 /* PreviewPresenter.swift */; };
 		359734A726C9FE9700086C12 /* PreviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A126C9FE9700086C12 /* PreviewRouter.swift */; };
@@ -314,6 +315,7 @@
 		35595AE826D528DD0080B184 /* AnotherMoreBlogsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoreBlogsContainer.swift; sourceTree = "<group>"; };
 		356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProtocol.swift; sourceTree = "<group>"; };
 		356BE4E026B116E400FFD1F9 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		358FC75926DE4A3700872EC9 /* PersonalSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalSetting.swift; sourceTree = "<group>"; };
 		3597349726C9D0E100086C12 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		359734A026C9FE9700086C12 /* PreviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPresenter.swift; sourceTree = "<group>"; };
 		359734A126C9FE9700086C12 /* PreviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewRouter.swift; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 				35FDAC2026D63B4600A84B99 /* User.swift */,
 				35FDAC9826D7CB8900A84B99 /* Setting.swift */,
 				35FDACB126D7F63D00A84B99 /* Choice.swift */,
+				358FC75926DE4A3700872EC9 /* PersonalSetting.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -1488,6 +1491,7 @@
 				35B109B326C6D9C5003E3D44 /* EditProfilePresenter.swift in Sources */,
 				35FDAC9F26D7E07C00A84B99 /* ChoiceCellProtocol.swift in Sources */,
 				35B10A3726C97FD8003E3D44 /* SettingViewController.swift in Sources */,
+				358FC75A26DE4A3800872EC9 /* PersonalSetting.swift in Sources */,
 				35E020D526C1FBA100C99280 /* LoginViewController.swift in Sources */,
 				35B109DA26C7FEEB003E3D44 /* MyBlogPresenter.swift in Sources */,
 				35B109F426C85010003E3D44 /* AnotherBlogInteractor.swift in Sources */,

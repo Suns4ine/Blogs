@@ -32,7 +32,6 @@ protocol ChoiceColorInteractorInput: class {
 
 protocol ChoiceColorInteractorOutput: class {
     func choicesDidRecieve(_ choices: [Choice])
-    func choiceDidRecieve(_ choice: Choice)
 }
 
 protocol ChoiceColorRouterInput: class {

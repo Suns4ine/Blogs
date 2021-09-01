@@ -344,6 +344,11 @@ final class MyProfileViewController: UIViewController {
                 moreBlogButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
             ])
         }
+        
+        //MARK: Костыль - так как контент может не занять весь размер экрана, он ужимался и уползал вверх
+        scrollView.contentSize = CGSize(width: scrollView.contentSize.width,
+                                        height: scrollView.contentSize.height > view.frame.size.height ?
+                                        scrollView.contentSize.height :  view.frame.size.height + 1)
     }
 
     //MARK: Отключаем горизонтальную прокрутку

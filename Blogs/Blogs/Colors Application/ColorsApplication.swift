@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-enum ColorsApplication {
-    case standart
-    case darkTheme
+enum ColorsApplication: String {
+    case standart = "Стандартная"
+    case darkTheme = "Темная"
 }
 
 protocol ColorsApplicationProtocol {

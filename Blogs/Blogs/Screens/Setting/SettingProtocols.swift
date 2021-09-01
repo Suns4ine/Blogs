@@ -28,16 +28,28 @@ protocol SettingViewOutput: class {
 }
 
 protocol SettingInteractorInput: class {
+    func settingButtonCell(at indexPath: Int)
+    func toggleButtonCell(at indexPath: Int)
     func getSetting(at indexPath: IndexPath)
     func fetchSettings()
 }
 
 protocol SettingInteractorOutput: class {
     func settingsDidRecieve(_ settings: [Setting])
-    func settingDidRecieve(_ setting: Setting)
+    func openChoiceColor(_ setting: Setting)
+    func openChoiceLanguage(_ setting: Setting)
+    func openPasswordChange(_ setting: Setting)
+    func openHelp(_ setting: Setting)
+    func openAboutTheApplication(_ setting: Setting)
+    func openStart()
 }
 
 protocol SettingRouterInput: class {
     func popViewController()
-    func openChoiceViewController(with setting: Setting)
+    func openChoiceLanguageViewController(with setting: Setting)
+    func openChoiceColorViewController(with setting: Setting)
+    func openPasswordChangeViewController(with setting: Setting)
+    func openHelpViewController(with setting: Setting)
+    func openAboutTheApplicationViewController(with setting: Setting)
+    func openStartViewController()
 }

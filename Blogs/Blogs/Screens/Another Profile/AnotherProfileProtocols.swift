@@ -16,10 +16,14 @@ protocol AnotherProfileModuleOutput: class {
 }
 
 protocol AnotherProfileViewInput: class {
+    func updateViews(profile: User)
+    func updateStatusSubscribe(text: String)
     func reloadData(for section: StandartBlogSectionViewModel)
 }
 
 protocol AnotherProfileViewOutput: class {
+    func statusSubscribe()
+    func setupTextInViews()
     func giveTableHeight() -> Int
     func fetchBlogsCell()
     func didTapBackButton()
@@ -29,12 +33,17 @@ protocol AnotherProfileViewOutput: class {
 }
 
 protocol AnotherProfileInteractorInput: class {
+    func giveStatus()
+    func subscribe()
+    func giveAnotherProfile()
     func giveBlogsArrayCount() -> Int
     func getBlog(at indexPath: IndexPath)
     func fetchBlogs()
 }
 
 protocol AnotherProfileInteractorOutput: class {
+    func updateStatus(text: String)
+    func giveAwayAnotherProfile(profile: User)
     func blogsDidRecieve(_ blogs: [Blog])
     func blogDidRecieve(_ blog: Blog)
 }

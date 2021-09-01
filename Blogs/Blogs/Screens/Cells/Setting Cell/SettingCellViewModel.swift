@@ -15,6 +15,7 @@ final class SettingCellViewModel: SettingCellIdentifiable {
     let subtitle: String
     let icon: Icons
     var condition: SelectSettingCell
+    var flag: Bool
     
     var cellIdentifier: String {
         "SettingTableViewCell"
@@ -25,6 +26,7 @@ final class SettingCellViewModel: SettingCellIdentifiable {
     }
     
     init(setting: Setting) {
+        self.flag = setting.flag
         self.icon = setting.icon
         self.title = setting.title
         self.subtitle = setting.subtitle

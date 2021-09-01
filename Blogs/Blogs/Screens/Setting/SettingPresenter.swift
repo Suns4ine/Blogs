@@ -26,13 +26,11 @@ extension SettingPresenter: SettingModuleInput {
 
 extension SettingPresenter: SettingViewOutput {
     func didTapSettingButtonTableViewCell(at indexPath: Int) {
-        debugPrint(indexPath)
-        debugPrint("didTapSettingButtonTableViewCell")
+        interactor.settingButtonCell(at: indexPath)
     }
     
     func didTapToggleButtonTableViewCell(at indexPath: Int) {
-        debugPrint(indexPath)
-        debugPrint("didTapToggleButtonTableViewCell")
+        interactor.toggleButtonCell(at: indexPath)
     }
     
     func fetchSettingsCell() {
@@ -56,8 +54,29 @@ extension SettingPresenter: SettingInteractorOutput {
 
     }
     
-    func settingDidRecieve(_ setting: Setting) {
-        router.openChoiceViewController(with: setting)
+    func openChoiceColor(_ setting: Setting) {
+        router.openChoiceColorViewController(with: setting)
     }
+    
+    func openChoiceLanguage(_ setting: Setting) {
+        router.openChoiceLanguageViewController(with: setting)
+    }
+    
+    func openPasswordChange(_ setting: Setting) {
+        router.openPasswordChangeViewController(with: setting)
+    }
+    
+    func openHelp(_ setting: Setting) {
+        router.openHelpViewController(with: setting)
+    }
+    
+    func openAboutTheApplication(_ setting: Setting) {
+        router.openAboutTheApplicationViewController(with: setting)
+    }
+    
+    func openStart() {
+        router.openStartViewController()
+    }
+    
     
 }

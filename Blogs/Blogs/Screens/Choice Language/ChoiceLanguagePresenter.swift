@@ -45,8 +45,4 @@ extension ChoiceLanguagePresenter: ChoiceLanguageInteractorOutput {
         choices.forEach{ section.rows.append(ChoiceCellViewModel.init(choice: $0))}
         view?.reloadData(for: section)
     }
-    
-    func choiceDidRecieve(_ choice: Choice) {
-        debugPrint(choice.title)
-    }
 }

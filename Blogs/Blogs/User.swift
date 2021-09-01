@@ -8,7 +8,16 @@
 import Foundation
 import UIKit
 
-struct User {
+class User: Hashable {
+    
+    static func == (lhs: User, rhs: User) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+         hasher.combine(ObjectIdentifier(self))
+    }
+    
     let dateCreate: Date
     var mail: String
     var password: String
@@ -18,11 +27,42 @@ struct User {
     var tagname: String
     var arrayBlogs: [Blog]
     var arrayDrafts: [Blog]
-    var arrayFollowers: [User]
-    var arrayFolloving: [User]
+    var arrayFollowers: Set<User>
+    var arrayFolloving: Set<User>
     var aboutMe: String
     var avatar: UIImage
-    var personalSetting: String
+    var personalSetting: PersonalSetting
+    
+    init(dateCreate: Date,
+         mail: String,
+         password: String,
+         identifier: String,
+         name: String,
+         surname: String,
+         tagname: String,
+         arrayBlogs: [Blog],
+         arrayDrafts: [Blog],
+         arrayFollowers: Set<User>,
+         arrayFolloving: Set<User>,
+         aboutMe: String,
+         avatar: UIImage,
+         personalSetting: PersonalSetting) {
+        
+        self.dateCreate = dateCreate
+        self.mail = mail
+        self.password = password
+        self.identifier = identifier
+        self.name = name
+        self.surname = surname
+        self.tagname = tagname
+        self.arrayBlogs = arrayBlogs
+        self.arrayDrafts = arrayDrafts
+        self.arrayFollowers = arrayFollowers
+        self.arrayFolloving = arrayFolloving
+        self.aboutMe = aboutMe
+        self.avatar = avatar
+        self.personalSetting = personalSetting
+    }
 }
 
 var defaultUser = User(dateCreate: .init(),
@@ -38,9 +78,13 @@ var defaultUser = User(dateCreate: .init(),
                        arrayFolloving: [],
                        aboutMe: "About Me",
                        avatar: UIImage(),
-                       personalSetting: "personalSetting")
+                       personalSetting: .init(sound: false,
+                                              notification: false,
+                                              language: .rus,
+                                              theme: .standart,
+                                              cache: ""))
 
-let anotherDefaultUser = User(dateCreate: .init(),
+var anotherDefaultUser = User(dateCreate: .init(),
                        mail: "AnotherMail",
                        password: "AnotherPassword",
                        identifier: "AnotherIdentifier",
@@ -53,4 +97,9 @@ let anotherDefaultUser = User(dateCreate: .init(),
                        arrayFolloving: [],
                        aboutMe: "About Another",
                        avatar: UIImage(),
-                       personalSetting: "AnotherPersonalSetting")
+                       personalSetting: .init(sound: false,
+                                              notification: false,
+                                              language: .rus,
+                                              theme: .standart,
+                                              cache: ""))
+

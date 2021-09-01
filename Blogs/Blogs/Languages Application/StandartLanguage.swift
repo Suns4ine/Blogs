@@ -78,6 +78,8 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     static var nameTitleAnotherProfileScreen: String = "Имя и Фамилия"
     static var nameTagSubtitleAnotherProfileScreen: String = "Тег Имя"
     static var followButtonAnotherProfileScreen: String = "Подписаться"
+    static var statusOnFollowButtonAnotherProfileScreen: String = "Отписаться"
+    static var statusOffFollowButtonAnotherProfileScreen: String = "Подписаться"
     static var aboutAnotherSubTitleAnotherProfileScreen: String = "О чужом пользователе"
     static var aboutAnotherTextAnotherProfileScreen: String = "Какой-то текст"
     static var anotherBlogsSubTitleAnotherProfileScreen: String = "Чужие Блоги"

@@ -44,10 +44,5 @@ extension ChoiceColorPresenter: ChoiceColorInteractorOutput {
         let section = ChoiceSectionViewModel()
         choices.forEach{ section.rows.append(ChoiceCellViewModel.init(choice: $0))}
         view?.reloadData(for: section)
-    }
-    
-    func choiceDidRecieve(_ choice: Choice) {
-        debugPrint(choice.title)
-    }
-    
+    } 
 }

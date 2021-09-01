@@ -129,7 +129,6 @@ final class TextField: UIView, UITextFieldDelegate {
                 textInPassword = Array(repeating: "●", count: string.count)
                 password = password + string
                 textField.text = (textField.text ?? "") + textInPassword.joined()
-                debugPrint(password)
             }
             return false
         }

@@ -17,6 +17,8 @@ enum SelectSettingCell: CaseIterable {
 
 final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable {
     
+    private (set) var flag = false
+    
     var viewModel: SettingCellIdentifiable? {
         didSet {
             updateViews()
@@ -28,8 +30,10 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
         title.editText(text: viewModel.title)
         subtitle.editText(text: viewModel.subtitle)
         icon.editIcon(icon: viewModel.icon)
+        button.editText(text: viewModel.title)
         typeCell = viewModel.condition
         SettingTableViewCell.identifier = viewModel.cellIdentifier
+        flag = viewModel.flag
     }
     
     
@@ -71,8 +75,8 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
         return button
     }()
     
-    private let togleButton: ToggleButton = {
-        let button = ToggleButton()
+    private lazy var togleButton: ToggleButton = {
+        let button = ToggleButton(flag: true)
         return button
     }()
     
@@ -173,6 +177,9 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
     }
     
     func addTargeToggleButton(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        
+        flag = !flag
+        
         togleButton.addTarget(target, action: action, for: event)
     }
     

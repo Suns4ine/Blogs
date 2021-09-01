@@ -11,17 +11,24 @@ import Foundation
 final class ChoiceLanguageInteractor {
 	weak var output: ChoiceLanguageInteractorOutput?
     
-    private var languageArray: [Choice] = [.init(), .init(), .init(), .init(), .init(),.init(),
-                                           .init(), .init(), .init(), .init(), .init(),.init(),
-                                           .init(), .init(), .init(), .init(), .init(),.init(),]
+    private var languageArray: [Choice] = [.init(title: LanguagesApplication.rus.rawValue),
+                                           .init(title: LanguagesApplication.eng.rawValue)]
 }
 
+//MARK: Удалить дефелтного юзера
 extension ChoiceLanguageInteractor: ChoiceLanguageInteractorInput {
     
     func getChoice(at indexPath: Int) {
-        let Choice = languageArray[indexPath]
+        let choice = languageArray[indexPath]
+        var language = defaultUser.personalSetting.language
         
-        output?.choiceDidRecieve(Choice)
+        switch choice.title {
+        case LanguagesApplication.eng.rawValue: language = LanguagesApplication.eng
+        case LanguagesApplication.rus.rawValue: language = LanguagesApplication.rus
+        default: language = defaultUser.personalSetting.language
+        }
+        
+        defaultUser.personalSetting.language = language
     }
     
     func fetchChoices() {

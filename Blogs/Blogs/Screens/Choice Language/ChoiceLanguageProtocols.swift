@@ -32,7 +32,6 @@ protocol ChoiceLanguageInteractorInput: class {
 
 protocol ChoiceLanguageInteractorOutput: class {
     func choicesDidRecieve(_ choices: [Choice])
-    func choiceDidRecieve(_ choice: Choice)
 }
 
 protocol ChoiceLanguageRouterInput: class {

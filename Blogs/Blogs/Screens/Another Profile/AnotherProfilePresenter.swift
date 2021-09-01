@@ -25,6 +25,14 @@ extension AnotherProfilePresenter: AnotherProfileModuleInput {
 }
 //MARK: Убрать дефолтный блог в giveTableHeight
 extension AnotherProfilePresenter: AnotherProfileViewOutput {
+    func statusSubscribe() {
+        interactor.giveStatus()
+    }
+    
+    func setupTextInViews() {
+        interactor.giveAnotherProfile()
+    }
+    
     func giveTableHeight() -> Int {
         let count = interactor.giveBlogsArrayCount()
         let cellHeight = Int(StandartBlogCellViewModel.init(blog: defaultBlog).cellHeight)
@@ -44,7 +52,7 @@ extension AnotherProfilePresenter: AnotherProfileViewOutput {
     }
     
     func didTapFollowButton() {
-        debugPrint("didTapFollowButton")
+        interactor.subscribe()
     }
     
     func didTapMoreBlogButton() {
@@ -54,6 +62,14 @@ extension AnotherProfilePresenter: AnotherProfileViewOutput {
 }
 
 extension AnotherProfilePresenter: AnotherProfileInteractorOutput {
+    func updateStatus(text: String) {
+        view?.updateStatusSubscribe(text: text)
+    }
+    
+    func giveAwayAnotherProfile(profile: User) {
+        view?.updateViews(profile: profile)
+    }
+    
     func blogsDidRecieve(_ blogs: [Blog]) {
         let section = StandartBlogSectionViewModel()
         blogs.forEach{ section.rows.append(StandartBlogCellViewModel.init(blog: $0))}

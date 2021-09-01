@@ -103,7 +103,7 @@ final class SecondBigButton: UIView {
     }
     
     func editText(text: String) {
-        button.setTitle(text, for: .normal)
+        label.text = text
     }
     
     func addTag(_ tag: Int) {

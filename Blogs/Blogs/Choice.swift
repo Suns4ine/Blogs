@@ -8,5 +8,5 @@
 import Foundation
 
 struct Choice {
-    let title: String = "title"
+    let title: String
 }

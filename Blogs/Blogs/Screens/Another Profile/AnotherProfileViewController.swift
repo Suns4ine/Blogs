@@ -28,6 +28,7 @@ final class AnotherProfileViewController: UIViewController {
         scroll.backgroundColor = .clear
         scroll.showsVerticalScrollIndicator = false
         scroll.showsHorizontalScrollIndicator = false
+        scroll.layer.zPosition = 2
         return scroll
     }()
     
@@ -129,6 +130,7 @@ final class AnotherProfileViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = StandartColors.anotherProfileColor
+        view.layer.zPosition = 1
         return view
     }()
     
@@ -200,6 +202,14 @@ final class AnotherProfileViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        output.fetchBlogsCell()
+        output.setupTextInViews()
+        output.statusSubscribe()
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -209,12 +219,11 @@ final class AnotherProfileViewController: UIViewController {
         scrollView.delegate =  self
         blogTableView.delegate = self
         blogTableView.dataSource = self
+                
         blogTableView.register(StandartBlogTableViewCell.self, forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        output.fetchBlogsCell()
         
         emptyTitle.isHidden = section.rows.isEmpty ? false : true
         moreBlogButton.isHidden = section.rows.count > 3 ? false : true
@@ -230,12 +239,13 @@ final class AnotherProfileViewController: UIViewController {
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            avatar.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            avatar.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 25.5),
-            
             header.topAnchor.constraint(equalTo: scrollView.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            avatar.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            avatar.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 25.5),
+
             
             extraProfileView.topAnchor.constraint(equalTo: view.topAnchor),
             extraProfileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -340,6 +350,12 @@ final class AnotherProfileViewController: UIViewController {
                 moreBlogButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
             ])
         }
+        
+        //MARK: Костыль - так как контент может не занять весь размер экрана, он ужимался и уползал вверх
+        scrollView.contentSize = CGSize(width: scrollView.contentSize.width,
+                                        height: scrollView.contentSize.height > view.frame.size.height ?
+                                        scrollView.contentSize.height :  view.frame.size.height + 1)
+        
     }
     
     //MARK: Отключаем горизонтальную прокрутку
@@ -364,6 +380,21 @@ final class AnotherProfileViewController: UIViewController {
 }
 
 extension AnotherProfileViewController: AnotherProfileViewInput {
+    func updateStatusSubscribe(text: String) {
+        followButton.editText(text: text)
+    }
+    
+    func updateViews(profile: User) {
+        
+        avatar.editImage(image: profile.avatar)
+        nameTitle.editText(text: profile.name + " " + profile.surname)
+        nameTagSubtitle.editText(text: profile.tagname)
+        aboutAnotherText.editText(text: profile.aboutMe)
+        numberBlogTitle.editText(text: String(profile.arrayBlogs.count))
+        followersBlogTitle.editText(text: String(profile.arrayFollowers.count))
+        follovingBlogTitle.editText(text: String(profile.arrayFolloving.count))
+    }
+    
     func reloadData(for section: StandartBlogSectionViewModel) {
         self.section = section
         blogTableView.reloadData()

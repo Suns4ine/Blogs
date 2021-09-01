@@ -13,10 +13,37 @@ final class SettingRouter {
 }
 
 extension SettingRouter: SettingRouterInput {
-    func openChoiceViewController(with setting: Setting) {
+    
+    func openChoiceLanguageViewController(with setting: Setting) {
+        let container = ChoiceLanguageContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
+    func openChoiceColorViewController(with setting: Setting) {
+        let container = ChoiceColorContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
+    func openPasswordChangeViewController(with setting: Setting) {
         let container = PasswordChangeContainer.assemble(with: .init())
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
+    
+    func openHelpViewController(with setting: Setting) {
+        let container = HelpContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
+    func openAboutTheApplicationViewController(with setting: Setting) {
+        let container = AboutTheApplicationContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
+    func openStartViewController() {
+        let container = StartContainer.assemble(with: .init())
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
     
     func popViewController() {
         self.sourceViewController?.navigationController?.popViewController(animated: true)

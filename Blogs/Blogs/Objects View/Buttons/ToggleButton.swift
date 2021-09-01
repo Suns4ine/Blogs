@@ -14,7 +14,7 @@ final class ToggleButton: UIView {
     private let backgroundOff: UIColor = StandartColors.toggleSwitchOffColor
     
     private var flowLeadingConstraint: NSLayoutConstraint?
-    private (set) var flag = false
+    private (set) var flag = true
     
     private var height: CGFloat = 36
     private var width: CGFloat = 60
@@ -41,10 +41,15 @@ final class ToggleButton: UIView {
         return view
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
+    convenience init(flag: Bool) {
+        self.init()
+        
+        self.flag = flag
         setup()
+    }
+    
+    private override init(frame: CGRect) {
+        super.init(frame: frame)
     }
 
     required init?(coder: NSCoder) {
@@ -53,15 +58,24 @@ final class ToggleButton: UIView {
 
     private func setup() {
         [ circle, sliderButton].forEach{ addSubview($0)}
-        
-        flowLeadingConstraint = sliderButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0)
-        flowLeadingConstraint?.isActive = true
 
+        firstSetFlag()
+        
         self.layer.borderColor = StandartColors.borderColor.cgColor
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 18
-        self.backgroundColor = backgroundOff
         self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func firstSetFlag() {
+        
+        flowLeadingConstraint = sliderButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
+                                                                      constant: flag ?
+                                                                        width - height : 0)
+        flowLeadingConstraint?.isActive = true
+        
+        circle.backgroundColor = flag ? backgroundOn : backgroundOff
+        self.backgroundColor = flag ? backgroundOn : backgroundOff
     }
 
     override func layoutSubviews() {
@@ -80,6 +94,8 @@ final class ToggleButton: UIView {
             circle.centerYAnchor.constraint(equalTo: sliderButton.centerYAnchor),
             circle.centerXAnchor.constraint(equalTo: sliderButton.centerXAnchor),
         ])
+        
+        
     }
     
     func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
@@ -88,6 +104,11 @@ final class ToggleButton: UIView {
     
     func addTag(_ tag: Int) {
         sliderButton.tag = tag
+    }
+    
+    func tapButton(flag: Bool) {
+        self.flag = flag
+        sliderButton.sendActions(for: .touchUpInside)
     }
     
     @objc
