@@ -166,6 +166,7 @@
 		35CE262A26AF2BFB000F4E84 /* FirstSmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */; };
 		35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263426AF2DBC000F4E84 /* IconImage.swift */; };
 		35CE263A26AF707A000F4E84 /* TwoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263926AF707A000F4E84 /* TwoButtons.swift */; };
+		35DA31D126E0D2990069BEF1 /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DA31D026E0D2990069BEF1 /* RefreshControl.swift */; };
 		35DB448A26C40923002EB53B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB448926C40923002EB53B /* TabBarController.swift */; };
 		35DB44A426C4392E002EB53B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB449E26C4392E002EB53B /* HomePresenter.swift */; };
 		35DB44A526C4392E002EB53B /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB449F26C4392E002EB53B /* HomeRouter.swift */; };
@@ -407,6 +408,7 @@
 		35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSmallButton.swift; sourceTree = "<group>"; };
 		35CE263426AF2DBC000F4E84 /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
 		35CE263926AF707A000F4E84 /* TwoButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtons.swift; sourceTree = "<group>"; };
+		35DA31D026E0D2990069BEF1 /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		35DB448926C40923002EB53B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		35DB449E26C4392E002EB53B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		35DB449F26C4392E002EB53B /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -864,6 +866,14 @@
 			path = "Colors Application";
 			sourceTree = "<group>";
 		};
+		35DA31D526E0DD200069BEF1 /* Refresh Control */ = {
+			isa = PBXGroup;
+			children = (
+				35DA31D026E0D2990069BEF1 /* RefreshControl.swift */,
+			);
+			path = "Refresh Control";
+			sourceTree = "<group>";
+		};
 		35DB448826C408FB002EB53B /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -923,6 +933,7 @@
 		35E020C726C1C8E400C99280 /* Objects View */ = {
 			isa = PBXGroup;
 			children = (
+				35DA31D526E0DD200069BEF1 /* Refresh Control */,
 				35E020C926C1C94100C99280 /* Icons */,
 				35E020C826C1C93200C99280 /* TextField */,
 				3557F36526AE54A8001DA6BB /* Buttons */,
@@ -1510,6 +1521,7 @@
 				35028E0826C5F47200FF9D68 /* AnotherProfileProtocols.swift in Sources */,
 				35595AD926D524BF0080B184 /* MyMoreBlogsProtocols.swift in Sources */,
 				35FDAC6A26D79E1700A84B99 /* UtiliesCellProtocol.swift in Sources */,
+				35DA31D126E0D2990069BEF1 /* RefreshControl.swift in Sources */,
 				35E020D726C1FBA100C99280 /* LoginInteractor.swift in Sources */,
 				35B10A2526C8742B003E3D44 /* SearchProtocols.swift in Sources */,
 				35595AEB26D528DD0080B184 /* AnotherMoreBlogsViewController.swift in Sources */,

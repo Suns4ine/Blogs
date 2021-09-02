@@ -44,6 +44,13 @@ final class AnotherMoreBlogsViewController: UIViewController {
         return table
     }()
 
+    private let refreshControl: RefreshControl = {
+        let refresh = RefreshControl()
+        refresh.layer.zPosition = -1
+        refresh.addTarget(self, action: #selector(refreshControlUpDate), for: .valueChanged)
+        return refresh
+    }()
+    
     init(output: AnotherMoreBlogsViewOutput) {
         self.output = output
 
@@ -58,6 +65,7 @@ final class AnotherMoreBlogsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         [header, anotherBlogsTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
+        anotherBlogsTableView.addSubview(refreshControl)
         
         self.view.backgroundColor = StandartColors.anotherProfileColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -91,8 +99,22 @@ final class AnotherMoreBlogsViewController: UIViewController {
     }
     
     @objc
+    private func refreshControlUpDate() {
+        
+        self.refreshControl.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.output.fetchBlogsCell()
+            self.refreshControl.endRefreshing()
+        }
+        
+        
+    }
+    
+    @objc
     private func tapBackButton() {
         output.didTapBackButton()
+
     }
 }
 
@@ -127,3 +149,4 @@ extension AnotherMoreBlogsViewController: UITableViewDelegate, UITableViewDataSo
         output.didTapAnotherBlogsTableViewCell(at: indexPath)
     }
 }
+

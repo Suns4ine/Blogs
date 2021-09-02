@@ -199,6 +199,7 @@ protocol LanguagesApplicationProtocol {
     //MARK: Another More Blogs Screen
     static var headerTitleAnotherMoreBlogsScreen: String { get }
     static var emptyArrayTitleAnotherMoreBlogsScreen: String { get }
+    static var refreshControlAnotherMoreBlogsScreen: String { get }
 
     //MARK: Preview Screen
     static var leadingTwoButtonsPreviewScreen: String { get }

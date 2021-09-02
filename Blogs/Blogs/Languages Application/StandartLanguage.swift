@@ -194,6 +194,7 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     //MARK: Another More Blogs Screen
     static var headerTitleAnotherMoreBlogsScreen: String = "Чужие Блоги"
     static var emptyArrayTitleAnotherMoreBlogsScreen: String = "Какой-то текст"
+    static var refreshControlAnotherMoreBlogsScreen: String = ""
     
     //MARK: Preview Screen
     static var leadingTwoButtonsPreviewScreen: String = "Пропуск"

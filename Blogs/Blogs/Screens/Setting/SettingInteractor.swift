@@ -21,7 +21,7 @@ extension SettingInteractor: SettingInteractorInput {
         guard setting.condition == .button else { return }
         
         switch setting.identifier {
-        case "ClearCache": debugPrint("Clear Cache")
+        case "ClearCache": defaultUser.personalSetting.cache = "Clear Cache"
         case "LogOut": output?.openStart()
         default: break
         }
