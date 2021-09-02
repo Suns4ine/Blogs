@@ -226,6 +226,7 @@ protocol LanguagesApplicationProtocol {
     static var titleStandartBlogCell: String { get }
     static var nameSubTitleStandartBlogCell: String { get }
     static var dateSubTitleStandartBlogCell: String { get }
+    static var deleteActionStandartBlogCell: String { get }
     
     //MARK: Setting Cell
     static var titleSettingCell: String { get }

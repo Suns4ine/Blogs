@@ -15,6 +15,12 @@ final class SavedInteractor {
 }
 
 extension SavedInteractor: SavedInteractorInput {
+    func deleteBlog(at indexPath: IndexPath) {
+        savedArray.remove(at: indexPath.row)
+        
+        output?.indexDeleteReiceve(indexPath)
+    }
+    
     
     func getBlog(at indexPath: IndexPath) {
         let blog = savedArray[indexPath.row]

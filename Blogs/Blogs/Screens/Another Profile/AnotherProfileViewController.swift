@@ -32,6 +32,12 @@ final class AnotherProfileViewController: UIViewController {
         return scroll
     }()
     
+    private let refreshControl: RefreshControl = {
+        let refresh = RefreshControl()
+        refresh.addTarget(self, action: #selector(refreshControlUpDate), for: .valueChanged)
+        return refresh
+    }()
+    
     private let header: Header = {
         let header = Header(title: StandartLanguage.headerTitleAnotherBlogScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
@@ -187,7 +193,7 @@ final class AnotherProfileViewController: UIViewController {
                       followButton, statisticView, aboutAnotherSubTitle, aboutAnotherText,
                       anotherBlogsSubTitle, emptyTitle, blogTableView, moreBlogButton,
                       numberBlogTitle, followersBlogTitle, follovingBlogTitle, numberBlogNameTitle,
-                      followersBlogNameTitle, follovingBlogNameTitle]
+                      followersBlogNameTitle, follovingBlogNameTitle, refreshControl]
         
         array.forEach{ scrollView.addSubview($0)}
     }
@@ -361,6 +367,18 @@ final class AnotherProfileViewController: UIViewController {
     //MARK: Отключаем горизонтальную прокрутку
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.contentOffset.x = 0.0
+    }
+    
+    @objc
+    private func refreshControlUpDate() {
+        
+        self.refreshControl.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.output.fetchBlogsCell()
+            self.output.setupTextInViews()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     @objc

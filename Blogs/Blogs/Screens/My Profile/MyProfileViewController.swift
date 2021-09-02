@@ -30,6 +30,12 @@ final class MyProfileViewController: UIViewController {
         return scroll
     }()
     
+    private let refreshControl: RefreshControl = {
+        let refresh = RefreshControl()
+        refresh.addTarget(self, action: #selector(refreshControlUpDate), for: .valueChanged)
+        return refresh
+    }()
+    
     private let header: Header = {
         let header = Header(title: StandartLanguage.headerTitleMyProfileScreen,
                             leftIcon: .init(icon: .alignJustify, size: .size24),
@@ -185,7 +191,7 @@ final class MyProfileViewController: UIViewController {
                       editButton, statisticView, aboutMeSubTitle, aboutMeText,
                       myBlogsSubTitle, createBlogButton, blogTableView, moreBlogButton,
                       numberBlogTitle, followersBlogTitle, follovingBlogTitle, numberBlogNameTitle,
-                      followersBlogNameTitle, follovingBlogNameTitle]
+                      followersBlogNameTitle, follovingBlogNameTitle, refreshControl]
         
         array.forEach{ scrollView.addSubview($0)}
     }
@@ -354,6 +360,18 @@ final class MyProfileViewController: UIViewController {
     //MARK: Отключаем горизонтальную прокрутку
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.contentOffset.x = 0.0
+    }
+    
+    @objc
+    private func refreshControlUpDate() {
+        
+        self.refreshControl.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.output.fetchBlogsCell()
+            self.output.setupTextInViews()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     @objc

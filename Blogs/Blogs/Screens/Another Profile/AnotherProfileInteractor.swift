@@ -38,12 +38,6 @@ extension AnotherProfileInteractor: AnotherProfileInteractorInput {
         } else {
             if defaultUser.arrayFolloving.count < 2500 {
                 
-                arrayBlogs.append(anotherDefaultBlog)
-                arrayBlogs.append(anotherDefaultBlog)
-                arrayBlogs.append(anotherDefaultBlog)
-                arrayBlogs.append(anotherDefaultBlog)
-                arrayBlogs.append(anotherDefaultBlog)
-                
                 defaultUser.arrayFolloving.insert(anotherDefaultUser)
                 anotherDefaultUser.arrayFollowers.insert(defaultUser)
                 debugPrint(defaultUser.arrayFolloving.count)

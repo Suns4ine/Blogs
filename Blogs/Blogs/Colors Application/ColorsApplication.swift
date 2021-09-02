@@ -61,6 +61,7 @@ protocol ColorsApplicationProtocol {
     static var settingCellBackgroundColor: UIColor { get }
     static var toggleSwitchOnColor: UIColor { get }
     static var toggleSwitchOffColor: UIColor { get }
+    static var deleteActionColor: UIColor { get }
 }
 
 extension UIColor {

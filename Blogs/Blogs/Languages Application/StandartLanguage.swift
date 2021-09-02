@@ -221,6 +221,7 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     static var titleStandartBlogCell: String = "Заголовок"
     static var nameSubTitleStandartBlogCell: String = "Имя и Фамилия"
     static var dateSubTitleStandartBlogCell: String = "Дата"
+    static var deleteActionStandartBlogCell: String = ""
     
     //MARK: Setting Cell
     static var titleSettingCell: String = "Заголовок"

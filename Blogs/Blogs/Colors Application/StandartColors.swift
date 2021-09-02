@@ -102,4 +102,5 @@ final class StandartColors: ColorsApplicationProtocol {
     
     static var toggleSwitchOffColor: UIColor = .thirdBlue
     
+    static var deleteActionColor: UIColor  = .firstSunnyRed
 }
