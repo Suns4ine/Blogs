@@ -26,6 +26,14 @@ extension PreviewPresenter: PreviewModuleInput {
 }
 
 extension PreviewPresenter: PreviewViewOutput {
+    func newPage(numb: Int) {
+        interactor.fetchPage(numb: numb)
+    }
+    
+    func fetchViewPages() {
+        interactor.fetchPages()
+    }
+    
     func didTapTralingButton() {
         debugPrint("didTapTralingButton")
     }
@@ -41,4 +49,14 @@ extension PreviewPresenter: PreviewViewOutput {
 }
 
 extension PreviewPresenter: PreviewInteractorOutput {
+    func finalChanges() {
+        view?.setupFinalChanges()
+    }
+    
+    func pagesDidRecieve(_ pages: [Page]) {
+        let section = PageSectionViewModel()
+        pages.forEach{ section.rows.append(PageViewModel.init(page: $0))}
+        view?.reloadData(for: section)
+    }
+    
 }

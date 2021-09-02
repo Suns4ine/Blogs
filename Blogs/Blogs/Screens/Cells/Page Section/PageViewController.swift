@@ -16,6 +16,7 @@ final class PageViewController: UIViewController {
     private var flowWigthConstraint: NSLayoutConstraint?
     private var centerXConstraint: NSLayoutConstraint?
     private var bottomConstraint: NSLayoutConstraint?
+    private var isSmallScreen =  UIScreen.main.bounds.height <= 667
     
     private let image: UIImageView = {
         let image = UIImageView()
@@ -25,24 +26,28 @@ final class PageViewController: UIViewController {
         return image
     }()
     
-    private let titlePage: Title = {
+    private lazy var titlePage: Title = {
         let title = Title(text: StandartLanguage.titlePageScreen,
-                          size: UIScreen.main.bounds.height <= 667 ? .meb24 : .meb36)
+                          size: isSmallScreen ? .meb24 : .meb36)
         title.sizeToFit()
         return title
     }()
     
-    private let subtitle: SubTitle = {
+    private lazy var subtitle: SubTitle = {
         let subtitle = SubTitle(text: StandartLanguage.subtitlePageScreen,
-                                size: UIScreen.main.bounds.height <= 667 ? .mm15 : .mm21)
+                                size: isSmallScreen ? .mm15 : .mm21)
         subtitle.sizeToFit()
         return subtitle
     }()
     
-    convenience init(numberPage: Int) {
+    convenience init(pageModel: PageIdentifiable) {
         self.init()
         
-        number = numberPage
+        guard let pageModel = pageModel as? PageViewModel else { return }
+        
+        number = pageModel.numb
+        titlePage.editText(text: pageModel.title)
+        subtitle.editText(text: pageModel.subtitle)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -67,10 +72,10 @@ final class PageViewController: UIViewController {
         NSLayoutConstraint.activate([
             
             titlePage.topAnchor.constraint(equalTo: view.topAnchor,
-                                           constant: heightScreen <= 667 ? heightScreen/1.77 : heightScreen/1.93),
+                                           constant: isSmallScreen ? heightScreen/1.77 : heightScreen/1.93),
             titlePage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             titlePage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            titlePage.heightAnchor.constraint(equalToConstant: heightScreen <= 667 ? 60 : 88),
+            titlePage.heightAnchor.constraint(equalToConstant: isSmallScreen ? 60 : 88),
             
             subtitle.topAnchor.constraint(equalTo: titlePage.bottomAnchor, constant: 12),
             subtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
@@ -86,12 +91,11 @@ final class PageViewController: UIViewController {
     
     private func addConstraintImage() {
         centerXConstraint = image.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0)
-        flowHeightConstraint = image.heightAnchor.constraint(equalToConstant: heightScreen/3.1)
         centerXConstraint?.isActive = true
+        flowHeightConstraint = image.heightAnchor.constraint(equalToConstant: heightScreen/3.1)
         flowHeightConstraint?.isActive = true
         flowWigthConstraint = image.widthAnchor.constraint(equalToConstant: (flowHeightConstraint?.constant ?? 240)/1.083)
         flowWigthConstraint?.isActive = true
-        
         bottomConstraint = image.bottomAnchor.constraint(equalTo: titlePage.topAnchor, constant: -10)
         bottomConstraint?.isActive = true
     }
@@ -101,6 +105,7 @@ final class PageViewController: UIViewController {
         switch number {
         case 0:
             image.image = UIImage(named: "peep-107")
+           
             UIView.animate(withDuration: 0.1,
                            delay: 0.1,
                            options: .allowAnimatedContent,
@@ -115,6 +120,7 @@ final class PageViewController: UIViewController {
             flowWigthConstraint?.constant =  (flowHeightConstraint?.constant ?? 218)/1.5
             centerXConstraint?.constant = 20
             bottomConstraint?.constant = 0
+           
             UIView.animate(withDuration: 0.1,
                            delay: 0.1,
                            options: .allowAnimatedContent,
@@ -131,6 +137,7 @@ final class PageViewController: UIViewController {
             flowWigthConstraint?.constant = (flowHeightConstraint?.constant ?? 255)/1.153
             centerXConstraint?.constant = 10
             bottomConstraint?.constant = -10
+            
             UIView.animate(withDuration: 0.1,
                            delay: 0.1,
                            options: .allowAnimatedContent,

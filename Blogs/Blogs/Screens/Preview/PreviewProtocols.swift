@@ -17,19 +17,26 @@ protocol PreviewModuleOutput: class {
 }
 
 protocol PreviewViewInput: class {
-    func presentViewController()
+    func setupFinalChanges()
+    func reloadData(for section: PageSectionViewModel)
 }
 
 protocol PreviewViewOutput: class {
+    func newPage(numb: Int)
+    func fetchViewPages()
     func didTapTralingButton()
     func didTapLeadingButton()
     func didTapStartButton()
 }
 
 protocol PreviewInteractorInput: class {
+    func fetchPage(numb: Int)
+    func fetchPages()
 }
 
 protocol PreviewInteractorOutput: class {
+    func pagesDidRecieve(_ pages: [Page])
+    func finalChanges()
 }
 
 protocol PreviewRouterInput: class {

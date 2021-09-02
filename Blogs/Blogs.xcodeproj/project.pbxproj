@@ -29,6 +29,9 @@
 		35028E1826C69C5A00FF9D68 /* ChoiceLanguageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E1226C69C5A00FF9D68 /* ChoiceLanguageProtocols.swift */; };
 		35028E1926C69C5A00FF9D68 /* ChoiceLanguageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E1326C69C5A00FF9D68 /* ChoiceLanguageInteractor.swift */; };
 		35028E1A26C69C5A00FF9D68 /* ChoiceLanguageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E1426C69C5A00FF9D68 /* ChoiceLanguageContainer.swift */; };
+		3505BB0D26E13DF600B13202 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB0C26E13DF600B13202 /* Page.swift */; };
+		3505BB1326E1410E00B13202 /* PageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB1226E1410E00B13202 /* PageProtocol.swift */; };
+		3505BB1E26E1418800B13202 /* PageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB1D26E1418800B13202 /* PageViewModel.swift */; };
 		3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D626AD65A6001DA6BB /* AppDelegate.swift */; };
 		3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */; };
 		3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */; };
@@ -265,6 +268,9 @@
 		35028E1226C69C5A00FF9D68 /* ChoiceLanguageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceLanguageProtocols.swift; sourceTree = "<group>"; };
 		35028E1326C69C5A00FF9D68 /* ChoiceLanguageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceLanguageInteractor.swift; sourceTree = "<group>"; };
 		35028E1426C69C5A00FF9D68 /* ChoiceLanguageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceLanguageContainer.swift; sourceTree = "<group>"; };
+		3505BB0C26E13DF600B13202 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		3505BB1226E1410E00B13202 /* PageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageProtocol.swift; sourceTree = "<group>"; };
+		3505BB1D26E1418800B13202 /* PageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewModel.swift; sourceTree = "<group>"; };
 		3557F2D326AD65A6001DA6BB /* Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3557F2D626AD65A6001DA6BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -542,6 +548,17 @@
 			path = "Choice Language";
 			sourceTree = "<group>";
 		};
+		3505BB1126E140E800B13202 /* Page Section */ = {
+			isa = PBXGroup;
+			children = (
+				3505BB0C26E13DF600B13202 /* Page.swift */,
+				3505BB1D26E1418800B13202 /* PageViewModel.swift */,
+				3505BB1226E1410E00B13202 /* PageProtocol.swift */,
+				359734D026CACF5600086C12 /* PageViewController.swift */,
+			);
+			path = "Page Section";
+			sourceTree = "<group>";
+		};
 		3557F2CA26AD65A6001DA6BB = {
 			isa = PBXGroup;
 			children = (
@@ -686,7 +703,6 @@
 			children = (
 				359734A226C9FE9700086C12 /* PreviewViewController.swift */,
 				359734C226CAC34200086C12 /* PreviewPageViewController.swift */,
-				359734D026CACF5600086C12 /* PageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1086,6 +1102,7 @@
 		35FDACB626D8000E00A84B99 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3505BB1126E140E800B13202 /* Page Section */,
 				35FDAC3926D69DFA00A84B99 /* Standart Blog Cell */,
 				35FDAC1A26D6376C00A84B99 /* Blog Cell */,
 				35FDAC6226D79DC100A84B99 /* Utilities Cell */,
@@ -1453,9 +1470,11 @@
 				35CE262A26AF2BFB000F4E84 /* FirstSmallButton.swift in Sources */,
 				35DB44C226C46E5F002EB53B /* SavedViewController.swift in Sources */,
 				35DB44C326C46E5F002EB53B /* SavedProtocols.swift in Sources */,
+				3505BB0D26E13DF600B13202 /* Page.swift in Sources */,
 				35DB44A926C4392E002EB53B /* HomeContainer.swift in Sources */,
 				35B10A3626C97FD8003E3D44 /* SettingRouter.swift in Sources */,
 				35028DD726C544D000FF9D68 /* MyProfileInteractor.swift in Sources */,
+				3505BB1326E1410E00B13202 /* PageProtocol.swift in Sources */,
 				3557F2E126AD65A7001DA6BB /* Blogs.xcdatamodeld in Sources */,
 				35DB44C026C46E5F002EB53B /* SavedPresenter.swift in Sources */,
 				35B1096C26C6B110003E3D44 /* PasswordChangeContainer.swift in Sources */,
@@ -1577,6 +1596,7 @@
 				35028DC826C4747D00FF9D68 /* StandartBlogTableViewCell.swift in Sources */,
 				35DB44A426C4392E002EB53B /* HomePresenter.swift in Sources */,
 				35B10A3826C97FD8003E3D44 /* SettingProtocols.swift in Sources */,
+				3505BB1E26E1418800B13202 /* PageViewModel.swift in Sources */,
 				35028E1526C69C5A00FF9D68 /* ChoiceLanguagePresenter.swift in Sources */,
 				35B1096726C6B110003E3D44 /* PasswordChangePresenter.swift in Sources */,
 				35E020E926C1FCBE00C99280 /* StartContainer.swift in Sources */,

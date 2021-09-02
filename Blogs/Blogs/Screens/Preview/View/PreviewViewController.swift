@@ -8,21 +8,21 @@
 
 import UIKit
 
-protocol SomeProtocol {
-    func action(numb: Int)
+protocol PageProtocol {
+    func numbPage(numb: Int)
 }
 
-final class PreviewViewController: UIViewController , SomeProtocol {
+final class PreviewViewController: UIViewController , PageProtocol {
 
 	private let output: PreviewViewOutput
     
+    private var section: PageSectionRowPresentable = PageSectionViewModel()
     
     //MARK: Обявление переменных
-    private var finised = false
     private var twoButtonsBottonConstraint: NSLayoutConstraint?
     
     private lazy var pageViewController: PreviewPageViewController = {
-        let controller = PreviewPageViewController()
+        let controller = PreviewPageViewController(section: section)
         controller.delegatePage = self
         controller.view.layer.zPosition = 1
         controller.view.translatesAutoresizingMaskIntoConstraints = false
@@ -106,7 +106,9 @@ final class PreviewViewController: UIViewController , SomeProtocol {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
-        addView()
+        output.fetchViewPages()
+        
+        addViews()
         editView(numb: 0)
         add(pageViewController)
         
@@ -162,25 +164,10 @@ final class PreviewViewController: UIViewController , SomeProtocol {
         circle.layer.cornerRadius = (view.frame.width - 66) / 2
     }
     
-    func action(numb: Int) {
+    func numbPage(numb: Int) {
         
-        if numb == 2 && finised == false {
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.twoButtons.alpha = 0.0
-                })
-                
-            UIView.animate(withDuration: 0.7, animations: {
-                self.startedButton.alpha = 1
-                self.startedButton.isHidden = false
-            })
-            
-            twoButtons.isHidden = true
-            twoButtonsBottonConstraint?.constant = 24
-            finised = true
-        }
-        
+        output.newPage(numb: numb)
         editView(numb: numb)
-        
     }
     
     private func editView(numb: Int) {
@@ -226,13 +213,14 @@ final class PreviewViewController: UIViewController , SomeProtocol {
         }
     }
     
-    private func addView() {
+    private func addViews() {
         [twoButtons, circle, sliderView, startedButton].forEach{ view.addSubview($0) }
         [smallCircleOne, smallCircleTwo, smallCircleThree].forEach{ sliderView.addSubview($0) }
     }
     
     @objc
     private func tapTralingButton() {
+        pageViewController.nextPage()
         output.didTapTralingButton()
     }
     
@@ -248,10 +236,22 @@ final class PreviewViewController: UIViewController , SomeProtocol {
 }
 
 extension PreviewViewController: PreviewViewInput {
-    func presentViewController() {
-        let controller = StartContainer.assemble(with: .init()).viewController
+    func setupFinalChanges() {
+
+        UIView.animate(withDuration: 0.3, animations: {
+            self.twoButtons.alpha = 0.0
+        })
+            
+        UIView.animate(withDuration: 0.7, animations: {
+            self.startedButton.alpha = 1
+            self.startedButton.isHidden = false
+        })
         
-        self.navigationController?.pushViewController(controller, animated: true)
+        twoButtons.isHidden = true
+        twoButtonsBottonConstraint?.constant = 24
     }
     
+    func reloadData(for section: PageSectionViewModel) {
+        self.section = section
+    }
 }
