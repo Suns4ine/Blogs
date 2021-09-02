@@ -107,8 +107,6 @@ final class AnotherMoreBlogsViewController: UIViewController {
             self.output.fetchBlogsCell()
             self.refreshControl.endRefreshing()
         }
-        
-        
     }
     
     @objc

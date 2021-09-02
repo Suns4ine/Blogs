@@ -11,6 +11,7 @@ import UIKit
 final class RefreshControl: UIRefreshControl {
     
     private let size: CGFloat = 60
+    private var indent: CGFloat = 0
     
     private let updateIcon: UIImageView = {
         let view = UIImageView()
@@ -27,7 +28,13 @@ final class RefreshControl: UIRefreshControl {
         return view
     }()
     
-    override init() {
+    convenience init(indent: CGFloat = 0) {
+        self.init()
+        
+        self.indent = indent
+    }
+    
+    private override init() {
         super.init()
         
         setup()
@@ -52,12 +59,18 @@ final class RefreshControl: UIRefreshControl {
             updateIcon.heightAnchor.constraint(equalToConstant: size),
             updateIcon.widthAnchor.constraint(equalToConstant: size),
             updateIcon.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            updateIcon.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            updateIcon.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: indent),
             
-            shadowView.heightAnchor.constraint(equalToConstant: size),
-            shadowView.widthAnchor.constraint(equalToConstant: size),
-            shadowView.centerXAnchor.constraint(equalTo: updateIcon.centerXAnchor),
-            shadowView.centerYAnchor.constraint(equalTo: updateIcon.centerYAnchor, constant: 4),
+            
+            shadowView.topAnchor.constraint(equalTo: updateIcon.topAnchor, constant: 4),
+            shadowView.leadingAnchor.constraint(equalTo: updateIcon.leadingAnchor),
+            shadowView.trailingAnchor.constraint(equalTo: updateIcon.trailingAnchor),
+            shadowView.bottomAnchor.constraint(equalTo: updateIcon.bottomAnchor, constant: 4),
+            
+//            shadowView.heightAnchor.constraint(equalToConstant: size),
+//            shadowView.widthAnchor.constraint(equalToConstant: size),
+//            shadowView.centerXAnchor.constraint(equalTo: updateIcon.centerXAnchor),
+//            shadowView.centerYAnchor.constraint(equalTo: updateIcon.centerYAnchor, constant: indent + 4),
         ])
     }
     

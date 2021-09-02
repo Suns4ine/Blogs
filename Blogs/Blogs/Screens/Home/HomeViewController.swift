@@ -43,6 +43,13 @@ final class HomeViewController: UIViewController {
         return title
     }()
     
+    private let refreshControl: RefreshControl = {
+        let refresh = RefreshControl()
+        refresh.layer.zPosition = -1
+        refresh.addTarget(self, action: #selector(refreshControlUpDate), for: .valueChanged)
+        return refresh
+    }()
+    
     init(output: HomeViewOutput) {
         self.output = output
 
@@ -57,6 +64,8 @@ final class HomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         [header, blogsTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
+        blogsTableView.addSubview(refreshControl)
+        
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
@@ -85,6 +94,17 @@ final class HomeViewController: UIViewController {
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    @objc
+    private func refreshControlUpDate() {
+        
+        self.refreshControl.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.output.fetchBlogsCell()
+            self.refreshControl.endRefreshing()
+        }
     }
      
     @objc

@@ -75,6 +75,13 @@ final class SearchViewController: UIViewController {
         return table
     }()
     
+    private let refreshControl: RefreshControl = {
+        let refresh = RefreshControl(indent: 16)
+        refresh.layer.zPosition = -1
+        refresh.addTarget(self, action: #selector(refreshControlUpDate), for: .valueChanged)
+        return refresh
+    }()
+    
     init(output: SearchViewOutput) {
         self.output = output
 
@@ -89,6 +96,7 @@ final class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         [header, searchTableView, emptyArrayTitle, shadowSearchBarView, searchBar].forEach{ view.addSubview($0)}
+        searchTableView.addSubview(refreshControl)
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -129,6 +137,17 @@ final class SearchViewController: UIViewController {
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    @objc
+    private func refreshControlUpDate() {
+        
+        self.refreshControl.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.output.fetchBlogsCell()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     @objc
