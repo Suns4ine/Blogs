@@ -30,6 +30,7 @@ final class AnotherMoreBlogsViewController: UIViewController {
     private lazy var emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleAnotherMoreBlogsScreen,
                           size: .meb36)
+        title.editColor(color: StandartColors.anotherTitleColor)
         title.sizeToFit()
         return title
     }()

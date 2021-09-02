@@ -30,6 +30,7 @@ final class MyMoreBlogsViewController: UIViewController {
     private lazy var emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleMyMoreBlogsScreen,
                           size: .meb36)
+        title.editColor(color: StandartColors.anotherTitleColor)
         title.sizeToFit()
         return title
     }()
@@ -42,6 +43,13 @@ final class MyMoreBlogsViewController: UIViewController {
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
+    }()
+    
+    private let refreshControl: RefreshControl = {
+        let refresh = RefreshControl()
+        refresh.layer.zPosition = -1
+        refresh.addTarget(self, action: #selector(refreshControlUpDate), for: .valueChanged)
+        return refresh
     }()
 
     init(output: MyMoreBlogsViewOutput) {
@@ -58,6 +66,7 @@ final class MyMoreBlogsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         [header, myBlogsTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
+        myBlogsTableView.addSubview(refreshControl)
         
         self.view.backgroundColor = StandartColors.myProfileColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -90,12 +99,28 @@ final class MyMoreBlogsViewController: UIViewController {
     }
     
     @objc
+    private func refreshControlUpDate() {
+        
+        self.refreshControl.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.output.fetchBlogsCell()
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    @objc
     private func tapBackButton() {
         output.didTapBackButton()
     }
 }
 
 extension MyMoreBlogsViewController: MyMoreBlogsViewInput {
+    func clearTableCell(at indexPath: IndexPath) {
+        section.rows.remove(at: indexPath.row)
+        myBlogsTableView.deleteRows(at: [indexPath], with: .right)
+    }
+    
     func reloadData(for section: StandartBlogSectionViewModel) {
         self.section = section
         myBlogsTableView.reloadData()
@@ -124,5 +149,19 @@ extension MyMoreBlogsViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output.didTapMyBlogsTableViewCell(at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let action = UIContextualAction(style: .destructive,
+                                        title: StandartLanguage.deleteActionStandartBlogCell) { [weak self] (action, view, completionHandler) in
+                                            self?.output.deleteTableViewCell(at: indexPath)
+                                            completionHandler(true)
+        }
+        
+        action.backgroundColor = StandartColors.deleteActionColor
+        action.image = UIImage(named: "trash-2")?.tinted(with: StandartColors.smallIconColor)
+        
+        return UISwipeActionsConfiguration(actions: [action])
     }
 }

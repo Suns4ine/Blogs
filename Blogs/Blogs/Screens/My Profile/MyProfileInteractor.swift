@@ -11,7 +11,7 @@ import Foundation
 final class MyProfileInteractor {
 	weak var output: MyProfileInteractorOutput?
     
-    private var arrayBlogs: [Blog] = defaultUser.arrayBlogs ?? []//[defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
+    private var arrayBlogs: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
 }
 //MARK: Убрать дефолтного юзера
 extension MyProfileInteractor: MyProfileInteractorInput {

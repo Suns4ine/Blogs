@@ -15,6 +15,12 @@ final class MyMoreBlogsInteractor {
 }
 
 extension MyMoreBlogsInteractor: MyMoreBlogsInteractorInput {
+    func deleteBlog(at indexPath: IndexPath) {
+        blogArray.remove(at: indexPath.row)
+        
+        output?.indexDeleteReiceve(indexPath)
+    }
+    
     func getBlog(at indexPath: IndexPath) {
         let blog = blogArray[indexPath.row]
         
