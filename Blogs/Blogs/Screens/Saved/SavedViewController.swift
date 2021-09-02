@@ -90,7 +90,7 @@ final class SavedViewController: UIViewController {
             savedTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             savedTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
+            emptyArrayTitle.topAnchor.constraint(equalTo: refreshControl.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])

@@ -25,6 +25,10 @@ extension DraftBlogsPresenter: DraftBlogsModuleInput {
 }
 
 extension DraftBlogsPresenter: DraftBlogsViewOutput {
+    func deleteTableViewCell(at indexPath: IndexPath) {
+        interactor.deleteBlog(at: indexPath)
+    }
+    
     func fetchBlogsCell() {
         interactor.fetchBlogs()
     }
@@ -39,6 +43,10 @@ extension DraftBlogsPresenter: DraftBlogsViewOutput {
 }
 
 extension DraftBlogsPresenter: DraftBlogsInteractorOutput {
+    func indexDeleteReiceve(_ indexPath: IndexPath) {
+        view?.clearTableCell(at: indexPath)
+    }
+    
     func blogsDidRecieve(_ blogs: [Blog]) {
         let section = StandartBlogSectionViewModel()
         blogs.forEach{ section.rows.append(StandartBlogCellViewModel.init(blog: $0))}

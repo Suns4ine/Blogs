@@ -43,6 +43,13 @@ final class DraftBlogsViewController: UIViewController {
         return table
     }()
     
+    private let refreshControl: RefreshControl = {
+        let refresh = RefreshControl()
+        refresh.layer.zPosition = -1
+        refresh.addTarget(self, action: #selector(refreshControlUpDate), for: .valueChanged)
+        return refresh
+    }()
+    
     init(output: DraftBlogsViewOutput) {
         self.output = output
 
@@ -57,6 +64,7 @@ final class DraftBlogsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         [header, draftTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
+        draftTableView.addSubview(refreshControl)
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -83,10 +91,21 @@ final class DraftBlogsViewController: UIViewController {
             draftTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             draftTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
+            emptyArrayTitle.topAnchor.constraint(equalTo: refreshControl.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    @objc
+    private func refreshControlUpDate() {
+        
+        self.refreshControl.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.output.fetchBlogsCell()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     @objc
@@ -96,6 +115,11 @@ final class DraftBlogsViewController: UIViewController {
 }
 
 extension DraftBlogsViewController: DraftBlogsViewInput {
+    func clearTableCell(at indexPath: IndexPath) {
+        section.rows.remove(at: indexPath.row)
+        draftTableView.deleteRows(at: [indexPath], with: .right)
+    }
+    
     func reloadData(for section: StandartBlogSectionViewModel) {
         self.section = section
         draftTableView.reloadData()
@@ -124,5 +148,19 @@ extension DraftBlogsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output.didTapSavedTableViewCell(at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let action = UIContextualAction(style: .destructive,
+                                        title: StandartLanguage.deleteActionStandartBlogCell) { [weak self] (action, view, completionHandler) in
+                                            self?.output.deleteTableViewCell(at: indexPath)
+                                            completionHandler(true)
+        }
+        
+        action.backgroundColor = StandartColors.deleteActionColor
+        action.image = UIImage(named: "trash-2")?.tinted(with: StandartColors.smallIconColor)
+        
+        return UISwipeActionsConfiguration(actions: [action])
     }
 }

@@ -66,7 +66,7 @@ final class SearchViewController: UIViewController {
     
     private let searchTableView: UITableView = {
         let table = UITableView()
-        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0)
         table.showsVerticalScrollIndicator = false
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
@@ -76,7 +76,7 @@ final class SearchViewController: UIViewController {
     }()
     
     private let refreshControl: RefreshControl = {
-        let refresh = RefreshControl(indent: 16)
+        let refresh = RefreshControl(indent: 17)
         refresh.layer.zPosition = -1
         refresh.addTarget(self, action: #selector(refreshControlUpDate), for: .valueChanged)
         return refresh
@@ -133,7 +133,7 @@ final class SearchViewController: UIViewController {
             searchTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             searchTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            emptyArrayTitle.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 44),
+            emptyArrayTitle.topAnchor.constraint(equalTo: refreshControl.bottomAnchor, constant: 44),
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
@@ -177,7 +177,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UITe
                 for: indexPath) as? StandartBlogTableViewCell else { return .init() }
         
         cell.viewModel = viewModel
-        cell.ediTindentHeight(top: 22, bot: 2)
+        cell.ediTindentHeight(top: 24, bot: 0)
         return cell
     }
     

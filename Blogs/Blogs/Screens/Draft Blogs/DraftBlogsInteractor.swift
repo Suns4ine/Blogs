@@ -15,6 +15,12 @@ final class DraftBlogsInteractor {
 }
 
 extension DraftBlogsInteractor: DraftBlogsInteractorInput {
+    func deleteBlog(at indexPath: IndexPath) {
+        draftArray.remove(at: indexPath.row)
+        
+        output?.indexDeleteReiceve(indexPath)
+    }
+    
     
     func getBlog(at indexPath: IndexPath) {
         let blog = draftArray[indexPath.row]
