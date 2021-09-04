@@ -10,7 +10,6 @@ import Foundation
 
 protocol CreateBlogModuleInput {
 	var moduleOutput: CreateBlogModuleOutput? { get }
-    func givedraft(draft: Post)
 }
 
 protocol CreateBlogModuleOutput: class {
@@ -32,9 +31,8 @@ protocol CreateBlogViewOutput: class {
 }
 
 protocol CreateBlogInteractorInput: class {
+    func safeDraft()
     func giveText()
-    func printTitle()
-    func getDraft(draft: Post)
     func getUtility(at indexPath: IndexPath)
     func getText(text: String)
     func fetchUtilies()
@@ -46,6 +44,7 @@ protocol CreateBlogInteractorOutput: class {
     func utilityDidRecieve(_ utility: Utility)
     func openAdditionblog(_ draft: Post)
     func transferText(text: String)
+    func openBackController()
 }
 
 protocol CreateBlogRouterInput: class {

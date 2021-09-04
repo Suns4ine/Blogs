@@ -10,9 +10,38 @@ import Foundation
 
 final class DraftBlogsInteractor {
 	weak var output: DraftBlogsInteractorOutput?
+    
+    private func safeDraft(_ blog: Blog) {
+        if  !defaultDraft.text.isEmpty ||
+            !defaultDraft.title.isEmpty {
+            
+            var finalDraft = defaultDraft
+            finalDraft.date = .init()
+            
+            let draftBlog = Blog(user: defaultUser,
+                                 title: finalDraft.title.isEmpty ? finalDraft.text : finalDraft.title,
+                                 dateCreate: .init(),
+                                 dateEdit: nil,
+                                 finalPost: finalDraft,
+                                 arrayTags: [],
+                                 arrayLikeUsers: [],
+                                 arrayShareUsers: [],
+                                 rating: 0,
+                                 identifier: "")
+            
+            
+            defaultUser.arrayDrafts.insert(draftBlog, at: 0)
+        }
+        
+        defaultDraft = blog.finalPost
+        defaultDraft.date = .init()
+    }
 }
 
 extension DraftBlogsInteractor: DraftBlogsInteractorInput {
+    
+
+    
     func deleteBlog(at indexPath: IndexPath) {
         defaultUser.arrayDrafts.remove(at: indexPath.row)
         
@@ -21,9 +50,10 @@ extension DraftBlogsInteractor: DraftBlogsInteractorInput {
     
     
     func getBlog(at indexPath: IndexPath) {
-        let blog = defaultUser.arrayDrafts[indexPath.row]
+        let blog = defaultUser.arrayDrafts.remove(at: indexPath.row)
         
-        output?.blogDidRecieve(blog)
+        safeDraft(blog)
+        output?.openBackController()
     }
     
     func fetchBlogs() {

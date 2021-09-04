@@ -32,7 +32,7 @@ final class AdditionBlogInteractor {
     
     private func checkTagName(tag: String) -> Bool {
         let text = tag.trimmingCharacters(in: .whitespaces)
-        debugPrint(text)
+        
         switch text {
         case let text where text.count < 2:
             output?.transferErrorTagName(text: "Минимум 2 символов тега")
@@ -44,6 +44,13 @@ final class AdditionBlogInteractor {
             output?.transferErrorTagName(text: "")
             return true
         }
+    }
+    
+    private func clearDraft() {
+        defaultDraft = .init(date: .init(),
+                             title: "",
+                             text: "",
+                             arrayTags: [])
     }
     
     private func createBlog(draft: Post) -> Blog {
@@ -94,6 +101,7 @@ extension AdditionBlogInteractor: AdditionBlogInteractorInput {
         if checkName(name: defaultDraft.title) {
             defaultDraft.date = .init()
             defaultUser.arrayBlogs.insert(createBlog(draft: defaultDraft), at: 0)
+            clearDraft()
             output?.openMyProfile()
         }
     }

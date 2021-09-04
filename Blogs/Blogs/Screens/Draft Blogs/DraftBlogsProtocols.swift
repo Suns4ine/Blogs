@@ -23,7 +23,7 @@ protocol DraftBlogsViewInput: class {
 protocol DraftBlogsViewOutput: class {
     func fetchBlogsCell()
     func didTapBackButton()
-    func didTapSavedTableViewCell(at indexPath: IndexPath)
+    func didTapDraftTableViewCell(at indexPath: IndexPath)
     func deleteTableViewCell(at indexPath: IndexPath)
 }
 
@@ -36,11 +36,10 @@ protocol DraftBlogsInteractorInput: class {
 
 protocol DraftBlogsInteractorOutput: class {
     func blogsDidRecieve(_ blogs: [Blog])
-    func blogDidRecieve(_ blog: Blog)
     func indexDeleteReiceve(_ indexPath: IndexPath)
+    func openBackController()
 }
 
 protocol DraftBlogsRouterInput: class {
     func popViewController()
-    func CreateBlogViewController(with blog: Blog)
 }

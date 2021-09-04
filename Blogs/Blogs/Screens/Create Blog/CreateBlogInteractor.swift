@@ -24,20 +24,40 @@ final class CreateBlogInteractor {
 }
 
 extension CreateBlogInteractor: CreateBlogInteractorInput {
+    
+    func safeDraft() {
+        if  !defaultDraft.text.isEmpty ||
+            !defaultDraft.title.isEmpty {
+            
+            var finalDraft = defaultDraft
+            finalDraft.date = .init()
+            
+            let draftBlog = Blog(user: defaultUser,
+                                 title: finalDraft.title.isEmpty ? finalDraft.text : finalDraft.title,
+                                 dateCreate: .init(),
+                                 dateEdit: nil,
+                                 finalPost: finalDraft,
+                                 arrayTags: [],
+                                 arrayLikeUsers: [],
+                                 arrayShareUsers: [],
+                                 rating: 0,
+                                 identifier: "")
+            
+            
+            defaultUser.arrayDrafts.insert(draftBlog, at: 0)
+        }
+        
+        defaultDraft = Post(date: .init(),
+                            title: "",
+                            text: "",
+                            arrayTags: [])
+        output?.openBackController()
+    }
+    
     func giveText() {
         output?.transferText(text: defaultDraft.text)
     }
-    
-    
-    func printTitle() {
-        debugPrint(defaultDraft.title)
-        debugPrint(defaultDraft.arrayTags)
-    }
-    
-    func getDraft(draft: Post) {
-       // self.draft = draft
-    }
-    
+
     func verificationOfEnteredData() {
         if !defaultDraft.text.isEmpty {
             output?.openAdditionblog(defaultDraft)
@@ -46,8 +66,6 @@ extension CreateBlogInteractor: CreateBlogInteractorInput {
     
     func getText(text: String) {
         defaultDraft.text = clearText(text)
-        
-        debugPrint("!\(defaultDraft.text)!")
     }
     
     func getUtility(at indexPath: IndexPath) {

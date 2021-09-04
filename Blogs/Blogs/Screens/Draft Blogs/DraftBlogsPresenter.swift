@@ -33,7 +33,7 @@ extension DraftBlogsPresenter: DraftBlogsViewOutput {
         interactor.fetchBlogs()
     }
     
-    func didTapSavedTableViewCell(at indexPath: IndexPath) {
+    func didTapDraftTableViewCell(at indexPath: IndexPath) {
         interactor.getBlog(at: indexPath)
     }
     
@@ -54,8 +54,8 @@ extension DraftBlogsPresenter: DraftBlogsInteractorOutput {
 
     }
     
-    func blogDidRecieve(_ blog: Blog) {
-        router.CreateBlogViewController(with: blog)
+    func openBackController() {
+        router.popViewController()
     }
     
 }

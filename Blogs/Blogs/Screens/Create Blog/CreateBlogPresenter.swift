@@ -22,9 +22,6 @@ final class CreateBlogPresenter {
 }
 
 extension CreateBlogPresenter: CreateBlogModuleInput {
-    func givedraft(draft: Post) {
-        interactor.getDraft(draft: draft)
-    }
 }
 
 extension CreateBlogPresenter: CreateBlogViewOutput {
@@ -41,7 +38,7 @@ extension CreateBlogPresenter: CreateBlogViewOutput {
     }
     
     func didTapBackButton() {
-        router.popViewController()
+        interactor.safeDraft()
     }
     
     func didTapNextButton() {
@@ -49,8 +46,7 @@ extension CreateBlogPresenter: CreateBlogViewOutput {
     }
     
     func didTapDraftButton() {
-        interactor.printTitle()
-        //router.openDraftBlogsViewController()
+        router.openDraftBlogsViewController()
     }
     
     func didTapUtilitiesCollectionViewCell(at indexPath: IndexPath) {
@@ -60,6 +56,11 @@ extension CreateBlogPresenter: CreateBlogViewOutput {
 }
 
 extension CreateBlogPresenter: CreateBlogInteractorOutput {
+    
+    func openBackController() {
+        router.popViewController()
+    }
+    
     func transferText(text: String) {
         view?.showText(text: text)
     }

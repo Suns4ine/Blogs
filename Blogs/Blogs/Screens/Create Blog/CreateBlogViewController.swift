@@ -87,6 +87,12 @@ final class CreateBlogViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        output.setupText()
+    }
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
         [header, nextButton, draftButton, text].forEach{ view.addSubview($0)}
@@ -150,6 +156,7 @@ final class CreateBlogViewController: UIViewController {
     
     @objc
     private func tapBackButton() {
+        output.giveText(text: text.textView.text)
         output.didTapBackButton()
     }
     
@@ -161,6 +168,7 @@ final class CreateBlogViewController: UIViewController {
     
     @objc
     private func tapDraftButton() {
+        output.giveText(text: text.textView.text)
         output.didTapDraftButton()
     }
 }
