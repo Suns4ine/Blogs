@@ -18,8 +18,8 @@ extension DraftBlogsRouter: DraftBlogsRouterInput {
         self.sourceViewController?.navigationController?.popViewController(animated: true)
     }
     
-    func openBlogViewController(with blog: Blog) {
-        let container = AnotherBlogContainer.assemble(with: .init())
+    func CreateBlogViewController(with blog: Blog) {
+        let container = CreateBlogContainer.assemble(with: .init())
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 }

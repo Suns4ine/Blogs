@@ -10,25 +10,23 @@ import Foundation
 
 final class DraftBlogsInteractor {
 	weak var output: DraftBlogsInteractorOutput?
-    
-    private var draftArray: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
 }
 
 extension DraftBlogsInteractor: DraftBlogsInteractorInput {
     func deleteBlog(at indexPath: IndexPath) {
-        draftArray.remove(at: indexPath.row)
+        defaultUser.arrayDrafts.remove(at: indexPath.row)
         
         output?.indexDeleteReiceve(indexPath)
     }
     
     
     func getBlog(at indexPath: IndexPath) {
-        let blog = draftArray[indexPath.row]
+        let blog = defaultUser.arrayDrafts[indexPath.row]
         
         output?.blogDidRecieve(blog)
     }
     
     func fetchBlogs() {
-        output?.blogsDidRecieve(draftArray)
+        output?.blogsDidRecieve(defaultUser.arrayDrafts)
     }
 }

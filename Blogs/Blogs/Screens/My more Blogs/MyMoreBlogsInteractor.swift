@@ -11,12 +11,13 @@ import Foundation
 final class MyMoreBlogsInteractor {
 	weak var output: MyMoreBlogsInteractorOutput?
     
-    private var blogArray: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
+    private var blogArray: [Blog] = defaultUser.arrayBlogs
 }
 
 extension MyMoreBlogsInteractor: MyMoreBlogsInteractorInput {
     func deleteBlog(at indexPath: IndexPath) {
         blogArray.remove(at: indexPath.row)
+        defaultUser.arrayBlogs = blogArray
         
         output?.indexDeleteReiceve(indexPath)
     }

@@ -18,7 +18,7 @@ final class StandartBlogTableViewCell: UITableViewCell, StandartBlogCellModelRep
     private func updateViews() {
         guard let viewModel = viewModel as? StandartBlogCellViewModel else { return }
         nameSubTitle.editText(text: viewModel.nameSubTitle)
-        dateSubTitle.editText(text: viewModel.dateSubTitle)
+        dateSubTitle.editText(text: " • " +  viewModel.dateSubTitle)
         title.editText(text: viewModel.title)
         StandartBlogTableViewCell.identifier = viewModel.cellIdentifier
     }
@@ -109,7 +109,7 @@ final class StandartBlogTableViewCell: UITableViewCell, StandartBlogCellModelRep
             nameSubTitle.heightAnchor.constraint(equalToConstant: 16),
             nameSubTitle.topAnchor.constraint(equalTo: savedView.topAnchor, constant: 32),
             nameSubTitle.leadingAnchor.constraint(equalTo: savedView.leadingAnchor, constant: 24),
-            nameSubTitle.trailingAnchor.constraint(lessThanOrEqualTo: savedView.centerXAnchor, constant: 12),
+            nameSubTitle.trailingAnchor.constraint(lessThanOrEqualTo: savedView.centerXAnchor, constant: 42),
             
             dateSubTitle.heightAnchor.constraint(equalToConstant: 16),
             dateSubTitle.centerYAnchor.constraint(equalTo: nameSubTitle.centerYAnchor),

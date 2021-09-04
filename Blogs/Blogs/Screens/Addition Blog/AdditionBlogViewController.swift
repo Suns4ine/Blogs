@@ -114,6 +114,8 @@ final class AdditionBlogViewController: UIViewController {
         [header, nextButton, blogTitleSubTitle, tagSubTitle, blogTitleView,
          blogTitleErrorSubTitle, tagView, tagErrorSubTitle, blogTitleText, tagText].forEach { view.addSubview($0)}
         
+        output.setupText()
+        
         self.view.backgroundColor = StandartColors.createBlogBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
@@ -173,14 +175,34 @@ final class AdditionBlogViewController: UIViewController {
     
     @objc
     private func tapBackButton() {
+        output.didFinishNameText(text: blogTitleText.textView.text)
+        output.didFinishTagNameText(text: tagText.textView.text)
         output.didTapBackButton()
     }
     
     @objc
     private func tapNextButton() {
+        output.didFinishNameText(text: blogTitleText.textView.text)
+        output.didFinishTagNameText(text: tagText.textView.text)
         output.didTapNextButton()
     }
 }
 
 extension AdditionBlogViewController: AdditionBlogViewInput {
+    func showTitle(text: String) {
+        blogTitleText.editText(text: text)
+    }
+    
+    func showTags(text: String) {
+        tagText.editText(text: text)
+    }
+    
+    func showErrorName(text: String) {
+        blogTitleErrorSubTitle.editText(text: text)
+    }
+    
+    func showErrorTagName(text: String) {
+        tagErrorSubTitle.editText(text: text)
+    }
+    
 }

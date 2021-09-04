@@ -75,7 +75,7 @@ final class EditProfileInteractor {
     }
     
     private func checkAboutMe(text: String) -> Bool {
-        let text = text.trimmingCharacters(in: .whitespaces)
+        let text = text.condenseWhitespace()
         
         switch text {
         case let text where text.count > 400:

@@ -21,7 +21,7 @@ class Blog: Hashable {
     let user: User
     var title: String = "title"
     var dateCreate: Date
-    var dateEdit: Date
+    var dateEdit: Date?
     var finalPost: Post
     
     var arrayTags: [String] = ["tagSubTitle"]
@@ -33,7 +33,7 @@ class Blog: Hashable {
     init(user: User,
          title: String,
          dateCreate: Date,
-         dateEdit: Date,
+         dateEdit: Date?,
          finalPost: Post,
          arrayTags: [String],
          arrayLikeUsers: [User],
@@ -70,7 +70,7 @@ var defaultBlog = Blog(user: defaultUser,
                                        title: "title",
                                        text: "text",
                                        arrayTags: []),
-                       arrayTags: [],
+                       arrayTags: ["tag1", "tag2", "tag3"],
                        arrayLikeUsers: [],
                        arrayShareUsers: [],
                        rating: 100,
@@ -90,3 +90,8 @@ var anotherDefaultBlog = Blog(user: defaultUser,
                               arrayShareUsers: [],
                               rating: 100,
                               identifier: "anotherIdentifier")
+
+var defaultDraft = Post(date: .init(),
+                        title: "",
+                        text: "",
+                        arrayTags: [])

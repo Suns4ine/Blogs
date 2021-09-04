@@ -11,26 +11,32 @@ import Foundation
 final class MyProfileInteractor {
 	weak var output: MyProfileInteractorOutput?
     
-    private var arrayBlogs: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
+   // private var arrayBlogs: [Blog] = defaultUser.arrayBlogs
 }
 //MARK: Убрать дефолтного юзера
 extension MyProfileInteractor: MyProfileInteractorInput {
+    func deleteBlog(at indexPath: IndexPath) {
+        defaultUser.arrayBlogs.remove(at: indexPath.row)
+        
+        output?.indexDeleteReiceve(indexPath)
+    }
+    
     func giveMyProfile() {
         output?.giveAwayMyProfile(profile: defaultUser)
     }
     
     func giveBlogsArrayCount() -> Int {
-        return arrayBlogs.count
+        return defaultUser.arrayBlogs.count
     }
     
     
     func getBlog(at indexPath: IndexPath) {
-        let blog = arrayBlogs[indexPath.row]
+        let blog = defaultUser.arrayBlogs[indexPath.row]
         
         output?.blogDidRecieve(blog)
     }
     
     func fetchBlogs() {
-        output?.blogsDidRecieve(arrayBlogs)
+        output?.blogsDidRecieve(defaultUser.arrayBlogs)
     }
 }

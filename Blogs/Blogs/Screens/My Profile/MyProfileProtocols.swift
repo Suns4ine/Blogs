@@ -16,6 +16,7 @@ protocol MyProfileModuleOutput: class {
 }
 
 protocol MyProfileViewInput: class {
+    func clearTableCell(at indexPath: IndexPath)
     func updateViews(profile: User)
     func reloadData(for section: StandartBlogSectionViewModel)
 }
@@ -29,9 +30,11 @@ protocol MyProfileViewOutput: class {
     func didTapCreateBolgButton()
     func didTapMoreBlogButton()
     func didTapBlogTableViewCell(at indexPath: IndexPath)
+    func deleteTableViewCell(at indexPath: IndexPath)
 }
 
 protocol MyProfileInteractorInput: class {
+    func deleteBlog(at indexPath: IndexPath)
     func giveMyProfile()
     func giveBlogsArrayCount() -> Int
     func getBlog(at indexPath: IndexPath)
@@ -42,6 +45,7 @@ protocol MyProfileInteractorOutput: class {
     func giveAwayMyProfile(profile: User)
     func blogsDidRecieve(_ blogs: [Blog])
     func blogDidRecieve(_ blog: Blog)
+    func indexDeleteReiceve(_ indexPath: IndexPath)
 }
 
 protocol MyProfileRouterInput: class {

@@ -396,6 +396,11 @@ final class MyProfileViewController: UIViewController {
 }
 
 extension MyProfileViewController: MyProfileViewInput, UIScrollViewDelegate {
+    func clearTableCell(at indexPath: IndexPath) {
+        section.rows.remove(at: indexPath.row)
+        blogTableView.deleteRows(at: [indexPath], with: .right)
+    }
+    
     
     func updateViews(profile: User) {
         
@@ -437,5 +442,19 @@ extension MyProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         debugPrint(indexPath.row)
         output.didTapBlogTableViewCell(at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let action = UIContextualAction(style: .destructive,
+                                        title: StandartLanguage.deleteActionStandartBlogCell) { [weak self] (action, view, completionHandler) in
+                                            self?.output.deleteTableViewCell(at: indexPath)
+                                            completionHandler(true)
+        }
+        
+        action.backgroundColor = StandartColors.deleteActionColor
+        action.image = UIImage(named: "trash-2")?.tinted(with: StandartColors.smallIconColor)
+        
+        return UISwipeActionsConfiguration(actions: [action])
     }
 }

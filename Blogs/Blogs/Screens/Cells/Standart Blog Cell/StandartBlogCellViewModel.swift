@@ -13,8 +13,6 @@ final class StandartBlogCellViewModel: StandartBlogCellIdentifiable {
     let title: String
     let dateSubTitle: String
     let nameSubTitle: String
-    let tagSubTitle: String
-    let avatar: UIImage
     let user: User
     
     var cellIdentifier: String {
@@ -27,10 +25,8 @@ final class StandartBlogCellViewModel: StandartBlogCellIdentifiable {
     
     init(blog: Blog) {
         title = blog.title
-        nameSubTitle = blog.finalPost.title
-        dateSubTitle = blog.finalPost.title
-        tagSubTitle = blog.finalPost.title
-        avatar = UIImage()
+        nameSubTitle = blog.user.tagname
+        dateSubTitle = blog.finalPost.date.stringDate()
         user = blog.user
     }
     

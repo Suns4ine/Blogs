@@ -14,13 +14,14 @@ final class CreateBlogRouter {
 
 extension CreateBlogRouter: CreateBlogRouterInput {
     
-    func openDraftBlogsViewController() {
-        let container = DraftBlogsContainer.assemble(with: .init())
+    func openAdditionBlogViewController() {
+        let container = AdditionBlogContainer.assemble(with: .init())
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     
-    func openAdditionBlogViewController() {
-        let container = AdditionBlogContainer.assemble(with: .init())
+    
+    func openDraftBlogsViewController() {
+        let container = DraftBlogsContainer.assemble(with: .init())
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     

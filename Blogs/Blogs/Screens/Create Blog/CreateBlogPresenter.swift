@@ -22,9 +22,20 @@ final class CreateBlogPresenter {
 }
 
 extension CreateBlogPresenter: CreateBlogModuleInput {
+    func givedraft(draft: Post) {
+        interactor.getDraft(draft: draft)
+    }
 }
 
 extension CreateBlogPresenter: CreateBlogViewOutput {
+    func setupText() {
+        interactor.giveText()
+    }
+    
+    func giveText(text: String) {
+        interactor.getText(text: text)
+    }
+    
     func fetchUtiliesCell() {
         interactor.fetchUtilies()
     }
@@ -34,11 +45,12 @@ extension CreateBlogPresenter: CreateBlogViewOutput {
     }
     
     func didTapNextButton() {
-        router.openAdditionBlogViewController()
+        interactor.verificationOfEnteredData()
     }
     
     func didTapDraftButton() {
-        router.openDraftBlogsViewController()
+        interactor.printTitle()
+        //router.openDraftBlogsViewController()
     }
     
     func didTapUtilitiesCollectionViewCell(at indexPath: IndexPath) {
@@ -48,6 +60,14 @@ extension CreateBlogPresenter: CreateBlogViewOutput {
 }
 
 extension CreateBlogPresenter: CreateBlogInteractorOutput {
+    func transferText(text: String) {
+        view?.showText(text: text)
+    }
+    
+    func openAdditionblog(_ draft: Post) {
+        router.openAdditionBlogViewController()
+    }
+    
     func utiliesDidRecieve(_ utilies: [Utility]) {
         let section = UtiliesSectionViewModel()
         utilies.forEach{ section.rows.append(UtiliesCellViewModel.init(utility: $0))}

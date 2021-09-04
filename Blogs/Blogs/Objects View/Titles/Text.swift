@@ -90,6 +90,10 @@ final class Text: UIView, TextProtocol {
         textView.isScrollEnabled = edit
     }
     
+    func editShowsVerticalScrollIndicator(edit: Bool) {
+        textView.showsVerticalScrollIndicator = edit
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

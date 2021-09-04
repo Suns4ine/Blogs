@@ -26,6 +26,10 @@ extension MyProfilePresenter: MyProfileModuleInput {
 
 //MARK: Убрать дефолтный блог
 extension MyProfilePresenter: MyProfileViewOutput {
+    func deleteTableViewCell(at indexPath: IndexPath) {
+        interactor.deleteBlog(at: indexPath)
+    }
+    
     func setupTextInViews() {
         interactor.giveMyProfile()
     }
@@ -64,6 +68,10 @@ extension MyProfilePresenter: MyProfileViewOutput {
 }
 
 extension MyProfilePresenter: MyProfileInteractorOutput {
+    func indexDeleteReiceve(_ indexPath: IndexPath) {
+        view?.clearTableCell(at: indexPath)
+    }
+    
     
     func giveAwayMyProfile(profile: User) {
         view?.updateViews(profile: profile)

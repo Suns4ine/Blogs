@@ -41,6 +41,13 @@ final class CreateBlogViewController: UIViewController {
         return view
     }()
     
+    private let utilitiesAutoLayoutView : UIView = {
+        let view = UIView()
+        view.backgroundColor = StandartColors.utilitiesBlogBackgroundColor
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private let borderView: UIView = {
         let view = UIView()
         view.backgroundColor = StandartColors.borderColor
@@ -82,15 +89,17 @@ final class CreateBlogViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, nextButton, draftButton,
-         utilitiesView, utilitiesCollectionView,
-         borderView, text].forEach{ view.addSubview($0)}
+        [header, nextButton, draftButton, text].forEach{ view.addSubview($0)}
+//        [utilitiesView, utilitiesCollectionView,
+//        borderView, utilitiesAutoLayoutView].forEach{ view.addSubview($0)}
+        
         
         utilitiesCollectionView.delegate = self
         utilitiesCollectionView.dataSource = self
         utilitiesCollectionView.register(UtilitiesCollectionViewCell.self,
                                          forCellWithReuseIdentifier: UtilitiesCollectionViewCell.identifier)
         
+        output.setupText()
         output.fetchUtiliesCell()
         
         view.backgroundColor = StandartColors.createBlogBackgroundColor
@@ -111,25 +120,31 @@ final class CreateBlogViewController: UIViewController {
             draftButton.centerYAnchor.constraint(equalTo: header.leftIcon.centerYAnchor),
             draftButton.trailingAnchor.constraint(equalTo: nextButton.leadingAnchor, constant: -12),
             
-            utilitiesView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            utilitiesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            utilitiesView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            utilitiesView.heightAnchor.constraint(equalToConstant: 56),
-            
-            borderView.topAnchor.constraint(equalTo: utilitiesView.topAnchor),
-            borderView.leadingAnchor.constraint(equalTo: utilitiesView.leadingAnchor),
-            borderView.trailingAnchor.constraint(equalTo: utilitiesView.trailingAnchor),
-            borderView.heightAnchor.constraint(equalToConstant: 1),
-            
-            utilitiesCollectionView.topAnchor.constraint(equalTo: utilitiesView.topAnchor),
-            utilitiesCollectionView.leadingAnchor.constraint(equalTo: utilitiesView.leadingAnchor),
-            utilitiesCollectionView.trailingAnchor.constraint(equalTo: utilitiesView.trailingAnchor),
-            utilitiesCollectionView.bottomAnchor.constraint(equalTo: utilitiesView.bottomAnchor),
+//            utilitiesView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+//            utilitiesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            utilitiesView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            utilitiesView.heightAnchor.constraint(equalToConstant: 56),
+//
+//            borderView.topAnchor.constraint(equalTo: utilitiesView.topAnchor),
+//            borderView.leadingAnchor.constraint(equalTo: utilitiesView.leadingAnchor),
+//            borderView.trailingAnchor.constraint(equalTo: utilitiesView.trailingAnchor),
+//            borderView.heightAnchor.constraint(equalToConstant: 1),
+//
+//            utilitiesCollectionView.topAnchor.constraint(equalTo: utilitiesView.topAnchor),
+//            utilitiesCollectionView.leadingAnchor.constraint(equalTo: utilitiesView.leadingAnchor),
+//            utilitiesCollectionView.trailingAnchor.constraint(equalTo: utilitiesView.trailingAnchor),
+//            utilitiesCollectionView.bottomAnchor.constraint(equalTo: utilitiesView.bottomAnchor),
+//
+//            utilitiesAutoLayoutView.topAnchor.constraint(equalTo: utilitiesView.bottomAnchor),
+//            utilitiesAutoLayoutView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            utilitiesAutoLayoutView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            utilitiesAutoLayoutView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             text.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 14),
             text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             text.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            text.bottomAnchor.constraint(equalTo: utilitiesView.topAnchor, constant: -14)
+            text.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -14)
+//            text.bottomAnchor.constraint(equalTo: utilitiesView.topAnchor, constant: -14)
         ])
     }
     
@@ -140,6 +155,7 @@ final class CreateBlogViewController: UIViewController {
     
     @objc
     private func tapNextButton() {
+        output.giveText(text: text.textView.text)
         output.didTapNextButton()
     }
     
@@ -150,6 +166,10 @@ final class CreateBlogViewController: UIViewController {
 }
 
 extension CreateBlogViewController: CreateBlogViewInput {
+    func showText(text: String) {
+        self.text.editText(text: text)
+    }
+    
     func reloadData(for section: UtiliesSectionViewModel) {
         self.section = section
         utilitiesCollectionView.reloadData()

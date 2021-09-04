@@ -27,6 +27,7 @@ class User: Hashable {
     var tagname: String
     var arrayBlogs: [Blog]
     var arrayDrafts: [Blog]
+    var arrayLikedBlogs: [Blog]
     var arrayFollowers: Set<User>
     var arrayFolloving: Set<User>
     var aboutMe: String
@@ -42,6 +43,7 @@ class User: Hashable {
          tagname: String,
          arrayBlogs: [Blog],
          arrayDrafts: [Blog],
+         arrayLikedBlogs: [Blog],
          arrayFollowers: Set<User>,
          arrayFolloving: Set<User>,
          aboutMe: String,
@@ -57,6 +59,7 @@ class User: Hashable {
         self.tagname = tagname
         self.arrayBlogs = arrayBlogs
         self.arrayDrafts = arrayDrafts
+        self.arrayLikedBlogs = arrayLikedBlogs
         self.arrayFollowers = arrayFollowers
         self.arrayFolloving = arrayFolloving
         self.aboutMe = aboutMe
@@ -74,6 +77,7 @@ var defaultUser = User(dateCreate: .init(),
                        tagname: "tagname",
                        arrayBlogs: [],
                        arrayDrafts: [],
+                       arrayLikedBlogs: [],
                        arrayFollowers: [],
                        arrayFolloving: [],
                        aboutMe: "About Me",
@@ -93,6 +97,7 @@ var anotherDefaultUser = User(dateCreate: .init(),
                        tagname: "AnotherTagname",
                        arrayBlogs: [],
                        arrayDrafts: [],
+                       arrayLikedBlogs: [],
                        arrayFollowers: [],
                        arrayFolloving: [],
                        aboutMe: "About Another",

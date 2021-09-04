@@ -42,5 +42,5 @@ protocol DraftBlogsInteractorOutput: class {
 
 protocol DraftBlogsRouterInput: class {
     func popViewController()
-    func openBlogViewController(with blog: Blog)
+    func CreateBlogViewController(with blog: Blog)
 }

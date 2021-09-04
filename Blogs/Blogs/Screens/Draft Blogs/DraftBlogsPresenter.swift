@@ -55,7 +55,7 @@ extension DraftBlogsPresenter: DraftBlogsInteractorOutput {
     }
     
     func blogDidRecieve(_ blog: Blog) {
-        router.openBlogViewController(with: blog)
+        router.CreateBlogViewController(with: blog)
     }
     
 }

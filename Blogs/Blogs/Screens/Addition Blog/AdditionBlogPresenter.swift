@@ -25,15 +25,49 @@ extension AdditionBlogPresenter: AdditionBlogModuleInput {
 }
 
 extension AdditionBlogPresenter: AdditionBlogViewOutput {
+    func setupText() {
+        interactor.giveText()
+    }
+    
+    func didFinishNameText(text: String) {
+        interactor.newNameText(text: text)
+    }
+    
+    func didFinishTagNameText(text: String) {
+        interactor.newTagNameText(text: text)
+    }
+    
     func didTapBackButton() {
         router.popViewController()
+        
     }
     
     func didTapNextButton() {
-        router.openMyProfileViewController()
+        interactor.verificationOfEnteredData()
     }
     
 }
 
 extension AdditionBlogPresenter: AdditionBlogInteractorOutput {
+    func transferTitle(text: String) {
+        view?.showTitle(text: text)
+    }
+    
+    func transferTags(text: String) {
+        view?.showTags(text: text)
+    }
+    
+    
+    func openMyProfile() {
+        router.openMyProfileViewController()
+    }
+    
+    func transferErrorName(text: String) {
+        view?.showErrorName(text: text)
+    }
+    
+    func transferErrorTagName(text: String) {
+        view?.showErrorTagName(text: text)
+    }
+    
 }

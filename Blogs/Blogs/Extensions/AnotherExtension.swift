@@ -104,3 +104,25 @@ extension UIView {
         }
     }
 }
+
+extension Date {
+    func stringDate() -> String {
+        
+        let dateformatter = DateFormatter()
+        
+        dateformatter.dateFormat = "d MMM, YY"
+        
+        return dateformatter.string(from: self)
+    }
+}
+
+extension Array where Element == String {
+    
+    func returnEnumerationString() -> String {
+        
+        let stringArray2 = self.map { String($0) }
+        let string = stringArray2.joined(separator: ", ")
+        
+        return string
+    }
+}
