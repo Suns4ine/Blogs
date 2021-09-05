@@ -80,13 +80,17 @@ final class SettingViewController: UIViewController {
     }
     
     @objc
-    private func tapSettingButton( _ button: UIButton) {
-        output.didTapSettingButtonTableViewCell(at: button.tag)
+    private func tapSettingButton( _ button: SecondBigButton) {
+        guard let index = button.indexPath else { return }
+
+        output.didTapSettingButtonTableViewCell(at: index)
     }
     
     @objc
-    private func tapToggleButton( _ button: UIButton) {
-        output.didTapToggleButtonTableViewCell(at: button.tag)
+    private func tapToggleButton( _ button: ToggleButton) {
+        guard let index = button.indexPath else { return }
+        
+        output.didTapToggleButtonTableViewCell((index, button.flag))
     }
 }
 
@@ -110,9 +114,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.viewModel = viewModel
         
+        cell.addIndexPath(indexPath)
         cell.addTargeToggleButton(self, action: #selector(tapToggleButton(_:)))
         cell.addTargeSettingButton(self, action: #selector(tapSettingButton(_:)))
-        cell.addTag(indexPath.row)
         
         return cell
     }

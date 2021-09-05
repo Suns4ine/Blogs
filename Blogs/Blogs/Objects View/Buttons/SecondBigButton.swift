@@ -11,6 +11,7 @@ import UIKit
 final class SecondBigButton: UIView {
     
     private var hasIcon = false
+    private (set) var indexPath: IndexPath?
     
     private lazy var iconImage: IconImage = {
         let image = IconImage(icon: .none, size: .size24)
@@ -108,6 +109,10 @@ final class SecondBigButton: UIView {
     
     func addTag(_ tag: Int) {
         button.tag = tag
+    }
+    
+    func addIndexPath(index: IndexPath) {
+        indexPath = index
     }
     
     override func layoutSubviews() {

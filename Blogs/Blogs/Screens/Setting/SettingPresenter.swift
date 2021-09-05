@@ -25,12 +25,12 @@ extension SettingPresenter: SettingModuleInput {
 }
 
 extension SettingPresenter: SettingViewOutput {
-    func didTapSettingButtonTableViewCell(at indexPath: Int) {
+    func didTapSettingButtonTableViewCell(at indexPath: IndexPath) {
         interactor.settingButtonCell(at: indexPath)
     }
     
-    func didTapToggleButtonTableViewCell(at indexPath: Int) {
-        interactor.toggleButtonCell(at: indexPath)
+    func didTapToggleButtonTableViewCell(_ cortage: (IndexPath, Bool)) {
+        interactor.toggleButtonCell(cortage)
     }
     
     func fetchSettingsCell() {

@@ -23,13 +23,13 @@ protocol SettingViewOutput: class {
     func fetchSettingsCell()
     func didTapBackButton()
     func didTapSettingTableViewCell(at indexPath: IndexPath)
-    func didTapSettingButtonTableViewCell(at indexPath: Int)
-    func didTapToggleButtonTableViewCell(at indexPath: Int)
+    func didTapSettingButtonTableViewCell(at indexPath: IndexPath)
+    func didTapToggleButtonTableViewCell(_ cortage: (IndexPath, Bool))
 }
 
 protocol SettingInteractorInput: class {
-    func settingButtonCell(at indexPath: Int)
-    func toggleButtonCell(at indexPath: Int)
+    func settingButtonCell(at indexPath: IndexPath)
+    func toggleButtonCell(_ cortage: (IndexPath, Bool))
     func getSetting(at indexPath: IndexPath)
     func fetchSettings()
 }

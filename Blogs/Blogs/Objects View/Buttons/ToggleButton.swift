@@ -14,7 +14,8 @@ final class ToggleButton: UIView {
     private let backgroundOff: UIColor = StandartColors.toggleSwitchOffColor
     
     private var flowLeadingConstraint: NSLayoutConstraint?
-    private (set) var flag = true
+    private (set) var flag = false
+    private (set) var indexPath: IndexPath?
     
     private var height: CGFloat = 36
     private var width: CGFloat = 60
@@ -40,16 +41,11 @@ final class ToggleButton: UIView {
         view.backgroundColor = backgroundOff
         return view
     }()
-
-    convenience init(flag: Bool) {
-        self.init()
-        
-        self.flag = flag
-        setup()
-    }
     
-    private override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setup()
     }
 
     required init?(coder: NSCoder) {
@@ -106,9 +102,13 @@ final class ToggleButton: UIView {
         sliderButton.tag = tag
     }
     
-    func tapButton(flag: Bool) {
-        self.flag = flag
-        sliderButton.sendActions(for: .touchUpInside)
+    func isOn(bool: Bool) {
+        self.flag = bool
+        newCoordinate()
+    }
+    
+    func addIndexPath(index: IndexPath) {
+        indexPath = index
     }
     
     @objc

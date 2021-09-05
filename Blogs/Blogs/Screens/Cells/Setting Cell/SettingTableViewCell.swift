@@ -76,7 +76,7 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
     }()
     
     private lazy var togleButton: ToggleButton = {
-        let button = ToggleButton(flag: true)
+        let button = ToggleButton()
         return button
     }()
     
@@ -112,7 +112,7 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
     
     func selectCell(cell: SelectSettingCell) {
         
-        [title, subtitle, button, icon, togleButton].forEach{ $0.isHidden = true}
+        [title, subtitle, button, icon, togleButton].forEach{ $0.isHidden = true }
         
         switch cell {
         case .button:
@@ -177,10 +177,13 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
     }
     
     func addTargeToggleButton(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        
-        flag = !flag
-        
         togleButton.addTarget(target, action: action, for: event)
+    }
+    
+    func addIndexPath(_ indexPath: IndexPath) {
+        
+        button.addIndexPath(index: indexPath)
+        togleButton.addIndexPath(index: indexPath)
     }
     
     func addTag(_ tag: Int) {
