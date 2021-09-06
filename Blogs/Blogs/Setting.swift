@@ -7,25 +7,38 @@
 
 import Foundation
 
-struct Setting {
+class Setting {
     let title: String
     let subtitle: String
     let icon: Icons = .chervonRight
     var condition: SelectSettingCell
     var identifier: String
     var flag: Bool
+    
+    init(title: String,
+         subtitle: String,
+         condition: SelectSettingCell,
+         identifier: String,
+         flag: Bool) {
+        
+        self.title = title
+        self.subtitle = subtitle
+        self.condition = condition
+        self.identifier = identifier
+        self.flag = flag
+    }
 }
 
 var defaultSetting: [Setting] = [.init(title: "Уведомления",
                                        subtitle: "Если не хотите получать уведомления, то просто отключите здесь",
                                        condition: .toggle,
-                                       identifier: "notification",
-                                       flag: false),
+                                       identifier: "Notification",
+                                       flag: defaultUser.personalSetting.notification),
                                  .init(title: "Звук",
                                        subtitle: "Звук также можно отключить тут",
                                        condition: .toggle,
-                                       identifier: "sound",
-                                       flag: false),
+                                       identifier: "Sound",
+                                       flag: defaultUser.personalSetting.sound),
                                  .init(title: "Изменить тему",
                                        subtitle: "",
                                        condition: .screen,

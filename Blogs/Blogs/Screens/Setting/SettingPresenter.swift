@@ -47,6 +47,7 @@ extension SettingPresenter: SettingViewOutput {
 }
 
 extension SettingPresenter: SettingInteractorOutput {
+    
     func settingsDidRecieve(_ settings: [Setting]) {
         let section = SettingSectionViewModel()
         settings.forEach{ section.rows.append(SettingCellViewModel.init(setting: $0))}

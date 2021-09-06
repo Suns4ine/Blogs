@@ -34,6 +34,7 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
         typeCell = viewModel.condition
         SettingTableViewCell.identifier = viewModel.cellIdentifier
         flag = viewModel.flag
+        togleButton.isOn(bool: !flag)
     }
     
     
@@ -189,5 +190,9 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
     func addTag(_ tag: Int) {
         button.addTag(tag)
         togleButton.addTag(tag)
+    }
+    
+    func editFlag(isOn: Bool) {
+        flag = isOn
     }
 }

@@ -103,7 +103,7 @@ final class ToggleButton: UIView {
     }
     
     func isOn(bool: Bool) {
-        self.flag = bool
+        flag = bool
         newCoordinate()
     }
     
@@ -140,7 +140,7 @@ final class ToggleButton: UIView {
                            delay: 0.1,
                            options: .allowAnimatedContent,
                            animations: {
-                            self.flowLeadingConstraint?.constant = self.frame.width - self.sliderButton.frame.height
+                            self.flowLeadingConstraint?.constant = self.width - self.height//self.frame.width - self.sliderButton.frame.height
                             self.circle.backgroundColor = self.backgroundOn
                             self.flag = true
                             self.layoutIfNeeded()

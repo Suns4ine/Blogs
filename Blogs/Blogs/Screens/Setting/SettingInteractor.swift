@@ -19,7 +19,7 @@ extension SettingInteractor: SettingInteractorInput {
         
         
         let setting = settingArray[indexPath.row]
-        debugPrint("!\(indexPath.row)")
+
         guard setting.condition == .button else { return }
         
         switch setting.identifier {
@@ -34,14 +34,19 @@ extension SettingInteractor: SettingInteractorInput {
         let index = cortage.0
         let flag = cortage.1
         
-        debugPrint(cortage.0.row)
-        
         let setting = settingArray[index.row]
+        
+        
         
         guard setting.condition == .toggle else { return }
         
-
-        debugPrint("Tap Toggle")
+        setting.flag = flag
+        
+        switch setting.identifier {
+        case "Notification": defaultUser.personalSetting.notification = flag
+        case "Sound": defaultUser.personalSetting.sound = flag
+        default: break
+        }
     }
     
     func getSetting(at indexPath: IndexPath) {

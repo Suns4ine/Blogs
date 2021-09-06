@@ -96,6 +96,7 @@ final class SettingViewController: UIViewController {
 }
 
 extension SettingViewController: SettingViewInput {
+    
     func reloadData(for section: SettingSectionViewModel) {
         self.section = section
         settingTableView.reloadData()
