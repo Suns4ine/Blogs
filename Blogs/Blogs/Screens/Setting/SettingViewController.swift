@@ -81,16 +81,17 @@ final class SettingViewController: UIViewController {
     
     @objc
     private func tapSettingButton( _ button: SecondBigButton) {
-       guard let index = button.indexPath else { return }
+        guard let index = (button.superview as? SecondBigButton)?.indexPath else { return }
 
         output.didTapSettingButtonTableViewCell(at: index)
     }
     
     @objc
     private func tapToggleButton( _ button: ToggleButton) {
-        guard let index = button.indexPath else { return }
+        guard let buttonToggle = (button.superview as? ToggleButton) else { return }
+        guard let index = buttonToggle.indexPath else { return }
         
-        output.didTapToggleButtonTableViewCell((index, button.flag))
+        output.didTapToggleButtonTableViewCell((index, buttonToggle.flag))
     }
 }
 

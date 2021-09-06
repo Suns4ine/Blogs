@@ -270,8 +270,11 @@ extension BlogViewController: BlogViewInput {
     func shareData(cartage: (String, String)) {
         
         let text = cartage.0
+        let screen = scrollView.screenshot()
         
-        let vc = UIActivityViewController(activityItems: [text], applicationActivities: [])
+        guard let finalData = screen else { return }
+        
+        let vc = UIActivityViewController(activityItems: [finalData], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }
@@ -312,22 +315,46 @@ extension BlogViewController: BlogViewInput {
 
 }
 
-class MyActivity: UIActivity {
+extension UIView {
     
-    override var activityTitle: String? { "Жми сюда" }
-    override var activityImage: UIImage? { UIImage(named: "icon") }
-    override var activityType: UIActivity.ActivityType? { .none }
-    override class var activityCategory: UIActivity.Category { .share }
-    
-    override var activityViewController: UIViewController? {
-        let text = "Спасибо за регистрацию на сайти JoyCasino.com"
-        let alertController = UIAlertController(title: text, message: nil, preferredStyle: .alert)
-        let thankAction = UIAlertAction(title: "Не за что", style: .default) { [weak self] _ in
-            self?.activityDidFinish(true)
-        }
-        alertController.addAction(thankAction)
-        return alertController
+    func snapshot(scrollView: UIScrollView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(scrollView.contentSize, false, UIScreen.main.scale)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let savedContentOffset = scrollView.contentOffset
+        let savedFrame = frame
+        
+        scrollView.contentOffset = CGPoint.zero
+        frame = CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height)
+        
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        scrollView.contentOffset = savedContentOffset
+        frame = savedFrame
+        
+        UIGraphicsEndImageContext()
+        
+        return image
     }
-    
-    override func canPerform(withActivityItems activityItems: [Any]) -> Bool { true }
+}
+
+fileprivate extension UIScrollView {
+    func screenshot() -> UIImage? {
+            let savedContentOffset = contentOffset
+            let savedFrame = frame
+            defer {
+                contentOffset = savedContentOffset
+                frame = savedFrame
+            }
+
+            contentOffset = .zero
+            frame = CGRect(x: 0, y: 0, width: contentSize.width, height: contentSize.height)
+
+            let image = UIGraphicsImageRenderer(bounds: CGRect(origin: .zero, size: contentSize)).image { renderer in
+                let context = renderer.cgContext
+                layer.render(in: context)
+            }
+
+            return image
+        }
 }

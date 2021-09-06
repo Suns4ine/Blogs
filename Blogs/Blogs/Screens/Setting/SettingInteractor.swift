@@ -34,6 +34,8 @@ extension SettingInteractor: SettingInteractorInput {
         let index = cortage.0
         let flag = cortage.1
         
+        debugPrint(cortage.0.row)
+        
         let setting = settingArray[index.row]
         
         guard setting.condition == .toggle else { return }
