@@ -18,7 +18,8 @@ extension AnotherMoreBlogsRouter: AnotherMoreBlogsRouterInput {
     }
     
     func openBlogViewController(with blog: Blog) {
-        let container = AnotherBlogContainer.assemble(with: .init())
+        let container = BlogContainer.assemble(with: .init())
+        container.input.setupBlog(blog: blog)
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 }

@@ -25,8 +25,8 @@ class Blog: Hashable {
     var finalPost: Post
     
     var arrayTags: [String] = ["tagSubTitle"]
-    var arrayLikeUsers: [User] = []
-    var arrayShareUsers: [User] = []
+    var arrayLikeUsers: Set<User> = []
+    var arrayShareUsers: Set<User> = []
     var rating: Int = 0
     var identifier: String = ""
     
@@ -36,8 +36,8 @@ class Blog: Hashable {
          dateEdit: Date?,
          finalPost: Post,
          arrayTags: [String],
-         arrayLikeUsers: [User],
-         arrayShareUsers: [User],
+         arrayLikeUsers: Set<User>,
+         arrayShareUsers: Set<User>,
          rating: Int,
          identifier: String) {
         
@@ -77,7 +77,7 @@ var defaultBlog = Blog(user: defaultUser,
                        identifier: "identifier")
 
 
-var anotherDefaultBlog = Blog(user: defaultUser,
+var anotherDefaultBlog = Blog(user: anotherDefaultUser,
                               title: "anotherTitle",
                               dateCreate: .init(),
                               dateEdit: .init(),

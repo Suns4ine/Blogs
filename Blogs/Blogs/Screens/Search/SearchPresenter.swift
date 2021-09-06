@@ -39,14 +39,14 @@ extension SearchPresenter: SearchViewOutput {
 }
 
 extension SearchPresenter: SearchInteractorOutput {
+    func blogDidRecieve(_ blog: Blog) {
+        router.openBlogViewController(with: blog)
+    }
+    
     func blogsDidRecieve(_ blogs: [Blog]) {
         let section = StandartBlogSectionViewModel()
         blogs.forEach{ section.rows.append(StandartBlogCellViewModel.init(blog: $0))}
         view?.reloadData(for: section)
-    }
-    
-    func blogDidRecieve(_ blog: Blog) {
-        router.openBlogViewController(with: blog)
     }
     
 }

@@ -48,6 +48,10 @@ extension HomePresenter: HomeViewOutput {
 }
 
 extension HomePresenter: HomeInteractorOutput {
+    func userDidRecieve(_ user: User) {
+        router.openProfileController(with: user)
+    }
+    
     func blogDidRecieve(_ blog: Blog) {
         router.openBlogViewController(with: blog)
     }
@@ -57,9 +61,4 @@ extension HomePresenter: HomeInteractorOutput {
         blogs.forEach{ section.rows.append(BlogCellViewModel.init(blog: $0))}
         view?.reloadData(for: section)
     }
-    
-    func userDidRecieve(_ user: User) {
-        router.openAnotherProfileController(with: user)
-    }
-    
 }

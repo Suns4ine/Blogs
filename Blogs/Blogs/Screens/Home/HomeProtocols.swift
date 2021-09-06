@@ -41,6 +41,6 @@ protocol HomeInteractorOutput: class {
 
 protocol HomeRouterInput: class {
     func openSettingViewController()
+    func openProfileController(with user: User)
     func openBlogViewController(with blog: Blog)
-    func openAnotherProfileController(with user: User)
 }

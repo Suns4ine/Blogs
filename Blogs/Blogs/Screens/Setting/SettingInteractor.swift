@@ -17,8 +17,9 @@ final class SettingInteractor {
 extension SettingInteractor: SettingInteractorInput {
     func settingButtonCell(at indexPath: IndexPath) {
         
-        let setting = settingArray[indexPath.row]
         
+        let setting = settingArray[indexPath.row]
+        debugPrint("!\(indexPath.row)")
         guard setting.condition == .button else { return }
         
         switch setting.identifier {

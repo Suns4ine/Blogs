@@ -81,7 +81,7 @@ final class SettingViewController: UIViewController {
     
     @objc
     private func tapSettingButton( _ button: SecondBigButton) {
-        guard let index = button.indexPath else { return }
+       guard let index = button.indexPath else { return }
 
         output.didTapSettingButtonTableViewCell(at: index)
     }

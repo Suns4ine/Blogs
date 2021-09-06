@@ -1,16 +1,16 @@
 //
-//  MyBlogViewController.swift
+//  BlogViewController.swift
 //  Blogs
 //
-//  Created by Vyacheslav Pronin on 14.08.2021.
+//  Created by Vyacheslav Pronin on 05.09.2021.
 //  
 //
 
 import UIKit
 
-final class MyBlogViewController: UIViewController {
-	private let output: MyBlogViewOutput
-
+final class BlogViewController: UIViewController {
+	private let output: BlogViewOutput
+    
     //MARK: Объявление переменных
     
     private let scrollView: UIScrollView = {
@@ -63,6 +63,15 @@ final class MyBlogViewController: UIViewController {
         let button = FirstSmallButton(text: StandartLanguage.editButtonMyBlogScreen)
         button.addTarget(self, action: #selector(tapEditButton))
         button.sizeToFit()
+        button.isHidden = true
+        return button
+    }()
+    
+    private let followButton: FirstSmallButton = {
+        let button = FirstSmallButton(text: StandartLanguage.followButtonAnotherBlogScreen)
+        button.addTarget(self, action: #selector(tapFollowButton))
+        button.sizeToFit()
+        button.isHidden = true
         return button
     }()
     
@@ -112,8 +121,8 @@ final class MyBlogViewController: UIViewController {
                                 size: .meb17)
         return subtitle
     }()
-    
-    init(output: MyBlogViewOutput) {
+
+    init(output: BlogViewOutput) {
         self.output = output
 
         super.init(nibName: nil, bundle: nil)
@@ -122,6 +131,14 @@ final class MyBlogViewController: UIViewController {
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        output.setupTextInViews()
+        output.statusSubscribe()
+        output.statusLike()
     }
 
 	override func viewDidLoad() {
@@ -137,7 +154,7 @@ final class MyBlogViewController: UIViewController {
         let array = [header, titleBlog, text, tagSubtitle,
                      tagText, editButton, nameSubTitle, dateSubTitle,
                      separatorView, shareIcon, shareSubtitle, likeIcon,
-                     likeSubtitle]
+                     likeSubtitle, followButton]
         
         array.forEach{ scrollView.addSubview($0)}
     }
@@ -175,6 +192,11 @@ final class MyBlogViewController: UIViewController {
             editButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             editButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -36),
             editButton.leadingAnchor.constraint(greaterThanOrEqualTo: view.centerXAnchor, constant: 24),
+            
+            followButton.topAnchor.constraint(equalTo: tagText.bottomAnchor, constant: 12),
+            followButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            followButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -36),
+            followButton.leadingAnchor.constraint(greaterThanOrEqualTo: view.centerXAnchor, constant: 24),
             
             nameSubTitle.topAnchor.constraint(equalTo: tagText.bottomAnchor, constant: 12),
             nameSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
@@ -219,6 +241,11 @@ final class MyBlogViewController: UIViewController {
     }
     
     @objc
+    private func tapFollowButton() {
+        output.didTapFollowButton()
+    }
+    
+    @objc
     private func taplikeIcon() {
         output.didTaplikeIcon()
     }
@@ -229,5 +256,78 @@ final class MyBlogViewController: UIViewController {
     }
 }
 
-extension MyBlogViewController: MyBlogViewInput {
+extension BlogViewController: BlogViewInput {
+    func showLike(isOn: Bool) {
+        if isOn {
+            likeIcon.editIcon(icon: .heartFill)
+            likeIcon.editColor(color: StandartColors.filledHeartColor)
+        } else {
+            likeIcon.editIcon(icon: .heart)
+            likeIcon.editColor(color: StandartColors.emptyHeartColor)
+        }
+    }
+    
+    func shareData(cartage: (String, String)) {
+        
+        let text = cartage.0
+        
+        let vc = UIActivityViewController(activityItems: [text], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    }
+    
+    func showStatus(text: String) {
+        followButton.editText(text: text)
+    }
+    
+    func showName(text: String) {
+        nameSubTitle.editText(text: text)
+    }
+    
+    func showTitle(text: String) {
+        titleBlog.editText(text: text)
+    }
+    
+    func showText(text: String) {
+        self.text.editText(text: text)
+    }
+    
+    func showTags(text: String) {
+        tagText.editText(text: text)
+    }
+    
+    func showDate(text: String) {
+        dateSubTitle.editText(text: text)
+    }
+    
+    func setupViewMyBlog() {
+        followButton.isHidden = true
+        editButton.isHidden = false
+    }
+    
+    func setupViewAnotherBlog() {
+        editButton.isHidden = true
+        followButton.isHidden = false
+    }
+
+}
+
+class MyActivity: UIActivity {
+    
+    override var activityTitle: String? { "Жми сюда" }
+    override var activityImage: UIImage? { UIImage(named: "icon") }
+    override var activityType: UIActivity.ActivityType? { .none }
+    override class var activityCategory: UIActivity.Category { .share }
+    
+    override var activityViewController: UIViewController? {
+        let text = "Спасибо за регистрацию на сайти JoyCasino.com"
+        let alertController = UIAlertController(title: text, message: nil, preferredStyle: .alert)
+        let thankAction = UIAlertAction(title: "Не за что", style: .default) { [weak self] _ in
+            self?.activityDidFinish(true)
+        }
+        alertController.addAction(thankAction)
+        return alertController
+    }
+    
+    override func canPerform(withActivityItems activityItems: [Any]) -> Bool { true }
 }

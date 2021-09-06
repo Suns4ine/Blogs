@@ -14,18 +14,26 @@ final class HomeRouter {
 
 extension HomeRouter: HomeRouterInput {
     
+    func openBlogViewController(with blog: Blog) {
+        let container = BlogContainer.assemble(with: .init())
+        container.input.setupBlog(blog: blog)
+        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
     func openSettingViewController() {
         let container = SettingContainer.assemble(with: .init())
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     
-    func openBlogViewController(with blog: Blog) {
-        let container = AnotherBlogContainer.assemble(with: .init())
-        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
-    }
-    
-    func openAnotherProfileController(with user: User) {
-        let container = AnotherProfileContainer.assemble(with: .init())
-        self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    func openProfileController(with user: User) {
+        
+        if user == defaultUser {
+            let tabBarController = TabBarController()
+            tabBarController.selectedIndex = 3
+            self.sourceViewController?.navigationController?.pushViewController(tabBarController, animated: false)
+        } else {
+            let container = AnotherProfileContainer.assemble(with: .init())
+            self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+        }
     }
 }

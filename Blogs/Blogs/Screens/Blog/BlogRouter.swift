@@ -1,18 +1,18 @@
 //
-//  MyBlogRouter.swift
+//  BlogRouter.swift
 //  Blogs
 //
-//  Created by Vyacheslav Pronin on 14.08.2021.
+//  Created by Vyacheslav Pronin on 05.09.2021.
 //  
 //
 
 import UIKit
 
-final class MyBlogRouter {
+final class BlogRouter {
     weak var sourceViewController: UIViewController?
 }
 
-extension MyBlogRouter: MyBlogRouterInput {
+extension BlogRouter: BlogRouterInput {
     
     func openCreateBlogViewController() {
         let container = CreateBlogContainer.assemble(with: .init())
@@ -22,4 +22,5 @@ extension MyBlogRouter: MyBlogRouterInput {
     func popViewController() {
         self.sourceViewController?.navigationController?.popViewController(animated: true)
     }
+
 }

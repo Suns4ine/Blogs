@@ -27,7 +27,7 @@ class User: Hashable {
     var tagname: String
     var arrayBlogs: [Blog]
     var arrayDrafts: [Blog]
-    var arrayLikedBlogs: [Blog]
+    var arrayLikedBlogs: Set<Blog>
     var arrayFollowers: Set<User>
     var arrayFolloving: Set<User>
     var aboutMe: String
@@ -43,7 +43,7 @@ class User: Hashable {
          tagname: String,
          arrayBlogs: [Blog],
          arrayDrafts: [Blog],
-         arrayLikedBlogs: [Blog],
+         arrayLikedBlogs: Set<Blog>,
          arrayFollowers: Set<User>,
          arrayFolloving: Set<User>,
          aboutMe: String,

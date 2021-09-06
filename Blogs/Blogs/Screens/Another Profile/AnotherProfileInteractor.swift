@@ -33,15 +33,11 @@ extension AnotherProfileInteractor: AnotherProfileInteractorInput {
             
             defaultUser.arrayFolloving.remove(anotherDefaultUser)
             anotherDefaultUser.arrayFollowers.remove(defaultUser)
-            debugPrint(defaultUser.arrayFolloving.count)
-        
         } else {
             if defaultUser.arrayFolloving.count < 2500 {
                 
                 defaultUser.arrayFolloving.insert(anotherDefaultUser)
                 anotherDefaultUser.arrayFollowers.insert(defaultUser)
-                debugPrint(defaultUser.arrayFolloving.count)
-            
             }
         }
         fetchBlogs()

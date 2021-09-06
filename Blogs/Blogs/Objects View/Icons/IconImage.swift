@@ -92,6 +92,10 @@ final class IconImage: UIView {
         image.image = UIImage(named: icon.rawValue)
     }
     
+    func editColor(color: UIColor) {
+        image.image = image.image?.tinted(with: color)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

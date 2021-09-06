@@ -43,6 +43,11 @@ extension SavedPresenter: SavedViewOutput {
 }
 
 extension SavedPresenter: SavedInteractorOutput {
+    
+    func blogDidRecieve(_ blog: Blog) {
+        router.openBlogViewController(with: blog)
+    }
+    
     func indexDeleteReiceve(_ indexPath: IndexPath) {
         view?.clearTableCell(at: indexPath)
     }
@@ -54,8 +59,5 @@ extension SavedPresenter: SavedInteractorOutput {
 
     }
     
-    func blogDidRecieve(_ blog: Blog) {
-        router.openBlogViewController(with: blog)
-    }
     
 }

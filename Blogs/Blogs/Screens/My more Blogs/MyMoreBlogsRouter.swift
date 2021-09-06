@@ -14,7 +14,8 @@ final class MyMoreBlogsRouter {
 
 extension MyMoreBlogsRouter: MyMoreBlogsRouterInput {
     func openBlogViewController(with blog: Blog) {
-        let container = MyBlogContainer.assemble(with: .init())
+        let container = BlogContainer.assemble(with: .init())
+        container.input.setupBlog(blog: blog)
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     

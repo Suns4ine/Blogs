@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class MyBlogPresenter {
+final class BlogPresenter {
 	weak var view: MyBlogViewInput?
     weak var moduleOutput: MyBlogModuleOutput?
 
@@ -21,10 +21,14 @@ final class MyBlogPresenter {
     }
 }
 
-extension MyBlogPresenter: MyBlogModuleInput {
+extension BlogPresenter: MyBlogModuleInput {
+    func setupBlog(blog: Blog) {
+        interactor.getBlog(blog: blog)
+    }
+    
 }
 
-extension MyBlogPresenter: MyBlogViewOutput {
+extension BlogPresenter: MyBlogViewOutput {
     func didTapBackButton() {
         router.popViewController()
     }
