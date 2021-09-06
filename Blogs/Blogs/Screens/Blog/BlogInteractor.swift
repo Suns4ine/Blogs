@@ -25,6 +25,12 @@ final class BlogInteractor {
 
 extension BlogInteractor: BlogInteractorInput {
     
+    func tapProfile() {
+        guard let blog = blog else { return }
+        
+        output?.userDidRecieve(blog.user)
+    }
+    
     func tapLike() {
         guard let blog = blog else { return }
         

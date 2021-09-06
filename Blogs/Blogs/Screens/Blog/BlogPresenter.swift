@@ -28,6 +28,11 @@ extension BlogPresenter: BlogModuleInput {
 }
 
 extension BlogPresenter: BlogViewOutput {
+    
+    func didTapProfile() {
+        interactor.tapProfile()
+    }
+    
     func statusLike() {
         interactor.giveLike()
     }
@@ -58,11 +63,15 @@ extension BlogPresenter: BlogViewOutput {
     
     func didTapShareIcon() {
         interactor.shareBlogs()
-        debugPrint("didTapShareIcon")
     }
 }
 
 extension BlogPresenter: BlogInteractorOutput {
+    
+    func userDidRecieve(_ user: User) {
+        router.openProfileController(with: user)
+    }
+    
     func updateLike(isOn: Bool) {
         view?.showLike(isOn: isOn)
     }

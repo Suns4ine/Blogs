@@ -31,6 +31,7 @@ protocol BlogViewInput: class {
 }
 
 protocol BlogViewOutput: class {
+    func didTapProfile()
     func statusLike()
     func statusSubscribe()
     func setupTextInViews()
@@ -42,6 +43,7 @@ protocol BlogViewOutput: class {
 }
 
 protocol BlogInteractorInput: class {
+    func tapProfile()
     func tapLike()
     func shareBlogs()
     func giveStatus()
@@ -56,6 +58,7 @@ protocol BlogInteractorOutput: class {
     func setupAnotherBlog()
     func updateStatus(text: String)
     func updateLike(isOn: Bool)
+    func userDidRecieve(_ user: User)
     func transferTitle(text: String)
     func transferText(text: String)
     func transferTags(text: String)
@@ -65,6 +68,7 @@ protocol BlogInteractorOutput: class {
 }
 
 protocol BlogRouterInput: class {
+    func openProfileController(with user: User) 
     func openCreateBlogViewController()
     func popViewController()
 }

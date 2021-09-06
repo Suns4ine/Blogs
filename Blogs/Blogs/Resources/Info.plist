@@ -74,5 +74,7 @@
 		<string>Montserrat-SemiBoldltalic.ttf</string>
 		<string>Montserrat-ExtraBoldltalic.ttf</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Safe Image</string>
 </dict>
 </plist>

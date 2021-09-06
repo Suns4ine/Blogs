@@ -121,6 +121,14 @@ final class BlogViewController: UIViewController {
                                 size: .meb17)
         return subtitle
     }()
+    
+    private let profileButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(tapProfileButton), for: .touchUpInside)
+        return button
+    }()
 
     init(output: BlogViewOutput) {
         self.output = output
@@ -154,7 +162,7 @@ final class BlogViewController: UIViewController {
         let array = [header, titleBlog, text, tagSubtitle,
                      tagText, editButton, nameSubTitle, dateSubTitle,
                      separatorView, shareIcon, shareSubtitle, likeIcon,
-                     likeSubtitle, followButton]
+                     likeSubtitle, followButton, profileButton]
         
         array.forEach{ scrollView.addSubview($0)}
     }
@@ -203,6 +211,11 @@ final class BlogViewController: UIViewController {
             nameSubTitle.heightAnchor.constraint(equalToConstant: 24),
             nameSubTitle.trailingAnchor.constraint(equalTo: editButton.leadingAnchor, constant: -5),
             
+            profileButton.topAnchor.constraint(equalTo: nameSubTitle.topAnchor),
+            profileButton.leadingAnchor.constraint(equalTo: nameSubTitle.leadingAnchor),
+            profileButton.trailingAnchor.constraint(equalTo: nameSubTitle.trailingAnchor),
+            profileButton.bottomAnchor.constraint(equalTo: profileButton.bottomAnchor),
+            
             dateSubTitle.heightAnchor.constraint(equalToConstant: 16),
             dateSubTitle.topAnchor.constraint(equalTo: nameSubTitle.bottomAnchor),
             dateSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
@@ -228,6 +241,11 @@ final class BlogViewController: UIViewController {
             shareSubtitle.heightAnchor.constraint(equalToConstant: 24),
             shareSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12)
         ])
+    }
+    
+    @objc
+    private func tapProfileButton() {
+        output.didTapProfile()
     }
     
     @objc
@@ -272,11 +290,16 @@ extension BlogViewController: BlogViewInput {
         let text = cartage.0
         let screen = scrollView.screenshot()
         
-        guard let finalData = screen else { return }
+        guard let finalData = screen else {
+            debugPrint("finalData")
+            return }
         
-        let vc = UIActivityViewController(activityItems: [finalData], applicationActivities: [])
-        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-        present(vc, animated: true)
+        let activityViewController = UIActivityViewController(activityItems: [finalData] , applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+//        let vc = UIActivityViewController(activityItems: [text], applicationActivities: [])
+//        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+//        present(vc, animated: true)
     }
     
     func showStatus(text: String) {

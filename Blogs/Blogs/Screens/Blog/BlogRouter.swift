@@ -22,5 +22,17 @@ extension BlogRouter: BlogRouterInput {
     func popViewController() {
         self.sourceViewController?.navigationController?.popViewController(animated: true)
     }
+    
+    func openProfileController(with user: User) {
+        
+        if user == defaultUser {
+            let tabBarController = TabBarController()
+            tabBarController.selectedIndex = 3
+            self.sourceViewController?.navigationController?.pushViewController(tabBarController, animated: true)
+        } else {
+            let container = AnotherProfileContainer.assemble(with: .init())
+            self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
+        }
+    }
 
 }
