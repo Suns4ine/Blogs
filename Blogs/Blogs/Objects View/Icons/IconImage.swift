@@ -35,6 +35,7 @@ final class IconImage: UIView {
     private let button: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(addSound), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -76,24 +77,9 @@ final class IconImage: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func newColorImage(color: UIColor) {
-        image.image = image.image?.tinted(with: color)
-    }
-    
-    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        button.addTarget(target, action: action, for: event)
-    }
-    
-    func addTag(_ tag: Int) {
-        button.tag = tag
-    }
-    
-    func editIcon(icon: Icons) {
-        image.image = UIImage(named: icon.rawValue)
-    }
-    
-    func editColor(color: UIColor) {
-        image.image = image.image?.tinted(with: color)
+    @objc
+    private func addSound() {
+        playSound(name: .tapButton)
     }
     
     override func layoutSubviews() {
@@ -123,5 +109,28 @@ final class IconImage: UIView {
                 shadowView.bottomAnchor.constraint(equalTo: image.bottomAnchor, constant: 2)
             ])
         }
+    }
+}
+
+extension IconImage {
+    
+    func newColorImage(color: UIColor) {
+        image.image = image.image?.tinted(with: color)
+    }
+    
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
+    }
+    
+    func addTag(_ tag: Int) {
+        button.tag = tag
+    }
+    
+    func editIcon(icon: Icons) {
+        image.image = UIImage(named: icon.rawValue)
+    }
+    
+    func editColor(color: UIColor) {
+        image.image = image.image?.tinted(with: color)
     }
 }

@@ -51,6 +51,7 @@ extension DraftBlogsInteractor: DraftBlogsInteractorInput {
     
     func getBlog(at indexPath: IndexPath) {
         let blog = defaultUser.arrayDrafts.remove(at: indexPath.row)
+        playSound(name: .closeController)
         
         safeDraft(blog)
         output?.openBackController()

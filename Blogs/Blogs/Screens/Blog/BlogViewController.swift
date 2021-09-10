@@ -327,7 +327,7 @@ extension BlogViewController: BlogViewInput {
     
     func setupViewMyBlog() {
         followButton.isHidden = true
-        editButton.isHidden = false
+        //editButton.isHidden = false
     }
     
     func setupViewAnotherBlog() {

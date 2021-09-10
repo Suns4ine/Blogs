@@ -12,6 +12,7 @@ final class SecondBigButton: UIView {
     
     private var hasIcon = false
     private (set) var indexPath: IndexPath?
+    private var sound: NameSound = .tapButton
     
     private lazy var iconImage: IconImage = {
         let image = IconImage(icon: .none, size: .size24)
@@ -52,6 +53,7 @@ final class SecondBigButton: UIView {
     private let button: UIButton = {
         let button = UIButton()
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        button.addTarget(self, action: #selector(addSound), for: .touchUpInside)
         button.backgroundColor = StandartColors.secondButtonColor
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = .firstBigButtonFont
@@ -95,24 +97,9 @@ final class SecondBigButton: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        button.addTarget(target, action: action, for: event)
-    }
-    
-    func editColor(color: UIColor) {
-        button.backgroundColor = color
-    }
-    
-    func editText(text: String) {
-        label.text = text
-    }
-    
-    func addTag(_ tag: Int) {
-        button.tag = tag
-    }
-    
-    func addIndexPath(index: IndexPath) {
-        indexPath = index
+    @objc
+    private func addSound() {
+        playSound(name: sound)
     }
     
     override func layoutSubviews() {
@@ -154,5 +141,28 @@ final class SecondBigButton: UIView {
                 label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             ])
         }
+    }
+}
+
+extension SecondBigButton {
+    
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
+    }
+    
+    func editColor(color: UIColor) {
+        button.backgroundColor = color
+    }
+    
+    func editText(text: String) {
+        label.text = text
+    }
+    
+    func addTag(_ tag: Int) {
+        button.tag = tag
+    }
+    
+    func addIndexPath(index: IndexPath) {
+        indexPath = index
     }
 }

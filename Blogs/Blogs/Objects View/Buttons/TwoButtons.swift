@@ -10,7 +10,7 @@ import UIKit
 
 final class TwoButtons: UIView {
     
-    private var leadingButton: ThirdBigButton = {
+    private (set) var leadingButton: ThirdBigButton = {
         let button = ThirdBigButton(text: "")
         return button
     }()
@@ -44,22 +44,6 @@ final class TwoButtons: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func addLeadingButtonTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        leadingButton.addTarget(target, action: action, for: event)
-    }
-    
-    func addTrailingButtonTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        trailingButton.addTarget(target, action: action, for: event)
-    }
-    
-    func editTextLeadingButton(text: String) {
-        leadingButton.editText(text: text)
-    }
-    
-    func editTextTralingButton(text: String) {
-        trailingButton.editText(text: text)
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -74,5 +58,24 @@ final class TwoButtons: UIView {
             trailingButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             trailingButton.leadingAnchor.constraint(equalTo: self.centerXAnchor, constant: 6),
         ])
+    }
+}
+
+extension TwoButtons {
+    
+    func addLeadingButtonTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        leadingButton.addTarget(target, action: action, for: event)
+    }
+    
+    func addTrailingButtonTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        trailingButton.addTarget(target, action: action, for: event)
+    }
+    
+    func editTextLeadingButton(text: String) {
+        leadingButton.editText(text: text)
+    }
+    
+    func editTextTralingButton(text: String) {
+        trailingButton.editText(text: text)
     }
 }

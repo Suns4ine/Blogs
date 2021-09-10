@@ -19,6 +19,7 @@ extension HomeInteractor: HomeInteractorInput {
     
     func getBlog(at indexPath: IndexPath) {
         let blog = arrayBlogs[indexPath.row]
+        playSound(name: .openController)
         
         output?.blogDidRecieve(blog)
         
@@ -30,6 +31,7 @@ extension HomeInteractor: HomeInteractorInput {
     
     func getUser(at indexPath: Int) {
         let user = arrayBlogs[indexPath].user
+        playSound(name: .openController)
         
         output?.userDidRecieve(user)
     }

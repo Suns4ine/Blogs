@@ -32,6 +32,7 @@ extension MyProfileInteractor: MyProfileInteractorInput {
     
     func getBlog(at indexPath: IndexPath) {
         let blog = defaultUser.arrayBlogs[indexPath.row]
+        playSound(name: .openController)
         
         output?.blogDidRecieve(blog)
     }

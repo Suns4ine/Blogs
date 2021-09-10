@@ -10,6 +10,8 @@ import UIKit
 
 final class ThirdBigButton: UIView {
     
+    private var sound: NameSound = .tapButton
+    
     private let shadowView: UIView = {
         let view = UIView()
         view.layer.zPosition = -1
@@ -22,6 +24,7 @@ final class ThirdBigButton: UIView {
     private let button: UIButton = {
         let button = UIButton()
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        button.addTarget(self, action: #selector(addSound), for: .touchUpInside)
         button.backgroundColor = StandartColors.thirdButtonColor
         button.titleLabel?.font = .firstBigButtonFont
         button.setTitleColor(StandartColors.firstTextButtonColor, for: .normal)
@@ -57,12 +60,9 @@ final class ThirdBigButton: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        button.addTarget(target, action: action, for: event)
-    }
-    
-    func editText(text: String) {
-        button.setTitle(text, for: .normal)
+    @objc
+    private func addSound() {
+        playSound(name: sound)
     }
     
     override func layoutSubviews() {
@@ -82,5 +82,16 @@ final class ThirdBigButton: UIView {
             shadowView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
             shadowView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 4)
         ])
+    }
+}
+
+extension ThirdBigButton {
+    
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
+    }
+    
+    func editText(text: String) {
+        button.setTitle(text, for: .normal)
     }
 }

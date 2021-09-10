@@ -13,6 +13,7 @@ final class ToggleButton: UIView {
     private let backgroundOn: UIColor = StandartColors.toggleSwitchOnColor
     private let backgroundOff: UIColor = StandartColors.toggleSwitchOffColor
     
+    private var sound: NameSound = .tapButton
     private var flowLeadingConstraint: NSLayoutConstraint?
     private (set) var flag = false
     private (set) var indexPath: IndexPath?
@@ -94,25 +95,9 @@ final class ToggleButton: UIView {
         
     }
     
-    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        sliderButton.addTarget(target, action: action, for: event)
-    }
-    
-    func addTag(_ tag: Int) {
-        sliderButton.tag = tag
-    }
-    
-    func isOn(bool: Bool) {
-        flag = bool
-        newCoordinate()
-    }
-    
-    func addIndexPath(index: IndexPath) {
-        indexPath = index
-    }
-    
     @objc
     private func newCoordinate() {
+        playSound(name: sound)
         
         if flag {
             UIView.animate(withDuration: 0.4,
@@ -156,5 +141,25 @@ final class ToggleButton: UIView {
                                         },
                            completion: nil)
         }
+    }
+}
+
+extension ToggleButton {
+    
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        sliderButton.addTarget(target, action: action, for: event)
+    }
+    
+    func addTag(_ tag: Int) {
+        sliderButton.tag = tag
+    }
+    
+    func isOn(bool: Bool) {
+        flag = bool
+        newCoordinate()
+    }
+    
+    func addIndexPath(index: IndexPath) {
+        indexPath = index
     }
 }

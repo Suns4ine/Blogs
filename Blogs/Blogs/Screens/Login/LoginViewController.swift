@@ -135,6 +135,7 @@ final class LoginViewController: UIViewController {
     
     @objc
     private func tapSignUpButton() {
+        playSound(name: .openController)
         output.didTapSignUpButton()
     }
 }

@@ -16,6 +16,7 @@ final class SearchInteractor {
 extension SearchInteractor: SearchInteractorInput {
     func getBlog(at indexPath: IndexPath) {
         let blog = searchArray[indexPath.row]
+        playSound(name: .openController)
         
         output?.blogDidRecieve(blog)
     }

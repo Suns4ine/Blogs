@@ -18,6 +18,7 @@ final class AnotherMoreBlogsInteractor {
 extension AnotherMoreBlogsInteractor: AnotherMoreBlogsInteractorInput {
     func getBlog(at indexPath: IndexPath) {
         let blog = blogArray[indexPath.row]
+        playSound(name: .openController)
         
         output?.blogDidRecieve(blog)
     }

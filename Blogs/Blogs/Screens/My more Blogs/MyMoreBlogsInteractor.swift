@@ -24,6 +24,7 @@ extension MyMoreBlogsInteractor: MyMoreBlogsInteractorInput {
     
     func getBlog(at indexPath: IndexPath) {
         let blog = blogArray[indexPath.row]
+        playSound(name: .openController)
         
         output?.blogDidRecieve(blog)
     }

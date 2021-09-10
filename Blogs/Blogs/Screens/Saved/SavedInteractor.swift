@@ -34,6 +34,7 @@ extension SavedInteractor: SavedInteractorInput {
     
     func getBlog(at indexPath: IndexPath) {
         let blog = Array(defaultUser.arrayLikedBlogs)[indexPath.row]
+        playSound(name: .openController)
         
         output?.blogDidRecieve(blog)
     }

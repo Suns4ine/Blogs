@@ -87,6 +87,7 @@ extension SettingInteractor: SettingInteractorInput {
     
     func getSetting(at indexPath: IndexPath) {
         let setting = settingArray[indexPath.row]
+        playSound(name: .openController)
         
         guard setting.condition == .screen else { return }
         

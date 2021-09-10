@@ -12,7 +12,7 @@ final class AnotherProfileInteractor {
 	weak var output: AnotherProfileInteractorOutput?
     
     
-    private var arrayBlogs: [Blog] = []//[defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
+    private var arrayBlogs: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
     //anotherDefaultUser.arrayBlogs
 }
 
@@ -55,6 +55,7 @@ extension AnotherProfileInteractor: AnotherProfileInteractorInput {
     
     func getBlog(at indexPath: IndexPath) {
         let blog = arrayBlogs[indexPath.row]
+        playSound(name: .openController)
         
         output?.blogDidRecieve(blog)
     }

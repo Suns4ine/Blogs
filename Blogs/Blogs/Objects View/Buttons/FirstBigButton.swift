@@ -10,6 +10,8 @@ import  UIKit
 
 final class FirstBigButton: UIView {
     
+    private var sound: NameSound = .tapButton
+    
     private let shadowView: UIView = {
         let view = UIView()
         view.layer.zPosition = -1
@@ -22,6 +24,7 @@ final class FirstBigButton: UIView {
     private let button: UIButton = {
         let button = UIButton()
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        button.addTarget(self, action: #selector(addSound), for: .touchUpInside)
         button.backgroundColor = StandartColors.firstButtonColor
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = .firstBigButtonFont
@@ -58,16 +61,9 @@ final class FirstBigButton: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        button.addTarget(target, action: action, for: event)
-    }
-    
-    func editText(text: String) {
-        button.setTitle(text, for: .normal)
-    }
-    
-    func addTag(_ tag: Int) {
-        button.tag = tag
+    @objc
+    private func addSound() {
+        playSound(name: sound)
     }
     
     override func layoutSubviews() {
@@ -87,5 +83,20 @@ final class FirstBigButton: UIView {
             shadowView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
             shadowView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 4)
         ])
+    }
+}
+
+extension FirstBigButton {
+    
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
+    }
+    
+    func editText(text: String) {
+        button.setTitle(text, for: .normal)
+    }
+    
+    func addTag(_ tag: Int) {
+        button.tag = tag
     }
 }
