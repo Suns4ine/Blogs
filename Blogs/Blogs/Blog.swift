@@ -53,6 +53,12 @@ class Blog: Hashable {
         self.identifier = identifier
     }
     
+    func deleteBlog() {
+        arrayLikeUsers.forEach{ $0.arrayLikedBlogs.remove(self)}
+        arrayShareUsers = []
+        arrayLikeUsers = []
+    }
+    
 }
 
 struct Post: Hashable {

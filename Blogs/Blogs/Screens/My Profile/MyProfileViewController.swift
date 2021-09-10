@@ -398,7 +398,7 @@ final class MyProfileViewController: UIViewController {
 extension MyProfileViewController: MyProfileViewInput, UIScrollViewDelegate {
     func clearTableCell(at indexPath: IndexPath) {
         section.rows.remove(at: indexPath.row)
-        blogTableView.deleteRows(at: [indexPath], with: .right)
+        blogTableView.reloadData()
     }
     
     

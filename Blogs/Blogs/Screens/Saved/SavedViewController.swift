@@ -154,7 +154,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
 extension SavedViewController: SavedViewInput {
     func clearTableCell(at indexPath: IndexPath) {
         section.rows.remove(at: indexPath.row)
-        savedTableView.deleteRows(at: [indexPath], with: .right)
+        savedTableView.deleteRows(at: [indexPath], with: .left)
     }
     
     func reloadData(for section: StandartBlogSectionViewModel) {

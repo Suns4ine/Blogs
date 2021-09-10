@@ -16,7 +16,12 @@ final class MyProfileInteractor {
 //MARK: Убрать дефолтного юзера
 extension MyProfileInteractor: MyProfileInteractorInput {
     func deleteBlog(at indexPath: IndexPath) {
-        defaultUser.arrayBlogs.remove(at: indexPath.row)
+
+        if defaultUser.arrayBlogs.indices.contains(indexPath.row) {
+
+            defaultUser.arrayBlogs[indexPath.row].deleteBlog()
+            defaultUser.arrayBlogs.remove(at: indexPath.row)
+        }
         
         output?.indexDeleteReiceve(indexPath)
     }
