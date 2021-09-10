@@ -191,8 +191,4 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
         button.addTag(tag)
         togleButton.addTag(tag)
     }
-    
-    func editFlag(isOn: Bool) {
-        flag = isOn
-    }
 }

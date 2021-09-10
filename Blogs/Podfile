@@ -9,6 +9,7 @@ target 'Blogs' do
 	pod 'FirebaseUI/Auth'
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Analytics'
+  pod 'Firebase/Core'
 
   target 'BlogsTests' do
     inherit! :search_paths

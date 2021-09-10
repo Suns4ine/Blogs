@@ -38,6 +38,7 @@
 		3505BB6026E5313300B13202 /* BlogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5A26E5313300B13202 /* BlogProtocols.swift */; };
 		3505BB6126E5313300B13202 /* BlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5B26E5313300B13202 /* BlogInteractor.swift */; };
 		3505BB6226E5313300B13202 /* BlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5C26E5313300B13202 /* BlogContainer.swift */; };
+		3505BBAC26E7B83200B13202 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BBAB26E7B83100B13202 /* Data.swift */; };
 		3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D626AD65A6001DA6BB /* AppDelegate.swift */; };
 		3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */; };
 		3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */; };
@@ -277,6 +278,7 @@
 		3505BB5A26E5313300B13202 /* BlogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogProtocols.swift; sourceTree = "<group>"; };
 		3505BB5B26E5313300B13202 /* BlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogInteractor.swift; sourceTree = "<group>"; };
 		3505BB5C26E5313300B13202 /* BlogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogContainer.swift; sourceTree = "<group>"; };
+		3505BBAB26E7B83100B13202 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		3557F2D326AD65A6001DA6BB /* Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3557F2D626AD65A6001DA6BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 				35FDAC9826D7CB8900A84B99 /* Setting.swift */,
 				35FDACB126D7F63D00A84B99 /* Choice.swift */,
 				358FC75926DE4A3700872EC9 /* PersonalSetting.swift */,
+				3505BBAB26E7B83100B13202 /* Data.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -1524,6 +1527,7 @@
 				358FC75A26DE4A3800872EC9 /* PersonalSetting.swift in Sources */,
 				3505BB6026E5313300B13202 /* BlogProtocols.swift in Sources */,
 				35E020D526C1FBA100C99280 /* LoginViewController.swift in Sources */,
+				3505BBAC26E7B83200B13202 /* Data.swift in Sources */,
 				35B109F426C85010003E3D44 /* AnotherBlogInteractor.swift in Sources */,
 				3505BB5D26E5313300B13202 /* BlogPresenter.swift in Sources */,
 				35DB44A526C4392E002EB53B /* HomeRouter.swift in Sources */,

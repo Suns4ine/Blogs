@@ -66,11 +66,6 @@ final class RefreshControl: UIRefreshControl {
             shadowView.leadingAnchor.constraint(equalTo: updateIcon.leadingAnchor),
             shadowView.trailingAnchor.constraint(equalTo: updateIcon.trailingAnchor),
             shadowView.bottomAnchor.constraint(equalTo: updateIcon.bottomAnchor, constant: 4),
-            
-//            shadowView.heightAnchor.constraint(equalToConstant: size),
-//            shadowView.widthAnchor.constraint(equalToConstant: size),
-//            shadowView.centerXAnchor.constraint(equalTo: updateIcon.centerXAnchor),
-//            shadowView.centerYAnchor.constraint(equalTo: updateIcon.centerYAnchor, constant: indent + 4),
         ])
     }
     

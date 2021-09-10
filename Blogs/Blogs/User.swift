@@ -56,7 +56,7 @@ class User: Hashable {
         self.identifier = identifier
         self.name = name
         self.surname = surname
-        self.tagname = tagname
+        self.tagname = tagname.lowercased()
         self.arrayBlogs = arrayBlogs
         self.arrayDrafts = arrayDrafts
         self.arrayLikedBlogs = arrayLikedBlogs

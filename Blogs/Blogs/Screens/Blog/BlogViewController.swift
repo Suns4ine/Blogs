@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PDFKit
 
 final class BlogViewController: UIViewController {
 	private let output: BlogViewOutput
@@ -287,19 +288,17 @@ extension BlogViewController: BlogViewInput {
     
     func shareData(cartage: (String, String)) {
         
-        let text = cartage.0
-        let screen = scrollView.screenshot()
         
-        guard let finalData = screen else {
-            debugPrint("finalData")
-            return }
+        //Хотел сначала делиться пдф, но с ней вышло как-то не очень (урезается или не показывается весь контент scroll view)
+        let title = cartage.0
+        let text = cartage.0 + "\n" + cartage.1
         
-        let activityViewController = UIActivityViewController(activityItems: [finalData] , applicationActivities: nil)
+       //var data = generatePDFdata(withView: scrollView)
+        
+        
+        let activityViewController = UIActivityViewController(activityItems: [text] , applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
-//        let vc = UIActivityViewController(activityItems: [text], applicationActivities: [])
-//        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-//        present(vc, animated: true)
     }
     
     func showStatus(text: String) {

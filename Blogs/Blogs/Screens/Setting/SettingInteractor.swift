@@ -7,11 +7,47 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 final class SettingInteractor {
 	weak var output: SettingInteractorOutput?
     
     private var settingArray: [Setting] = defaultSetting
+    
+    private func clearDefaultUser() {
+        let user = User(dateCreate: .init(),
+                        mail: "",
+                        password: "",
+                        identifier: "",
+                        name: "",
+                        surname: "",
+                        tagname: "",
+                        arrayBlogs: [],
+                        arrayDrafts: [],
+                        arrayLikedBlogs: [],
+                        arrayFollowers: [],
+                        arrayFolloving: [],
+                        aboutMe: "",
+                        avatar: .init(),
+                        personalSetting: PersonalSetting(sound: false,
+                                                         notification: false,
+                                                         language: .eng,
+                                                         theme: .standart,
+                                                         cache: ""))
+        defaultUser = user
+    }
+    
+    private func logOut() {
+        
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          debugPrint("Error signing out: %@", signOutError)
+        }
+        clearDefaultUser()
+        output?.openStart()
+    }
 }
 
 extension SettingInteractor: SettingInteractorInput {
@@ -24,7 +60,7 @@ extension SettingInteractor: SettingInteractorInput {
         
         switch setting.identifier {
         case "ClearCache": defaultUser.personalSetting.cache = "Clear Cache"
-        case "LogOut": output?.openStart()
+        case "LogOut": logOut()
         default: break
         }
     }

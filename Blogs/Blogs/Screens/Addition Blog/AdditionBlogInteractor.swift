@@ -21,7 +21,7 @@ final class AdditionBlogInteractor {
         case let text where text.count < 6:
             output?.transferErrorName(text: "Минимум 6 символов")
             return false
-        case let text where text.count > 15:
+        case let text where text.count > 250:
             output?.transferErrorName(text: "Максимум 250 символов")
             return false
         default:

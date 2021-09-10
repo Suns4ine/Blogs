@@ -17,11 +17,16 @@ final class SavedInteractor {
 extension SavedInteractor: SavedInteractorInput {
     func deleteBlog(at indexPath: IndexPath) {
         let array = Array(defaultUser.arrayLikedBlogs)
-        let deleteBlog =  array[indexPath.row]
+
+        if array.indices.contains(indexPath.row) {
+            let deleteBlog =  array[indexPath.row]
+            
+            deleteBlog.arrayLikeUsers.remove(defaultUser)
+            
+            defaultUser.arrayLikedBlogs.remove(deleteBlog)
+        }
         
-        deleteBlog.arrayLikeUsers.remove(defaultUser)
-        
-        defaultUser.arrayLikedBlogs.remove(deleteBlog)
+
         
         output?.indexDeleteReiceve(indexPath)
     }

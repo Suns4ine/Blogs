@@ -6,7 +6,9 @@
 //  
 //
 
+import Firebase
 import Foundation
+import FirebaseAuth
 
 final class LoginInteractor {
 	weak var output: LoginInteractorOutput?
@@ -25,6 +27,7 @@ final class LoginInteractor {
             return false
         default:
             output?.transferErrorLogin(text: "")
+            self.login = text
             return true
         }
     }
@@ -41,7 +44,26 @@ final class LoginInteractor {
             return false
         default:
             output?.transferErrorPassword(text: "")
+            password = text
             return true
+        }
+    }
+    
+    private func authUser() {
+            
+        // Signing in the user
+        Auth.auth().signIn(withEmail: login, password: password) { [weak self] (result, error) in
+            
+            if error != nil {
+                self?.output?.transferErrorLogin(text: "Не правильная почта либо пароль")
+            }
+            else {
+                
+                let db = Firestore.firestore()
+                
+                
+                self?.output?.openTabBar()
+            }
         }
     }
 }
@@ -51,7 +73,7 @@ extension LoginInteractor: LoginInteractorInput {
     func verificationOfEnteredData() {
         
         if checkLogin(login: login) && checkPassword(pass: password) {
-            output?.openTabBar()
+            authUser()
         }
         
     }

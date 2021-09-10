@@ -103,6 +103,21 @@ extension UIView {
             layer.removeAnimation(forKey: UIView.kRotationAnimationKey)
         }
     }
+    
+    func generatePDFdata(withView view: UIView) -> NSData {
+
+        let pageDimensions = view.bounds
+        let outputData = NSMutableData()
+
+        UIGraphicsBeginPDFContextToData(outputData, pageDimensions, nil)
+        if let context = UIGraphicsGetCurrentContext() {
+            UIGraphicsBeginPDFPage()
+            view.layer.render(in: context)
+        }
+        UIGraphicsEndPDFContext()
+
+        return outputData
+    }
 }
 
 extension Date {

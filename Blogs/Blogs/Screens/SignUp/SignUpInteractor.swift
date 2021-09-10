@@ -6,7 +6,9 @@
 //  
 //
 
+import Firebase
 import Foundation
+import FirebaseAuth
 
 final class SignUpInteractor {
 	weak var output: SignUpInteractorOutput?
@@ -29,6 +31,7 @@ final class SignUpInteractor {
             output?.transferErrorName(text: "Максимум 25 символов")
             return false
         default:
+            self.name = text
             output?.transferErrorName(text: "")
             return true
         }
@@ -45,6 +48,7 @@ final class SignUpInteractor {
             output?.transferErrorMail(text: "Не корректная почта")
             return false
         default:
+            self.mail = text
             output?.transferErrorMail(text: "")
             return true
         }
@@ -64,9 +68,70 @@ final class SignUpInteractor {
             output?.transferErrorPassword(text: "Максимум 40 символов")
             return false
         default:
+            self.password = text
             output?.transferErrorPassword(text: "")
             return true
         }
+    }
+    
+    private func registerUser() {
+        
+            // Create the user
+            Auth.auth().createUser(withEmail: mail, password: password) { [weak self] (result, err) in
+                
+                // Check for errors
+                if err != nil {
+                    
+                    // There was an error creating the user
+                    self?.output?.transferErrorName(text: "Ошибка создания пользователя")
+                }
+                else {
+                    
+                    // User was created successfully, now store the first name and last name
+                    let db = Firestore.firestore()
+                    
+                    guard result != nil else { return }
+                    
+                    
+                    let newUser = User(dateCreate: .init(),
+                                       mail: self?.mail ?? "",
+                                       password: "",
+                                       identifier: "",
+                                       name: self?.name ?? "",
+                                       surname: "",
+                                       tagname: "",
+                                       arrayBlogs: [],
+                                       arrayDrafts: [],
+                                       arrayLikedBlogs: [],
+                                       arrayFollowers: [],
+                                       arrayFolloving: [],
+                                       aboutMe: "",
+                                       avatar: .init(),
+                                       personalSetting: PersonalSetting(sound: true,
+                                                                        notification: true,
+                                                                        language: .rus,
+                                                                        theme: .standart,
+                                                                        cache: ""))
+                    
+                    db.collection("users").addDocument(data: [  "name": newUser.name,
+                                                                "surname": newUser.surname,
+                                                                "tagname": newUser.tagname,
+                                                                "mail": newUser.mail,
+                                                                "aboutMe": newUser.aboutMe,
+                                                                "uid": result!.user.uid ]) { (error) in
+
+                        if error != nil {
+                            // Show error message
+                            self?.output?.transferErrorName(text: "Ошибка сохранения данных")
+                        }
+                    }
+                    
+                    defaultUser = newUser
+                    self?.output?.openTabBar()
+                }
+                
+            }
+            
     }
 }
 
@@ -77,24 +142,21 @@ extension SignUpInteractor: SignUpInteractorInput {
         if checkName(name: name),
            checkMail(mail: mail),
            checkPassword(pass: password) {
-            output?.openTabBar()
+            registerUser()
         }
         
     }
     
     func newNameText(text: String) {
         name = text
-        debugPrint("name - \(text)")
     }
     
     func newMailText(text: String) {
         mail = text
-        debugPrint("mail - \(text)")
     }
     
     func newPasswordText(text: String) {
         password = text
-        debugPrint("password - \(text)")
     }
     
 }

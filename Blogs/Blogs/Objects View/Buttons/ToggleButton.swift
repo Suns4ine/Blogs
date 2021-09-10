@@ -125,7 +125,7 @@ final class ToggleButton: UIView {
                             self.layoutIfNeeded()
                                         },
                            completion: nil)
-            
+
             UIView.animate(withDuration: 0.5,
                            delay: 0.15,
                            options: .allowAnimatedContent,
@@ -140,7 +140,7 @@ final class ToggleButton: UIView {
                            delay: 0.1,
                            options: .allowAnimatedContent,
                            animations: {
-                            self.flowLeadingConstraint?.constant = self.width - self.height//self.frame.width - self.sliderButton.frame.height
+                            self.flowLeadingConstraint?.constant = self.width - self.height
                             self.circle.backgroundColor = self.backgroundOn
                             self.flag = true
                             self.layoutIfNeeded()

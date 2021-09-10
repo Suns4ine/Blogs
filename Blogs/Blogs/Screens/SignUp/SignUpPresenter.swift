@@ -42,8 +42,8 @@ extension SignUpPresenter: SignUpViewOutput {
     }
     //MARK: Потом убрать
     func didTapRegisterButton() {
-       // interactor.verificationOfEnteredData()
-        router.openTabBarViewController()
+        interactor.verificationOfEnteredData()
+        //router.openTabBarViewController()
     }
 }
 
