@@ -46,6 +46,7 @@ final class SearchViewController: UIViewController {
         search.searchTextField.font = .secondTextFont
         search.barTintColor = StandartColors.standartBackgroundColor
         search.searchTextField.delegate = self
+        search.delegate = self
         return search
     }()
     
@@ -108,6 +109,8 @@ final class SearchViewController: UIViewController {
         searchTableView.dataSource = self
         searchTableView.register(StandartBlogTableViewCell.self,
                                  forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
+        
+        initializeHideKeyboard()
     }
     
     override func viewDidLayoutSubviews() {
@@ -165,7 +168,7 @@ extension SearchViewController: SearchViewInput {
     
 }
 
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.section.rows.count
     }
@@ -187,5 +190,29 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UITe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output.didTapSearchTableViewCell(at: indexPath)
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
+    
+    func initializeHideKeyboard(){
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(dismissMyKeyboard))
+        tap.delegate = self
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissMyKeyboard(){
+        view.endEditing(true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }

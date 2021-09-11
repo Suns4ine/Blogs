@@ -15,7 +15,7 @@ enum SizeText {
     case mm13
 }
 
-final class Text: UIView, TextProtocol {
+final class Text: UIView, TextProtocol, UITextViewDelegate {
     
     private (set) lazy var textView: UITextView = {
         let text = UITextView()
@@ -30,6 +30,7 @@ final class Text: UIView, TextProtocol {
         text.translatesAutoresizingMaskIntoConstraints = false
         text.isEditable = false
         text.isScrollEnabled = false
+        text.delegate = self
         return text
     }()
     
@@ -70,6 +71,28 @@ final class Text: UIView, TextProtocol {
         }
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text.last == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        NSLayoutConstraint.activate([
+            textView.topAnchor.constraint(equalTo: self.topAnchor),
+            textView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            textView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            textView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        ])
+    }
+}
+
+extension Text {
+    
     func editColor(color: UIColor) {
         textView.textColor = color
     }
@@ -92,16 +115,5 @@ final class Text: UIView, TextProtocol {
     
     func editShowsVerticalScrollIndicator(edit: Bool) {
         textView.showsVerticalScrollIndicator = edit
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        NSLayoutConstraint.activate([
-            textView.topAnchor.constraint(equalTo: self.topAnchor),
-            textView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            textView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            textView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-        ])
     }
 }

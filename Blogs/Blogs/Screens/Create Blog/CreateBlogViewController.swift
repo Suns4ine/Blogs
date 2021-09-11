@@ -99,6 +99,10 @@ final class CreateBlogViewController: UIViewController {
 //        [utilitiesView, utilitiesCollectionView,
 //        borderView, utilitiesAutoLayoutView].forEach{ view.addSubview($0)}
         
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
         
         utilitiesCollectionView.delegate = self
         utilitiesCollectionView.dataSource = self
@@ -107,6 +111,7 @@ final class CreateBlogViewController: UIViewController {
         
         output.setupText()
         output.fetchUtiliesCell()
+        initializeHideKeyboard()
         
         view.backgroundColor = StandartColors.createBlogBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -212,5 +217,42 @@ extension CreateBlogViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         output.didTapUtilitiesCollectionViewCell(at: indexPath)
+    }
+}
+
+extension CreateBlogViewController {
+    
+    func initializeHideKeyboard(){
+        //Declare a Tap Gesture Recognizer which will trigger our dismissMyKeyboard() function
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissMyKeyboard))
+        
+        //Add this tap gesture recognizer to the parent view
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissMyKeyboard(){
+        //endEditing causes the view (or one of its embedded text fields) to resign the first responder status.
+        //In short- Dismiss the active keyboard.
+        view.endEditing(true)
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            text.textView.contentInset = .zero
+        } else {
+            text.textView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+        }
+
+        text.textView.scrollIndicatorInsets = text.textView.contentInset
+
+        let selectedRange = text.textView.selectedRange
+        text.textView.scrollRangeToVisible(selectedRange)
     }
 }

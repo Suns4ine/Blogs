@@ -8,13 +8,9 @@
 import Foundation
 import UIKit
 
-protocol TextFieldDelegateProtocol {
-    func action(text: String)
-}
-
 final class TextField: UIView, UITextFieldDelegate {
     
-    var delegate: TextFieldDelegateProtocol?
+    var delegate: UITextFieldDelegate?
     private var isSecureTextEntry = false
     private (set) var password: String = ""
     private var textInPassword: [String] = []
@@ -72,54 +68,21 @@ final class TextField: UIView, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func editErrorText(text: String) {
-        errorSubTitle.editText(text: text)
-    }
-    
-    func editNameColor(color: UIColor) {
-        nameSubTitle.editColor(color: color)
-    }
-    
-    func editErrorColor(color: UIColor) {
-        errorSubTitle.editColor(color: color)
-    }
-    
-    func editSecureTextEntry(entry: Bool) {
-        isSecureTextEntry = entry
-    }
-    
-    func editAutocapitalizationType(type: UITextAutocapitalizationType) {
-        textField.autocapitalizationType = type
-    }
-    
-    func clearText() {
-        textField.text = ""
-    }
-    
-    func addText(text: String) {
-        textField.text = text
-    }
-    
     private func setup() {
         [nameSubTitle, errorSubTitle, textField].forEach{ addSubview($0)}
         
+        delegate = textField.delegate
         self.backgroundColor = .clear
         self.translatesAutoresizingMaskIntoConstraints = false
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    self.resignFirstResponder()
-        if isSecureTextEntry {
-            delegate?.action(text: password)
-        } else {
-            delegate?.action(text: textField.text ?? "")
-        }
-    return true
-}
+        textField.resignFirstResponder()
+        return false
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
-        
         if isSecureTextEntry {
             if string.isEmpty {
                 password = String(password.dropLast())
@@ -165,5 +128,40 @@ extension UITextField {
         
         self.rightView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
         self.rightViewMode = .always
+    }
+}
+
+extension TextField {
+    
+    func editErrorText(text: String) {
+        errorSubTitle.editText(text: text)
+    }
+    
+    func editNameColor(color: UIColor) {
+        nameSubTitle.editColor(color: color)
+    }
+    
+    func editErrorColor(color: UIColor) {
+        errorSubTitle.editColor(color: color)
+    }
+    
+    func editSecureTextEntry(entry: Bool) {
+        isSecureTextEntry = entry
+    }
+    
+    func editAutocapitalizationType(type: UITextAutocapitalizationType) {
+        textField.autocapitalizationType = type
+    }
+    
+    func clearText() {
+        textField.text = ""
+    }
+    
+    func addText(text: String) {
+        textField.text = text
+    }
+    
+    func addTag(numb: Int) {
+        textField.tag = numb
     }
 }
