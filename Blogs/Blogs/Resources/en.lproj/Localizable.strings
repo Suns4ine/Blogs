@@ -1,0 +1,230 @@
+/* 
+  Localizable.strings
+  Blogs
+
+  Created by Vyacheslav Pronin on 13.09.2021.
+  
+*/
+
+//MARK: Start Screen
+"titleStartScreen" = "Login";
+"textStartScreen" = "Какой-то текст";
+"mailButtonStartScreen" = "Почта";
+"facebookButtonStartScreen" = "Facebook";
+"twitterButtonStartScreen" = "Twitter";
+
+//MARK: Login Screen
+"headerTitleLoginScreen" = "";
+"titleLoginScreen" = "Авторизация";
+"signInButtonLoginScreen" = "Войти";
+"signUpButtonLoginScreen" = "Или Зарегестрироваться";
+"loginTextFieldNameLoginScreen" = "Логин";
+"loginTextFieldShadowTextLoginScreen" = "Логин";
+"loginTextFieldErrorLoginScreen" = "Логин";
+"passwordTextFieldNameLoginScreen" = "Пароль";
+"passwordTextFieldShadowTextLoginScreen" = "Пароль";
+"passwordTextFieldErrorLoginScreen" = "Пароль";
+
+//MARK: Sign Up Screen
+"headerTitleSignUpScreen" = "";
+"titleSignUpScreen" = "Регистрация";
+"textSignUpScreen" = "Какой-то текст";
+"registerButtonSignUpScreen" = "Зарегестрироваться";
+"nameTextFieldNameSignUpScreen" = "Имя";
+"nameTextFieldShadowTextSignUpScreen" = "Имя";
+"nameTextFieldErrorSignUpScreen" = "Имя";
+"mailTextFieldNameSignUpScreen" = "Почта";
+"mailTextFieldShadowTextSignUpScreen" = "Почта";
+"mailTextFieldErrorSignUpScreen" = "Почта";
+"passwordTextFieldNameSignUpScreen" = "Пароль";
+"passwordTextFieldShadowTextSignUpScreen" = "Пароль";
+"passwordTextFieldErrorSignUpScreen" = "Пароль";
+
+//MARK: Home Screen
+"headerTitleHomeScreen" = "Блоги";
+"emptyArrayTitleHomeScreen" = "Какой-то текст";
+
+//MARK: Search Screen
+"headerTitleSearchScreen" = "Поиск";
+"emptyArrayTitleSearchScreen" = "Какой-то текст";
+"searchTextFieldShadowTextSearchScreen" = "Поиск...";
+
+//MARK: Saved Screen
+"headerTitleSavedScreen" = "Понравилось";
+"emptyArrayTitleSavedScreen" = "Какой-то текст";
+
+//MARK: My Profile Screen
+"headerTitleMyProfileScreen" = "";
+"nameTitleMyProfileScreen" = "Имя и Фамилия";
+"nameTagSubtitleMyProfileScreen" = "Тег Имя";
+"editButtonMyProfileScreen" = "Изменить";
+"aboutMeSubTitleMyProfileScreen" = "О Вас";
+"aboutMeTextMyProfileScreen" = "Какой-то текст";
+"myBlogsSubTitleMyProfileScreen" = "Ваши Блоги";
+"createBlogButtonMyProfileScreen" = "Создать Блог";
+"moreBlogButtonMyProfileScreen" = "Больше ваших Блогов";
+"numberBlogTitleMyProfileScreen" = "123456";
+"followersBlogTitleMyProfileScreen" = "123456";
+"follovingBlogTitleMyProfileScreen" = "123456";
+"numberBlogNameTitleMyProfileScreen" = "Блоги";
+"followersBlogNameTitleMyProfileScreen" = "Подписчики";
+"follovingBlogNameTitleMyProfileScreen" = "Подписки";
+
+//MARK: Another Profile Screen
+"headerTitleAnotherProfileScreen" = "";
+"nameTitleAnotherProfileScreen" = "Имя и Фамилия";
+"nameTagSubtitleAnotherProfileScreen" = "Тег Имя";
+"followButtonAnotherProfileScreen" = "Подписаться";
+"statusOnFollowButtonAnotherProfileScreen" = "Отписаться";
+"statusOffFollowButtonAnotherProfileScreen" = "Подписаться";
+"aboutAnotherSubTitleAnotherProfileScreen" = "О чужом пользователе";
+"aboutAnotherTextAnotherProfileScreen" = "Какой-то текст";
+"anotherBlogsSubTitleAnotherProfileScreen" = "Чужие Блоги";
+"emptyTitleAnotherProfileScreen" = "Какой-то текст";
+"moreBlogButtonAnotherProfileScreen" = "Больше чужих Блогов";
+"numberBlogTitleAnotherProfileScreen" = "123456";
+"followersBlogTitleAnotherProfileScreen" = "123456";
+"follovingBlogTitleAnotherProfileScreen" = "123456";
+"numberBlogNameTitleAnotherProfileScreen" = "Блоги";
+"followersBlogNameTitleAnotherProfileScreen" = "Подписчики";
+"follovingBlogNameTitleAnotherProfileScreen" = "Подписки";
+
+//MARK: Choice Language Screen
+"headerTitleChoiceLanguageScreen" = "Language";
+"emptyArrayTitleChoiceLanguageScreen" = "Какой-то текст";
+
+//MARK: Choice Color Screen
+"headerTitleChoiceColorScreen" = "Тема";
+"emptyArrayTitleChoiceColorScreen" = "Какой-то текст";
+
+//MARK: Password Change Screen
+"headerTitlePasswordChangeScreen" = "Пароль";
+"oldPasswordTextfieldNamePasswordChangeScreen" = "Старый пароль";
+"oldPasswordTextfieldShadowTextPasswordChangeScreen" = "Старый пароль";
+"oldPasswordTextfieldErrorPasswordChangeScreen" = "Старый пароль";
+"newPasswordTextfieldNamePasswordChangeScreen" = "Новый пароль";
+"newPasswordTextfieldShadowTextPasswordChangeScreen" = "Новый пароль";
+"newPasswordTextfieldErrorPasswordChangeScreen" = "Новый пароль";
+"repeatPasswordTextfieldNamePasswordChangeScreen" = "Повтор пароля";
+"repeatPasswordTextfieldShadowTextPasswordChangeScreen" = "Повтор пароля";
+"repeatPasswordTextfieldErrorPasswordChangeScreen" = "Повтор пароля";
+"saveButtonPasswordChangeScreen" = "Сохранить";
+
+//MARK: Help Screen
+"headerTitleHelpScreen" = "Помощь";
+"textHelpScreen" = "Какой-то текст";
+"emptyArrayTitleHelpScreen" = "Какой-то текст";
+
+//MARK: About The Application Screen
+"headerTitleAboutTheApplicationScreen" = "О Приложении";
+"textAboutTheApplicationScreen" = "Какой-то текст";
+"emptyArrayTitleAboutTheApplicationScreen" = "Какой-то текст";
+
+//MARK: Draft Blogs Screen
+"headerTitleDraftBlogsScreen" = "Черновики";
+"emptyArrayTitleDraftBlogsScreen" = "Какой-то текст";
+
+//MARK: Edit Profile Screen
+"headerTitleEditProfileScreen" = "Редактирование";
+"editAvatarButtonEditProfileScreen" = "Изменить изображение";
+"nameTextfieldNameEditProfileScreen" = "Имя";
+"nameTextfieldShadowTextEditProfileScreen" = "Имя";
+"nameTextfieldErrorEditProfileScreen" = "Имя";
+"surnameTextfieldNameEditProfileScreen" = "Фамилия";
+"surnameTextfieldShadowTextEditProfileScreen" = "Фамилия";
+"surnameTextfieldErrorEditProfileScreen" = "Фамилия";
+"tagNameTextfieldNameEditProfileScreen" = "Тег Имя";
+"tagNameTextfieldShadowTextEditProfileScreen" = "Тег Имя";
+"tagNameTextfieldErrorEditProfileScreen" = "Тег Имя";
+"aboutMeTextEditProfileScreen" = "О Вас";
+"aboutMeSubTitleEditProfileScreen" = "О Вас";
+"aboutMeErrorSubTitleEditProfileScreen" = "О Вас";
+"saveButtonEditProfileScreen" = "Сохранить";
+
+//MARK: Addition Blog Screen
+"headerTitleAdditionBlogScreen" = "";
+"nextButtonAdditionBlogScreen" = "Закончить";
+"blogTitleSubTitleAdditionBlogScreen" = "Заголовок";
+"tagSubTitleAdditionBlogScreen" = "Теги";
+"blogTitleErrorSubTitleAdditionBlogScreen" = "Заголовок";
+"tagErrorSubTitleAdditionBlogScreen" = "Теги";
+"blogTitleTextAdditionBlogScreen" = "Какой-то текст";
+"tagTextAdditionBlogScreen" = "Какой-то текст";
+
+//MARK: My Blog Screen
+"headerTitlteMyBlogScreen" = "";
+"titleBlogMyBlogScreen" = "Заголовок";
+"textMyBlogScreen" = "Какой-то текст";
+"tagSubtitleMyBlogScreen" = "Тег";
+"tagTextMyBlogScreen" = "Какой-то текст";
+"editButtonMyBlogScreen" = "Изменить";
+"nameSubTitleMyBlogScreen" = "Имя и Фамилия";
+"dateSubTitleMyBlogScreen" = "Дата";
+"shareSubtitleMyBlogScreen" = "Поделиться";
+"likeSubtitleMyBlogScreen" = "Нравится";
+
+//MARK: Another Blog Screen
+"headerTitleAnotherBlogScreen" = "";
+"titleBlogAnotherBlogScreen" = "Заголовок";
+"textAnotherBlogScreen" = "Какой-то текст";
+"tagSubtitleAnotherBlogScreen" = "Тег";
+"tagTextAnotherBlogScreen" = "Какой-то текст";
+"followButtonAnotherBlogScreen" = "Подписаться";
+"nameSubTitleAnotherBlogScreen" = "Имя и Фамилия";
+"dateSubTitleAnotherBlogScreen" = "Дата";
+"shareSubtitleAnotherBlogScreen" = "Поделиться";
+"likeSubtitleAnotherBlogScreen" = "Нравится";
+
+//MARK: Create Blog Screen
+"headerTitleCreateBlogScreen" = "";
+"nextButtonCreateBlogScreen" = "Далее";
+"draftButtonCreateBlogScreen" = "Черновики";
+"textCreateBlogScreen" = "Какой-то текст";
+
+//MARK: Setting Screen
+"headerTitleSettingScreen" = "Настройки";
+
+//MARK: My More Blogs Screen
+"headerTitleMyMoreBlogsScreen" = "Ваши Блоги";
+"emptyArrayTitleMyMoreBlogsScreen" = "Какой-то текст";
+
+//MARK: Another More Blogs Screen
+"headerTitleAnotherMoreBlogsScreen" = "Чужие Блоги";
+"emptyArrayTitleAnotherMoreBlogsScreen" = "Какой-то текст";
+"refreshControlAnotherMoreBlogsScreen" = "";
+
+//MARK: Preview Screen
+"leadingTwoButtonsPreviewScreen" = "Пропуск";
+"tralingTwoButtonsPreviewScreen" = "Далее";
+"startedButtonPreviewScreen" = "Начать";
+
+//MARK: Page Screen
+"titlePageScreen" = "Заголовок";
+"subtitlePageScreen" = "Какой-то текст";
+
+//MARK: Tab Bar Screen
+"homeTabBar" = "Домой";
+"searchTabBar" = "Поиск";
+"savedTabBar" = "Понравилось";
+"profileTabBar" = "Профиль";
+
+//MARK: Blog Cell
+"titleBlogCell" = "Заголовок";
+"dateSubTitleBlogCell" = "Дата";
+"nameSubTitleBlogCell" = "Имя и Фамилия";
+"tagSubTitleBlogCell" = "Тег";
+
+//MARK: Standart Blog Cell
+"titleStandartBlogCell" = "Заголовок";
+"nameSubTitleStandartBlogCell" = "Имя и Фамилия";
+"dateSubTitleStandartBlogCell" = "Дата";
+"deleteActionStandartBlogCell" = "";
+
+//MARK: Setting Cell
+"titleSettingCell" = "Заголовок";
+"subtitleSettingCell" = "Какой-то текст";
+"buttonSettingCell" = "Настройка";
+"togleButtonSettingCell" = "";
+
+//MARK: Choice Cell
+"titleChoiceCell" = "Выбор";

@@ -101,6 +101,14 @@ final class ChoiceLanguageViewController: UIViewController {
 }
 
 extension ChoiceLanguageViewController: ChoiceLanguageViewInput {
+    func showNotification() {
+        let alert = UIAlertController(title: "Важно", message: "Для смены языка в приложении, перезагрузите его", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true)
+    }
+    
     func reloadData(for section: ChoiceSectionViewModel) {
         self.section = section
         languageTableView.reloadData()

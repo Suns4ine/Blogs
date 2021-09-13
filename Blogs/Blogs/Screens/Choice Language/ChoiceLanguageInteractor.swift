@@ -23,12 +23,22 @@ extension ChoiceLanguageInteractor: ChoiceLanguageInteractorInput {
         var language = defaultUser.personalSetting.language
         
         switch choice.title {
-        case LanguagesApplication.eng.rawValue: language = LanguagesApplication.eng
-        case LanguagesApplication.rus.rawValue: language = LanguagesApplication.rus
+        case LanguagesApplication.eng.rawValue:
+            language = LanguagesApplication.eng
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: "en")
+            
+        case LanguagesApplication.rus.rawValue:
+            language = LanguagesApplication.rus
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: "ru")
+           
         default: language = defaultUser.personalSetting.language
         }
         
         defaultUser.personalSetting.language = language
+        
+        
+        output?.callAlertNotifiaction()
+
     }
     
     func fetchChoices() {

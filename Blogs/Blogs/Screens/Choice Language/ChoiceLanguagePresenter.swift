@@ -39,6 +39,10 @@ extension ChoiceLanguagePresenter: ChoiceLanguageViewOutput {
 }
 
 extension ChoiceLanguagePresenter: ChoiceLanguageInteractorOutput {
+    func callAlertNotifiaction() {
+        view?.showNotification()
+    }
+    
     
     func choicesDidRecieve(_ choices: [Choice]) {
         let section = ChoiceSectionViewModel()
