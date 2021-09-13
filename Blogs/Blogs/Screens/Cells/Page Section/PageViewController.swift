@@ -110,8 +110,8 @@ final class PageViewController: UIViewController {
                            delay: 0.1,
                            options: .allowAnimatedContent,
                            animations: {
-                            self.titlePage.editColor(color: StandartColors.anotherTitleColor)
-                            self.subtitle.editColor(color: StandartColors.anotherTextColor)
+                            self.titlePage.editColor(color: .secondWhite)
+                            self.subtitle.editColor(color: .secondWhite)
                                         },
                            completion: nil)
         case 1:
@@ -125,8 +125,8 @@ final class PageViewController: UIViewController {
                            delay: 0.1,
                            options: .allowAnimatedContent,
                            animations: {
-                            self.titlePage.editColor(color: StandartColors.titleColor)
-                            self.subtitle.editColor(color: StandartColors.textColor)
+                            self.titlePage.editColor(color: .firstBlack)
+                            self.subtitle.editColor(color: .secondBlack)
                                         },
                            completion: nil)
             
@@ -142,8 +142,8 @@ final class PageViewController: UIViewController {
                            delay: 0.1,
                            options: .allowAnimatedContent,
                            animations: {
-                            self.titlePage.editColor(color: StandartColors.titleColor)
-                            self.subtitle.editColor(color: StandartColors.textColor)
+                            self.titlePage.editColor(color: .firstBlack)
+                            self.subtitle.editColor(color: .secondBlack)
                                         },
                            completion: nil)
         default:

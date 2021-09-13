@@ -557,10 +557,10 @@
 		3505BB1126E140E800B13202 /* Page Section */ = {
 			isa = PBXGroup;
 			children = (
-				3505BB0C26E13DF600B13202 /* Page.swift */,
+				359734D026CACF5600086C12 /* PageViewController.swift */,
 				3505BB1D26E1418800B13202 /* PageViewModel.swift */,
 				3505BB1226E1410E00B13202 /* PageProtocol.swift */,
-				359734D026CACF5600086C12 /* PageViewController.swift */,
+				3505BB0C26E13DF600B13202 /* Page.swift */,
 			);
 			path = "Page Section";
 			sourceTree = "<group>";

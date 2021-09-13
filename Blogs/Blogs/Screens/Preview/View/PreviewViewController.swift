@@ -42,7 +42,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
         view.backgroundColor = .clear
         view.layer.cornerRadius = 6
         view.layer.borderWidth = 2
-        view.layer.borderColor = StandartColors.borderColor.cgColor
+        view.layer.borderColor = UIColor.firstBlack.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -52,7 +52,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
         view.backgroundColor = .clear
         view.layer.cornerRadius = 6
         view.layer.borderWidth = 2
-        view.layer.borderColor = StandartColors.borderColor.cgColor
+        view.layer.borderColor = UIColor.firstBlack.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -62,7 +62,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
         view.backgroundColor = .clear
         view.layer.cornerRadius = 6
         view.layer.borderWidth = 2
-        view.layer.borderColor = StandartColors.borderColor.cgColor
+        view.layer.borderColor = UIColor.firstBlack.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
