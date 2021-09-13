@@ -32,6 +32,7 @@ final class EditProfileViewController: UIViewController {
     
     private let avatar: Avatar = {
         let avatar = Avatar(image: nil, size: .size100)
+        avatar.addTarget(self, action: #selector(tapAvatar))
         return avatar
     }()
     
@@ -219,6 +220,11 @@ final class EditProfileViewController: UIViewController {
     }
     
     @objc
+    private func tapAvatar() {
+        output.didTapAvatarButton()
+    }
+    
+    @objc
     private func tapEditAvatarButton() {
         output.didTapEditAvatarButton()
     }
@@ -239,6 +245,14 @@ final class EditProfileViewController: UIViewController {
 }
 
 extension EditProfileViewController: EditProfileViewInput {
+    func showAlertAvatar() {
+        let alert = UIAlertController(title: "Выбрать изображение", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in self.openCamera() }))
+        alert.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { _ in self.openGallery() }))
+        alert.addAction(UIAlertAction.init(title: "Отмена", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func showErrorName(text: String) {
         nameTextfield.editErrorText(text: text)
     }
@@ -261,6 +275,10 @@ extension EditProfileViewController: EditProfileViewInput {
         surnameTextfield.addText(text: profile.surname)
         tagNameTextfield.addText(text: profile.tagname)
         aboutMeText.editText(text: profile.aboutMe)
+    }
+    
+    func newAvatar(image: UIImage) {
+        avatar.editImage(image: image)
     }
     
 }
@@ -304,7 +322,7 @@ extension EditProfileViewController {
             
             let duration = (durationValue as AnyObject).doubleValue
             let options = UIView.AnimationOptions(rawValue: UInt((curveValue as AnyObject).integerValue << 16))
-            UIView.animate(withDuration: duration!,
+            UIView.animate(withDuration: duration ?? TimeInterval.init(),
                            delay: 0,
                            options:
                             options,
@@ -313,5 +331,53 @@ extension EditProfileViewController {
                            },
                            completion: nil)
         }
+    }
+    
+}
+
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    private func openGallery() {
+       if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        imagePicker.isEditing = true
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        self.present(imagePicker, animated: true, completion: nil)
+       } else {
+        let alert  = UIAlertController(title: "Осторожно",
+                                       message: "У вас нет разрешения на доступ к галерее.",
+                                       preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+       }
+   }
+    
+    private func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.allowsEditing = true
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            imagePicker.isEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        } else {
+            let alert  = UIAlertController(title: "Осторожно", message: "У вас нет камеры.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        if let pickedImage = info[.editedImage] as? UIImage {
+            output.getAvatar(image: pickedImage)
+        } else if let pickedImage = info[.originalImage] as? UIImage {
+            output.getAvatar(image: pickedImage)
+        }
+        
+        dismiss(animated: true)
     }
 }

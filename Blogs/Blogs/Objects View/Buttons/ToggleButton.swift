@@ -23,7 +23,7 @@ final class ToggleButton: UIView {
 
     private lazy var sliderButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .firstWhite
+        button.backgroundColor = StandartColors.circleToggleColor
         button.layer.cornerRadius = 18
         button.layer.borderWidth = 2
         button.layer.borderColor = StandartColors.borderColor.cgColor

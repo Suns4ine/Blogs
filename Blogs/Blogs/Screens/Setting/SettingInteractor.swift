@@ -83,6 +83,8 @@ extension SettingInteractor: SettingInteractorInput {
         case "Sound": defaultUser.personalSetting.sound = flag
         default: break
         }
+        
+        output?.settingDidRecieve(cartage: (index, settingArray[index.row]))
     }
     
     func getSetting(at indexPath: IndexPath) {

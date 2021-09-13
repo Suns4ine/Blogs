@@ -39,9 +39,13 @@ final class SearchViewController: UIViewController {
         
         search.backgroundImage = UIImage()
         search.layer.zPosition = 2
-        search.setImage(UIImage(named: Icons.search.rawValue), for: .search, state: .normal)
-        search.setImage(UIImage(named: Icons.cross.rawValue), for: .clear, state: .normal)
-        search.searchTextField.tintColor = StandartColors.enteredTextColor
+        search.setImage(UIImage(named: Icons.search.rawValue),
+                        for: .search,
+                        state: .normal)
+        search.setImage(UIImage(named: Icons.cross.rawValue),
+                        for: .clear,
+                        state: .normal)
+        search.searchTextField.tintColor = StandartColors.highlightTextColor
         search.searchTextField.textColor = StandartColors.enteredTextColor
         search.searchTextField.font = .secondTextFont
         search.barTintColor = StandartColors.standartBackgroundColor

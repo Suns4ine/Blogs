@@ -11,6 +11,12 @@ struct PersonalSetting {
     var sound: Bool
     var notification: Bool
     var language: LanguagesApplication
-    var theme: ColorsApplication
+    
+    var theme: ColorsApplication {
+        didSet {
+           // StandartColors.editColor(theme: theme)
+        }
+    }
+    
     var cache: String
 }

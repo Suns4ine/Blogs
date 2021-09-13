@@ -45,10 +45,9 @@ final class AdditionBlogViewController: UIViewController {
     private let blogTitleView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tintColor = StandartColors.enteredTextColor
         view.layer.cornerRadius = 16
         view.layer.borderWidth = 2
-        view.layer.borderColor = StandartColors.titleColor.cgColor
+        view.layer.borderColor = StandartColors.borderColor.cgColor
         view.backgroundColor = StandartColors.standartBackgroundColor
         return view
     }()
@@ -81,10 +80,9 @@ final class AdditionBlogViewController: UIViewController {
     private let tagView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tintColor = StandartColors.enteredTextColor
         view.layer.cornerRadius = 16
         view.layer.borderWidth = 2
-        view.layer.borderColor = StandartColors.titleColor.cgColor
+        view.layer.borderColor = StandartColors.borderColor.cgColor
         view.backgroundColor = StandartColors.standartBackgroundColor
         return view
     }()
@@ -279,9 +277,13 @@ extension AdditionBlogViewController {
             
             let duration = (durationValue as AnyObject).doubleValue
             let options = UIView.AnimationOptions(rawValue: UInt((curveValue as AnyObject).integerValue << 16))
-            UIView.animate(withDuration: duration!, delay: 0, options: options, animations: {
-                self.view.layoutIfNeeded()
-            }, completion: nil)
+            UIView.animate(withDuration: duration ?? TimeInterval.init(),
+                           delay: 0,
+                           options: options,
+                           animations: {
+                            self.view.layoutIfNeeded()
+                           },
+                           completion: nil)
         }
     }
 }

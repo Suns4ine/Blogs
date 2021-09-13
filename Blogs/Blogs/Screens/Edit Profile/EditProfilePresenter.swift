@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class EditProfilePresenter {
 	weak var view: EditProfileViewInput?
@@ -25,6 +26,14 @@ extension EditProfilePresenter: EditProfileModuleInput {
 }
 
 extension EditProfilePresenter: EditProfileViewOutput {
+    func getAvatar(image: UIImage) {
+        interactor.giveAvatar(image: image)
+    }
+    
+    func didTapAvatarButton() {
+        interactor.editAvatar()
+    }
+    
     func didFinishNameText(text: String) {
         interactor.newNameText(text: text)
     }
@@ -50,7 +59,7 @@ extension EditProfilePresenter: EditProfileViewOutput {
     }
     
     func didTapEditAvatarButton() {
-        debugPrint("didTapEditAvatarButton")
+        interactor.editAvatar()
     }
     
     func didTapSaveButton() {
@@ -61,6 +70,14 @@ extension EditProfilePresenter: EditProfileViewOutput {
 }
 
 extension EditProfilePresenter: EditProfileInteractorOutput {
+    func transferAvatar(image: UIImage) {
+        view?.newAvatar(image: image)
+    }
+    
+    func callAlertAvatar() {
+        view?.showAlertAvatar()
+    }
+    
     func transferErrorName(text: String) {
         view?.showErrorName(text: text)
     }

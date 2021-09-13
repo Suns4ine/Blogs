@@ -16,6 +16,7 @@ protocol CreateBlogModuleOutput: class {
 }
 
 protocol CreateBlogViewInput: class {
+    func showAlert()
     func showText(text: String)
     func reloadData(for section: UtiliesSectionViewModel)
 }
@@ -45,6 +46,7 @@ protocol CreateBlogInteractorOutput: class {
     func openAdditionblog(_ draft: Post)
     func transferText(text: String)
     func openBackController()
+    func callAlert()
 }
 
 protocol CreateBlogRouterInput: class {

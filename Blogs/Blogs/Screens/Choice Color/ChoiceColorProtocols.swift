@@ -16,6 +16,7 @@ protocol ChoiceColorModuleOutput: class {
 }
 
 protocol ChoiceColorViewInput: class {
+    func editTheme(theme: ColorsApplication)
     func reloadData(for section: ChoiceSectionViewModel)
 }
 
@@ -32,6 +33,7 @@ protocol ChoiceColorInteractorInput: class {
 
 protocol ChoiceColorInteractorOutput: class {
     func choicesDidRecieve(_ choices: [Choice])
+    func transferTheme(theme: ColorsApplication)
 }
 
 protocol ChoiceColorRouterInput: class {

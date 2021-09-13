@@ -61,6 +61,8 @@ extension CreateBlogInteractor: CreateBlogInteractorInput {
     func verificationOfEnteredData() {
         if !defaultDraft.text.isEmpty {
             output?.openAdditionblog(defaultDraft)
+        } else {
+            output?.callAlert()
         }
     }
     
@@ -76,11 +78,4 @@ extension CreateBlogInteractor: CreateBlogInteractorInput {
         output?.utiliesDidRecieve(utilitiesArray)
     }
     
-}
-
-extension String {
-    func condenseWhitespace() -> String {
-        let components = self.components(separatedBy: .whitespacesAndNewlines)
-        return components.filter { !$0.isEmpty }.joined(separator: " ")
-    }
 }

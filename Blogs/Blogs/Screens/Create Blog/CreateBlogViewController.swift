@@ -179,6 +179,15 @@ final class CreateBlogViewController: UIViewController {
 }
 
 extension CreateBlogViewController: CreateBlogViewInput {
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Упс", message: "В блоге надо что-то написать", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true)
+    }
+    
     func showText(text: String) {
         self.text.editText(text: text)
     }
@@ -223,18 +232,14 @@ extension CreateBlogViewController: UICollectionViewDelegate, UICollectionViewDa
 extension CreateBlogViewController {
     
     func initializeHideKeyboard(){
-        //Declare a Tap Gesture Recognizer which will trigger our dismissMyKeyboard() function
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(dismissMyKeyboard))
-        
-        //Add this tap gesture recognizer to the parent view
+
         view.addGestureRecognizer(tap)
     }
     
     @objc func dismissMyKeyboard(){
-        //endEditing causes the view (or one of its embedded text fields) to resign the first responder status.
-        //In short- Dismiss the active keyboard.
         view.endEditing(true)
     }
     

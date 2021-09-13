@@ -37,6 +37,10 @@ final class SomeViewController: UIViewController {
         return swiftySwitch
     }()
     
+    private let alert: Alert = {
+        let alert = Alert()
+        return alert
+    }()
     
     
     //MARK: Titles
@@ -62,7 +66,7 @@ final class SomeViewController: UIViewController {
         self.view.backgroundColor = .firstSunnyRed
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
-        [twoButons, headerView, avatar, bigTitle, toggleSwitchButton].forEach {
+        [twoButons, headerView, avatar, bigTitle, toggleSwitchButton, alert].forEach {
             view.addSubview($0)
         }
     }
@@ -76,8 +80,8 @@ final class SomeViewController: UIViewController {
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
 
-            twoButons.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            twoButons.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            twoButons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            twoButons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             twoButons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
 
             avatar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -90,6 +94,11 @@ final class SomeViewController: UIViewController {
             
             toggleSwitchButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             toggleSwitchButton.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 10),
+            
+            alert.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            alert.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+          //  alert.heightAnchor.constraint(equalToConstant: 100),
+            //alert.widthAnchor.constraint(equalToConstant: 200),
 //            swiftySwitch.heightAnchor.constraint(equalToConstant: 36),
 //            swiftySwitch.widthAnchor.constraint(equalToConstant: 60)
 

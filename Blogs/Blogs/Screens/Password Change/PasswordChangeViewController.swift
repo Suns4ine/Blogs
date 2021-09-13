@@ -197,9 +197,13 @@ extension PasswordChangeViewController {
             
             let duration = (durationValue as AnyObject).doubleValue
             let options = UIView.AnimationOptions(rawValue: UInt((curveValue as AnyObject).integerValue << 16))
-            UIView.animate(withDuration: duration!, delay: 0, options: options, animations: {
-                self.view.layoutIfNeeded()
-            }, completion: nil)
+            UIView.animate(withDuration: duration ?? TimeInterval.init(),
+                           delay: 0,
+                           options: options,
+                           animations: {
+                            self.view.layoutIfNeeded()
+                           },
+                           completion: nil)
         }
     }
 }

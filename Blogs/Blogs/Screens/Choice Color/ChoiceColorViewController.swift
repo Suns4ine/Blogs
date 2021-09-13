@@ -69,6 +69,7 @@ final class ChoiceColorViewController: UIViewController {
         colorTableView.delegate = self
         colorTableView.dataSource = self
         colorTableView.register(ChoiceTableViewCell.self, forCellReuseIdentifier: ChoiceTableViewCell.identifier)
+        
 	}
     
     override func viewDidLayoutSubviews() {
@@ -102,6 +103,15 @@ final class ChoiceColorViewController: UIViewController {
 }
 
 extension ChoiceColorViewController: ChoiceColorViewInput {
+    func editTheme(theme: ColorsApplication) {
+        
+        switch theme {
+        case .darkTheme: view.window?.overrideUserInterfaceStyle = .dark
+        case .standart: view.window?.overrideUserInterfaceStyle = .light
+        default: view.window?.overrideUserInterfaceStyle = .unspecified
+        }
+    }
+    
     func reloadData(for section: ChoiceSectionViewModel) {
         self.section = section
         colorTableView.reloadData()

@@ -86,6 +86,10 @@
 		355D934B26EBBD2C009CA8E0 /* tap button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 355D934826EBBD2B009CA8E0 /* tap button.mp3 */; };
 		355D934C26EBBD2C009CA8E0 /* open controller.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 355D934926EBBD2C009CA8E0 /* open controller.mp3 */; };
 		355D935226EBBE78009CA8E0 /* StandartSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D935126EBBE78009CA8E0 /* StandartSound.swift */; };
+		355D936126ED7120009CA8E0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D936026ED711F009CA8E0 /* Alert.swift */; };
+		355D936926EEBFA0009CA8E0 /* DarkThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D936826EEBF9F009CA8E0 /* DarkThemeColors.swift */; };
+		355D936E26EEC862009CA8E0 /* WhiteThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D936D26EEC862009CA8E0 /* WhiteThemeColors.swift */; };
+		355D937426EEEE7F009CA8E0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 355D937326EEEE7F009CA8E0 /* Colors.xcassets */; };
 		356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */; };
 		356BE4E126B116E400FFD1F9 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4E026B116E400FFD1F9 /* Text.swift */; };
 		358FC75A26DE4A3800872EC9 /* PersonalSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358FC75926DE4A3700872EC9 /* PersonalSetting.swift */; };
@@ -330,6 +334,10 @@
 		355D934826EBBD2B009CA8E0 /* tap button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tap button.mp3"; sourceTree = "<group>"; };
 		355D934926EBBD2C009CA8E0 /* open controller.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "open controller.mp3"; sourceTree = "<group>"; };
 		355D935126EBBE78009CA8E0 /* StandartSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartSound.swift; sourceTree = "<group>"; };
+		355D936026ED711F009CA8E0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		355D936826EEBF9F009CA8E0 /* DarkThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeColors.swift; sourceTree = "<group>"; };
+		355D936D26EEC862009CA8E0 /* WhiteThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteThemeColors.swift; sourceTree = "<group>"; };
+		355D937326EEEE7F009CA8E0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProtocol.swift; sourceTree = "<group>"; };
 		356BE4E026B116E400FFD1F9 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		358FC75926DE4A3700872EC9 /* PersonalSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalSetting.swift; sourceTree = "<group>"; };
@@ -716,6 +724,14 @@
 			path = "Sound Application";
 			sourceTree = "<group>";
 		};
+		355D935F26ED70F9009CA8E0 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				355D936026ED711F009CA8E0 /* Alert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		3597349F26C9FE4400086C12 /* Preview */ = {
 			isa = PBXGroup;
 			children = (
@@ -882,7 +898,9 @@
 			isa = PBXGroup;
 			children = (
 				3557F31526AE3A1E001DA6BB /* ColorsApplication.swift */,
+				355D936826EEBF9F009CA8E0 /* DarkThemeColors.swift */,
 				3557F34726AE4DAB001DA6BB /* StandartColors.swift */,
+				355D936D26EEC862009CA8E0 /* WhiteThemeColors.swift */,
 			);
 			path = "Colors Application";
 			sourceTree = "<group>";
@@ -934,6 +952,7 @@
 			children = (
 				355D934626EBBD1A009CA8E0 /* sound effects */,
 				3557F2E226AD65A9001DA6BB /* Assets.xcassets */,
+				355D937326EEEE7F009CA8E0 /* Colors.xcassets */,
 				3557F2E426AD65A9001DA6BB /* LaunchScreen.storyboard */,
 				3557F2E726AD65A9001DA6BB /* Info.plist */,
 				3557F2DF26AD65A7001DA6BB /* Blogs.xcdatamodeld */,
@@ -955,6 +974,7 @@
 		35E020C726C1C8E400C99280 /* Objects View */ = {
 			isa = PBXGroup;
 			children = (
+				355D935F26ED70F9009CA8E0 /* Alert */,
 				35DA31D526E0DD200069BEF1 /* Refresh Control */,
 				35E020C926C1C94100C99280 /* Icons */,
 				35E020C826C1C93200C99280 /* TextField */,
@@ -1290,6 +1310,7 @@
 				3557F33226AE4B08001DA6BB /* Montserrat-Medium.ttf in Resources */,
 				3557F33626AE4B08001DA6BB /* Montserrat-ExtraLight.ttf in Resources */,
 				355D934A26EBBD2C009CA8E0 /* close controller.mp3 in Resources */,
+				355D937426EEEE7F009CA8E0 /* Colors.xcassets in Resources */,
 				3557F33D26AE4B08001DA6BB /* Montserrat-ExtraBold.ttf in Resources */,
 				3557F33A26AE4B08001DA6BB /* Montserrat-BlackItalic.ttf in Resources */,
 				3557F33326AE4B08001DA6BB /* Montserrat-BoldItalic.ttf in Resources */,
@@ -1450,6 +1471,7 @@
 				35E020E726C1FCBE00C99280 /* StartProtocols.swift in Sources */,
 				35B10A0826C85DAC003E3D44 /* CreateBlogContainer.swift in Sources */,
 				35B109CA26C71E7D003E3D44 /* AdditionBlogInteractor.swift in Sources */,
+				355D936E26EEC862009CA8E0 /* WhiteThemeColors.swift in Sources */,
 				35FDACB226D7F63D00A84B99 /* Choice.swift in Sources */,
 				35E020BE26C18FE800C99280 /* TextField.swift in Sources */,
 				35B1096A26C6B110003E3D44 /* PasswordChangeProtocols.swift in Sources */,
@@ -1515,6 +1537,7 @@
 				35B1096926C6B110003E3D44 /* PasswordChangeViewController.swift in Sources */,
 				35B109A526C6D559003E3D44 /* DraftBlogsContainer.swift in Sources */,
 				35B1097C26C6B99C003E3D44 /* HelpViewController.swift in Sources */,
+				355D936926EEBFA0009CA8E0 /* DarkThemeColors.swift in Sources */,
 				35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */,
 				35E0210426C30A3B00C99280 /* SignUpInteractor.swift in Sources */,
 				35595ADB26D524BF0080B184 /* MyMoreBlogsContainer.swift in Sources */,
@@ -1565,6 +1588,7 @@
 				35E0210226C30A3B00C99280 /* SignUpViewController.swift in Sources */,
 				35595AD826D524BF0080B184 /* MyMoreBlogsViewController.swift in Sources */,
 				35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */,
+				355D936126ED7120009CA8E0 /* Alert.swift in Sources */,
 				35FDAC1C26D637AD00A84B99 /* BlogCellViewModel.swift in Sources */,
 				35B10A2726C8742B003E3D44 /* SearchContainer.swift in Sources */,
 				35E0210526C30A3B00C99280 /* SignUpContainer.swift in Sources */,

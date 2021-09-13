@@ -19,7 +19,7 @@ final class Text: UIView, TextProtocol, UITextViewDelegate {
     
     private (set) lazy var textView: UITextView = {
         let text = UITextView()
-        text.tintColor = StandartColors.enteredTextColor
+        text.tintColor = StandartColors.highlightTextColor
         text.backgroundColor = .clear
         text.textAlignment = .center
         text.font = .firstTextFont

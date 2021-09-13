@@ -57,6 +57,10 @@ extension CreateBlogPresenter: CreateBlogViewOutput {
 
 extension CreateBlogPresenter: CreateBlogInteractorOutput {
     
+    func callAlert() {
+        view?.showAlert()
+    }
+    
     func openBackController() {
         router.popViewController()
     }

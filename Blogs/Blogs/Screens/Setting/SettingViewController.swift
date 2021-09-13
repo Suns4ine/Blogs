@@ -96,6 +96,13 @@ final class SettingViewController: UIViewController {
 }
 
 extension SettingViewController: SettingViewInput {
+    func updateSettingCell(cartage: (IndexPath, SettingCellIdentifiable)) {
+        let index = cartage.0
+        let viewModel = cartage.1
+        
+        section.rows[index.row] = viewModel
+    }
+    
     
     func reloadData(for section: SettingSectionViewModel) {
         self.section = section

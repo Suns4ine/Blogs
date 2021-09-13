@@ -30,7 +30,7 @@ final class BlogCellViewModel: BlogCellIdentifiable {
         nameSubTitle = blog.user.tagname
         dateSubTitle = blog.finalPost.date.stringDate()
         tagSubTitle = blog.arrayTags.returnEnumerationString()
-        avatar = UIImage()
+        avatar = blog.user.avatar
         user = blog.user
     }
     

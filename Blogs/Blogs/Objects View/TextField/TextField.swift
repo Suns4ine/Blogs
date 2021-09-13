@@ -37,7 +37,7 @@ final class TextField: UIView, UITextFieldDelegate {
         textField.autocapitalizationType = .none
         
         textField.indent(size: 16)
-        textField.tintColor = StandartColors.enteredTextColor
+        textField.tintColor = StandartColors.highlightTextColor
         textField.textColor = StandartColors.enteredTextColor
         textField.font = .secondTextFont
         textField.layer.cornerRadius = 16

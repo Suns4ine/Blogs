@@ -15,53 +15,53 @@ enum ColorsApplication: String {
 
 protocol ColorsApplicationProtocol {
     
-    static var titleColor: UIColor { get }
-    static var subTitleColor: UIColor { get }
-    static var textColor: UIColor { get }
-    static var textErrorColor: UIColor { get }
-    static var textForTextfieldBackgroundColor: UIColor { get }
-    static var enteredTextColor: UIColor { get }
-    static var smallIconColor: UIColor { get }
-    static var bigIconColor: UIColor { get }
-    static var shadowColor: UIColor { get }
-    static var borderColor: UIColor { get }
-    static var launchBackgorundColor: UIColor { get }
-    static var previewBackgroundColor: UIColor { get }
-    static var startBackgroundColor: UIColor { get }
-    static var firstLoginBackgroundColor: UIColor { get }
-    static var secondLoginBackgroundColor: UIColor { get }
-    static var standartBackgroundColor: UIColor { get }
-    static var settingBackgroundColor: UIColor { get }
-    static var myProfileColor: UIColor { get }
-    static var anotherProfileColor: UIColor { get }
-    static var blogCellColor: UIColor { get }
-    static var blogBackgroundColor: UIColor { get }
-    static var backgroundProfileColor: UIColor { get }
-    static var notificationColor: UIColor { get }
-    static var createBlogBackgroundColor: UIColor { get }
-    static var utilitiesBlogBackgroundColor: UIColor { get }
-    static var firstButtonColor: UIColor { get }
-    static var secondButtonColor: UIColor { get }
-    static var thirdButtonColor: UIColor { get }
-    static var logButtonColor: UIColor { get }
-    static var facebookColor: UIColor { get }
-    static var twitterColor: UIColor { get }
-    static var firstTextButtonColor: UIColor { get }
-    static var secondTextButtonColor: UIColor { get }
-    static var thirdTextButtonColor: UIColor { get }
-    static var loginTextButtonColor: UIColor { get }
-    static var filledHeartColor: UIColor { get }
-    static var emptyHeartColor: UIColor { get }
-    static var backgroundAvatarColor: UIColor { get }
-    static var tabBarBackgroundColor: UIColor { get }
-    static var selectedItemTintColor: UIColor { get }
-    static var anotherTitleColor: UIColor { get }
-    static var anotherSubTitleColor: UIColor { get }
-    static var anotherTextColor: UIColor { get }
-    static var settingCellBackgroundColor: UIColor { get }
-    static var toggleSwitchOnColor: UIColor { get }
-    static var toggleSwitchOffColor: UIColor { get }
-    static var deleteActionColor: UIColor { get }
+    var titleColor: UIColor { get }
+    var subTitleColor: UIColor { get }
+    var textColor: UIColor { get }
+    var textErrorColor: UIColor { get }
+    var textForTextfieldBackgroundColor: UIColor { get }
+    var enteredTextColor: UIColor { get }
+    var smallIconColor: UIColor { get }
+    var bigIconColor: UIColor { get }
+    var shadowColor: UIColor { get }
+    var borderColor: UIColor { get }
+    var launchBackgorundColor: UIColor { get }
+    var previewBackgroundColor: UIColor { get }
+    var startBackgroundColor: UIColor { get }
+    var firstLoginBackgroundColor: UIColor { get }
+    var secondLoginBackgroundColor: UIColor { get }
+    var standartBackgroundColor: UIColor { get }
+    var settingBackgroundColor: UIColor { get }
+    var myProfileColor: UIColor { get }
+    var anotherProfileColor: UIColor { get }
+    var blogCellColor: UIColor { get }
+    var blogBackgroundColor: UIColor { get }
+    var backgroundProfileColor: UIColor { get }
+    var notificationColor: UIColor { get }
+    var createBlogBackgroundColor: UIColor { get }
+    var utilitiesBlogBackgroundColor: UIColor { get }
+    var firstButtonColor: UIColor { get }
+    var secondButtonColor: UIColor { get }
+    var thirdButtonColor: UIColor { get }
+    var logButtonColor: UIColor { get }
+    var facebookColor: UIColor { get }
+    var twitterColor: UIColor { get }
+    var firstTextButtonColor: UIColor { get }
+    var secondTextButtonColor: UIColor { get }
+    var thirdTextButtonColor: UIColor { get }
+    var loginTextButtonColor: UIColor { get }
+    var filledHeartColor: UIColor { get }
+    var emptyHeartColor: UIColor { get }
+    var backgroundAvatarColor: UIColor { get }
+    var tabBarBackgroundColor: UIColor { get }
+    var selectedItemTintColor: UIColor { get }
+    var anotherTitleColor: UIColor { get }
+    var anotherSubTitleColor: UIColor { get }
+    var anotherTextColor: UIColor { get }
+    var settingCellBackgroundColor: UIColor { get }
+    var toggleSwitchOnColor: UIColor { get }
+    var toggleSwitchOffColor: UIColor { get }
+    var deleteActionColor: UIColor { get }
 }
 
 extension UIColor {

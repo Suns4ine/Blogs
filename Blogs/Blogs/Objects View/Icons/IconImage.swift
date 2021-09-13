@@ -25,6 +25,8 @@ final class IconImage: UIView {
     private var clickAreaButton: CGFloat = 0
     
     private let shadowIconArray: [Icons] = [.fill1, .fill2, .fill3, .outline1, .outline2, .outline3, .logo]
+    private let exceptionsIconArray: [Icons] = [.fill1, .fill2, .fill3, .outline1, .outline2,
+                                                .outline3, .logo, .facebook, .twitter, .heartFill]
     
     private let image: UIImageView = {
         let imageView = UIImageView()
@@ -113,10 +115,6 @@ final class IconImage: UIView {
 }
 
 extension IconImage {
-    
-    func newColorImage(color: UIColor) {
-        image.image = image.image?.tinted(with: color)
-    }
     
     func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
         button.addTarget(target, action: action, for: event)

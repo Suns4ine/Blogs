@@ -22,9 +22,10 @@ final class Avatar: UIView {
     private lazy var imageView: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = StandartColors.backgroundAvatarColor
-        image.layer.borderColor = StandartColors.titleColor.cgColor
+        image.layer.borderColor = StandartColors.borderColor.cgColor
         image.layer.borderWidth = 2
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.clipsToBounds = true
         return image
     }()
     
