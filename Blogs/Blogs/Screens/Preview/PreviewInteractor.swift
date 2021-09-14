@@ -25,6 +25,14 @@ extension PreviewInteractor: PreviewInteractorInput {
         }
     }
     
+    func finishPreview() {
+        
+        showPreview = true
+        UserDefaults.standard.set(showPreview, forKey: "showPreview")
+        
+        output?.openStartViewController()
+    }
+    
     func fetchPages() {
         output?.pagesDidRecieve(arrayPageModels)
     }

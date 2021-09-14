@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 final class StartInteractor {
 	weak var output: StartInteractorOutput?

@@ -8,15 +8,43 @@
 import Foundation
 
 struct PersonalSetting {
-    var sound: Bool
-    var notification: Bool
-    var language: LanguagesApplication
     
-    var theme: ColorsApplication {
+    enum PersonalSettingsKeys: String {
+        case sound
+        case notification
+        case language
+        case theme
+    }
+    
+    var sound: Bool {
         didSet {
-           // StandartColors.editColor(theme: theme)
+            currentSetting()
         }
     }
     
-    var cache: String
+    var notification: Bool {
+        didSet {
+            currentSetting()
+        }
+    }
+    
+    var language: LanguagesApplication
+    var theme: ColorsApplication
+    
+    init(sound: Bool,
+         notification: Bool,
+         language: LanguagesApplication,
+         theme: ColorsApplication) {
+        self.sound = sound
+        self.notification = notification
+        self.language = language
+        self.theme = theme
+    }
+    
+    func currentSetting() {
+        UserDefaults.standard.set(sound, forKey: PersonalSettingsKeys.sound.rawValue)
+        UserDefaults.standard.set(notification, forKey: PersonalSettingsKeys.notification.rawValue)
+    }
 }
+
+var showPreview = false

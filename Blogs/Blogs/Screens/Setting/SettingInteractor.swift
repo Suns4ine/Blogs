@@ -12,29 +12,10 @@ import FirebaseAuth
 final class SettingInteractor {
 	weak var output: SettingInteractorOutput?
     
-    private var settingArray: [Setting] = defaultSetting
-    
     private func clearDefaultUser() {
-        let user = User(dateCreate: .init(),
-                        mail: "",
-                        password: "",
-                        identifier: "",
-                        name: "",
-                        surname: "",
-                        tagname: "",
-                        arrayBlogs: [],
-                        arrayDrafts: [],
-                        arrayLikedBlogs: [],
-                        arrayFollowers: [],
-                        arrayFolloving: [],
-                        aboutMe: "",
-                        avatar: .init(),
-                        personalSetting: PersonalSetting(sound: false,
-                                                         notification: false,
-                                                         language: .eng,
-                                                         theme: .standart,
-                                                         cache: ""))
-        defaultUser = user
+        defaultUser.clearUser()
+        defaultSetting[0].flag = defaultUser.personalSetting.notification
+        defaultSetting[1].flag = defaultUser.personalSetting.sound
     }
     
     private func logOut() {
@@ -54,12 +35,12 @@ extension SettingInteractor: SettingInteractorInput {
     func settingButtonCell(at indexPath: IndexPath) {
         
         
-        let setting = settingArray[indexPath.row]
+        let setting = defaultSetting[indexPath.row]
 
         guard setting.condition == .button else { return }
         
         switch setting.identifier {
-        case "ClearCache": defaultUser.personalSetting.cache = "Clear Cache"
+        case "ClearCache": break
         case "LogOut": logOut()
         default: break
         }
@@ -70,7 +51,7 @@ extension SettingInteractor: SettingInteractorInput {
         let index = cortage.0
         let flag = cortage.1
         
-        let setting = settingArray[index.row]
+        let setting = defaultSetting[index.row]
         
         
         
@@ -84,11 +65,11 @@ extension SettingInteractor: SettingInteractorInput {
         default: break
         }
         
-        output?.settingDidRecieve(cartage: (index, settingArray[index.row]))
+        output?.settingDidRecieve(cartage: (index, defaultSetting[index.row]))
     }
     
     func getSetting(at indexPath: IndexPath) {
-        let setting = settingArray[indexPath.row]
+        let setting = defaultSetting[indexPath.row]
         playSound(name: .openController)
         
         guard setting.condition == .screen else { return }
@@ -105,7 +86,7 @@ extension SettingInteractor: SettingInteractorInput {
     }
     
     func fetchSettings() {
-        output?.settingsDidRecieve(settingArray)
+        output?.settingsDidRecieve(defaultSetting)
     }
     
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,15 +20,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         
-        let container = PreviewContainer.assemble(with: .init())
-        let previewController = container.viewController
-                
+        let previewContainer = PreviewContainer.assemble(with: .init())
+        let startContainer = StartContainer.assemble(with: .init())
+        let tabBarController = TabBarController()
+        var controller = previewContainer.viewController
+        
+        if !UserDefaults.standard.bool(forKey: "showPreview") {
+            controller = previewContainer.viewController
+        } else if (Auth.auth().currentUser != nil) {
+            controller = tabBarController
+        } else {
+            controller = startContainer.viewController
+        }
+       
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        //let tabBar = HomeViewController(output: ViewOutPut)
-        window?.rootViewController = UINavigationController(rootViewController:  previewController)
-        window?.rootViewController?.navigationController?.setNavigationBarHidden(true, animated: false)
+        window?.rootViewController = UINavigationController(rootViewController:  controller)
+        controller.navigationController?.setNavigationBarHidden(true, animated: false)
         window?.makeKeyAndVisible()
     }
 

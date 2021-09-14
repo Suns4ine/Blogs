@@ -38,8 +38,8 @@ extension LoginPresenter: LoginViewOutput {
     }
     //MARK: Убрать потом 
     func didTapSignInButton() {
-        router.openTabBarViewController()
-        //interactor.verificationOfEnteredData()
+        //router.openTabBarViewController()
+        interactor.verificationOfEnteredData()
     }
     
     func didTapSignUpButton() {

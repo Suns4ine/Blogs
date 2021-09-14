@@ -25,6 +25,10 @@ extension StartPresenter: StartModuleInput {
 }
 
 extension StartPresenter: StartViewOutput {
+    func statusUser() {
+        router.openLoginViewController()
+    }
+    
     func didTapEmailButton() {
         router.openLoginViewController()
     }

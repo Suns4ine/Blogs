@@ -110,8 +110,7 @@ final class SignUpInteractor {
                                        personalSetting: PersonalSetting(sound: true,
                                                                         notification: true,
                                                                         language: .rus,
-                                                                        theme: .standart,
-                                                                        cache: ""))
+                                                                        theme: .standart))
                     
                     db.collection("users").addDocument(data: [  "name": newUser.name,
                                                                 "surname": newUser.surname,

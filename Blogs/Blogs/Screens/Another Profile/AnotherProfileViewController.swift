@@ -259,13 +259,13 @@ final class AnotherProfileViewController: UIViewController {
             extraProfileView.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -10),
 
             nameTitle.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 21),
-            nameTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38),
-            nameTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -38),
+            nameTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26),
+            nameTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26),
             nameTitle.heightAnchor.constraint(lessThanOrEqualToConstant: 88),
             
             nameTagSubtitle.topAnchor.constraint(equalTo: nameTitle.bottomAnchor, constant: 7),
-            nameTagSubtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 38),
-            nameTagSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -38),
+            nameTagSubtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26),
+            nameTagSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26),
             nameTagSubtitle.heightAnchor.constraint(equalToConstant: 24),
             
             followButton.topAnchor.constraint(equalTo: nameTagSubtitle.bottomAnchor, constant: 24),
@@ -405,7 +405,7 @@ extension AnotherProfileViewController: AnotherProfileViewInput {
     func updateViews(profile: User) {
         
         avatar.editImage(image: profile.avatar)
-        nameTitle.editText(text: profile.name + " " + profile.surname)
+        nameTitle.editText(text: profile.surname + " " + profile.name)
         nameTagSubtitle.editText(text: profile.tagname)
         aboutAnotherText.editText(text: profile.aboutMe)
         numberBlogTitle.editText(text: String(profile.arrayBlogs.count))

@@ -12,27 +12,27 @@ final class TabBarController: UITabBarController {
     
     
     private let homeContainer = HomeContainer.assemble(with: .init())
-    private lazy var homeController: HomeViewController = {
+    private lazy var homeController: UIViewController = {
         let controller = homeContainer.viewController
         controller.title = StandartLanguage.homeTabBar
         controller.tabBarItem.image = UIImage(named: Icons.home1.rawValue)
-        return controller as! HomeViewController
+        return controller
     }()
     
     private let searchContainer = SearchContainer.assemble(with: .init())
-    private lazy var searchController: SearchViewController = {
+    private lazy var searchController: UIViewController = {
         let controller = searchContainer.viewController
         controller.title = StandartLanguage.searchTabBar
         controller.tabBarItem.image = UIImage(named: Icons.search.rawValue)
-    return controller as! SearchViewController
+        return controller
     }()
     
     private let savedhContainer = SavedContainer.assemble(with: .init())
-    private lazy var savedController: SavedViewController = {
+    private lazy var savedController: UIViewController = {
         let controller = savedhContainer.viewController
         controller.title = StandartLanguage.savedTabBar
         controller.tabBarItem.image = UIImage(named: Icons.heart.rawValue)
-        return controller as! SavedViewController
+        return controller
     }()
     
     private let myProfileContainer = MyProfileContainer.assemble(with: .init())
@@ -49,7 +49,7 @@ final class TabBarController: UITabBarController {
         view.backgroundColor = StandartColors.borderColor
         return view
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)

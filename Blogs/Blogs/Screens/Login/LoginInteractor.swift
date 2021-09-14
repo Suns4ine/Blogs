@@ -61,7 +61,6 @@ final class LoginInteractor {
                 
                 let db = Firestore.firestore()
                 
-                
                 self?.output?.openTabBar()
             }
         }

@@ -40,6 +40,7 @@
 		3505BB6226E5313300B13202 /* BlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5C26E5313300B13202 /* BlogContainer.swift */; };
 		3505BBAC26E7B83200B13202 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BBAB26E7B83100B13202 /* Data.swift */; };
 		3527AFE126EF4AC3008D4501 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3527AFE326EF4AC3008D4501 /* Localizable.strings */; };
+		3527AFF726F03C7B008D4501 /* PrivateBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527AFF626F03C7B008D4501 /* PrivateBundle.swift */; };
 		3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D626AD65A6001DA6BB /* AppDelegate.swift */; };
 		3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */; };
 		3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */; };
@@ -88,8 +89,6 @@
 		355D934C26EBBD2C009CA8E0 /* open controller.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 355D934926EBBD2C009CA8E0 /* open controller.mp3 */; };
 		355D935226EBBE78009CA8E0 /* StandartSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D935126EBBE78009CA8E0 /* StandartSound.swift */; };
 		355D936126ED7120009CA8E0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D936026ED711F009CA8E0 /* Alert.swift */; };
-		355D936926EEBFA0009CA8E0 /* DarkThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D936826EEBF9F009CA8E0 /* DarkThemeColors.swift */; };
-		355D936E26EEC862009CA8E0 /* WhiteThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D936D26EEC862009CA8E0 /* WhiteThemeColors.swift */; };
 		355D937426EEEE7F009CA8E0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 355D937326EEEE7F009CA8E0 /* Colors.xcassets */; };
 		356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */; };
 		356BE4E126B116E400FFD1F9 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4E026B116E400FFD1F9 /* Text.swift */; };
@@ -285,6 +284,7 @@
 		3527AFDD26EF4848008D4501 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3527AFE226EF4AC3008D4501 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3527AFE526EF4AF3008D4501 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3527AFF626F03C7B008D4501 /* PrivateBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateBundle.swift; sourceTree = "<group>"; };
 		3557F2D326AD65A6001DA6BB /* Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3557F2D626AD65A6001DA6BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -339,8 +339,6 @@
 		355D934926EBBD2C009CA8E0 /* open controller.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "open controller.mp3"; sourceTree = "<group>"; };
 		355D935126EBBE78009CA8E0 /* StandartSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartSound.swift; sourceTree = "<group>"; };
 		355D936026ED711F009CA8E0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		355D936826EEBF9F009CA8E0 /* DarkThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeColors.swift; sourceTree = "<group>"; };
-		355D936D26EEC862009CA8E0 /* WhiteThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteThemeColors.swift; sourceTree = "<group>"; };
 		355D937326EEEE7F009CA8E0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProtocol.swift; sourceTree = "<group>"; };
 		356BE4E026B116E400FFD1F9 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
@@ -582,6 +580,14 @@
 			path = Blog;
 			sourceTree = "<group>";
 		};
+		3527AFF526F03C61008D4501 /* AnotherFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3527AFF626F03C7B008D4501 /* PrivateBundle.swift */,
+			);
+			path = AnotherFiles;
+			sourceTree = "<group>";
+		};
 		3557F2CA26AD65A6001DA6BB = {
 			isa = PBXGroup;
 			children = (
@@ -614,6 +620,7 @@
 				355D935026EBBE5E009CA8E0 /* Sound Application */,
 				35FDACBD26D804A700A84B99 /* Languages Application */,
 				35CE261126AE8848000F4E84 /* Colors Application */,
+				3527AFF526F03C61008D4501 /* AnotherFiles */,
 				35CE261026AE8829000F4E84 /* Extensions */,
 				3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */,
 				35FDAC1526D6342A00A84B99 /* Blog.swift */,
@@ -902,9 +909,7 @@
 			isa = PBXGroup;
 			children = (
 				3557F31526AE3A1E001DA6BB /* ColorsApplication.swift */,
-				355D936826EEBF9F009CA8E0 /* DarkThemeColors.swift */,
 				3557F34726AE4DAB001DA6BB /* StandartColors.swift */,
-				355D936D26EEC862009CA8E0 /* WhiteThemeColors.swift */,
 			);
 			path = "Colors Application";
 			sourceTree = "<group>";
@@ -954,14 +959,14 @@
 		35E020C226C1C76B00C99280 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3527AFE326EF4AC3008D4501 /* Localizable.strings */,
-				355D934626EBBD1A009CA8E0 /* sound effects */,
-				3557F2E226AD65A9001DA6BB /* Assets.xcassets */,
-				355D937326EEEE7F009CA8E0 /* Colors.xcassets */,
-				3557F2E426AD65A9001DA6BB /* LaunchScreen.storyboard */,
 				3557F2E726AD65A9001DA6BB /* Info.plist */,
 				3557F2DF26AD65A7001DA6BB /* Blogs.xcdatamodeld */,
 				35FDACC826DA500000A84B99 /* GoogleService-Info.plist */,
+				3557F2E426AD65A9001DA6BB /* LaunchScreen.storyboard */,
+				3557F2E226AD65A9001DA6BB /* Assets.xcassets */,
+				355D937326EEEE7F009CA8E0 /* Colors.xcassets */,
+				3527AFE326EF4AC3008D4501 /* Localizable.strings */,
+				355D934626EBBD1A009CA8E0 /* sound effects */,
 				3557F31D26AE4B08001DA6BB /* TypeFont */,
 			);
 			path = Resources;
@@ -1478,7 +1483,6 @@
 				35E020E726C1FCBE00C99280 /* StartProtocols.swift in Sources */,
 				35B10A0826C85DAC003E3D44 /* CreateBlogContainer.swift in Sources */,
 				35B109CA26C71E7D003E3D44 /* AdditionBlogInteractor.swift in Sources */,
-				355D936E26EEC862009CA8E0 /* WhiteThemeColors.swift in Sources */,
 				35FDACB226D7F63D00A84B99 /* Choice.swift in Sources */,
 				35E020BE26C18FE800C99280 /* TextField.swift in Sources */,
 				35B1096A26C6B110003E3D44 /* PasswordChangeProtocols.swift in Sources */,
@@ -1544,7 +1548,6 @@
 				35B1096926C6B110003E3D44 /* PasswordChangeViewController.swift in Sources */,
 				35B109A526C6D559003E3D44 /* DraftBlogsContainer.swift in Sources */,
 				35B1097C26C6B99C003E3D44 /* HelpViewController.swift in Sources */,
-				355D936926EEBFA0009CA8E0 /* DarkThemeColors.swift in Sources */,
 				35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */,
 				35E0210426C30A3B00C99280 /* SignUpInteractor.swift in Sources */,
 				35595ADB26D524BF0080B184 /* MyMoreBlogsContainer.swift in Sources */,
@@ -1611,6 +1614,7 @@
 				35B109B526C6D9C5003E3D44 /* EditProfileViewController.swift in Sources */,
 				35E020F426C2B3AB00C99280 /* UIImagesExtension.swift in Sources */,
 				35B109C726C71E7D003E3D44 /* AdditionBlogRouter.swift in Sources */,
+				3527AFF726F03C7B008D4501 /* PrivateBundle.swift in Sources */,
 				35E020E526C1FCBE00C99280 /* StartRouter.swift in Sources */,
 				35B109A026C6D559003E3D44 /* DraftBlogsPresenter.swift in Sources */,
 				35B10A3F26C99CB6003E3D44 /* SettingTableViewCell.swift in Sources */,

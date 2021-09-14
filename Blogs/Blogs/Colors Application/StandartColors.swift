@@ -108,16 +108,6 @@ final class StandartColors {
     
     static var circleToggleColor: UIColor = UIColor(named: "circleToggleColor") ?? .thirdWhite
     
-    static func editColor(theme: ColorsApplication) {
-        
-        switch theme {
-        case .standart: newTheme(theme: WhiteThemeColors() as ColorsApplicationProtocol)
-        case .darkTheme: newTheme(theme: DarkThemeColors() as ColorsApplicationProtocol)
-        default: break
-        }
-        
-    }
-    
     private static func newTheme(theme: ColorsApplicationProtocol) {
         
         StandartColors.titleColor = theme.titleColor

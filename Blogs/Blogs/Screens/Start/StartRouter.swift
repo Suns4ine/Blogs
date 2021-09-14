@@ -9,14 +9,15 @@
 import UIKit
 
 final class StartRouter {
-    weak var sourceViewCintroller: UIViewController?
+    weak var sourceViewController: UIViewController?
 }
 
 extension StartRouter: StartRouterInput {
+    
     func openLoginViewController() {
         let container = LoginContainer.assemble(with: .init())
         
-        sourceViewCintroller?.navigationController?.pushViewController(container.viewController, animated: true)
+        sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 
 }

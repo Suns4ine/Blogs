@@ -221,7 +221,6 @@ final class PreviewViewController: UIViewController , PageProtocol {
     @objc
     private func tapTralingButton() {
         pageViewController.nextPage()
-        output.didTapTralingButton()
     }
     
     @objc

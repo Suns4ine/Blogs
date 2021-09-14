@@ -32,7 +32,11 @@ class User: Hashable {
     var arrayFolloving: Set<User>
     var aboutMe: String
     var avatar: UIImage
-    var personalSetting: PersonalSetting
+    var personalSetting: PersonalSetting {
+        didSet {
+            personalSetting.currentSetting()
+        }
+    }
     
     init(dateCreate: Date,
          mail: String,
@@ -66,6 +70,26 @@ class User: Hashable {
         self.avatar = avatar
         self.personalSetting = personalSetting
     }
+    
+    func clearUser() {
+       mail = "mail"
+       password = ""
+       identifier = "identifier"
+       name = "name"
+       surname = "surname"
+       tagname = "tagname"
+       arrayBlogs = []
+       arrayDrafts = []
+       arrayLikedBlogs = []
+       arrayFollowers = []
+       arrayFolloving = []
+       aboutMe = "about Me"
+       avatar = .init()
+       personalSetting = PersonalSetting(sound: true,
+                                        notification: false,
+                                        language: personalSetting.language,
+                                        theme: personalSetting.theme)
+    }
 }
 
 var defaultUser = User(dateCreate: .init(),
@@ -85,8 +109,7 @@ var defaultUser = User(dateCreate: .init(),
                        personalSetting: .init(sound: true,
                                               notification: true,
                                               language: .rus,
-                                              theme: .standart,
-                                              cache: ""))
+                                              theme: .standart))
 
 var anotherDefaultUser = User(dateCreate: .init(),
                        mail: "AnotherMail",
@@ -105,6 +128,5 @@ var anotherDefaultUser = User(dateCreate: .init(),
                        personalSetting: .init(sound: true,
                                               notification: true,
                                               language: .rus,
-                                              theme: .standart,
-                                              cache: ""))
+                                              theme: .standart))
 
