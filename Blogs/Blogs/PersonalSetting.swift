@@ -28,8 +28,17 @@ struct PersonalSetting {
         }
     }
     
-    var language: LanguagesApplication
-    var theme: ColorsApplication
+    var language: LanguagesApplication {
+        didSet {
+            currentSetting()
+        }
+    }
+    
+    var theme: ColorsApplication {
+        didSet {
+            currentSetting()
+        }
+    }
     
     init(sound: Bool,
          notification: Bool,
@@ -44,6 +53,8 @@ struct PersonalSetting {
     func currentSetting() {
         UserDefaults.standard.set(sound, forKey: PersonalSettingsKeys.sound.rawValue)
         UserDefaults.standard.set(notification, forKey: PersonalSettingsKeys.notification.rawValue)
+        UserDefaults.standard.set(language.rawValue, forKey: PersonalSettingsKeys.language.rawValue)
+        UserDefaults.standard.set(theme.rawValue, forKey: PersonalSettingsKeys.theme.rawValue)
     }
 }
 

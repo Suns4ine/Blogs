@@ -9,9 +9,13 @@ import Foundation
 import UIKit
 
 enum ColorsApplication: String {
-    case standart = "Стандартная"
-    case darkTheme = "Темная"
+    case light
+    case dark
+    case unspecified
 }
+
+private (set) var ColorsApplicationDictonary: [ColorsApplication: String] = [ .light : "Стандартная",
+                                                                .dark: "Темная"]
 
 protocol ColorsApplicationProtocol {
     

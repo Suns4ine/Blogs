@@ -270,15 +270,22 @@ extension EditProfileViewController: EditProfileViewInput {
     }
     
     func updateViews(profile: User) {
-        avatar.editImage(image: profile.avatar)
+        
+        let path = getDocumentsDirectory().appendingPathComponent(profile.avatar)
+        let newAvatar = UIImage(contentsOfFile: path.path) ?? .init()
+        
+        avatar.editImage(image: newAvatar)
         nameTextfield.addText(text: profile.name)
         surnameTextfield.addText(text: profile.surname)
         tagNameTextfield.addText(text: profile.tagname)
         aboutMeText.editText(text: profile.aboutMe)
     }
     
-    func newAvatar(image: UIImage) {
-        avatar.editImage(image: image)
+    func newAvatar(image: String) {
+        let path = getDocumentsDirectory().appendingPathComponent(image)
+        let newAvatar = UIImage(contentsOfFile: path.path) ?? .init()
+        
+        avatar.editImage(image: newAvatar)
     }
     
 }
@@ -336,6 +343,7 @@ extension EditProfileViewController {
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    
     private func openGallery() {
        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
         let imagePicker = UIImagePickerController()
@@ -372,10 +380,21 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
+        let imageName = UUID().uuidString
+        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+        
+
+        
         if let pickedImage = info[.editedImage] as? UIImage {
-            output.getAvatar(image: pickedImage)
+            if let jpegData = pickedImage.jpegData(compressionQuality: 0.8) {
+                try? jpegData.write(to: imagePath)
+                output.getAvatar(image: imageName)
+            }
         } else if let pickedImage = info[.originalImage] as? UIImage {
-            output.getAvatar(image: pickedImage)
+            if let jpegData = pickedImage.jpegData(compressionQuality: 0.8) {
+                try? jpegData.write(to: imagePath)
+                output.getAvatar(image: imageName)
+            }
         }
         
         dismiss(animated: true)

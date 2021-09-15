@@ -13,12 +13,16 @@ import FirebaseAuth
 final class SignUpInteractor {
 	weak var output: SignUpInteractorOutput?
     
-    private var name: String = ""
+    private var tagname: String = "" {
+        didSet {
+            tagname = tagname.lowercased()
+        }
+    }
     private var mail: String = ""
     private var password: String = ""
     
-    private func checkName(name: String) -> Bool {
-        let text = name.trimmingCharacters(in: .whitespaces)
+    private func checkTagname(tagname: String) -> Bool {
+        let text = tagname.trimmingCharacters(in: .whitespaces)
         
         switch text {
         case let text where text.isEmpty:
@@ -31,7 +35,7 @@ final class SignUpInteractor {
             output?.transferErrorName(text: "Максимум 25 символов")
             return false
         default:
-            self.name = text
+            self.tagname = text
             output?.transferErrorName(text: "")
             return true
         }
@@ -77,12 +81,13 @@ final class SignUpInteractor {
     private func registerUser() {
         
             // Create the user
-            Auth.auth().createUser(withEmail: mail, password: password) { [weak self] (result, err) in
+            Auth.auth().createUser(withEmail: mail, password: password) { [weak self] (res, err) in
                 
                 // Check for errors
                 if err != nil {
                     
                     // There was an error creating the user
+                    debugPrint("\(err?.localizedDescription)!")
                     self?.output?.transferErrorName(text: "Ошибка создания пользователя")
                 }
                 else {
@@ -90,37 +95,38 @@ final class SignUpInteractor {
                     // User was created successfully, now store the first name and last name
                     let db = Firestore.firestore()
                     
-                    guard result != nil else { return }
+                    guard let result = res else { return }
+                    let createUser = newUser
                     
+                    createUser.tagname = self?.tagname ?? ""
+                    createUser.mail = self?.mail ?? ""
                     
-                    let newUser = User(dateCreate: .init(),
-                                       mail: self?.mail ?? "",
-                                       password: "",
-                                       identifier: "",
-                                       name: self?.name ?? "",
-                                       surname: "",
-                                       tagname: "",
-                                       arrayBlogs: [],
-                                       arrayDrafts: [],
-                                       arrayLikedBlogs: [],
-                                       arrayFollowers: [],
-                                       arrayFolloving: [],
-                                       aboutMe: "",
-                                       avatar: .init(),
-                                       personalSetting: PersonalSetting(sound: true,
-                                                                        notification: true,
-                                                                        language: .rus,
-                                                                        theme: .standart))
-                    
-                    db.collection("users").addDocument(data: [  "name": newUser.name,
-                                                                "surname": newUser.surname,
-                                                                "tagname": newUser.tagname,
-                                                                "mail": newUser.mail,
-                                                                "aboutMe": newUser.aboutMe,
-                                                                "uid": result!.user.uid ]) { (error) in
+                    db.collection("users").addDocument(data: [
+                        "name" : createUser.name,
+                        "surname" :  createUser.surname,
+                        "tagname" :  createUser.tagname,
+                        "mail" : createUser.mail,
+                        "dateCreate" : Date.init(),
+                        "identifier" : String(result.user.uid),
+                        "arrayBlogs" :  createUser.arrayBlogs,
+                        "arrayDrafts" : createUser.arrayDrafts,
+                        "arrayLikedBlogs" : Array(createUser.arrayLikedBlogs),
+                        "arrayFollowers" : Array(createUser.arrayFollowers),
+                        "arrayFolloving" : Array(createUser.arrayFolloving),
+                        "aboutMe" : createUser.aboutMe,
+                        "avatar" : createUser.avatar,
+                        "personalSetting" : [
+                            "sound" : createUser.personalSetting.sound,
+                            "notification" : createUser.personalSetting.notification,
+                            "language" : createUser.personalSetting.language.rawValue,
+                            "theme" : createUser.personalSetting.theme.rawValue
+                        ],
+                        "uid": result.user.uid
+                    ]) { (error) in
 
                         if error != nil {
                             // Show error message
+                            debugPrint("\(error?.localizedDescription)!")
                             self?.output?.transferErrorName(text: "Ошибка сохранения данных")
                         }
                     }
@@ -138,7 +144,7 @@ extension SignUpInteractor: SignUpInteractorInput {
     
     func verificationOfEnteredData() {
         
-        if checkName(name: name),
+        if checkTagname(tagname: tagname),
            checkMail(mail: mail),
            checkPassword(pass: password) {
             registerUser()
@@ -147,7 +153,7 @@ extension SignUpInteractor: SignUpInteractorInput {
     }
     
     func newNameText(text: String) {
-        name = text
+        tagname = text
     }
     
     func newMailText(text: String) {

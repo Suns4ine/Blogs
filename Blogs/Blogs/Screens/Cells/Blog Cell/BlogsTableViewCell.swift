@@ -17,11 +17,15 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
     
     private func updateViews() {
         guard let viewModel = viewModel as? BlogCellViewModel else { return }
+        
+        let path = getDocumentsDirectory().appendingPathComponent(viewModel.avatar)
+        let image = UIImage(contentsOfFile: path.path) ?? .init()
+        
         title.editText(text: viewModel.title)
         nameSubTitle.editText(text: viewModel.nameSubTitle)
         dateSubTitle.editText(text: viewModel.dateSubTitle)
         tagSubTitle.editText(text: viewModel.tagSubTitle)
-        avatar.editImage(image: viewModel.user.avatar)
+        avatar.editImage(image: image)
         BlogsTableViewCell.identifier = viewModel.cellIdentifier
     }
     

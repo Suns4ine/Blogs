@@ -11,8 +11,9 @@ import Foundation
 final class ChoiceLanguageInteractor {
 	weak var output: ChoiceLanguageInteractorOutput?
     
-    private var languageArray: [Choice] = [.init(title: LanguagesApplication.rus.rawValue),
-                                           .init(title: LanguagesApplication.eng.rawValue)]
+    private var languageArray: [Choice] = [
+        .init(title: LanguagesApplicationDictionary[.en] ?? LanguagesApplication.en.rawValue),
+        .init(title: LanguagesApplicationDictionary[.ru] ?? LanguagesApplication.ru.rawValue)]
 }
 
 //MARK: Удалить дефелтного юзера
@@ -23,13 +24,15 @@ extension ChoiceLanguageInteractor: ChoiceLanguageInteractorInput {
         var language = defaultUser.personalSetting.language
         
         switch choice.title {
-        case LanguagesApplication.eng.rawValue:
-            language = LanguagesApplication.eng
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: "en")
+        case LanguagesApplicationDictionary[.en]:
+            language = LanguagesApplication.en
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"),
+                                            object: LanguagesApplication.en.rawValue)
             
-        case LanguagesApplication.rus.rawValue:
-            language = LanguagesApplication.rus
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"), object: "ru")
+        case LanguagesApplicationDictionary[.ru]:
+            language = LanguagesApplication.ru
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LANGUAGE_WILL_CHANGE"),
+                                            object: LanguagesApplication.ru.rawValue)
            
         default: language = defaultUser.personalSetting.language
         }

@@ -14,7 +14,7 @@ final class BlogCellViewModel: BlogCellIdentifiable {
     let dateSubTitle: String
     let nameSubTitle: String
     let tagSubTitle: String
-    let avatar: UIImage
+    let avatar: String
     let user: User
     
     var cellIdentifier: String {
@@ -33,7 +33,6 @@ final class BlogCellViewModel: BlogCellIdentifiable {
         avatar = blog.user.avatar
         user = blog.user
     }
-    
 }
 
 final class BlogSectionViewModel: BlogSectionRowPresentable {

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 final class EditProfileInteractor {
 	weak var output: EditProfileInteractorOutput?
@@ -91,7 +90,7 @@ final class EditProfileInteractor {
 
 //MARK: Удалить потом дефолтного пользователя
 extension EditProfileInteractor: EditProfileInteractorInput {
-    func giveAvatar(image: UIImage) {
+    func giveAvatar(image: String) {
         defaultUser.avatar = image
         
         output?.transferAvatar(image: image)

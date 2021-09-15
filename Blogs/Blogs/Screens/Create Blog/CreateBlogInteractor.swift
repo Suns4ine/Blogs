@@ -35,7 +35,6 @@ extension CreateBlogInteractor: CreateBlogInteractorInput {
             let draftBlog = Blog(user: defaultUser,
                                  title: finalDraft.title.isEmpty ? finalDraft.text : finalDraft.title,
                                  dateCreate: .init(),
-                                 dateEdit: nil,
                                  finalPost: finalDraft,
                                  arrayTags: [],
                                  arrayLikeUsers: [],

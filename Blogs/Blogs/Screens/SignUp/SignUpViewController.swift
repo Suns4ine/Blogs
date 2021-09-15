@@ -41,10 +41,10 @@ final class SignUpViewController: UIViewController {
         return text
     }()
     
-    private let nameTextField: TextField = {
-        let textfiled = TextField(name: StandartLanguage.nameTextFieldNameSignUpScreen,
-                                  shadowText: StandartLanguage.nameTextFieldShadowTextSignUpScreen,
-                                  error: StandartLanguage.nameTextFieldErrorSignUpScreen)
+    private let tagnameTextField: TextField = {
+        let textfiled = TextField(name: StandartLanguage.tagnameTextFieldNameSignUpScreen,
+                                  shadowText: StandartLanguage.tagnameTextFieldShadowTextSignUpScreen,
+                                  error: StandartLanguage.tagnameTextFieldErrorSignUpScreen)
         textfiled.editAutocapitalizationType(type: .sentences)
         return textfiled
     }()
@@ -83,7 +83,7 @@ final class SignUpViewController: UIViewController {
     
     private func addSubViewInScrollView() {
         let array =  [header, signUpTitle, text,
-                      nameTextField, mailTextField,
+                      tagnameTextField, mailTextField,
                       passwordTextField, registerButton]
         
         array.forEach{ scrollView.addSubview($0)}
@@ -91,7 +91,7 @@ final class SignUpViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        nameTextField.clearText()
+        tagnameTextField.clearText()
         mailTextField.clearText()
         passwordTextField.clearText()
     }
@@ -135,11 +135,11 @@ final class SignUpViewController: UIViewController {
             text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             text.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
 
-            nameTextField.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 15),
-            nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            tagnameTextField.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 15),
+            tagnameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            tagnameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
-            mailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 5),
+            mailTextField.topAnchor.constraint(equalTo: tagnameTextField.bottomAnchor, constant: 5),
             mailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             mailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
@@ -162,7 +162,7 @@ final class SignUpViewController: UIViewController {
     
     @objc
     private func tapRegisterButton() {
-        output.didFinishNameText(text: nameTextField.textField.text ?? "")
+        output.didFinishNameText(text: tagnameTextField.textField.text ?? "")
         output.didFinishMailText(text: mailTextField.textField.text ?? "")
         output.didFinishPasswordText(text: passwordTextField.password)
         output.didTapRegisterButton()
@@ -171,7 +171,7 @@ final class SignUpViewController: UIViewController {
 
 extension SignUpViewController: SignUpViewInput {
     func showErrorName(text: String) {
-        nameTextField.editErrorText(text: text)
+        tagnameTextField.editErrorText(text: text)
     }
     
     func showErrorMail(text: String) {

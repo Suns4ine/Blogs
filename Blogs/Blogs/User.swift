@@ -18,20 +18,45 @@ class User: Hashable {
          hasher.combine(ObjectIdentifier(self))
     }
     
+    enum UserKeys: String {
+        case dateCreate
+        case mail
+        case identifier
+        case name
+        case surname
+        case tagname
+        case aboutMe
+        case avatar
+        case arrayBlogs
+        case arrayDrafts
+        case arrayLikedBlogs
+        case arrayFollowers
+        case arrayFolloving
+        case personalSetting
+    }
+    
     let dateCreate: Date
     var mail: String
     var password: String
     var identifier: String
     var name: String
     var surname: String
-    var tagname: String
+    var tagname: String {
+        didSet {
+            tagname = tagname.lowercased()
+        }
+    }
     var arrayBlogs: [Blog]
     var arrayDrafts: [Blog]
     var arrayLikedBlogs: Set<Blog>
     var arrayFollowers: Set<User>
     var arrayFolloving: Set<User>
     var aboutMe: String
-    var avatar: UIImage
+    var avatar: String {
+        didSet {
+            currentParametrs()
+        }
+    }
     var personalSetting: PersonalSetting {
         didSet {
             personalSetting.currentSetting()
@@ -51,7 +76,7 @@ class User: Hashable {
          arrayFollowers: Set<User>,
          arrayFolloving: Set<User>,
          aboutMe: String,
-         avatar: UIImage,
+         avatar: String,
          personalSetting: PersonalSetting) {
         
         self.dateCreate = dateCreate
@@ -71,6 +96,10 @@ class User: Hashable {
         self.personalSetting = personalSetting
     }
     
+    func currentParametrs() {
+        UserDefaults.standard.set(avatar, forKey: UserKeys.avatar.rawValue)
+    }
+    
     func clearUser() {
        mail = "mail"
        password = ""
@@ -84,7 +113,7 @@ class User: Hashable {
        arrayFollowers = []
        arrayFolloving = []
        aboutMe = "about Me"
-       avatar = .init()
+        avatar = .init()
        personalSetting = PersonalSetting(sound: true,
                                         notification: false,
                                         language: personalSetting.language,
@@ -105,11 +134,11 @@ var defaultUser = User(dateCreate: .init(),
                        arrayFollowers: [],
                        arrayFolloving: [],
                        aboutMe: "About Me",
-                       avatar: .init(),
+                       avatar: UserDefaults.standard.string(forKey: User.UserKeys.avatar.rawValue) ?? "",
                        personalSetting: .init(sound: true,
                                               notification: true,
-                                              language: .rus,
-                                              theme: .standart))
+                                              language: .ru,
+                                              theme: .unspecified))
 
 var anotherDefaultUser = User(dateCreate: .init(),
                        mail: "AnotherMail",
@@ -127,6 +156,25 @@ var anotherDefaultUser = User(dateCreate: .init(),
                        avatar: .init(),
                        personalSetting: .init(sound: true,
                                               notification: true,
-                                              language: .rus,
-                                              theme: .standart))
+                                              language: .ru,
+                                              theme: .unspecified))
 
+
+let newUser = User(dateCreate: .init(),
+                   mail: "",
+                   password: "",
+                   identifier: "",
+                   name: "",
+                   surname: "",
+                   tagname: "",
+                   arrayBlogs: [],
+                   arrayDrafts: [],
+                   arrayLikedBlogs: [],
+                   arrayFollowers: [],
+                   arrayFolloving: [],
+                   aboutMe: "",
+                   avatar: .init(),
+                   personalSetting: PersonalSetting(sound: true,
+                                                    notification: true,
+                                                    language: .ru,
+                                                    theme: .unspecified))

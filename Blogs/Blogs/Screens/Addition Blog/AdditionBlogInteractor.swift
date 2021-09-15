@@ -57,7 +57,6 @@ final class AdditionBlogInteractor {
         let blog = Blog(user: defaultUser,
                         title: draft.title,
                         dateCreate: .init(),
-                        dateEdit: nil,
                         finalPost: draft,
                         arrayTags: draft.arrayTags,
                         arrayLikeUsers: [],

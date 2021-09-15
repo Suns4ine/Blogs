@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 final class EditProfilePresenter {
 	weak var view: EditProfileViewInput?
@@ -26,7 +25,7 @@ extension EditProfilePresenter: EditProfileModuleInput {
 }
 
 extension EditProfilePresenter: EditProfileViewOutput {
-    func getAvatar(image: UIImage) {
+    func getAvatar(image: String) {
         interactor.giveAvatar(image: image)
     }
     
@@ -70,7 +69,7 @@ extension EditProfilePresenter: EditProfileViewOutput {
 }
 
 extension EditProfilePresenter: EditProfileInteractorOutput {
-    func transferAvatar(image: UIImage) {
+    func transferAvatar(image: String) {
         view?.newAvatar(image: image)
     }
     

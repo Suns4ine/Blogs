@@ -36,10 +36,10 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     static var titleSignUpScreen: String = NSLocalizedString("titleSignUpScreen", comment: "")
     static var textSignUpScreen: String = NSLocalizedString("textSignUpScreen", comment: "")
     static var registerButtonSignUpScreen: String = NSLocalizedString("registerButtonSignUpScreen", comment: "")
-    static var nameTextFieldNameSignUpScreen: String = NSLocalizedString("nameTextFieldNameSignUpScreen", comment: "")
-    static var nameTextFieldShadowTextSignUpScreen: String = NSLocalizedString("nameTextFieldShadowTextSignUpScreen",
+    static var tagnameTextFieldNameSignUpScreen: String = NSLocalizedString("tagnameTextFieldNameSignUpScreen", comment: "")
+    static var tagnameTextFieldShadowTextSignUpScreen: String = NSLocalizedString("tagnameTextFieldShadowTextSignUpScreen",
                                                                                comment: "")
-    static var nameTextFieldErrorSignUpScreen: String = NSLocalizedString("nameTextFieldErrorSignUpScreen", comment: "")
+    static var tagnameTextFieldErrorSignUpScreen: String = NSLocalizedString("tagnameTextFieldErrorSignUpScreen", comment: "")
     static var mailTextFieldNameSignUpScreen: String = NSLocalizedString("mailTextFieldNameSignUpScreen", comment: "")
     static var mailTextFieldShadowTextSignUpScreen: String = NSLocalizedString("mailTextFieldShadowTextSignUpScreen",
                                                                                comment: "")

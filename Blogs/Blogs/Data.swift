@@ -14,7 +14,28 @@ import Foundation
 //    "aboutMe": self.aboutMe,
 //    "uid": result!.user.uid ]
 //
-//let dateCreate: Date
-//
-//var aboutMe: String
-//var avatar: UIImage
+
+
+
+//[
+//    "name" : "",
+//    "surname" : "",
+//    "tagname" : "",
+//    "mail" : "",
+//    "dateCreate" : Date.init(),
+//    "identifier" : "",
+//    "arrayBlogs" : [],
+//    "arrayDrafts" : [],
+//    "arrayLikedBlogs" : [],
+//    "arrayFollowers" : [],
+//    "arrayFolloving" : [],
+//    "aboutMe" : "",
+//    "avatar" : "",
+//    "personalSetting" : [
+//        "sound" : true,
+//        "notification" : true,
+//        "language" : "",
+//        "theme" : ""
+//    ],
+//    "uid": result!.user.uid
+//]

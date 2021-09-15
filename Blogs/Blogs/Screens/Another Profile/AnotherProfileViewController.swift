@@ -404,7 +404,10 @@ extension AnotherProfileViewController: AnotherProfileViewInput {
     
     func updateViews(profile: User) {
         
-        avatar.editImage(image: profile.avatar)
+        let path = getDocumentsDirectory().appendingPathComponent(profile.avatar)
+        let image = UIImage(contentsOfFile: path.path) ?? .init()
+        
+        avatar.editImage(image: image)
         nameTitle.editText(text: profile.surname + " " + profile.name)
         nameTagSubtitle.editText(text: profile.tagname)
         aboutAnotherText.editText(text: profile.aboutMe)

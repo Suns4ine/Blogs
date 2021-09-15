@@ -106,8 +106,8 @@ extension ChoiceColorViewController: ChoiceColorViewInput {
     func editTheme(theme: ColorsApplication) {
         
         switch theme {
-        case .darkTheme: view.window?.overrideUserInterfaceStyle = .dark
-        case .standart: view.window?.overrideUserInterfaceStyle = .light
+        case .dark: view.window?.overrideUserInterfaceStyle = .dark
+        case .light: view.window?.overrideUserInterfaceStyle = .light
         default: view.window?.overrideUserInterfaceStyle = .unspecified
         }
     }
