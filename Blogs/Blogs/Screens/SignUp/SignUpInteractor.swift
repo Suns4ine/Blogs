@@ -101,7 +101,7 @@ final class SignUpInteractor {
                     createUser.tagname = self?.tagname ?? ""
                     createUser.mail = self?.mail ?? ""
                     
-                    db.collection("users").addDocument(data: [
+                    db.collection("users").document(result.user.uid).setData([
                         "name" : createUser.name,
                         "surname" :  createUser.surname,
                         "tagname" :  createUser.tagname,

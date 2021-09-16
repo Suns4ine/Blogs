@@ -35,9 +35,8 @@ class User: Hashable {
         case personalSetting
     }
     
-    let dateCreate: Date
+    var dateCreate: Date
     var mail: String
-    var password: String
     var identifier: String
     var name: String
     var surname: String
@@ -65,7 +64,6 @@ class User: Hashable {
     
     init(dateCreate: Date,
          mail: String,
-         password: String,
          identifier: String,
          name: String,
          surname: String,
@@ -81,7 +79,6 @@ class User: Hashable {
         
         self.dateCreate = dateCreate
         self.mail = mail
-        self.password = password
         self.identifier = identifier
         self.name = name
         self.surname = surname
@@ -102,7 +99,6 @@ class User: Hashable {
     
     func clearUser() {
        mail = "mail"
-       password = ""
        identifier = "identifier"
        name = "name"
        surname = "surname"
@@ -123,7 +119,6 @@ class User: Hashable {
 
 var defaultUser = User(dateCreate: .init(),
                        mail: "mail",
-                       password: "password",
                        identifier: "identifier",
                        name: "name",
                        surname: "surname",
@@ -142,7 +137,6 @@ var defaultUser = User(dateCreate: .init(),
 
 var anotherDefaultUser = User(dateCreate: .init(),
                        mail: "AnotherMail",
-                       password: "AnotherPassword",
                        identifier: "AnotherIdentifier",
                        name: "AnotherName",
                        surname: "AnotherSurname",
@@ -162,10 +156,9 @@ var anotherDefaultUser = User(dateCreate: .init(),
 
 let newUser = User(dateCreate: .init(),
                    mail: "",
-                   password: "",
                    identifier: "",
-                   name: "",
-                   surname: "",
+                   name: "".randomName(),
+                   surname: "".randomSurname(),
                    tagname: "",
                    arrayBlogs: [],
                    arrayDrafts: [],

@@ -11,6 +11,7 @@ import Foundation
 final class EditProfileInteractor {
 	weak var output: EditProfileInteractorOutput?
     
+    private var avatar = defaultUser.avatar
     private var newName = defaultUser.name
     private var newSurname = defaultUser.surname
     private var newTagname = defaultUser.tagname
@@ -91,8 +92,7 @@ final class EditProfileInteractor {
 //MARK: Удалить потом дефолтного пользователя
 extension EditProfileInteractor: EditProfileInteractorInput {
     func giveAvatar(image: String) {
-        defaultUser.avatar = image
-        
+        avatar = image
         output?.transferAvatar(image: image)
     }
     
@@ -107,6 +107,7 @@ extension EditProfileInteractor: EditProfileInteractorInput {
            checkTagName(tag: newTagname),
            checkAboutMe(text: newAboutMe) {
             
+            defaultUser.avatar = avatar
             defaultUser.name = newName
             defaultUser.surname = newSurname
             defaultUser.tagname = newTagname

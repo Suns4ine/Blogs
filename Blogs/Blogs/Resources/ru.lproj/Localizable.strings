@@ -30,9 +30,9 @@
 "titleSignUpScreen" = "Регистрация";
 "textSignUpScreen" = "Какой-то текст";
 "registerButtonSignUpScreen" = "Зарегестрироваться";
-"tagnameTextFieldNameSignUpScreen" = "Имя";
-"tagnameTextFieldShadowTextSignUpScreen" = "Имя";
-"tagnameTextFieldErrorSignUpScreen" = "Имя";
+"tagnameTextFieldNameSignUpScreen" = "Тег имя";
+"tagnameTextFieldShadowTextSignUpScreen" = "Тег имя";
+"tagnameTextFieldErrorSignUpScreen" = "Тег имя";
 "mailTextFieldNameSignUpScreen" = "Почта";
 "mailTextFieldShadowTextSignUpScreen" = "Почта";
 "mailTextFieldErrorSignUpScreen" = "Почта";

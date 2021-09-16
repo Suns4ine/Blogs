@@ -44,8 +44,8 @@ extension PasswordChangePresenter: PasswordChangeViewOutput {
     }
     
     func didTapSaveButton() {
-        //interactor.verificationOfEnteredData()
-        router.popViewController()
+        interactor.verificationOfEnteredData()
+        //router.popViewController()
     }
     
 }
