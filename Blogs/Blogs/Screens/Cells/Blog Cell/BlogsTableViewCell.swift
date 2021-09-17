@@ -18,7 +18,7 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
     private func updateViews() {
         guard let viewModel = viewModel as? BlogCellViewModel else { return }
         
-        let path = getDocumentsDirectory().appendingPathComponent(viewModel.avatar)
+        let path = getDocumentsDirectory().appendingPathComponent(viewModel.user.identifier)
         let image = UIImage(contentsOfFile: path.path) ?? .init()
         
         title.editText(text: viewModel.title)

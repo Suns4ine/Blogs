@@ -404,7 +404,7 @@ extension AnotherProfileViewController: AnotherProfileViewInput {
     
     func updateViews(profile: User) {
         
-        let path = getDocumentsDirectory().appendingPathComponent(profile.avatar)
+        let path = getDocumentsDirectory().appendingPathComponent(profile.identifier)
         let image = UIImage(contentsOfFile: path.path) ?? .init()
         
         avatar.editImage(image: image)

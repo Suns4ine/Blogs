@@ -42,6 +42,7 @@
 		3527AFE126EF4AC3008D4501 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3527AFE326EF4AC3008D4501 /* Localizable.strings */; };
 		3527AFF726F03C7B008D4501 /* PrivateBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527AFF626F03C7B008D4501 /* PrivateBundle.swift */; };
 		3540596B26F2875100CC4D50 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596A26F2875100CC4D50 /* StringExtension.swift */; };
+		3540597026F2E1E300CC4D50 /* Firebase User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596F26F2E1E300CC4D50 /* Firebase User.swift */; };
 		3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D626AD65A6001DA6BB /* AppDelegate.swift */; };
 		3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */; };
 		3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */; };
@@ -287,6 +288,7 @@
 		3527AFE526EF4AF3008D4501 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3527AFF626F03C7B008D4501 /* PrivateBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateBundle.swift; sourceTree = "<group>"; };
 		3540596A26F2875100CC4D50 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3540596F26F2E1E300CC4D50 /* Firebase User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase User.swift"; sourceTree = "<group>"; };
 		3557F2D326AD65A6001DA6BB /* Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3557F2D626AD65A6001DA6BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -631,6 +633,7 @@
 				35FDACB126D7F63D00A84B99 /* Choice.swift */,
 				358FC75926DE4A3700872EC9 /* PersonalSetting.swift */,
 				3505BBAB26E7B83100B13202 /* Data.swift */,
+				3540596F26F2E1E300CC4D50 /* Firebase User.swift */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -1619,6 +1622,7 @@
 				35B109C726C71E7D003E3D44 /* AdditionBlogRouter.swift in Sources */,
 				3527AFF726F03C7B008D4501 /* PrivateBundle.swift in Sources */,
 				35E020E526C1FCBE00C99280 /* StartRouter.swift in Sources */,
+				3540597026F2E1E300CC4D50 /* Firebase User.swift in Sources */,
 				35B109A026C6D559003E3D44 /* DraftBlogsPresenter.swift in Sources */,
 				35B10A3F26C99CB6003E3D44 /* SettingTableViewCell.swift in Sources */,
 				35B109B426C6D9C5003E3D44 /* EditProfileRouter.swift in Sources */,

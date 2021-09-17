@@ -50,8 +50,12 @@ class User: Hashable {
     var arrayLikedBlogs: Set<Blog>
     var arrayFollowers: Set<User>
     var arrayFolloving: Set<User>
-    var aboutMe: String
-    var avatar: String {
+    var aboutMe: String {
+        didSet {
+            aboutMe = aboutMe.trimmingCharacters(in: .whitespaces)
+        }
+    }
+    var avatarURL: String {
         didSet {
             currentParametrs()
         }
@@ -74,7 +78,7 @@ class User: Hashable {
          arrayFollowers: Set<User>,
          arrayFolloving: Set<User>,
          aboutMe: String,
-         avatar: String,
+         avatarURL: String,
          personalSetting: PersonalSetting) {
         
         self.dateCreate = dateCreate
@@ -89,12 +93,12 @@ class User: Hashable {
         self.arrayFollowers = arrayFollowers
         self.arrayFolloving = arrayFolloving
         self.aboutMe = aboutMe
-        self.avatar = avatar
+        self.avatarURL = avatarURL
         self.personalSetting = personalSetting
     }
     
     func currentParametrs() {
-        UserDefaults.standard.set(avatar, forKey: UserKeys.avatar.rawValue)
+        UserDefaults.standard.set(identifier, forKey: UserKeys.avatar.rawValue)
     }
     
     func clearUser() {
@@ -109,7 +113,7 @@ class User: Hashable {
        arrayFollowers = []
        arrayFolloving = []
        aboutMe = "about Me"
-        avatar = .init()
+        avatarURL = .init()
        personalSetting = PersonalSetting(sound: true,
                                         notification: false,
                                         language: personalSetting.language,
@@ -129,7 +133,7 @@ var defaultUser = User(dateCreate: .init(),
                        arrayFollowers: [],
                        arrayFolloving: [],
                        aboutMe: "About Me",
-                       avatar: UserDefaults.standard.string(forKey: User.UserKeys.avatar.rawValue) ?? "",
+                       avatarURL: UserDefaults.standard.string(forKey: User.UserKeys.avatar.rawValue) ?? "",
                        personalSetting: .init(sound: true,
                                               notification: true,
                                               language: .ru,
@@ -147,7 +151,7 @@ var anotherDefaultUser = User(dateCreate: .init(),
                        arrayFollowers: [],
                        arrayFolloving: [],
                        aboutMe: "About Another",
-                       avatar: .init(),
+                       avatarURL: .init(),
                        personalSetting: .init(sound: true,
                                               notification: true,
                                               language: .ru,
@@ -166,7 +170,7 @@ let newUser = User(dateCreate: .init(),
                    arrayFollowers: [],
                    arrayFolloving: [],
                    aboutMe: "",
-                   avatar: .init(),
+                   avatarURL: .init(),
                    personalSetting: PersonalSetting(sound: true,
                                                     notification: true,
                                                     language: .ru,

@@ -114,7 +114,7 @@ final class SignUpInteractor {
                         "arrayFollowers" : Array(createUser.arrayFollowers),
                         "arrayFolloving" : Array(createUser.arrayFolloving),
                         "aboutMe" : createUser.aboutMe,
-                        "avatar" : createUser.avatar,
+                        "avatarURL" : createUser.avatarURL,
                         "personalSetting" : [
                             "sound" : createUser.personalSetting.sound,
                             "notification" : createUser.personalSetting.notification,

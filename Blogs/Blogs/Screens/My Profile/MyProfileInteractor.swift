@@ -27,6 +27,7 @@ extension MyProfileInteractor: MyProfileInteractorInput {
     }
     
     func giveMyProfile() {
+        UserManager.getDocument()
         output?.giveAwayMyProfile(profile: defaultUser)
     }
     

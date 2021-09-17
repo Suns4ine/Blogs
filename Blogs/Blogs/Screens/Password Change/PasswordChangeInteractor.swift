@@ -93,17 +93,14 @@ final class PasswordChangeInteractor {
         return flag
     }
     
-    private func updatePassword(pass: String) -> Bool {
-        flag = true
+    private func updatePassword(pass: String){
         Auth.auth().currentUser?.updatePassword(to: pass) { [weak self] (error) in
             if error != nil {
-                self?.flag = false
                 self?.output?.transferErrorOldPassword(text: "Ошибка смены пароля")
+            } else {
+                self?.output?.openBackViewController()
             }
         }
-
-        return flag
-
     }
     
 
@@ -129,10 +126,7 @@ extension PasswordChangeInteractor: PasswordChangeInteractorInput {
         if checkOldPassword(pass: oldPassword),
            checkNewPassword(pass: newPassword),
            checkRepeatPassword(pass: repeatPassword) {
-            
-            if updatePassword(pass: newPassword) {
-                output?.openBackViewController()
-            }
+            updatePassword(pass: newPassword)
         }
     }
     

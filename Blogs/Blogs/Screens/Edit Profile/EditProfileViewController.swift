@@ -271,7 +271,7 @@ extension EditProfileViewController: EditProfileViewInput {
     
     func updateViews(profile: User) {
         
-        let path = getDocumentsDirectory().appendingPathComponent(profile.avatar)
+        let path = getDocumentsDirectory().appendingPathComponent(profile.identifier)
         let newAvatar = UIImage(contentsOfFile: path.path) ?? .init()
         
         avatar.editImage(image: newAvatar)

@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseStorage
 
 final class EditProfileInteractor {
 	weak var output: EditProfileInteractorOutput?
     
-    private var avatar = defaultUser.avatar
+    private let user = Auth.auth().currentUser
+    private var avatar = defaultUser.identifier
     private var newName = defaultUser.name
     private var newSurname = defaultUser.surname
     private var newTagname = defaultUser.tagname
@@ -87,6 +90,82 @@ final class EditProfileInteractor {
             return true
         }
     }
+    
+    private func uploadImage(queue: DispatchQueue) {
+        /*
+         ref = ссылка на область где у нас хранится фотка в беке
+         path = ссылка на область шде у нас на телефоне (сделано так, потому что если запишем фотку сразу в pathIdentifier,
+         и выйдем, не сохраняясь, то фотка в любому случае изменится, да еще и не пойдет на бэкенд)
+         pathIdentifier = ссылка куда мы запишем в конце нашу фотку
+         */
+        let ref = Storage.storage().reference().child("avatars").child(defaultUser.identifier)
+        let oldPath = getDocumentsDirectory().appendingPathComponent(avatar)
+        let path = getDocumentsDirectory().appendingPathComponent(defaultUser.identifier)
+        
+        guard let imageData = try? Data(contentsOf: oldPath) else {
+            return
+        }
+        
+        try? imageData.write(to: path)
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        ref.putData(imageData, metadata: metadata) { (metadata, error) in
+            guard metadata != nil else {
+                debugPrint("\(String(describing: error?.localizedDescription))!")
+                return
+            }
+            
+            ref.downloadURL { (url, error) in
+                guard let url = url else {
+                    debugPrint("\(String(describing: error?.localizedDescription))!")
+                    return
+                }
+                defaultUser.avatarURL = url.absoluteString
+                queue.activate()
+            }
+        }
+    }
+    
+    private func updateUser() {
+        let db = Firestore.firestore()
+        
+        guard let user = user else { return }
+        
+        /*  Есть Проблема с Firebase: Почему-то putData срабатывает после updateData, хотя вызвается раньше.
+            Возможно тут проблема в том, в каких потоках работает FireBase. Нам надо чтобы сначало фото отправилось на бэк,
+            чтобы мы могли получить актуальный url для записи его в наш профиль. Для этого делается специальная очередь,
+            которая активируется после записи фотки на бэк. Но закрыть экран мы может только в том случае, когда у нас удачно
+            все записалось, именно поэтому экран будет чутка висеть при сохранении.
+         */
+        let updateDataQueue = DispatchQueue(label: "updateDataQueue",
+                                            qos: .utility,
+                                            attributes: .initiallyInactive,
+                                            autoreleaseFrequency: .workItem)
+        
+        uploadImage(queue: updateDataQueue)
+        
+
+        
+        updateDataQueue.async {
+        db.collection("users").document(user.uid).updateData([
+            "name" : defaultUser.name,
+            "surname" : defaultUser.surname,
+            "tagname" : defaultUser.tagname,
+            "aboutMe" : defaultUser.aboutMe,
+            "avatarURL" : defaultUser.avatarURL,
+        ]) {[weak self] error in
+            if error != nil {
+                self?.output?.transferErrorName(text: "Ошибка обновления данных")
+            } else {
+                self?.output?.openBackViewController()
+                debugPrint("Данные обновлены!")
+            }
+            
+        }
+        }
+    }
 }
 
 //MARK: Удалить потом дефолтного пользователя
@@ -107,13 +186,13 @@ extension EditProfileInteractor: EditProfileInteractorInput {
            checkTagName(tag: newTagname),
            checkAboutMe(text: newAboutMe) {
             
-            defaultUser.avatar = avatar
             defaultUser.name = newName
             defaultUser.surname = newSurname
             defaultUser.tagname = newTagname
             defaultUser.aboutMe = newAboutMe
             
-            output?.openBackViewController()
+            updateUser()
+            //output?.openBackViewController()
         }
     }
     

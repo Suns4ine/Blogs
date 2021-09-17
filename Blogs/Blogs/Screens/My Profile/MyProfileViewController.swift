@@ -404,13 +404,14 @@ extension MyProfileViewController: MyProfileViewInput, UIScrollViewDelegate {
     
     func updateViews(profile: User) {
         
-        let path = getDocumentsDirectory().appendingPathComponent(profile.avatar)
+        let path = getDocumentsDirectory().appendingPathComponent(profile.identifier)
         let image = UIImage(contentsOfFile: path.path) ?? .init()
+        let aboutMe = profile.aboutMe.isEmpty ? "Здесь будет Ваше описание" : profile.aboutMe
         
         avatar.editImage(image: image)
         nameTitle.editText(text: profile.surname + " " + profile.name)
         nameTagSubtitle.editText(text: profile.tagname)
-        aboutMeText.editText(text: profile.aboutMe)
+        aboutMeText.editText(text: aboutMe)
         numberBlogTitle.editText(text: String(profile.arrayBlogs.count))
         followersBlogTitle.editText(text: String(profile.arrayFollowers.count))
         follovingBlogTitle.editText(text: String(profile.arrayFolloving.count))
