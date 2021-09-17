@@ -78,21 +78,30 @@ var defaultBlog = Blog(user: defaultUser,
                        rating: 100,
                        identifier: "identifier")
 
-
-var anotherDefaultBlog = Blog(user: anotherDefaultUser,
-                              title: "anotherTitle",
-                              dateCreate: .init(),
-                              finalPost: Post(date: .init(),
-                                              title: "anotherTitle",
-                                              text: "anotherText",
-                                              arrayTags: []),
-                              arrayTags: [],
-                              arrayLikeUsers: [],
-                              arrayShareUsers: [],
-                              rating: 100,
-                              identifier: "anotherIdentifier")
-
 var defaultDraft = Post(date: .init(),
                         title: "",
                         text: "",
                         arrayTags: [])
+
+extension Blog {
+    
+    static func randomBlog(user: User) -> Blog {
+        
+        let post = Post(date: Date.randomBetween(start: user.dateCreate, end: .init()),
+                        title: "".randomTitleBlog(),
+                        text: "".randomTextBlog(),
+                        arrayTags: "".randomTagsBlog())
+        
+        let blog = Blog(user: user,
+                        title: post.title,
+                        dateCreate: post.date,
+                        finalPost: post,
+                        arrayTags: post.arrayTags,
+                        arrayLikeUsers: Set(),
+                        arrayShareUsers: Set(),
+                        rating: 0,
+                        identifier: UUID().uuidString)
+        
+        return blog
+    }
+}

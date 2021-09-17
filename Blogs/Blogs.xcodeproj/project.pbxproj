@@ -38,11 +38,15 @@
 		3505BB6026E5313300B13202 /* BlogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5A26E5313300B13202 /* BlogProtocols.swift */; };
 		3505BB6126E5313300B13202 /* BlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5B26E5313300B13202 /* BlogInteractor.swift */; };
 		3505BB6226E5313300B13202 /* BlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5C26E5313300B13202 /* BlogContainer.swift */; };
-		3505BBAC26E7B83200B13202 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BBAB26E7B83100B13202 /* Data.swift */; };
+		3505BBAC26E7B83200B13202 /* AnotherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BBAB26E7B83100B13202 /* AnotherData.swift */; };
 		3527AFE126EF4AC3008D4501 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3527AFE326EF4AC3008D4501 /* Localizable.strings */; };
 		3527AFF726F03C7B008D4501 /* PrivateBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527AFF626F03C7B008D4501 /* PrivateBundle.swift */; };
 		3540596B26F2875100CC4D50 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596A26F2875100CC4D50 /* StringExtension.swift */; };
-		3540597026F2E1E300CC4D50 /* Firebase User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596F26F2E1E300CC4D50 /* Firebase User.swift */; };
+		3540597026F2E1E300CC4D50 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596F26F2E1E300CC4D50 /* UserManager.swift */; };
+		3540599126F50BD800CC4D50 /* AnotherUser1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540599026F50BD700CC4D50 /* AnotherUser1.swift */; };
+		3540599626F50C9600CC4D50 /* AnotherUser2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540599526F50C9600CC4D50 /* AnotherUser2.swift */; };
+		3540599B26F5130100CC4D50 /* Avatars.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3540599A26F5130100CC4D50 /* Avatars.xcassets */; };
+		354059A326F519D500CC4D50 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354059A226F519D500CC4D50 /* DateExtension.swift */; };
 		3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D626AD65A6001DA6BB /* AppDelegate.swift */; };
 		3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */; };
 		3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */; };
@@ -282,13 +286,17 @@
 		3505BB5A26E5313300B13202 /* BlogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogProtocols.swift; sourceTree = "<group>"; };
 		3505BB5B26E5313300B13202 /* BlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogInteractor.swift; sourceTree = "<group>"; };
 		3505BB5C26E5313300B13202 /* BlogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogContainer.swift; sourceTree = "<group>"; };
-		3505BBAB26E7B83100B13202 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		3505BBAB26E7B83100B13202 /* AnotherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherData.swift; sourceTree = "<group>"; };
 		3527AFDD26EF4848008D4501 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3527AFE226EF4AC3008D4501 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3527AFE526EF4AF3008D4501 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3527AFF626F03C7B008D4501 /* PrivateBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateBundle.swift; sourceTree = "<group>"; };
 		3540596A26F2875100CC4D50 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		3540596F26F2E1E300CC4D50 /* Firebase User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase User.swift"; sourceTree = "<group>"; };
+		3540596F26F2E1E300CC4D50 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		3540599026F50BD700CC4D50 /* AnotherUser1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherUser1.swift; sourceTree = "<group>"; };
+		3540599526F50C9600CC4D50 /* AnotherUser2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherUser2.swift; sourceTree = "<group>"; };
+		3540599A26F5130100CC4D50 /* Avatars.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Avatars.xcassets; sourceTree = "<group>"; };
+		354059A226F519D500CC4D50 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		3557F2D326AD65A6001DA6BB /* Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3557F2D626AD65A6001DA6BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -592,6 +600,53 @@
 			path = AnotherFiles;
 			sourceTree = "<group>";
 		};
+		3540597C26F451B600CC4D50 /* Another Files */ = {
+			isa = PBXGroup;
+			children = (
+				3540598F26F50BB400CC4D50 /* Another Users */,
+				3505BBAB26E7B83100B13202 /* AnotherData.swift */,
+				3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */,
+			);
+			path = "Another Files";
+			sourceTree = "<group>";
+		};
+		3540598026F4520500CC4D50 /* User Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3540596F26F2E1E300CC4D50 /* UserManager.swift */,
+			);
+			path = "User Manager";
+			sourceTree = "<group>";
+		};
+		3540598126F4522A00CC4D50 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3540598B26F4524500CC4D50 /* Setting Model */,
+				35FDAC1526D6342A00A84B99 /* Blog.swift */,
+				35FDAC2026D63B4600A84B99 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3540598B26F4524500CC4D50 /* Setting Model */ = {
+			isa = PBXGroup;
+			children = (
+				35FDAC9826D7CB8900A84B99 /* Setting.swift */,
+				35FDACB126D7F63D00A84B99 /* Choice.swift */,
+				358FC75926DE4A3700872EC9 /* PersonalSetting.swift */,
+			);
+			path = "Setting Model";
+			sourceTree = "<group>";
+		};
+		3540598F26F50BB400CC4D50 /* Another Users */ = {
+			isa = PBXGroup;
+			children = (
+				3540599026F50BD700CC4D50 /* AnotherUser1.swift */,
+				3540599526F50C9600CC4D50 /* AnotherUser2.swift */,
+			);
+			path = "Another Users";
+			sourceTree = "<group>";
+		};
 		3557F2CA26AD65A6001DA6BB = {
 			isa = PBXGroup;
 			children = (
@@ -626,14 +681,9 @@
 				35CE261126AE8848000F4E84 /* Colors Application */,
 				3527AFF526F03C61008D4501 /* AnotherFiles */,
 				35CE261026AE8829000F4E84 /* Extensions */,
-				3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */,
-				35FDAC1526D6342A00A84B99 /* Blog.swift */,
-				35FDAC2026D63B4600A84B99 /* User.swift */,
-				35FDAC9826D7CB8900A84B99 /* Setting.swift */,
-				35FDACB126D7F63D00A84B99 /* Choice.swift */,
-				358FC75926DE4A3700872EC9 /* PersonalSetting.swift */,
-				3505BBAB26E7B83100B13202 /* Data.swift */,
-				3540596F26F2E1E300CC4D50 /* Firebase User.swift */,
+				3540598126F4522A00CC4D50 /* Models */,
+				3540598026F4520500CC4D50 /* User Manager */,
+				3540597C26F451B600CC4D50 /* Another Files */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -907,6 +957,7 @@
 				35E020F326C2B3AB00C99280 /* UIImagesExtension.swift */,
 				35028DF826C5ED6700FF9D68 /* AnotherExtension.swift */,
 				3540596A26F2875100CC4D50 /* StringExtension.swift */,
+				354059A226F519D500CC4D50 /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -971,6 +1022,7 @@
 				3557F2E426AD65A9001DA6BB /* LaunchScreen.storyboard */,
 				3557F2E226AD65A9001DA6BB /* Assets.xcassets */,
 				355D937326EEEE7F009CA8E0 /* Colors.xcassets */,
+				3540599A26F5130100CC4D50 /* Avatars.xcassets */,
 				3527AFE326EF4AC3008D4501 /* Localizable.strings */,
 				355D934626EBBD1A009CA8E0 /* sound effects */,
 				3557F31D26AE4B08001DA6BB /* TypeFont */,
@@ -1322,6 +1374,7 @@
 				3557F34126AE4B08001DA6BB /* Montserrat-Italic.ttf in Resources */,
 				3557F33726AE4B08001DA6BB /* Montserrat-Thin.ttf in Resources */,
 				3557F33526AE4B08001DA6BB /* Montserrat-ThinItalic.ttf in Resources */,
+				3540599B26F5130100CC4D50 /* Avatars.xcassets in Resources */,
 				3557F33E26AE4B08001DA6BB /* OFL.txt in Resources */,
 				3557F2E626AD65A9001DA6BB /* LaunchScreen.storyboard in Resources */,
 				3557F2E326AD65A9001DA6BB /* Assets.xcassets in Resources */,
@@ -1509,6 +1562,7 @@
 				35E020D326C1FBA100C99280 /* LoginPresenter.swift in Sources */,
 				35595AE926D528DD0080B184 /* AnotherMoreBlogsPresenter.swift in Sources */,
 				359734A826C9FE9700086C12 /* PreviewViewController.swift in Sources */,
+				3540599626F50C9600CC4D50 /* AnotherUser2.swift in Sources */,
 				3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */,
 				35B1094926C6A776003E3D44 /* ChoiceTableViewCell.swift in Sources */,
 				35B109B726C6D9C5003E3D44 /* EditProfileInteractor.swift in Sources */,
@@ -1530,6 +1584,7 @@
 				35FDAC2626D651B500A84B99 /* BlogCellProtocol.swift in Sources */,
 				35028E0526C5F47200FF9D68 /* AnotherProfilePresenter.swift in Sources */,
 				35FDAC8926D7CAB700A84B99 /* SettingCellProtocol.swift in Sources */,
+				3540599126F50BD800CC4D50 /* AnotherUser1.swift in Sources */,
 				359734A926C9FE9700086C12 /* PreviewProtocols.swift in Sources */,
 				35B1098D26C6BF4D003E3D44 /* AboutTheApplicationPresenter.swift in Sources */,
 				35FDAC1626D6342A00A84B99 /* Blog.swift in Sources */,
@@ -1549,6 +1604,7 @@
 				3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */,
 				35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */,
 				35FDAC9126D7CAFC00A84B99 /* SettingCellViewModel.swift in Sources */,
+				354059A326F519D500CC4D50 /* DateExtension.swift in Sources */,
 				35B1097D26C6B99C003E3D44 /* HelpProtocols.swift in Sources */,
 				3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */,
 				35B1096926C6B110003E3D44 /* PasswordChangeViewController.swift in Sources */,
@@ -1568,7 +1624,7 @@
 				358FC75A26DE4A3800872EC9 /* PersonalSetting.swift in Sources */,
 				3505BB6026E5313300B13202 /* BlogProtocols.swift in Sources */,
 				35E020D526C1FBA100C99280 /* LoginViewController.swift in Sources */,
-				3505BBAC26E7B83200B13202 /* Data.swift in Sources */,
+				3505BBAC26E7B83200B13202 /* AnotherData.swift in Sources */,
 				3505BB5D26E5313300B13202 /* BlogPresenter.swift in Sources */,
 				35DB44A526C4392E002EB53B /* HomeRouter.swift in Sources */,
 				35028DD826C544D000FF9D68 /* MyProfileContainer.swift in Sources */,
@@ -1622,7 +1678,7 @@
 				35B109C726C71E7D003E3D44 /* AdditionBlogRouter.swift in Sources */,
 				3527AFF726F03C7B008D4501 /* PrivateBundle.swift in Sources */,
 				35E020E526C1FCBE00C99280 /* StartRouter.swift in Sources */,
-				3540597026F2E1E300CC4D50 /* Firebase User.swift in Sources */,
+				3540597026F2E1E300CC4D50 /* UserManager.swift in Sources */,
 				35B109A026C6D559003E3D44 /* DraftBlogsPresenter.swift in Sources */,
 				35B10A3F26C99CB6003E3D44 /* SettingTableViewCell.swift in Sources */,
 				35B109B426C6D9C5003E3D44 /* EditProfileRouter.swift in Sources */,

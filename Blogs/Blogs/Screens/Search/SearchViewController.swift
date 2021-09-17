@@ -213,10 +213,12 @@ extension SearchViewController: UISearchBarDelegate, UITextFieldDelegate, UIGest
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        output.searchWord(word: searchBar.searchTextField.text ?? "")
         searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        output.searchWord(word: searchBar.searchTextField.text ?? "")
         searchBar.resignFirstResponder()
     }
 }

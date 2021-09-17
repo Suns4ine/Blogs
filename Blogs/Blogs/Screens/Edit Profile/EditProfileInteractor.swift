@@ -149,21 +149,21 @@ final class EditProfileInteractor {
 
         
         updateDataQueue.async {
-        db.collection("users").document(user.uid).updateData([
-            "name" : defaultUser.name,
-            "surname" : defaultUser.surname,
-            "tagname" : defaultUser.tagname,
-            "aboutMe" : defaultUser.aboutMe,
-            "avatarURL" : defaultUser.avatarURL,
-        ]) {[weak self] error in
-            if error != nil {
-                self?.output?.transferErrorName(text: "Ошибка обновления данных")
-            } else {
-                self?.output?.openBackViewController()
-                debugPrint("Данные обновлены!")
+            db.collection("users").document(user.uid).updateData([
+                "name" : defaultUser.name,
+                "surname" : defaultUser.surname,
+                "tagname" : defaultUser.tagname,
+                "aboutMe" : defaultUser.aboutMe,
+                "avatarURL" : defaultUser.avatarURL,
+            ]) {[weak self] error in
+                if error != nil {
+                    self?.output?.transferErrorName(text: "Ошибка обновления данных")
+                } else {
+                    self?.output?.openBackViewController()
+                    debugPrint("Данные обновлены!")
+                }
+                
             }
-            
-        }
         }
     }
 }

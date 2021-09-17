@@ -12,11 +12,16 @@ final class AnotherMoreBlogsInteractor {
 	weak var output: AnotherMoreBlogsInteractorOutput?
     
     
-    private var blogArray: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
+    private var blogArray: [Blog]?
 }
 
 extension AnotherMoreBlogsInteractor: AnotherMoreBlogsInteractorInput {
+    func setupArrayBlogs(array: [Blog]) {
+        blogArray = array
+    }
+    
     func getBlog(at indexPath: IndexPath) {
+        guard let blogArray = blogArray  else { return }
         let blog = blogArray[indexPath.row]
         playSound(name: .openController)
         
@@ -24,6 +29,7 @@ extension AnotherMoreBlogsInteractor: AnotherMoreBlogsInteractorInput {
     }
     
     func fetchBlogs() {
+        guard let blogArray = blogArray  else { return }
         output?.blogsDidRecieve(blogArray)
     }
 }

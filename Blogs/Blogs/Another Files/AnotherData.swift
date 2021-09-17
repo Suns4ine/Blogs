@@ -1,5 +1,5 @@
 //
-//  Data.swift
+//  AnotherData.swift
 //  Blogs
 //
 //  Created by Vyacheslav Pronin on 07.09.2021.

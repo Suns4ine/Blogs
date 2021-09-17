@@ -10,10 +10,22 @@ import Foundation
 
 final class SearchInteractor {
 	weak var output: SearchInteractorOutput?
-    private var searchArray: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
+    private var allArrayBlogs: [Blog]  = User.arrayAnotherBlogs()
+    private lazy var searchArray: [Blog] = allArrayBlogs
 }
 
 extension SearchInteractor: SearchInteractorInput {
+    func getWord(word: String) {
+        let text = word.trimmingCharacters(in: .whitespaces).lowercased()
+        
+        if text.isEmpty {
+            searchArray = allArrayBlogs
+        } else {
+            searchBlogs(word: text)
+        }
+        
+    }
+    
     func getBlog(at indexPath: IndexPath) {
         let blog = searchArray[indexPath.row]
         playSound(name: .openController)
@@ -25,4 +37,17 @@ extension SearchInteractor: SearchInteractorInput {
         output?.blogsDidRecieve(searchArray)
     }
     
+    func searchBlogs(word: String) {
+        
+        var array: [Blog] = []
+        
+        for blog in allArrayBlogs {
+            if blog.title.lowercased().contains(word) {
+                array.append(blog)
+            }
+        }
+        
+        searchArray = array
+        fetchBlogs()
+    }
 }

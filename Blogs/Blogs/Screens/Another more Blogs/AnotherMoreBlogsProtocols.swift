@@ -10,6 +10,7 @@ import Foundation
 
 protocol AnotherMoreBlogsModuleInput {
 	var moduleOutput: AnotherMoreBlogsModuleOutput? { get }
+    func getArrayBlogs(array: [Blog])
 }
 
 protocol AnotherMoreBlogsModuleOutput: class {
@@ -26,6 +27,7 @@ protocol AnotherMoreBlogsViewOutput: class {
 }
 
 protocol AnotherMoreBlogsInteractorInput: class {
+    func setupArrayBlogs(array: [Blog])
     func getBlog(at indexPath: IndexPath)
     func fetchBlogs()
 }

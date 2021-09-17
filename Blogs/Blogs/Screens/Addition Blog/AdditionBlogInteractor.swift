@@ -101,6 +101,7 @@ extension AdditionBlogInteractor: AdditionBlogInteractorInput {
             defaultDraft.date = .init()
             defaultUser.arrayBlogs.insert(createBlog(draft: defaultDraft), at: 0)
             clearDraft()
+            UserManager.addBlog(blog: defaultUser.arrayBlogs[0], nameArray: "arrayBlogs")
             output?.openMyProfile()
         }
     }

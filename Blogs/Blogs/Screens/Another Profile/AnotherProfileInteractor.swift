@@ -11,15 +11,24 @@ import Foundation
 final class AnotherProfileInteractor {
 	weak var output: AnotherProfileInteractorOutput?
     
-    
-    private var arrayBlogs: [Blog] = [defaultBlog, defaultBlog, defaultBlog, defaultBlog, defaultBlog]//[.init(), .init(), .init(), .init(), .init()]
-    //anotherDefaultUser.arrayBlogs
+    private var anotherUser: User?
 }
 
 //MARK: Удалить дефелтного юзера
 extension AnotherProfileInteractor: AnotherProfileInteractorInput {
+    func getBlogs() {
+        guard let anotherUser = anotherUser else { return }
+        output?.openAnotherMoreBlogsblogs(blogs: anotherUser.arrayBlogs)
+    }
+    
+    func setupUser(user: User) {
+        anotherUser = user
+    }
+    
     func giveStatus() {
-        if defaultUser.arrayFolloving.contains(anotherDefaultUser) {
+        guard let anotherUser = anotherUser else { return }
+        
+        if defaultUser.arrayFolloving.contains(anotherUser) {
             output?.updateStatus(text: StandartLanguage.statusOnFollowButtonAnotherProfileScreen)
         } else {
             output?.updateStatus(text: StandartLanguage.statusOffFollowButtonAnotherProfileScreen)
@@ -27,17 +36,18 @@ extension AnotherProfileInteractor: AnotherProfileInteractorInput {
     }
     
     func subscribe() {
+        guard let anotherUser = anotherUser else { return }
         
-        if defaultUser.arrayFolloving.contains(anotherDefaultUser),
-           anotherDefaultUser.arrayFollowers.contains(defaultUser) {
+        if defaultUser.arrayFolloving.contains(anotherUser),
+           anotherUser.arrayFollowers.contains(defaultUser) {
             
-            defaultUser.arrayFolloving.remove(anotherDefaultUser)
-            anotherDefaultUser.arrayFollowers.remove(defaultUser)
+            defaultUser.arrayFolloving.remove(anotherUser)
+            anotherUser.arrayFollowers.remove(defaultUser)
         } else {
             if defaultUser.arrayFolloving.count < 2500 {
                 
-                defaultUser.arrayFolloving.insert(anotherDefaultUser)
-                anotherDefaultUser.arrayFollowers.insert(defaultUser)
+                defaultUser.arrayFolloving.insert(anotherUser)
+                anotherUser.arrayFollowers.insert(defaultUser)
             }
         }
         fetchBlogs()
@@ -46,21 +56,26 @@ extension AnotherProfileInteractor: AnotherProfileInteractorInput {
     }
     
     func giveAnotherProfile() {
-        output?.giveAwayAnotherProfile(profile: anotherDefaultUser)
+        guard let anotherUser = anotherUser else { return }
+        output?.giveAwayAnotherProfile(profile: anotherUser)
     }
     
     func giveBlogsArrayCount() -> Int {
-        return arrayBlogs.count
+        guard let anotherUser = anotherUser else { return 0 }
+        return anotherUser.arrayBlogs.count
     }
     
     func getBlog(at indexPath: IndexPath) {
-        let blog = arrayBlogs[indexPath.row]
+        guard let anotherUser = anotherUser else { return }
+        
+        let blog = anotherUser.arrayBlogs[indexPath.row]
         playSound(name: .openController)
         
         output?.blogDidRecieve(blog)
     }
     
     func fetchBlogs() {
-        output?.blogsDidRecieve(arrayBlogs)
+        guard let anotherUser = anotherUser else { return }
+        output?.blogsDidRecieve(anotherUser.arrayBlogs)
     }
 }

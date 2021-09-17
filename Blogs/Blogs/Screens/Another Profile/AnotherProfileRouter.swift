@@ -23,8 +23,9 @@ extension AnotherProfileRouter: AnotherProfileRouterInput {
         self.sourceViewController?.navigationController?.popViewController(animated: true)
     }
     
-    func openAnotherMoreBlogsViewController() {
+    func openAnotherMoreBlogsViewController(blogs: [Blog]) {
         let container = AnotherMoreBlogsContainer.assemble(with: .init())
+        container.input.getArrayBlogs(array: blogs)
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     

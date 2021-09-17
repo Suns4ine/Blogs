@@ -100,6 +100,8 @@ final class SignUpInteractor {
                     
                     createUser.tagname = self?.tagname ?? ""
                     createUser.mail = self?.mail ?? ""
+                    createUser.identifier =  String(result.user.uid)
+                    createUser.randomUserAvatar()
                     
                     db.collection("users").document(result.user.uid).setData([
                         "name" : createUser.name,

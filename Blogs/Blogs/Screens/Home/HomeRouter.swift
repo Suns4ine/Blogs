@@ -33,6 +33,7 @@ extension HomeRouter: HomeRouterInput {
             self.sourceViewController?.navigationController?.pushViewController(tabBarController, animated: false)
         } else {
             let container = AnotherProfileContainer.assemble(with: .init())
+            container.input.openUser(user: user)
             self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
         }
     }

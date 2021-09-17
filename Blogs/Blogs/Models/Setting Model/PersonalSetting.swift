@@ -55,6 +55,7 @@ struct PersonalSetting {
         UserDefaults.standard.set(notification, forKey: PersonalSettingsKeys.notification.rawValue)
         UserDefaults.standard.set(language.rawValue, forKey: PersonalSettingsKeys.language.rawValue)
         UserDefaults.standard.set(theme.rawValue, forKey: PersonalSettingsKeys.theme.rawValue)
+        UserManager.updateDataPersonalSettingUser()
     }
 }
 

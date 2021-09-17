@@ -22,6 +22,10 @@ final class AnotherProfilePresenter {
 }
 
 extension AnotherProfilePresenter: AnotherProfileModuleInput {
+    func openUser(user: User) {
+        interactor.setupUser(user: user)
+    }
+    
 }
 //MARK: Убрать дефолтный блог в giveTableHeight
 extension AnotherProfilePresenter: AnotherProfileViewOutput {
@@ -56,12 +60,17 @@ extension AnotherProfilePresenter: AnotherProfileViewOutput {
     }
     
     func didTapMoreBlogButton() {
-        router.openAnotherMoreBlogsViewController()
+        interactor.getBlogs()
+        //router.openAnotherMoreBlogsViewController(blogs: blogs)
     }
     
 }
 
 extension AnotherProfilePresenter: AnotherProfileInteractorOutput {
+    func openAnotherMoreBlogsblogs(blogs: [Blog]) {
+        router.openAnotherMoreBlogsViewController(blogs: blogs)
+    }
+    
     func updateStatus(text: String) {
         view?.updateStatusSubscribe(text: text)
     }

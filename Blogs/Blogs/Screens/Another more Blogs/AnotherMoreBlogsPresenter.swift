@@ -22,9 +22,14 @@ final class AnotherMoreBlogsPresenter {
 }
 
 extension AnotherMoreBlogsPresenter: AnotherMoreBlogsModuleInput {
+    func getArrayBlogs(array: [Blog]) {
+        interactor.setupArrayBlogs(array: array)
+    }
+    
 }
 
 extension AnotherMoreBlogsPresenter: AnotherMoreBlogsViewOutput {
+    
     func fetchBlogsCell() {
         interactor.fetchBlogs()
     }
