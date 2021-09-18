@@ -27,7 +27,7 @@ final class BlogCellViewModel: BlogCellIdentifiable {
     
     init(blog: Blog) {
         title = blog.title
-        nameSubTitle = blog.user.tagname
+        nameSubTitle = blog.nameUser
         dateSubTitle = blog.finalPost.date.stringDate()
         tagSubTitle = blog.arrayTags.returnEnumerationString()
         avatar = blog.user.avatarURL

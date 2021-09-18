@@ -14,7 +14,7 @@ final class BlogInteractor {
     
     private let updateQueue = DispatchQueue(label: "updateQueueBlog",
                                             qos: .userInteractive,
-                                            attributes: .initiallyInactive,
+                                            attributes: .concurrent,
                                             autoreleaseFrequency: .workItem)
     
     
@@ -32,13 +32,13 @@ final class BlogInteractor {
 extension BlogInteractor: BlogInteractorInput {
     func saveData() {
         guard let blog = blog else { return }
-        UserManager.addBlog(blog: blog, nameArray: "arrayLikedBlogs", queue: updateQueue)
+        //UserManager.addBlog(blog: blog, nameArray: "arrayLikedBlogs", queue: updateQueue)
         
-        updateQueue.async {
-            DispatchQueue.main.async {
+        //updateQueue.async {
+          //  DispatchQueue.main.async {
                 self.output?.popController()
-            }
-        }
+            //}
+        //}
     }
     
     
@@ -108,7 +108,7 @@ extension BlogInteractor: BlogInteractorInput {
         output?.transferText(text: blog.finalPost.text)
         output?.transferTags(text: tags)
         output?.transferDate(text: blog.dateCreate.stringDate())
-        output?.transferName(text: blog.user.tagname)
+        output?.transferName(text: blog.nameUser)
     }
     
     func subscribe() {

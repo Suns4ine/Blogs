@@ -18,7 +18,8 @@ class Blog: Hashable {
          hasher.combine(ObjectIdentifier(self))
     }
     
-    let user: User
+    var user: User
+    var nameUser: String = ""
     var title: String = "title"
     var dateCreate: Date
     var finalPost: Post
@@ -48,6 +49,7 @@ class Blog: Hashable {
         self.arrayShareUsers = arrayShareUsers
         self.rating = rating
         self.identifier = identifier
+        nameUser = user.tagname
     }
     
     func deleteBlog() {

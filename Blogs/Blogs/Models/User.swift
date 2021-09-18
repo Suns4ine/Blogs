@@ -5,6 +5,7 @@
 //  Created by Vyacheslav Pronin on 25.08.2021.
 //
 
+import Firebase
 import Foundation
 import UIKit
 
@@ -45,8 +46,22 @@ class User: Hashable {
             tagname = tagname.lowercased()
         }
     }
-    var arrayBlogs: [Blog]
-    var arrayDrafts: [Blog]
+    var arrayBlogs: [Blog] {
+        didSet {
+            guard let user = Auth.auth().currentUser else { return }
+            if identifier == user.uid {
+                UserManager.updateBlogs(blogs: arrayBlogs, nameArray: "arrayBlogs", queue: DispatchQueue.main)
+            }
+        }
+    }
+    var arrayDrafts: [Blog] {
+        didSet {
+            guard let user = Auth.auth().currentUser else { return }
+            if identifier == user.uid {
+                UserManager.updateBlogs(blogs: arrayDrafts, nameArray: "arrayDrafts", queue: DispatchQueue.main)
+            }
+        }
+    }
     var arrayLikedBlogs: Set<Blog>
     var arrayFollowers: Set<User>
     var arrayFolloving: Set<User>

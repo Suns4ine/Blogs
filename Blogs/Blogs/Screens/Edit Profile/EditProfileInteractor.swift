@@ -159,7 +159,7 @@ final class EditProfileInteractor {
                 } else {
                     DispatchQueue.main.async {
                         self?.output?.openBackViewController()
-                        debugPrint("Данные обновлены!")
+                        debugPrint("Личные данные обновлены!")
                     }
                 }
                 

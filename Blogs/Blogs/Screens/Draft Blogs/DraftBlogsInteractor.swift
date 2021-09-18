@@ -44,14 +44,14 @@ extension DraftBlogsInteractor: DraftBlogsInteractorInput {
     func deleteBlog(at indexPath: IndexPath) {
         defaultUser.arrayDrafts.remove(at: indexPath.row)
         
-        output?.indexDeleteReiceve(indexPath)
+        self.output?.indexDeleteReiceve(indexPath)
     }
     
     
     func getBlog(at indexPath: IndexPath) {
         let blog = defaultUser.arrayDrafts.remove(at: indexPath.row)
-        playSound(name: .closeController)
         
+        playSound(name: .closeController)
         safeDraft(blog)
         output?.openBackController()
     }

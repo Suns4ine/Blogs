@@ -25,7 +25,7 @@ final class StandartBlogCellViewModel: StandartBlogCellIdentifiable {
     
     init(blog: Blog) {
         title = blog.title
-        nameSubTitle = blog.user.tagname
+        nameSubTitle = blog.nameUser
         dateSubTitle = blog.finalPost.date.stringDate()
         user = blog.user
     }

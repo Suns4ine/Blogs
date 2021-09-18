@@ -115,6 +115,7 @@ final class UserManager {
         finalPost["text"] = blog.finalPost.text
         finalPost["arrayTags"] = blog.finalPost.arrayTags
         
+        dataBlog["nameUser"] = blog.nameUser
         dataBlog["title"] = blog.title
         dataBlog["dateCreate"] = blog.dateCreate
         dataBlog["arrayTags"] = blog.arrayTags
@@ -136,26 +137,69 @@ final class UserManager {
         }
     }
     
+    static func updateBlogs(blogs: [Blog], nameArray: String, queue: DispatchQueue ) {
+        guard let user = Auth.auth().currentUser else { return }
+        let db = Firestore.firestore()
+        
+        var finalBlogs: [Any] = []
+        
+        for blog in blogs {
+            var dataBlog: [String: Any] = [:]
+            var finalPost: [String: Any] = [:]
+            
+            finalPost["date"] = blog.finalPost.date
+            finalPost["title"] = blog.finalPost.title
+            finalPost["text"] = blog.finalPost.text
+            finalPost["arrayTags"] = blog.finalPost.arrayTags
+            
+            dataBlog["nameUser"] = blog.nameUser
+            dataBlog["title"] = blog.title
+            dataBlog["dateCreate"] = blog.dateCreate
+            dataBlog["arrayTags"] = blog.arrayTags
+            dataBlog["rating"] = blog.rating
+            dataBlog["identifier"] = blog.identifier
+            dataBlog["finalPost"] = finalPost
+            
+            finalBlogs.append(dataBlog)
+        }
+        
+        
+        db.collection("users").document(user.uid).updateData([
+            nameArray : finalBlogs
+        ]) { error in
+            if error != nil {
+                debugPrint("\(String(describing: error?.localizedDescription))!")
+            } else {
+                debugPrint("Блоги обновлены в базе данных!")
+                queue.activate()
+            }
+
+        }
+    }
+    
     //Из-за того, что Firebase не пойми когда выполняет свой запрос
     static func getArrayBlogs(document: [String : Any]) {
         guard Auth.auth().currentUser != nil else { return }
 
         guard let arrayDocument = document["arrayBlogs"] as? Array<Any> else { return }
         defaultUser.arrayBlogs = parsingBlog(blogs: arrayDocument).sorted{ $0.dateCreate > $1.dateCreate}
+        debugPrint("\(defaultUser.arrayBlogs.count) arrayBlogs!")
     }
     
     static func getArrayDraftBlogs(document: [String : Any]) {
         guard Auth.auth().currentUser != nil else { return }
 
         guard let arrayDocument = document["arrayDrafts"] as? Array<Any> else { return }
-        defaultUser.arrayBlogs = parsingBlog(blogs: arrayDocument).sorted{ $0.dateCreate > $1.dateCreate}
+        defaultUser.arrayDrafts = parsingBlog(blogs: arrayDocument).sorted{ $0.dateCreate > $1.dateCreate}
+        debugPrint("\(defaultUser.arrayDrafts.count) arrayDrafts!")
     }
     
     static func getArrayLikedBlogs(document: [String : Any]) {
         guard Auth.auth().currentUser != nil else { return }
 
         guard let arrayDocument = document["arrayLikedBlogs"] as? Array<Any> else { return }
-        defaultUser.arrayBlogs = parsingBlog(blogs: arrayDocument).sorted{ $0.dateCreate > $1.dateCreate}
+        defaultUser.arrayLikedBlogs = Set(parsingBlog(blogs: arrayDocument).sorted{ $0.dateCreate > $1.dateCreate})
+        debugPrint("\(defaultUser.arrayLikedBlogs.count) arrayLikedBlogs!")
     }
     
     private static func parsingBlog(blogs: [Any]) -> [Blog] {
@@ -168,6 +212,7 @@ final class UserManager {
             guard let arrayTags = blog["arrayTags"] as? [String] else { continue }
             guard let rating = blog["rating"] as? Int else { continue }
             guard let identifier = blog["identifier"] as? String else { continue }
+            guard let nameUser = blog["nameUser"] as? String else { continue }
             guard let post = blog["finalPost"] as? [String : Any] else { continue }
             
             guard let datePost = post["date"] as? Timestamp else { continue }
@@ -187,11 +232,9 @@ final class UserManager {
                             arrayShareUsers: Set(),
                             rating: rating,
                             identifier: identifier)
-            
+            newBlog.nameUser = nameUser
             arrayBlog.append(newBlog)
         }
-        debugPrint("\(blogs.count) blogs!")
-        debugPrint("\(arrayBlog.count)!")
         return arrayBlog
     }
 }

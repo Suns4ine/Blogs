@@ -13,7 +13,7 @@ final class AdditionBlogInteractor {
     
     private let updateQueue = DispatchQueue(label: "updateQueueAdditionBlog",
                                             qos: .utility,
-                                            attributes: .initiallyInactive,
+                                            attributes: .concurrent,
                                             autoreleaseFrequency: .workItem)
                       
     

@@ -118,7 +118,7 @@ final class MyMoreBlogsViewController: UIViewController {
 extension MyMoreBlogsViewController: MyMoreBlogsViewInput {
     func clearTableCell(at indexPath: IndexPath) {
         section.rows.remove(at: indexPath.row)
-        myBlogsTableView.deleteRows(at: [indexPath], with: .right)
+        myBlogsTableView.deleteRows(at: [indexPath], with: .left)
     }
     
     func reloadData(for section: StandartBlogSectionViewModel) {
