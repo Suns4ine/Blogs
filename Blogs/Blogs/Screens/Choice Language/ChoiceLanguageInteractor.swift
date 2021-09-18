@@ -16,7 +16,6 @@ final class ChoiceLanguageInteractor {
         .init(title: LanguagesApplicationDictionary[.ru] ?? LanguagesApplication.ru.rawValue)]
 }
 
-//MARK: Удалить дефелтного юзера
 extension ChoiceLanguageInteractor: ChoiceLanguageInteractorInput {
     
     func getChoice(at indexPath: Int) {

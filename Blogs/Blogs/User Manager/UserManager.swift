@@ -11,7 +11,7 @@ import FirebaseStorage
 
 final class UserManager {
 
-    static func getDocument(queue: DispatchQueue) {
+    static func getDocument(closure: @escaping () -> Void = { }) {
     
     guard let user = Auth.auth().currentUser else { return }
     let db = Firestore.firestore()
@@ -27,7 +27,7 @@ final class UserManager {
                 return
             }
             self.setUser(document: document)
-            queue.activate()
+            closure()
             }
         }
     }
@@ -103,7 +103,7 @@ final class UserManager {
         }
     }
     
-    static func addBlog(blog: Blog, nameArray: String, queue: DispatchQueue ) {
+    static func addBlog(blog: Blog, nameArray: String, closure: @escaping () -> Void = { }) {
         guard let user = Auth.auth().currentUser else { return }
         let db = Firestore.firestore()
         
@@ -131,13 +131,13 @@ final class UserManager {
                 debugPrint("\(String(describing: error?.localizedDescription))!")
             } else {
                 debugPrint("Блог добавлен в базу данных!")
-                queue.activate()
+                closure()
             }
 
         }
     }
     
-    static func updateBlogs(blogs: [Blog], nameArray: String, queue: DispatchQueue ) {
+    static func updateBlogs(blogs: [Blog], nameArray: String, closure: @escaping () -> Void = { } ) {
         guard let user = Auth.auth().currentUser else { return }
         let db = Firestore.firestore()
         
@@ -171,7 +171,7 @@ final class UserManager {
                 debugPrint("\(String(describing: error?.localizedDescription))!")
             } else {
                 debugPrint("Блоги обновлены в базе данных!")
-                queue.activate()
+                closure()
             }
 
         }

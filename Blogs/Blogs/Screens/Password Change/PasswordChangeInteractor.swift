@@ -16,10 +16,6 @@ final class PasswordChangeInteractor {
     private var oldPassword = ""
     private var repeatPassword = ""
     private var newPassword = ""
-    private let nextQueue = DispatchQueue(label: "nextQueuePasswordChange",
-                                          qos: .userInteractive,
-                                          attributes: .initiallyInactive,
-                                          autoreleaseFrequency: .workItem)
     
     private func checkNewPassword(pass: String) -> Bool {
         let text = pass.trimmingCharacters(in: .whitespaces)
@@ -64,8 +60,20 @@ final class PasswordChangeInteractor {
             if error != nil {
                 self?.output?.transferErrorOldPassword(text: "Не правильный пароль")
             } else {
-                self?.nextQueue.activate()
                 self?.output?.transferErrorOldPassword(text: "")
+                
+                /*
+                Пришлось перенести сюда, так как повторная аунтефикаиця проходит
+                после завершения функции, а без нее нельяз проверить старый пароль
+                */
+                guard let newPassword = self?.newPassword else { return }
+                guard let repeatPassword = self?.repeatPassword else { return }
+                
+                
+                if self?.checkNewPassword(pass: newPassword) ?? false,
+                   self?.checkRepeatPassword(pass: repeatPassword) ?? false {
+                    self?.updatePassword(pass: newPassword)
+                }
             }
         }
     }
@@ -85,6 +93,10 @@ final class PasswordChangeInteractor {
 }
 
 extension PasswordChangeInteractor: PasswordChangeInteractorInput {
+    func backController() {
+        output?.openBackViewController()
+    }
+    
     func giveOldPasswordText(text: String) {
         oldPassword = text
     }
@@ -100,16 +112,6 @@ extension PasswordChangeInteractor: PasswordChangeInteractorInput {
     func verificationOfEnteredData() {
         
         resetSignIn(pass: oldPassword)
-        
-        nextQueue.async {
-            DispatchQueue.main.async {
-                if self.checkNewPassword(pass: self.newPassword),
-                   self.checkRepeatPassword(pass: self.repeatPassword) {
-                    self.updatePassword(pass: self.newPassword)
-                }
-            }
-        }
-
     }
     
 }

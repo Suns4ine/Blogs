@@ -19,11 +19,6 @@ final class EditProfileInteractor {
     private var newSurname = defaultUser.surname
     private var newTagname = defaultUser.tagname
     private var newAboutMe = defaultUser.aboutMe
-    private let updateQueue = DispatchQueue(label: "updateQueueEditProfile",
-                                                qos: .utility,
-                                                attributes: .initiallyInactive,
-                                                autoreleaseFrequency: .workItem)
-    
     
     private func checkName(name: String) -> Bool {
         let text = name.trimmingCharacters(in: .whitespaces)
@@ -95,13 +90,8 @@ final class EditProfileInteractor {
         }
     }
     
-    private func uploadImage(queue: DispatchQueue) {
-        /*
-         ref = ссылка на область где у нас хранится фотка в беке
-         path = ссылка на область шде у нас на телефоне (сделано так, потому что если запишем фотку сразу в pathIdentifier,
-         и выйдем, не сохраняясь, то фотка в любому случае изменится, да еще и не пойдет на бэкенд)
-         pathIdentifier = ссылка куда мы запишем в конце нашу фотку
-         */
+    private func uploadImage(closure: @escaping () -> Void = { }) {
+
         let ref = Storage.storage().reference().child("avatars").child(defaultUser.identifier)
         let oldPath = getDocumentsDirectory().appendingPathComponent(avatar)
         let path = getDocumentsDirectory().appendingPathComponent(defaultUser.identifier)
@@ -127,7 +117,7 @@ final class EditProfileInteractor {
                     return
                 }
                 defaultUser.avatarURL = url.absoluteString
-                queue.activate()
+                closure()
             }
         }
     }
@@ -137,16 +127,7 @@ final class EditProfileInteractor {
         
         guard let user = user else { return }
         
-        /*  Есть Проблема с Firebase: Почему-то putData срабатывает после updateData, хотя вызвается раньше.
-            Возможно тут проблема в том, в каких потоках работает FireBase. Нам надо чтобы сначало фото отправилось на бэк,
-            чтобы мы могли получить актуальный url для записи его в наш профиль. Для этого делается специальная очередь,
-            которая активируется после записи фотки на бэк. Но закрыть экран мы может только в том случае, когда у нас удачно
-            все записалось, именно поэтому экран будет чутка висеть при сохранении.
-         */
-        
-        uploadImage(queue: updateQueue)
-
-        updateQueue.async {
+        let updateData = {
             db.collection("users").document(user.uid).updateData([
                 "name" : defaultUser.name,
                 "surname" : defaultUser.surname,
@@ -157,18 +138,16 @@ final class EditProfileInteractor {
                 if error != nil {
                     self?.output?.transferErrorName(text: "Ошибка обновления данных")
                 } else {
-                    DispatchQueue.main.async {
-                        self?.output?.openBackViewController()
-                        debugPrint("Личные данные обновлены!")
-                    }
+                    debugPrint("Личные данные обновлены!")
                 }
-                
             }
         }
+        
+        uploadImage(closure: updateData)
+        output?.openBackViewController()
     }
 }
 
-//MARK: Удалить потом дефолтного пользователя
 extension EditProfileInteractor: EditProfileInteractorInput {
     func giveAvatar(image: String) {
         avatar = image

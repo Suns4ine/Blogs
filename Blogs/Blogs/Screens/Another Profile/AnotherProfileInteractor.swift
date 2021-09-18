@@ -14,7 +14,6 @@ final class AnotherProfileInteractor {
     private var anotherUser: User?
 }
 
-//MARK: Удалить дефелтного юзера
 extension AnotherProfileInteractor: AnotherProfileInteractorInput {
     func getBlogs() {
         guard let anotherUser = anotherUser else { return }

@@ -43,7 +43,6 @@ protocol BlogViewOutput: class {
 }
 
 protocol BlogInteractorInput: class {
-    func saveData()
     func tapProfile()
     func tapLike()
     func shareBlogs()
@@ -55,7 +54,6 @@ protocol BlogInteractorInput: class {
 }
 
 protocol BlogInteractorOutput: class {
-    func popController()
     func setupMyBlog()
     func setupAnotherBlog()
     func updateStatus(text: String)

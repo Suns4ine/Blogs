@@ -10,11 +10,6 @@ import Foundation
 
 final class MyMoreBlogsInteractor {
 	weak var output: MyMoreBlogsInteractorOutput?
-    
-    private let updateQueue = DispatchQueue(label: "updateQueueMyMoreBlogs",
-                                            qos: .userInteractive,
-                                            attributes: .concurrent,
-                                            autoreleaseFrequency: .workItem)
 }
 
 extension MyMoreBlogsInteractor: MyMoreBlogsInteractorInput {
@@ -23,15 +18,9 @@ extension MyMoreBlogsInteractor: MyMoreBlogsInteractorInput {
         if defaultUser.arrayBlogs.indices.contains(indexPath.row) {
             defaultUser.arrayBlogs[indexPath.row].deleteBlog()
             defaultUser.arrayBlogs.remove(at: indexPath.row)
-            
-            UserManager.updateBlogs(blogs: defaultUser.arrayBlogs, nameArray: "arrayBlogs", queue: updateQueue)
         }
-        updateQueue.async {
-            DispatchQueue.main.async {
-                self.output?.indexDeleteReiceve(indexPath)
-            }
-        }
-
+        
+        output?.indexDeleteReiceve(indexPath)
     }
     
     func getBlog(at indexPath: IndexPath) {

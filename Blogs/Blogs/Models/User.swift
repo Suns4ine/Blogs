@@ -50,7 +50,7 @@ class User: Hashable {
         didSet {
             guard let user = Auth.auth().currentUser else { return }
             if identifier == user.uid {
-                UserManager.updateBlogs(blogs: arrayBlogs, nameArray: "arrayBlogs", queue: DispatchQueue.main)
+                UserManager.updateBlogs(blogs: arrayBlogs, nameArray: "arrayBlogs")
             }
         }
     }
@@ -58,7 +58,7 @@ class User: Hashable {
         didSet {
             guard let user = Auth.auth().currentUser else { return }
             if identifier == user.uid {
-                UserManager.updateBlogs(blogs: arrayDrafts, nameArray: "arrayDrafts", queue: DispatchQueue.main)
+                UserManager.updateBlogs(blogs: arrayDrafts, nameArray: "arrayDrafts")
             }
         }
     }
@@ -66,7 +66,7 @@ class User: Hashable {
         didSet {
             guard let user = Auth.auth().currentUser else { return }
             if identifier == user.uid {
-                UserManager.updateBlogs(blogs: Array(arrayLikedBlogs), nameArray: "arrayLikedBlogs", queue: DispatchQueue.main)
+                UserManager.updateBlogs(blogs: Array(arrayLikedBlogs), nameArray: "arrayLikedBlogs")
             }
         }
     }

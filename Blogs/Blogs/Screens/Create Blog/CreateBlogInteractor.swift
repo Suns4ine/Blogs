@@ -15,11 +15,6 @@ final class CreateBlogInteractor {
     
     private var utilitiesArray: [Utility] = [.image, .alignJustify, .alignLeft, .alignRight, .bold, .italic, .underline]
     
-    private let updateQueue = DispatchQueue(label: "updateQueueCreateBlog",
-                                            qos: .utility,
-                                            attributes: .concurrent,
-                                            autoreleaseFrequency: .workItem)
-    
     private func clearText(_ text: String) -> String {
         let result = text.condenseWhitespace()
         
@@ -49,21 +44,14 @@ extension CreateBlogInteractor: CreateBlogInteractorInput {
             
             
             defaultUser.arrayDrafts.insert(draftBlog, at: 0)
-            UserManager.addBlog(blog: defaultUser.arrayDrafts[0], nameArray: "arrayDrafts", queue: updateQueue)
-        } else {
-            updateQueue.activate()
         }
         
         defaultDraft = Post(date: .init(),
                             title: "",
                             text: "",
                             arrayTags: [])
-        
-        updateQueue.async {
-            DispatchQueue.main.async {
-                self.output?.openBackController()
-            }
-        }
+
+        output?.openBackController()
     }
     
     func giveText() {

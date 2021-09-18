@@ -10,14 +10,8 @@ import Foundation
 
 final class MyProfileInteractor {
 	weak var output: MyProfileInteractorOutput?
-    
-    //MARK: ОСторожно
-    private let updateQueue = DispatchQueue(label: "updateQueueMyProfile",
-                                            qos: .userInteractive,
-                                            attributes: .concurrent,
-                                            autoreleaseFrequency: .workItem)
 }
-//MARK: Убрать дефолтного юзера
+
 extension MyProfileInteractor: MyProfileInteractorInput {
     func deleteBlog(at indexPath: IndexPath) {
 
@@ -25,27 +19,14 @@ extension MyProfileInteractor: MyProfileInteractorInput {
 
             defaultUser.arrayBlogs[indexPath.row].deleteBlog()
             defaultUser.arrayBlogs.remove(at: indexPath.row)
-            UserManager.updateBlogs(blogs: defaultUser.arrayBlogs, nameArray: "arrayBlogs", queue: updateQueue)
-        }
-        
-        
-        updateQueue.async {
-            DispatchQueue.main.async {
-                self.output?.indexDeleteReiceve(indexPath)
-            }
         }
 
+        output?.indexDeleteReiceve(indexPath)
     }
     
     func giveMyProfile() {
-     //   UserManager.getDocument(queue: DispatchQueue.main)
-        
-       // updateQueue.async {
-            DispatchQueue.main.async {
-                self.output?.giveAwayMyProfile(profile: defaultUser)
-                self.output?.blogsDidRecieve(defaultUser.arrayBlogs)
-            }
-        //}
+        output?.giveAwayMyProfile(profile: defaultUser)
+        output?.blogsDidRecieve(defaultUser.arrayBlogs)
     }
     
     func giveBlogsArrayCount() -> Int {

@@ -30,6 +30,7 @@ protocol PasswordChangeViewOutput: class {
 }
 
 protocol PasswordChangeInteractorInput: class {
+    func backController()
     func giveOldPasswordText(text: String)
     func newPasswordText(text: String)
     func newRepeatPasswordText(text: String)

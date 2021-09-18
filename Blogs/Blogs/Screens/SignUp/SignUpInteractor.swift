@@ -13,17 +13,13 @@ import FirebaseAuth
 final class SignUpInteractor {
 	weak var output: SignUpInteractorOutput?
     
+    private var mail: String = ""
+    private var password: String = ""
     private var tagname: String = "" {
         didSet {
             tagname = tagname.lowercased()
         }
     }
-    private var mail: String = ""
-    private var password: String = ""
-    private let nextQueue = DispatchQueue(label: "nextQueueSignUp",
-                                          qos: .userInteractive,
-                                          attributes: .initiallyInactive,
-                                          autoreleaseFrequency: .workItem)
     
     private func checkTagname(tagname: String) -> Bool {
         let text = tagname.trimmingCharacters(in: .whitespaces)
@@ -96,7 +92,6 @@ final class SignUpInteractor {
                 }
                 else {
                     
-                    // User was created successfully, now store the first name and last name
                     let db = Firestore.firestore()
                     
                     guard let result = res else { return }
@@ -138,11 +133,9 @@ final class SignUpInteractor {
                     }
                     
                     defaultUser = newUser
-                    self?.nextQueue.activate()
+                    self?.output?.openTabBar()
                 }
-                
             }
-            
     }
 }
 
@@ -154,14 +147,7 @@ extension SignUpInteractor: SignUpInteractorInput {
            checkMail(mail: mail),
            checkPassword(pass: password) {
             registerUser()
-            
-            nextQueue.async {
-                DispatchQueue.main.async {
-                    self.output?.openTabBar()
-                }
-            }
         }
-        
     }
     
     func newNameText(text: String) {

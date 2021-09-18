@@ -12,11 +12,6 @@ import FirebaseAuth
 final class SettingInteractor {
 	weak var output: SettingInteractorOutput?
     
-    private let outQueue = DispatchQueue(label: "outQueueSetting",
-                                         qos: .userInteractive,
-                                         attributes: .initiallyInactive,
-                                         autoreleaseFrequency: .workItem)
-    
     private func clearDefaultUser() {
         defaultUser.clearUser()
         defaultSetting[0].flag = defaultUser.personalSetting.notification
@@ -28,16 +23,12 @@ final class SettingInteractor {
         let firebaseAuth = Auth.auth()
         do {
           try firebaseAuth.signOut()
-            outQueue.activate()
         } catch let signOutError as NSError {
           debugPrint("Error signing out: %@", signOutError)
         }
-        outQueue.async {
-            DispatchQueue.main.async {
-                self.clearDefaultUser()
-                self.output?.openStart()
-            }
-        }
+
+        clearDefaultUser()
+        output?.openStart()
     }
 }
 
