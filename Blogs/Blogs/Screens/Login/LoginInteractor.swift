@@ -15,6 +15,10 @@ final class LoginInteractor {
 	weak var output: LoginInteractorOutput?
     private var login: String = ""
     private var password: String = ""
+//    private let nextQueue = DispatchQueue(label: "nextQueueLogin",
+//                                          qos: .userInteractive,
+//                                          attributes: .initiallyInactive,
+//                                          autoreleaseFrequency: .workItem)
     
     private func checkLogin(login: String) -> Bool {
         let text = login.trimmingCharacters(in: .whitespaces)
@@ -52,7 +56,6 @@ final class LoginInteractor {
     
     private func authUser() {
             
-        // Signing in the user
         Auth.auth().signIn(withEmail: login, password: password) { [weak self] (result, error) in
             
             if error != nil {
@@ -76,10 +79,9 @@ final class LoginInteractor {
                             return
                         }
                         self?.updateDataUser(document: document)
+                        //self?.nextQueue.activate()
                     }
                 }
-                
-                self?.output?.openTabBar()
             }
         }
     }
@@ -93,10 +95,16 @@ extension LoginInteractor: LoginInteractorInput {
     
     func verificationOfEnteredData() {
         
-        if checkLogin(login: login) && checkPassword(pass: password) {
-            authUser()
-        }
-        
+//        if checkLogin(login: login),
+//           checkPassword(pass: password) {
+//            authUser()
+//            
+//            nextQueue.async {
+//                DispatchQueue.main.async {
+//                    self.output?.openTabBar()
+//                }
+//            }
+//        }
     }
     
     func newLoginText(text: String) {

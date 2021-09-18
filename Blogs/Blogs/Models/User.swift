@@ -186,7 +186,11 @@ extension User {
     }
     
 
-    static var arrayAnotherUsers: [User] = returnArrayAnotherUsers()
+    static func createArrayAnotherUsers() {
+        arrayAnotherUsers = returnArrayAnotherUsers()
+    }
+    
+    static var arrayAnotherUsers: [User] = []
 
     static func returnArrayAnotherUsers() -> [User] {
         var array: [User] = []
@@ -217,7 +221,7 @@ extension User {
         return array
     }
 
-    func createArrayAnotherBlogs(user: User) {
+    private func createArrayAnotherBlogs(user: User) {
         
         for _ in 1...Int.random(in: 3...6) {
             user.arrayBlogs.append(Blog.randomBlog(user: user))

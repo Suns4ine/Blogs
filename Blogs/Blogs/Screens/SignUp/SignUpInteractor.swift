@@ -20,6 +20,10 @@ final class SignUpInteractor {
     }
     private var mail: String = ""
     private var password: String = ""
+//    private let nextQueue = DispatchQueue(label: "nextQueueSignUp",
+//                                          qos: .userInteractive,
+//                                          attributes: .initiallyInactive,
+//                                          autoreleaseFrequency: .workItem)
     
     private func checkTagname(tagname: String) -> Bool {
         let text = tagname.trimmingCharacters(in: .whitespaces)
@@ -128,13 +132,13 @@ final class SignUpInteractor {
 
                         if error != nil {
                             // Show error message
-                            debugPrint("\(error?.localizedDescription)!")
+                            debugPrint("\(String(describing: error?.localizedDescription))!")
                             self?.output?.transferErrorName(text: "Ошибка сохранения данных")
                         }
                     }
                     
                     defaultUser = newUser
-                    self?.output?.openTabBar()
+                   // self?.nextQueue.activate()
                 }
                 
             }
@@ -146,11 +150,17 @@ extension SignUpInteractor: SignUpInteractorInput {
     
     func verificationOfEnteredData() {
         
-        if checkTagname(tagname: tagname),
-           checkMail(mail: mail),
-           checkPassword(pass: password) {
-            registerUser()
-        }
+//        if checkTagname(tagname: tagname),
+//           checkMail(mail: mail),
+//           checkPassword(pass: password) {
+//            registerUser()
+//            
+//            nextQueue.async {
+//                DispatchQueue.main.async {
+//                    self.output?.openTabBar()
+//                }
+//            }
+//        }
         
     }
     

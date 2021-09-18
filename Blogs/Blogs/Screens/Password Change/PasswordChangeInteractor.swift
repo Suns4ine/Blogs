@@ -12,35 +12,14 @@ import FirebaseAuth
 final class PasswordChangeInteractor {
 	weak var output: PasswordChangeInteractorOutput?
     
-    private var flag = false {
-        didSet {
-            debugPrint("!\(flag)!")
-        }
-    }
     private let user = Auth.auth().currentUser
     private var oldPassword = ""
     private var repeatPassword = ""
-    private var newPassword = "" {
-        didSet {
-            newPassword = newPassword.trimmingCharacters(in: .whitespaces)
-        }
-    }
-    
-    private func checkOldPassword(pass: String) -> Bool {
-        let pass = pass.trimmingCharacters(in: .whitespaces)
-        flag = false
-        
-        switch pass {
-        case let pass where pass.isEmpty:
-            output?.transferErrorOldPassword(text: "Пустое поле")
-            flag = false
-        default:
-            break
-        }
-        
-        flag = resetSignIn(pass: pass)
-        return true
-    }
+    private var newPassword = ""
+//    private let nextQueue = DispatchQueue(label: "nextQueuePasswordChange",
+//                                          qos: .userInteractive,
+//                                          attributes: .initiallyInactive,
+//                                          autoreleaseFrequency: .workItem)
     
     private func checkNewPassword(pass: String) -> Bool {
         let text = pass.trimmingCharacters(in: .whitespaces)
@@ -48,9 +27,9 @@ final class PasswordChangeInteractor {
         case let text where text.isEmpty:
             output?.transferErrorNewPassword(text: "Пустое поле")
             return false
-//        case let text where text == defaultUser.password:
-//            output?.transferErrorNewPassword(text: "Совпадает со старым паролем")
-//            return false
+        case let text where text == oldPassword:
+            output?.transferErrorNewPassword(text: "Совпадает со старым паролем")
+            return false
         case let text where text.count < 6:
             output?.transferErrorNewPassword(text: "Минимум 6 символов")
             return false
@@ -58,6 +37,7 @@ final class PasswordChangeInteractor {
             output?.transferErrorNewPassword(text: "Максимум 40 символов")
             return false
         default:
+            newPassword = text
             output?.transferErrorNewPassword(text: "")
             return true
         }
@@ -78,19 +58,16 @@ final class PasswordChangeInteractor {
         }
     }
     
-    private func resetSignIn(pass: String) -> Bool {
-        //flag = false
+    private func resetSignIn(pass: String) {
+
         Auth.auth().signIn(withEmail: defaultUser.mail, password: pass) { [weak self] (result, error) in
-           
             if error != nil {
-                self?.flag = false
                 self?.output?.transferErrorOldPassword(text: "Не правильный пароль")
             } else {
-                self?.flag = true
+                //self?.nextQueue.activate()
                 self?.output?.transferErrorOldPassword(text: "")
             }
         }
-        return flag
     }
     
     private func updatePassword(pass: String){
@@ -107,7 +84,6 @@ final class PasswordChangeInteractor {
     
 }
 
-//MARK: Убрать дефолтного юзера
 extension PasswordChangeInteractor: PasswordChangeInteractorInput {
     func giveOldPasswordText(text: String) {
         oldPassword = text
@@ -123,11 +99,17 @@ extension PasswordChangeInteractor: PasswordChangeInteractorInput {
     
     func verificationOfEnteredData() {
         
-        if checkOldPassword(pass: oldPassword),
-           checkNewPassword(pass: newPassword),
-           checkRepeatPassword(pass: repeatPassword) {
-            updatePassword(pass: newPassword)
-        }
+        resetSignIn(pass: oldPassword)
+        
+//        nextQueue.async {
+//            DispatchQueue.main.async {
+//                if self.checkNewPassword(pass: self.newPassword),
+//                   self.checkRepeatPassword(pass: self.repeatPassword) {
+//                    self.updatePassword(pass: self.newPassword)
+//                }
+//            }
+//        }
+
     }
     
 }

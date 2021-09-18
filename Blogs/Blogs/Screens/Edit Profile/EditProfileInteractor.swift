@@ -19,6 +19,10 @@ final class EditProfileInteractor {
     private var newSurname = defaultUser.surname
     private var newTagname = defaultUser.tagname
     private var newAboutMe = defaultUser.aboutMe
+//    private let updateDataQueue = DispatchQueue(label: "updateDataQueueEditProfile",
+//                                                qos: .utility,
+//                                                attributes: .initiallyInactive,
+//                                                autoreleaseFrequency: .workItem)
     
     
     private func checkName(name: String) -> Bool {
@@ -139,32 +143,28 @@ final class EditProfileInteractor {
             которая активируется после записи фотки на бэк. Но закрыть экран мы может только в том случае, когда у нас удачно
             все записалось, именно поэтому экран будет чутка висеть при сохранении.
          */
-        let updateDataQueue = DispatchQueue(label: "updateDataQueue",
-                                            qos: .utility,
-                                            attributes: .initiallyInactive,
-                                            autoreleaseFrequency: .workItem)
         
-        uploadImage(queue: updateDataQueue)
-        
+        //uploadImage(queue: updateDataQueue)
 
-        
-        updateDataQueue.async {
-            db.collection("users").document(user.uid).updateData([
-                "name" : defaultUser.name,
-                "surname" : defaultUser.surname,
-                "tagname" : defaultUser.tagname,
-                "aboutMe" : defaultUser.aboutMe,
-                "avatarURL" : defaultUser.avatarURL,
-            ]) {[weak self] error in
-                if error != nil {
-                    self?.output?.transferErrorName(text: "Ошибка обновления данных")
-                } else {
-                    self?.output?.openBackViewController()
-                    debugPrint("Данные обновлены!")
-                }
-                
-            }
-        }
+//        updateDataQueue.async {
+//            db.collection("users").document(user.uid).updateData([
+//                "name" : defaultUser.name,
+//                "surname" : defaultUser.surname,
+//                "tagname" : defaultUser.tagname,
+//                "aboutMe" : defaultUser.aboutMe,
+//                "avatarURL" : defaultUser.avatarURL,
+//            ]) {[weak self] error in
+//                if error != nil {
+//                    self?.output?.transferErrorName(text: "Ошибка обновления данных")
+//                } else {
+//                    DispatchQueue.main.async {
+//                        self?.output?.openBackViewController()
+//                        debugPrint("Данные обновлены!")
+//                    }
+//                }
+//                
+//            }
+//        }
     }
 }
 

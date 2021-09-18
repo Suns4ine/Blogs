@@ -11,7 +11,10 @@ import Foundation
 final class MyProfileInteractor {
 	weak var output: MyProfileInteractorOutput?
     
-   // private var arrayBlogs: [Blog] = defaultUser.arrayBlogs
+//    private let updateQueue = DispatchQueue(label: "updateQueueMyProfile",
+//                                            qos: .userInteractive,
+//                                            attributes: .initiallyInactive,
+//                                            autoreleaseFrequency: .workItem)
 }
 //MARK: Убрать дефолтного юзера
 extension MyProfileInteractor: MyProfileInteractorInput {
@@ -27,8 +30,13 @@ extension MyProfileInteractor: MyProfileInteractorInput {
     }
     
     func giveMyProfile() {
-        UserManager.getDocument()
-        output?.giveAwayMyProfile(profile: defaultUser)
+//        UserManager.getDocument(queue: updateQueue)
+//        
+//        updateQueue.async {
+//            DispatchQueue.main.async {
+//                self.output?.giveAwayMyProfile(profile: defaultUser)
+//            }
+//        }
     }
     
     func giveBlogsArrayCount() -> Int {

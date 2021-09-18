@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Bundle.setLanguage((targetLang != nil) ? targetLang! : "en")
         
         FirebaseApp.configure()
+        User.createArrayAnotherUsers()
+        
         return true
     }
 

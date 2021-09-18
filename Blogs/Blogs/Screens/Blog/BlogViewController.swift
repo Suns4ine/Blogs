@@ -246,7 +246,7 @@ final class BlogViewController: UIViewController {
     
     @objc
     private func tapProfileButton() {
-        output.didTapProfile()
+       // output.didTapProfile()
     }
     
     @objc

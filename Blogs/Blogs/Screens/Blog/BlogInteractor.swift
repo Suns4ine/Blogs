@@ -12,6 +12,9 @@ final class BlogInteractor {
 	weak var output: BlogInteractorOutput?
     private var blog: Blog?
     
+    //private let updateQueue = DispatchQueue.main
+    
+    
     private func isMyBlog() {
         guard let blog = blog else { return }
         
@@ -24,6 +27,15 @@ final class BlogInteractor {
 }
 
 extension BlogInteractor: BlogInteractorInput {
+    func saveData() {
+//        guard let blog = blog else { return }
+//        UserManager.addBlog(blog: blog, nameArray: "arrayLikedBlogs", queue: updateQueue)
+//        
+//        updateQueue.async {
+//            self.output?.popController()
+//        }
+    }
+    
     
     func tapProfile() {
         guard let blog = blog else { return }

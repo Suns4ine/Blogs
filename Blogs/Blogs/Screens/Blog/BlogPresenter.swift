@@ -50,7 +50,7 @@ extension BlogPresenter: BlogViewOutput {
     }
     
     func didTapBackButton() {
-        router.popViewController()
+        interactor.saveData()
     }
     
     func didTapEditButton() {
@@ -67,6 +67,10 @@ extension BlogPresenter: BlogViewOutput {
 }
 
 extension BlogPresenter: BlogInteractorOutput {
+    
+    func popController() {
+        router.popViewController()
+    }
     
     func userDidRecieve(_ user: User) {
         router.openProfileController(with: user)
