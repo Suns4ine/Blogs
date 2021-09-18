@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         User.createArrayAnotherUsers()
-        
+        UserManager.getDocument(queue: DispatchQueue.main)
         return true
     }
 

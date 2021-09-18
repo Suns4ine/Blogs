@@ -62,7 +62,16 @@ class User: Hashable {
             }
         }
     }
-    var arrayLikedBlogs: Set<Blog>
+    var arrayLikedBlogs: Set<Blog> {
+        didSet {
+            guard let user = Auth.auth().currentUser else { return }
+            if identifier == user.uid {
+                UserManager.updateBlogs(blogs: Array(arrayLikedBlogs), nameArray: "arrayLikedBlogs", queue: DispatchQueue.main)
+            }
+        }
+    }
+    
+    
     var arrayFollowers: Set<User>
     var arrayFolloving: Set<User>
     var aboutMe: String {

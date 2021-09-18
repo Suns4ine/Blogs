@@ -38,14 +38,14 @@ extension MyProfileInteractor: MyProfileInteractorInput {
     }
     
     func giveMyProfile() {
-        UserManager.getDocument(queue: DispatchQueue.main)
+     //   UserManager.getDocument(queue: DispatchQueue.main)
         
-        updateQueue.async {
+       // updateQueue.async {
             DispatchQueue.main.async {
                 self.output?.giveAwayMyProfile(profile: defaultUser)
                 self.output?.blogsDidRecieve(defaultUser.arrayBlogs)
             }
-        }
+        //}
     }
     
     func giveBlogsArrayCount() -> Int {

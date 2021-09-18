@@ -11,12 +11,6 @@ import Foundation
 final class AdditionBlogInteractor {
 	weak var output: AdditionBlogInteractorOutput?
     
-    private let updateQueue = DispatchQueue(label: "updateQueueAdditionBlog",
-                                            qos: .utility,
-                                            attributes: .concurrent,
-                                            autoreleaseFrequency: .workItem)
-                      
-    
     private func checkName(name: String) -> Bool {
         let text = name.condenseWhitespace()
         
@@ -107,12 +101,7 @@ extension AdditionBlogInteractor: AdditionBlogInteractorInput {
             defaultDraft.date = .init()
             defaultUser.arrayBlogs.insert(createBlog(draft: defaultDraft), at: 0)
             clearDraft()
-            UserManager.addBlog(blog: defaultUser.arrayBlogs[0], nameArray: "arrayBlogs", queue: updateQueue)
-            updateQueue.async {
-                DispatchQueue.main.async {
-                    self.output?.openMyProfile()
-                }
-            }
+            self.output?.openMyProfile()
         }
     }
 }
