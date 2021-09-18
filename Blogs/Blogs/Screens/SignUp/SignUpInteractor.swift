@@ -20,10 +20,10 @@ final class SignUpInteractor {
     }
     private var mail: String = ""
     private var password: String = ""
-//    private let nextQueue = DispatchQueue(label: "nextQueueSignUp",
-//                                          qos: .userInteractive,
-//                                          attributes: .initiallyInactive,
-//                                          autoreleaseFrequency: .workItem)
+    private let nextQueue = DispatchQueue(label: "nextQueueSignUp",
+                                          qos: .userInteractive,
+                                          attributes: .initiallyInactive,
+                                          autoreleaseFrequency: .workItem)
     
     private func checkTagname(tagname: String) -> Bool {
         let text = tagname.trimmingCharacters(in: .whitespaces)
@@ -138,7 +138,7 @@ final class SignUpInteractor {
                     }
                     
                     defaultUser = newUser
-                   // self?.nextQueue.activate()
+                    self?.nextQueue.activate()
                 }
                 
             }
@@ -150,17 +150,17 @@ extension SignUpInteractor: SignUpInteractorInput {
     
     func verificationOfEnteredData() {
         
-//        if checkTagname(tagname: tagname),
-//           checkMail(mail: mail),
-//           checkPassword(pass: password) {
-//            registerUser()
-//            
-//            nextQueue.async {
-//                DispatchQueue.main.async {
-//                    self.output?.openTabBar()
-//                }
-//            }
-//        }
+        if checkTagname(tagname: tagname),
+           checkMail(mail: mail),
+           checkPassword(pass: password) {
+            registerUser()
+            
+            nextQueue.async {
+                DispatchQueue.main.async {
+                    self.output?.openTabBar()
+                }
+            }
+        }
         
     }
     

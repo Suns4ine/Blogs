@@ -24,8 +24,6 @@ extension SavedInteractor: SavedInteractorInput {
             defaultUser.arrayLikedBlogs.remove(deleteBlog)
         }
         
-
-        
         output?.indexDeleteReiceve(indexPath)
     }
     
