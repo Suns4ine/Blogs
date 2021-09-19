@@ -10,29 +10,22 @@ import UIKit
 
 final class ChoiceTableViewCell: UITableViewCell, ChoiceCellModelRepresentable {
     
+    //MARK: Create Variable
     var viewModel: ChoiceCellIdentifiable? {
         didSet {
             updateViews()
         }
     }
     
-    private func updateViews() {
-        guard let viewModel = viewModel as? ChoiceCellViewModel else { return }
-        button.editText(text: viewModel.title)
-        ChoiceTableViewCell.identifier = viewModel.cellIdentifier
-    }
-    
-    
     static var identifier = "ChoiceTableViewCell"
-    
     private let button: FirstBigButton = {
         let button = FirstBigButton(text: StandartLanguage.titleChoiceCell)
         return button
     }()
     
+    //MARK: System override Functions
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         setup()
     }
     
@@ -58,6 +51,15 @@ final class ChoiceTableViewCell: UITableViewCell, ChoiceCellModelRepresentable {
         ])
     }
     
+    //MARK: Personal Functions
+    private func updateViews() {
+        guard let viewModel = viewModel as? ChoiceCellViewModel else { return }
+        button.editText(text: viewModel.title)
+        ChoiceTableViewCell.identifier = viewModel.cellIdentifier
+    }
+}
+
+extension ChoiceTableViewCell {
     func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
         button.addTarget(target, action: action, for: event)
     }

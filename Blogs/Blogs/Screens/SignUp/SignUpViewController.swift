@@ -11,7 +11,7 @@ import UIKit
 final class SignUpViewController: UIViewController {
 	private let output: SignUpViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private let header: Header = {
         let header = Header(title: StandartLanguage.headerTitleSignUpScreen,
                             leftIcon: .init(icon: .outline1, size: .size48),
@@ -69,9 +69,9 @@ final class SignUpViewController: UIViewController {
         return button
     }()
     
+    //MARK: System override Functions
     init(output: SignUpViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -84,7 +84,6 @@ final class SignUpViewController: UIViewController {
         let array =  [header, signUpTitle, text,
                       tagnameTextField, mailTextField,
                       passwordTextField, registerButton]
-        
         array.forEach{ scrollView.addSubview($0)}
     }
     
@@ -117,7 +116,6 @@ final class SignUpViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -150,10 +148,11 @@ final class SignUpViewController: UIViewController {
             registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
-        
+        //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
     }
     
+    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.didTapBackButton()
@@ -227,8 +226,7 @@ extension SignUpViewController {
                            options: options,
                            animations: {
                             self.view.layoutIfNeeded()
-                           },
-                           completion: nil)
+                           })
         }
     }
 }

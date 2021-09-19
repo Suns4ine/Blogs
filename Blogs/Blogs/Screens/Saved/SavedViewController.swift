@@ -11,7 +11,7 @@ import UIKit
 final class SavedViewController: UIViewController {
 	private let output: SavedViewOutput
 
-    //MARK: Объявлены переменные
+    //MARK: Create Variable
     private var section: StandartBlogSectionRowPresentable = StandartBlogSectionViewModel() {
         didSet {
             emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
@@ -26,7 +26,7 @@ final class SavedViewController: UIViewController {
         return header
     }()
     
-    private lazy var emptyArrayTitle: Title = {
+    private let emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleSavedScreen,
                           size: .meb36)
         title.sizeToFit()
@@ -50,9 +50,9 @@ final class SavedViewController: UIViewController {
         return refresh
     }()
     
+    //MARK: System override Functions
     init(output: SavedViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -96,9 +96,9 @@ final class SavedViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func refreshControlUpDate() {
-        
         self.refreshControl.startAnimation()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -129,7 +129,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return section.rows[indexPath.row].cellHeight
+        return CGFloat(section.rows[indexPath.row].cellHeight)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -145,7 +145,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         action.backgroundColor = StandartColors.deleteActionColor
-        action.image = UIImage(named: "trash-2")?.tinted(with: StandartColors.smallIconColor)
+        action.image = UIImage(named: "trash-2")
         
         return UISwipeActionsConfiguration(actions: [action])
     }

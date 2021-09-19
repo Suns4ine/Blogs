@@ -21,7 +21,6 @@ extension HomeInteractor: HomeInteractorInput {
         playSound(name: .openController)
         
         output?.blogDidRecieve(blog)
-        
     }
     
     func fetchBlogs() {

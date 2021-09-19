@@ -87,7 +87,7 @@ final class EditProfileInteractor {
         }
     }
     
-    private func updateUser() {
+    private func updatePersonalDataUser() {
         UserManager.uploadImage(oldName: avatar) {
             UserManager.updatePersonalDataUser()
         }
@@ -117,7 +117,7 @@ extension EditProfileInteractor: EditProfileInteractorInput {
             defaultUser.tagname = newTagname
             defaultUser.aboutMe = newAboutMe
             
-            updateUser()
+            updatePersonalDataUser()
         }
     }
     
@@ -140,5 +140,4 @@ extension EditProfileInteractor: EditProfileInteractorInput {
     func giveMyProfile() {
         output?.giveAwayMyProfile(profile: defaultUser)
     }
-    
 }

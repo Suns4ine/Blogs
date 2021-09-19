@@ -55,12 +55,10 @@ extension SettingPresenter: SettingInteractorOutput {
         view?.updateSettingCell(cartage: (index, viewModel))
     }
     
-    
     func settingsDidRecieve(_ settings: [Setting]) {
         let section = SettingSectionViewModel()
         settings.forEach{ section.rows.append(SettingCellViewModel.init(setting: $0))}
         view?.reloadData(for: section)
-
     }
     
     func openChoiceColor(_ setting: Setting) {
@@ -86,6 +84,4 @@ extension SettingPresenter: SettingInteractorOutput {
     func openStart() {
         router.openStartViewController()
     }
-    
-    
 }

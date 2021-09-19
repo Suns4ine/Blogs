@@ -11,7 +11,7 @@ import UIKit
 final class AboutTheApplicationViewController: UIViewController {
 	private let output: AboutTheApplicationViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private let header: Header = {
         let header = Header(title: StandartLanguage.headerTitleAboutTheApplicationScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
@@ -35,9 +35,9 @@ final class AboutTheApplicationViewController: UIViewController {
         return title
     }()
     
+    //MARK: System override Functions
     init(output: AboutTheApplicationViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -50,8 +50,7 @@ final class AboutTheApplicationViewController: UIViewController {
 		super.viewDidLoad()
         [header, text, emptyArrayTitle].forEach{ view.addSubview($0)}
         
-        text.editText(text: someText)
-        emptyArrayTitle.isHidden = someText.isEmpty ? false : true
+        emptyArrayTitle.isHidden = text.textView.text.isEmpty ? false : true
         self.view.backgroundColor = StandartColors.settingBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
@@ -75,51 +74,11 @@ final class AboutTheApplicationViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.didTapBackButton()
     }
-    
-    //MARK: Тест текствью
-    private var someText = """
-        Descriptive and consistent naming makes software easier to read and understand. Use the Swift naming conventions described in the API Design Guidelines. Some key takeaways include:
-
-    striving for clarity at the call site
-    prioritizing clarity over brevity
-    using camelCase (not snake_case)
-    using UpperCamelCase for types and protocols, lowerCamelCase for everything else
-    including all needed words while omitting needless words
-    using names based on roles, not types
-    sometimes compensating for weak type information
-    striving for fluent usage
-    beginning factory methods with make
-    naming methods for their side effects
-    verb methods follow the -ed, -ing rule for the non-mutating version
-    noun methods follow the formX rule for the mutating version
-    boolean types should read like assertions
-    protocols that describe what something is should read as nouns
-    protocols that describe a capability should end in -able or -ible
-    using terms that don't surprise experts or confuse beginners
-    generally avoiding abbreviations
-    using precedent for names
-    preferring methods and properties to free functions
-    casing acronyms and initialisms uniformly up or down
-    giving the same base name to methods that share the same meaning
-    avoiding overloads on return type
-    choosing good parameter names that serve as documentation
-    preferring to name the first parameter instead of including its name in the method name, except as mentioned under Delegates
-    labeling closure and tuple parameters
-    taking advantage of default parameters
-    Prose
-    When referring to methods in prose, being unambiguous is critical. To refer to a method name, use the simplest form possible.
-
-    Write the method name with no parameters. Example: Next, you need to call addTarget.
-    Write the method name with argument labels. Example: Next, you need to call addTarget(_:action:).
-    Write the full method name with argument labels and types. Example: Next, you need to call addTarget(_: Any?, action: Selector?).
-    For the above example using UIGestureRecognizer, 1 is unambiguous and preferred.
-
-    Pro Tip: You can use Xcode's jump bar to lookup methods with argument labels. If you’re particularly good at mashing lots of keys simultaneously, put the cursor in the method name and press Shift-Control-Option-Command-C (all 4 modifier keys) and Xcode will kindly put the signature on your clipboard.
-    """
 }
 
 extension AboutTheApplicationViewController: AboutTheApplicationViewInput {

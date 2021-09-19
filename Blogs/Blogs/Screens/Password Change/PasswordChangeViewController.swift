@@ -11,7 +11,7 @@ import UIKit
 final class PasswordChangeViewController: UIViewController {
 	private let output: PasswordChangeViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private let header: Header = {
         let header = Header(title: StandartLanguage.headerTitlePasswordChangeScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
@@ -59,9 +59,9 @@ final class PasswordChangeViewController: UIViewController {
         return button
     }()
     
+    //MARK: System override Functions
     init(output: PasswordChangeViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -73,7 +73,6 @@ final class PasswordChangeViewController: UIViewController {
     private func addSubViewInScrollView() {
         let array = [header, oldPasswordTextfield, newPasswordTextfield,
                      repeatPasswordTextfield, saveButton]
-        
         array.forEach{ scrollView.addSubview($0)}
     }
     
@@ -99,7 +98,6 @@ final class PasswordChangeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -124,11 +122,12 @@ final class PasswordChangeViewController: UIViewController {
             saveButton.topAnchor.constraint(equalTo: repeatPasswordTextfield.bottomAnchor, constant: 30),
             saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
-
         ])
+        //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
     }
     
+    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.didTapBackButton()
@@ -155,11 +154,11 @@ extension PasswordChangeViewController: PasswordChangeViewInput {
     func showErrorRepeatPassword(text: String) {
         repeatPasswordTextfield.editErrorText(text: text)
     }
-    
 }
 
 extension PasswordChangeViewController {
     
+    //Инициализируем клавиатуру
     func initializeHideKeyboard(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
@@ -202,8 +201,7 @@ extension PasswordChangeViewController {
                            options: options,
                            animations: {
                             self.view.layoutIfNeeded()
-                           },
-                           completion: nil)
+                           })
         }
     }
 }

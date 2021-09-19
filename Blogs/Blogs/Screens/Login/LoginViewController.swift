@@ -12,7 +12,7 @@ final class LoginViewController: UIViewController {
     
 	private let output: LoginViewOutput
     
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private let header: Header = {
         let header = Header(title: StandartLanguage.headerTitleLoginScreen,
                             leftIcon: .init(icon: .outline3, size: .size48),
@@ -73,22 +73,15 @@ final class LoginViewController: UIViewController {
         return button
     }()
     
+    //MARK: System override Functions
     init(output: LoginViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func addSubViewInScrollView() {
-        let array = [header, logo, LoginTitle, loginTextField,
-                     passwordTextField, signInButton, signUpButton]
-        
-        array.forEach{ scrollView.addSubview($0)}
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -150,8 +143,16 @@ final class LoginViewController: UIViewController {
             signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signUpButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 15)
         ])
-        
+        //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
+    }
+    
+    //MARK: Personal Functions
+    private func addSubViewInScrollView() {
+        let array = [header, logo, LoginTitle, loginTextField,
+                     passwordTextField, signInButton, signUpButton]
+        
+        array.forEach{ scrollView.addSubview($0)}
     }
     
     @objc
@@ -185,6 +186,7 @@ extension LoginViewController: LoginViewInput {
 
 extension LoginViewController: UIScrollViewDelegate {
     
+    //Инициализируем клавиатуру
     private func initializeHideKeyboard(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,

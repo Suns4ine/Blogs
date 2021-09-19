@@ -40,7 +40,6 @@ extension StartPresenter: StartViewOutput {
     func didTapTwitterButton() {
         router.openLoginViewController()
     }
-    
 }
 
 extension StartPresenter: StartInteractorOutput {

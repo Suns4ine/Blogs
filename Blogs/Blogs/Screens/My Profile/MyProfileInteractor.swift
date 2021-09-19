@@ -14,13 +14,11 @@ final class MyProfileInteractor {
 
 extension MyProfileInteractor: MyProfileInteractorInput {
     func deleteBlog(at indexPath: IndexPath) {
-
+        
         if defaultUser.arrayBlogs.indices.contains(indexPath.row) {
-
             defaultUser.arrayBlogs[indexPath.row].deleteBlog()
             defaultUser.arrayBlogs.remove(at: indexPath.row)
         }
-
         output?.indexDeleteReiceve(indexPath)
     }
     
@@ -33,7 +31,6 @@ extension MyProfileInteractor: MyProfileInteractorInput {
     func giveBlogsArrayCount() -> Int {
         return defaultUser.arrayBlogs.count
     }
-    
     
     func getBlog(at indexPath: IndexPath) {
         let blog = defaultUser.arrayBlogs[indexPath.row]

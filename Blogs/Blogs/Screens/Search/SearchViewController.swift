@@ -11,7 +11,7 @@ import UIKit
 final class SearchViewController: UIViewController {
 	private let output: SearchViewOutput
 
-    //MARK: Объявлены переменные
+    //MARK: Create Variable
     private var section: StandartBlogSectionRowPresentable = StandartBlogSectionViewModel() {
         didSet {
             emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
@@ -62,7 +62,7 @@ final class SearchViewController: UIViewController {
         return view
     }()
     
-    private lazy var emptyArrayTitle: Title = {
+    private let emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleSearchScreen,
                           size: .meb36)
         title.sizeToFit()
@@ -87,6 +87,7 @@ final class SearchViewController: UIViewController {
         return refresh
     }()
     
+    //MARK: System override Functions
     init(output: SearchViewOutput) {
         self.output = output
 
@@ -146,9 +147,9 @@ final class SearchViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func refreshControlUpDate() {
-        
         self.refreshControl.startAnimation()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -189,7 +190,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return section.rows[indexPath.row].cellHeight
+        return CGFloat(section.rows[indexPath.row].cellHeight)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -199,6 +200,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SearchViewController: UISearchBarDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
+    //Иницилизация клавиатуры
     func initializeHideKeyboard(){
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,

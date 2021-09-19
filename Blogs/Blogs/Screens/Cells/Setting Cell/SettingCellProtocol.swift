@@ -10,7 +10,7 @@ import UIKit
 
 protocol SettingCellIdentifiable {
     var cellIdentifier: String { get }
-    var cellHeight: CGFloat { get }
+    var cellHeight: Float { get }
 }
 
 protocol SettingSectionRowPresentable {

@@ -15,6 +15,7 @@ final class SearchInteractor {
 }
 
 extension SearchInteractor: SearchInteractorInput {
+    
     func getWord(word: String) {
         let text = word.trimmingCharacters(in: .whitespaces).lowercased()
         
@@ -23,7 +24,6 @@ extension SearchInteractor: SearchInteractorInput {
         } else {
             searchBlogs(word: text)
         }
-        
     }
     
     func getBlog(at indexPath: IndexPath) {
@@ -38,7 +38,6 @@ extension SearchInteractor: SearchInteractorInput {
     }
     
     func searchBlogs(word: String) {
-        
         var array: [Blog] = []
 
         for blog in allArrayBlogs {

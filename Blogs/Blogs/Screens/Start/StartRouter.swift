@@ -16,8 +16,6 @@ extension StartRouter: StartRouterInput {
     
     func openLoginViewController() {
         let container = LoginContainer.assemble(with: .init())
-        
         sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
-
 }

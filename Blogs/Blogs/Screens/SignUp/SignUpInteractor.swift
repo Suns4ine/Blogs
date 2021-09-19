@@ -101,7 +101,6 @@ final class SignUpInteractor {
 extension SignUpInteractor: SignUpInteractorInput {
     
     func verificationOfEnteredData() {
-        
         if checkTagname(tagname: tagname),
            checkMail(mail: mail),
            checkPassword(pass: password) {
@@ -120,5 +119,4 @@ extension SignUpInteractor: SignUpInteractorInput {
     func newPasswordText(text: String) {
         password = text
     }
-    
 }

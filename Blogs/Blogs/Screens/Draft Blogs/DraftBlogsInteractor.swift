@@ -39,14 +39,11 @@ final class DraftBlogsInteractor {
 
 extension DraftBlogsInteractor: DraftBlogsInteractorInput {
     
-
-    
     func deleteBlog(at indexPath: IndexPath) {
         defaultUser.arrayDrafts.remove(at: indexPath.row)
         
         self.output?.indexDeleteReiceve(indexPath)
     }
-    
     
     func getBlog(at indexPath: IndexPath) {
         let blog = defaultUser.arrayDrafts.remove(at: indexPath.row)

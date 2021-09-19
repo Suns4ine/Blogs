@@ -51,11 +51,9 @@ extension DraftBlogsPresenter: DraftBlogsInteractorOutput {
         let section = StandartBlogSectionViewModel()
         blogs.forEach{ section.rows.append(StandartBlogCellViewModel.init(blog: $0))}
         view?.reloadData(for: section)
-
     }
     
     func openBackController() {
         router.popViewController()
     }
-    
 }

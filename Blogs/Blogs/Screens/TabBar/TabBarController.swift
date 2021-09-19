@@ -10,7 +10,7 @@ import UIKit
 
 final class TabBarController: UITabBarController {
     
-    
+    //MARK: Create Variable
     private let homeContainer = HomeContainer.assemble(with: .init())
     private lazy var homeController: UIViewController = {
         let controller = homeContainer.viewController
@@ -50,6 +50,7 @@ final class TabBarController: UITabBarController {
         return view
     }()
     
+    //MARK: System override Functions 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)

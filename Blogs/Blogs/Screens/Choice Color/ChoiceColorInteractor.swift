@@ -29,7 +29,6 @@ extension ChoiceColorInteractor: ChoiceColorInteractorInput {
         }
         
         defaultUser.personalSetting.theme = theme
-        
         output?.transferTheme(theme: theme)
     }
     

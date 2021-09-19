@@ -82,5 +82,4 @@ extension LoginInteractor: LoginInteractorInput {
     func newPasswordText(text: String) {
         password = text
     }
-    
 }

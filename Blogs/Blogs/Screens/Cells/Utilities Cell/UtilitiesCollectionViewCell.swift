@@ -10,16 +10,11 @@ import UIKit
 
 final class UtilitiesCollectionViewCell: UICollectionViewCell, UtiliesCellModelRepresentable {
     
+    //MARK: Create Variable
     var viewModel: UtiliesCellIdentifiable? {
         didSet {
             updateViews()
         }
-    }
-    
-    private func updateViews() {
-        guard let viewModel = viewModel as? UtiliesCellViewModel else { return }
-        UtilitiesCollectionViewCell.identifier = viewModel.cellIdentifier
-        icon.editIcon(icon: returnUtilityIcon(utility: viewModel.utility))
     }
     
     static var identifier = "UtilitiesCollectionViewCell"
@@ -36,20 +31,14 @@ final class UtilitiesCollectionViewCell: UICollectionViewCell, UtiliesCellModelR
         return icon
     }()
     
+    //MARK: System override Functions
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setup() {
-        [icon, backgroundViewCell].forEach{ addSubview($0) }
-        
-        self.backgroundColor = .clear
     }
     
     override func layoutSubviews() {
@@ -68,6 +57,20 @@ final class UtilitiesCollectionViewCell: UICollectionViewCell, UtiliesCellModelR
         ])
     }
     
+    //MARK: Personal Functions
+    private func setup() {
+        [icon, backgroundViewCell].forEach{ addSubview($0) }
+        self.backgroundColor = .clear
+    }
+    
+    private func updateViews() {
+        guard let viewModel = viewModel as? UtiliesCellViewModel else { return }
+        UtilitiesCollectionViewCell.identifier = viewModel.cellIdentifier
+        icon.editIcon(icon: returnUtilityIcon(utility: viewModel.utility))
+    }
+}
+
+extension UtilitiesCollectionViewCell {
     func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
         icon.addTarget(target, action: action, for: event)
     }

@@ -38,7 +38,6 @@ extension ChoiceLanguageInteractor: ChoiceLanguageInteractorInput {
         
         defaultUser.personalSetting.language = language
         output?.callAlertNotifiaction()
-
     }
     
     func fetchChoices() {

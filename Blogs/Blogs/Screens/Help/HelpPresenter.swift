@@ -28,7 +28,6 @@ extension HelpPresenter: HelpViewOutput {
     func didTapBackButton() {
         router.popViewController()
     }
-    
 }
 
 extension HelpPresenter: HelpInteractorOutput {

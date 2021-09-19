@@ -11,7 +11,6 @@ import Foundation
 final class AnotherMoreBlogsInteractor {
 	weak var output: AnotherMoreBlogsInteractorOutput?
     
-    
     private var blogArray: [Blog]?
 }
 

@@ -26,7 +26,7 @@ extension PreviewInteractor: PreviewInteractorInput {
     }
     
     func finishPreview() {
-        
+        //Изменяем переменную, чтобы не показывать этот экран еще раз
         showPreview = true
         UserDefaults.standard.set(showPreview, forKey: "showPreview")
         

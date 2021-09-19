@@ -11,7 +11,7 @@ import UIKit
 final class AnotherProfileViewController: UIViewController {
 	private let output: AnotherProfileViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private var section: StandartBlogSectionRowPresentable = StandartBlogSectionViewModel() {
         didSet {
             emptyTitle.isHidden = section.rows.isEmpty ? false : true
@@ -188,19 +188,9 @@ final class AnotherProfileViewController: UIViewController {
         return title
     }()
     
-    private func addSubViewInScrollView() {
-        let array = [ profileView, avatar, header, nameTitle, nameTagSubtitle,
-                      followButton, statisticView, aboutAnotherSubTitle, aboutAnotherText,
-                      anotherBlogsSubTitle, emptyTitle, blogTableView, moreBlogButton,
-                      numberBlogTitle, followersBlogTitle, follovingBlogTitle, numberBlogNameTitle,
-                      followersBlogNameTitle, follovingBlogNameTitle, refreshControl]
-        
-        array.forEach{ scrollView.addSubview($0)}
-    }
-    
+    //MARK: System override Functions
     init(output: AnotherProfileViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -209,13 +199,17 @@ final class AnotherProfileViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //Отключаем горизонтальную прокрутку
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.x = 0.0
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         output.fetchBlogsCell()
         output.setupTextInViews()
         output.statusSubscribe()
     }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -239,7 +233,6 @@ final class AnotherProfileViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -252,7 +245,6 @@ final class AnotherProfileViewController: UIViewController {
             avatar.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             avatar.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 25.5),
 
-            
             extraProfileView.topAnchor.constraint(equalTo: view.topAnchor),
             extraProfileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             extraProfileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -356,22 +348,26 @@ final class AnotherProfileViewController: UIViewController {
                 moreBlogButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
             ])
         }
-        
-        //MARK: Костыль - так как контент может не занять весь размер экрана, он ужимался и уползал вверх
+        //Так как контент может не занять весь размер экрана, он ужимался и уползал вверх
         scrollView.contentSize = CGSize(width: scrollView.contentSize.width,
                                         height: scrollView.contentSize.height > view.frame.size.height ?
                                         scrollView.contentSize.height :  view.frame.size.height + 1)
         
     }
     
-    //MARK: Отключаем горизонтальную прокрутку
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.contentOffset.x = 0.0
+    //MARK: Personal Functions
+    private func addSubViewInScrollView() {
+        let array = [ profileView, avatar, header, nameTitle, nameTagSubtitle,
+                      followButton, statisticView, aboutAnotherSubTitle, aboutAnotherText,
+                      anotherBlogsSubTitle, emptyTitle, blogTableView, moreBlogButton,
+                      numberBlogTitle, followersBlogTitle, follovingBlogTitle, numberBlogNameTitle,
+                      followersBlogNameTitle, follovingBlogNameTitle, refreshControl]
+        
+        array.forEach{ scrollView.addSubview($0)}
     }
     
     @objc
     private func refreshControlUpDate() {
-        
         self.refreshControl.startAnimation()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -403,7 +399,6 @@ extension AnotherProfileViewController: AnotherProfileViewInput {
     }
     
     func updateViews(profile: User) {
-        
         let path = getDocumentsDirectory().appendingPathComponent(profile.identifier)
         let image = UIImage(contentsOfFile: path.path) ?? .init()
         
@@ -420,7 +415,6 @@ extension AnotherProfileViewController: AnotherProfileViewInput {
         self.section = section
         blogTableView.reloadData()
     }
-    
 }
 
 extension AnotherProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -439,7 +433,7 @@ extension AnotherProfileViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return section.rows[indexPath.row].cellHeight
+        return CGFloat(section.rows[indexPath.row].cellHeight)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

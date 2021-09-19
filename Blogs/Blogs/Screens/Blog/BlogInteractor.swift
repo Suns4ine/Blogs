@@ -12,6 +12,7 @@ final class BlogInteractor {
 	weak var output: BlogInteractorOutput?
     private var blog: Blog?
     
+    //Проверяем наш ли этот блог (сейчас не нужно, так как концеация на время изменилась)
     private func isMyBlog() {
         guard let blog = blog else { return }
         
@@ -27,7 +28,6 @@ extension BlogInteractor: BlogInteractorInput {
 
     func tapProfile() {
         guard let blog = blog else { return }
-        
         output?.userDidRecieve(blog.user)
     }
     
@@ -69,22 +69,16 @@ extension BlogInteractor: BlogInteractorInput {
     
     func shareBlogs() {
         guard let blog = blog else { return }
-        
         output?.transferData(cartage: (blog.title, blog.finalPost.text))
     }
     
     func getBlog(blog: Blog) {
         self.blog = blog
-        
-        
     }
     
     func giveStatus() {
-        
         guard let blog = blog else { return }
-        
         let user = blog.user
-        
         guard user != defaultUser else { return }
         
         if defaultUser.arrayFolloving.contains(user) {
@@ -96,7 +90,6 @@ extension BlogInteractor: BlogInteractorInput {
     
     func transferTextInViews() {
         guard let blog = blog else { return }
-        
         let tags = blog.arrayTags.returnEnumerationString().isEmpty ? "Нет тегов" : blog.arrayTags.returnEnumerationString()
         
         output?.transferTitle(text: blog.title)
@@ -108,9 +101,7 @@ extension BlogInteractor: BlogInteractorInput {
     
     func subscribe() {
         guard let blog = blog else { return }
-        
         let user = blog.user
-        
         guard user != defaultUser else { return }
         
         if defaultUser.arrayFolloving.contains(user),

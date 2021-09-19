@@ -16,9 +16,8 @@ final class PreviewViewController: UIViewController , PageProtocol {
 
 	private let output: PreviewViewOutput
     
+    //MARK: Create Variable
     private var section: PageSectionRowPresentable = PageSectionViewModel()
-    
-    //MARK: Обявление переменных
     private var twoButtonsBottonConstraint: NSLayoutConstraint?
     
     private lazy var pageViewController: PreviewPageViewController = {
@@ -91,7 +90,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
         return view
     }()
     
-
+    //MARK: System override Functions
     init(output: PreviewViewOutput) {
         self.output = output
 
@@ -105,7 +104,6 @@ final class PreviewViewController: UIViewController , PageProtocol {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        
         output.fetchViewPages()
         
         addViews()
@@ -161,17 +159,18 @@ final class PreviewViewController: UIViewController , PageProtocol {
             pageViewController.view.bottomAnchor.constraint(equalTo: startedButton.topAnchor)
         ])
         
+        //Так как мы не знаем с самого начала размер заднего круга, то после вычисления выше, мы можем его округлить
         circle.layer.cornerRadius = (view.frame.width - 66) / 2
     }
     
+    //MARK: Personal Functions
     func numbPage(numb: Int) {
-        
         output.newPage(numb: numb)
         editView(numb: numb)
     }
     
+    //Изменяем цвета, в зависимости от номера страницы
     private func editView(numb: Int) {
-        
         switch numb {
         case 0:
             UIView.animate(withDuration: 0.25,
@@ -182,8 +181,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
                             self.view.backgroundColor = .firstBlue
                             self.smallCircleOne.backgroundColor = .firstSunnyRed
                             self.smallCircleTwo.backgroundColor = .clear
-                                        },
-                           completion: nil)
+                            })
         case 1:
             UIView.animate(withDuration: 0.25,
                            delay: 0.1,
@@ -194,8 +192,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
                             self.smallCircleOne.backgroundColor = .firstSunnyRed
                             self.smallCircleTwo.backgroundColor = .firstSunnyRed
                             self.smallCircleThree.backgroundColor = .clear
-                                        },
-                           completion: nil)
+                            })
         case 2:
             UIView.animate(withDuration: 0.25,
                            delay: 0.1,
@@ -206,9 +203,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
                             self.smallCircleOne.backgroundColor = .firstYellow
                             self.smallCircleTwo.backgroundColor = .firstYellow
                             self.smallCircleThree.backgroundColor = .firstYellow
-
-                                        },
-                           completion: nil)
+                            })
         default: break
         }
     }
@@ -235,6 +230,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
 }
 
 extension PreviewViewController: PreviewViewInput {
+    //Изменяем кнопки если достгли финальной страницы
     func setupFinalChanges() {
 
         UIView.animate(withDuration: 0.3, animations: {

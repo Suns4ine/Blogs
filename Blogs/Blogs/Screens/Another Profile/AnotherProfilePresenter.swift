@@ -27,7 +27,7 @@ extension AnotherProfilePresenter: AnotherProfileModuleInput {
     }
     
 }
-//MARK: Убрать дефолтный блог в giveTableHeight
+
 extension AnotherProfilePresenter: AnotherProfileViewOutput {
     func statusSubscribe() {
         interactor.giveStatus()
@@ -61,9 +61,7 @@ extension AnotherProfilePresenter: AnotherProfileViewOutput {
     
     func didTapMoreBlogButton() {
         interactor.getBlogs()
-        //router.openAnotherMoreBlogsViewController(blogs: blogs)
     }
-    
 }
 
 extension AnotherProfilePresenter: AnotherProfileInteractorOutput {
@@ -88,5 +86,4 @@ extension AnotherProfilePresenter: AnotherProfileInteractorOutput {
     func blogDidRecieve(_ blog: Blog) {
         router.openBlogViewController(with: blog)
     }
-    
 }

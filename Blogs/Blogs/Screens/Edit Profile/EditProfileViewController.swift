@@ -11,7 +11,7 @@ import UIKit
 final class EditProfileViewController: UIViewController {
 	private let output: EditProfileViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +84,6 @@ final class EditProfileViewController: UIViewController {
         return text
     }()
     
-    
     private let aboutMeText: Text = {
         let text = Text(text: StandartLanguage.aboutMeTextEditProfileScreen,
                         size: .mm17)
@@ -113,6 +112,7 @@ final class EditProfileViewController: UIViewController {
         return button
     }()
     
+    //MARK: System override Functions
     init(output: EditProfileViewOutput) {
         self.output = output
 
@@ -122,15 +122,6 @@ final class EditProfileViewController: UIViewController {
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func addSubViewInScrollView() {
-        let array = [header, avatar, editAvatarButton, nameTextfield,
-                    surnameTextfield, tagNameTextfield, aboutMeView,
-                    aboutMeText, aboutMeSubTitle, aboutMeErrorSubTitle,
-                    saveButton]
-        
-        array.forEach{ scrollView.addSubview($0) }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -157,7 +148,6 @@ final class EditProfileViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -210,8 +200,16 @@ final class EditProfileViewController: UIViewController {
             saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             saveButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
-            
         ])
+    }
+    
+    //MARK: Personal Functions
+    private func addSubViewInScrollView() {
+        let array = [header, avatar, editAvatarButton, nameTextfield,
+                    surnameTextfield, tagNameTextfield, aboutMeView,
+                    aboutMeText, aboutMeSubTitle, aboutMeErrorSubTitle,
+                    saveButton]
+        array.forEach{ scrollView.addSubview($0) }
     }
     
     @objc
@@ -245,6 +243,8 @@ final class EditProfileViewController: UIViewController {
 }
 
 extension EditProfileViewController: EditProfileViewInput {
+    
+    //Запускам Алерт, чтобы выбрать где взять изображение для аватарки
     func showAlertAvatar() {
         let alert = UIAlertController(title: "Выбрать изображение", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in self.openCamera() }))
@@ -270,7 +270,6 @@ extension EditProfileViewController: EditProfileViewInput {
     }
     
     func updateViews(profile: User) {
-        
         let path = getDocumentsDirectory().appendingPathComponent(profile.identifier)
         let newAvatar = UIImage(contentsOfFile: path.path) ?? .init()
         
@@ -292,6 +291,7 @@ extension EditProfileViewController: EditProfileViewInput {
 
 extension EditProfileViewController {
     
+    //Инициализируем клавиатуру
     func initializeHideKeyboard(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
@@ -380,11 +380,11 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
+        //Создаем уникальное имя для изображения, дальше мы его заменим на наш
+        // индентификатор (если решим сохранить аватарку сохраним)
         let imageName = UUID().uuidString
         let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
-        
-
-        
+    
         if let pickedImage = info[.editedImage] as? UIImage {
             if let jpegData = pickedImage.jpegData(compressionQuality: 0.8) {
                 try? jpegData.write(to: imagePath)
@@ -396,7 +396,6 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
                 output.getAvatar(image: imageName)
             }
         }
-        
         dismiss(animated: true)
     }
 }

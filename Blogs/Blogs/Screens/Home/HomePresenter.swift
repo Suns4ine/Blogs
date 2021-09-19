@@ -44,7 +44,6 @@ extension HomePresenter: HomeViewOutput {
     func didTapAvatarTableViewCell(at indexPath: Int) {
         interactor.getUser(at: indexPath)
     }
-    
 }
 
 extension HomePresenter: HomeInteractorOutput {

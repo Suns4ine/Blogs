@@ -11,7 +11,7 @@ import UIKit
 final class ChoiceColorViewController: UIViewController {
 	private let output: ChoiceColorViewOutput
 
-    //MARK: Объявлние переменных
+    //MARK: Create Variable
     private var section: ChoiceSectionRowPresentable = ChoiceSectionViewModel() {
         didSet {
             emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
@@ -37,17 +37,16 @@ final class ChoiceColorViewController: UIViewController {
         return table
     }()
     
-    private lazy var emptyArrayTitle: Title = {
+    private let emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleChoiceColorScreen,
                           size: .meb36)
         title.sizeToFit()
         return title
     }()
     
-    
+    //MARK: System override Functions
     init(output: ChoiceColorViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -91,6 +90,7 @@ final class ChoiceColorViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.didTapBackButton()
@@ -103,8 +103,8 @@ final class ChoiceColorViewController: UIViewController {
 }
 
 extension ChoiceColorViewController: ChoiceColorViewInput {
+    
     func editTheme(theme: ColorsApplication) {
-        
         switch theme {
         case .dark: view.window?.overrideUserInterfaceStyle = .dark
         case .light: view.window?.overrideUserInterfaceStyle = .light

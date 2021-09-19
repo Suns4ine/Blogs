@@ -43,7 +43,6 @@ extension ChoiceLanguagePresenter: ChoiceLanguageInteractorOutput {
         view?.showNotification()
     }
     
-    
     func choicesDidRecieve(_ choices: [Choice]) {
         let section = ChoiceSectionViewModel()
         choices.forEach{ section.rows.append(ChoiceCellViewModel.init(choice: $0))}

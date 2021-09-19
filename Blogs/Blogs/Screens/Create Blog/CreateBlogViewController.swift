@@ -11,7 +11,7 @@ import UIKit
 final class CreateBlogViewController: UIViewController {
 	private let output: CreateBlogViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private var section: UtiliesSectionRowPresentable = UtiliesSectionViewModel()
     
     private let header: Header = {
@@ -76,9 +76,9 @@ final class CreateBlogViewController: UIViewController {
         return text
     }()
     
+    //MARK: System override Functions
     init(output: CreateBlogViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -89,7 +89,6 @@ final class CreateBlogViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         output.setupText()
     }
     
@@ -159,6 +158,7 @@ final class CreateBlogViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.giveText(text: text.textView.text)
@@ -180,11 +180,10 @@ final class CreateBlogViewController: UIViewController {
 
 extension CreateBlogViewController: CreateBlogViewInput {
     
+    //Показываем Алерт, если текст пустой
     func showAlert() {
         let alert = UIAlertController(title: "Упс", message: "В блоге надо что-то написать", preferredStyle: .alert)
-
         alert.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: nil))
-
         self.present(alert, animated: true)
     }
     
@@ -216,12 +215,13 @@ extension CreateBlogViewController: UICollectionViewDelegate, UICollectionViewDa
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: section.rows[indexPath.row].cellWidth, height: section.rows[indexPath.row].cellHeight)
+        return CGSize(width: CGFloat(section.rows[indexPath.row].cellWidth),
+                      height: CGFloat(section.rows[indexPath.row].cellHeight))
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return self.section.minimumLineSpacing
+        return CGFloat(self.section.minimumLineSpacing)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -231,6 +231,7 @@ extension CreateBlogViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension CreateBlogViewController {
     
+    //Иницилизируем клавиатуру
     func initializeHideKeyboard(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,

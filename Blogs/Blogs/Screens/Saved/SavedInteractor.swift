@@ -18,15 +18,12 @@ extension SavedInteractor: SavedInteractorInput {
 
         if array.indices.contains(indexPath.row) {
             let deleteBlog =  array[indexPath.row]
-            
             deleteBlog.arrayLikeUsers.remove(defaultUser)
-            
             defaultUser.arrayLikedBlogs.remove(deleteBlog)
         }
         
         output?.indexDeleteReiceve(indexPath)
     }
-    
     
     func getBlog(at indexPath: IndexPath) {
         let array = Array(defaultUser.arrayLikedBlogs)

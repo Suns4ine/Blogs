@@ -11,7 +11,7 @@ import UIKit
 final class AdditionBlogViewController: UIViewController {
 	private let output: AdditionBlogViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private let header: Header = {
         let header = Header(title: StandartLanguage.headerTitleAdditionBlogScreen,
                             leftIcon: .init(icon: .outline2, size: .size48),
@@ -105,6 +105,7 @@ final class AdditionBlogViewController: UIViewController {
         return text
     }()
     
+    //MARK: System override Functions
     init(output: AdditionBlogViewOutput) {
         self.output = output
 
@@ -114,14 +115,6 @@ final class AdditionBlogViewController: UIViewController {
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func addSubViewInScrollView() {
-        let array = [header, nextButton, blogTitleSubTitle, tagSubTitle,
-                     blogTitleView, blogTitleErrorSubTitle, tagView,
-                     tagErrorSubTitle, blogTitleText, tagText]
-        
-        array.forEach{ scrollView.addSubview($0)}
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -148,7 +141,6 @@ final class AdditionBlogViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -201,7 +193,17 @@ final class AdditionBlogViewController: UIViewController {
             tagErrorSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             tagErrorSubTitle.heightAnchor.constraint(equalToConstant: 20),
         ])
+        //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
+    }
+    
+    //MARK: Personal Functions
+    private func addSubViewInScrollView() {
+        let array = [header, nextButton, blogTitleSubTitle, tagSubTitle,
+                     blogTitleView, blogTitleErrorSubTitle, tagView,
+                     tagErrorSubTitle, blogTitleText, tagText]
+        
+        array.forEach{ scrollView.addSubview($0)}
     }
     
     @objc
@@ -240,6 +242,7 @@ extension AdditionBlogViewController: AdditionBlogViewInput {
 
 extension AdditionBlogViewController {
     
+    //Инициализируем клавиатуру
     func initializeHideKeyboard(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,

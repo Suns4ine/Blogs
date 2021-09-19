@@ -53,7 +53,8 @@ final class PasswordChangeInteractor {
     }
     
     private func resetSignIn(pass: String) {
-
+        
+        //Повторно авторизируем пользователя, чтобы в дальнейшем изменить его пароль
         UserManager.resetSignIn(pass: pass,
                                 failClosure: { [weak self] in
                                     self?.output?.transferErrorOldPassword(text: "Не правильный пароль")

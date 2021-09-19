@@ -11,11 +11,13 @@ import Foundation
 final class SettingInteractor {
 	weak var output: SettingInteractorOutput?
     
+    //Устанавливаем тогели в зависимости от настроек пользователя
     private func setupSetting() {
         defaultSetting[0].flag = defaultUser.personalSetting.notification
         defaultSetting[1].flag = defaultUser.personalSetting.sound
     }
     
+    //Устанавливаем тогели в дефолтное положение
     private func clearDefaultUser() {
         defaultUser.clearUser()
         defaultSetting[0].flag = defaultUser.personalSetting.notification
@@ -23,7 +25,6 @@ final class SettingInteractor {
     }
     
     private func logOut() {
-        
         UserManager.logOut()
         clearDefaultUser()
         output?.openStart()
@@ -31,11 +32,10 @@ final class SettingInteractor {
 }
 
 extension SettingInteractor: SettingInteractorInput {
+    
     func settingButtonCell(at indexPath: IndexPath) {
         
-        
         let setting = defaultSetting[indexPath.row]
-
         guard setting.condition == .button else { return }
         
         switch setting.identifier {
@@ -51,9 +51,6 @@ extension SettingInteractor: SettingInteractorInput {
         let flag = cortage.1
         
         let setting = defaultSetting[index.row]
-        
-        
-        
         guard setting.condition == .toggle else { return }
         
         setting.flag = flag
@@ -72,7 +69,6 @@ extension SettingInteractor: SettingInteractorInput {
         playSound(name: .openController)
         
         guard setting.condition == .screen else { return }
-        
         
         switch setting.identifier {
         case "Color": output?.openChoiceColor(setting)

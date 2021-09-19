@@ -24,7 +24,6 @@ extension MyMoreBlogsInteractor: MyMoreBlogsInteractorInput {
     }
     
     func getBlog(at indexPath: IndexPath) {
-        
         let blog = defaultUser.arrayBlogs[indexPath.row]
         playSound(name: .openController)
         

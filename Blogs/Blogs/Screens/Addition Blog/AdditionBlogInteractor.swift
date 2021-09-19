@@ -69,17 +69,14 @@ final class AdditionBlogInteractor {
 
 extension AdditionBlogInteractor: AdditionBlogInteractorInput {
     
-    
     func giveText() {
         output?.transferTitle(text: defaultDraft.title)
         output?.transferTags(text: defaultDraft.arrayTags.returnEnumerationString())
     }
     
-    
     func newNameText(text: String) {
         defaultDraft.title = text
     }
-    
     
     func newTagNameText(text: String) {
         let array = text.components(separatedBy: " ")

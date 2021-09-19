@@ -11,7 +11,7 @@ import UIKit
 final class MyProfileViewController: UIViewController {
 	private let output: MyProfileViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private var section: StandartBlogSectionRowPresentable = StandartBlogSectionViewModel() {
         didSet {
             moreBlogButton.isHidden = section.rows.count > 3 ? false : true
@@ -184,18 +184,8 @@ final class MyProfileViewController: UIViewController {
         title.sizeToFit()
         return title
     }()
-
     
-    private func addSubViewInScrollView() {
-        let array = [ profileView, avatar, header, nameTitle, nameTagSubtitle,
-                      editButton, statisticView, aboutMeSubTitle, aboutMeText,
-                      myBlogsSubTitle, createBlogButton, blogTableView, moreBlogButton,
-                      numberBlogTitle, followersBlogTitle, follovingBlogTitle, numberBlogNameTitle,
-                      followersBlogNameTitle, follovingBlogNameTitle, refreshControl]
-        
-        array.forEach{ scrollView.addSubview($0)}
-    }
-    
+    //MARK: System override Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         output.fetchBlogsCell()
@@ -220,7 +210,6 @@ final class MyProfileViewController: UIViewController {
     
     init(output: MyProfileViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -229,11 +218,15 @@ final class MyProfileViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //Отключаем горизонтальную прокрутку
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.x = 0.0
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -351,20 +344,25 @@ final class MyProfileViewController: UIViewController {
             ])
         }
         
-        //MARK: Костыль - так как контент может не занять весь размер экрана, он ужимался и уползал вверх
+        //Так как контент может не занять весь размер экрана, он ужимался и уползал вверх
         scrollView.contentSize = CGSize(width: scrollView.contentSize.width,
                                         height: scrollView.contentSize.height > view.frame.size.height ?
                                         scrollView.contentSize.height :  view.frame.size.height + 1)
     }
-
-    //MARK: Отключаем горизонтальную прокрутку
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.contentOffset.x = 0.0
+    
+    //MARK: Personal Functions
+    private func addSubViewInScrollView() {
+        let array = [ profileView, avatar, header, nameTitle, nameTagSubtitle,
+                      editButton, statisticView, aboutMeSubTitle, aboutMeText,
+                      myBlogsSubTitle, createBlogButton, blogTableView, moreBlogButton,
+                      numberBlogTitle, followersBlogTitle, follovingBlogTitle, numberBlogNameTitle,
+                      followersBlogNameTitle, follovingBlogNameTitle, refreshControl]
+        
+        array.forEach{ scrollView.addSubview($0)}
     }
     
     @objc
     private func refreshControlUpDate() {
-        
         self.refreshControl.startAnimation()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -401,9 +399,7 @@ extension MyProfileViewController: MyProfileViewInput, UIScrollViewDelegate {
         blogTableView.reloadData()
     }
     
-    
     func updateViews(profile: User) {
-        
         let path = getDocumentsDirectory().appendingPathComponent(profile.identifier)
         let image = UIImage(contentsOfFile: path.path) ?? .init()
         let aboutMe = profile.aboutMe.isEmpty ? "Здесь будет Ваше описание" : profile.aboutMe
@@ -421,7 +417,6 @@ extension MyProfileViewController: MyProfileViewInput, UIScrollViewDelegate {
         self.section = section
         blogTableView.reloadData()
     }
-    
 }
 
 extension MyProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -440,7 +435,7 @@ extension MyProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return section.rows[indexPath.row].cellHeight
+        return CGFloat(section.rows[indexPath.row].cellHeight)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -457,7 +452,7 @@ extension MyProfileViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         action.backgroundColor = StandartColors.deleteActionColor
-        action.image = UIImage(named: "trash-2")?.tinted(with: StandartColors.smallIconColor)
+        action.image = UIImage(named: "trash-2")
         
         return UISwipeActionsConfiguration(actions: [action])
     }

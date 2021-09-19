@@ -101,7 +101,7 @@ final class UserManager {
                 debugPrint("\(String(describing: error?.localizedDescription))!")
             } else {
                 closure()
-                //debugPrint("Данные Персональных настроек обновлены!")
+                debugPrint("Данные Персональных настроек обновлены!")
             }
         }
     }
@@ -234,7 +234,7 @@ final class UserManager {
         }
     }
     
-    //MARK: Authorization, Register and LogOut
+    //MARK: Authorization, Register and Log Out
     //Регестрируем пользоватетя
     static func registerUser(user: User,
                              pass: String,

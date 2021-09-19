@@ -10,6 +10,7 @@ import UIKit
 
 final class PageViewController: UIViewController {
     
+    //MARK: Create Variable
     private let heightScreen = UIScreen.main.bounds.height
     private (set) var number = 0
     private var flowHeightConstraint: NSLayoutConstraint?
@@ -40,9 +41,9 @@ final class PageViewController: UIViewController {
         return subtitle
     }()
     
+    //MARK: System override Functions
     convenience init(pageModel: PageIdentifiable) {
         self.init()
-        
         guard let pageModel = pageModel as? PageViewModel else { return }
         
         number = pageModel.numb
@@ -69,8 +70,8 @@ final class PageViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         NSLayoutConstraint.activate([
-            
             titlePage.topAnchor.constraint(equalTo: view.topAnchor,
                                            constant: isSmallScreen ? heightScreen/1.77 : heightScreen/1.93),
             titlePage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
@@ -82,9 +83,9 @@ final class PageViewController: UIViewController {
             subtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             subtitle.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -37)
         ])
-        
     }
     
+    //MARK: Personal Functions
     private func addView() {
         [image, titlePage, subtitle].forEach{ view.addSubview($0)}
     }
@@ -101,7 +102,6 @@ final class PageViewController: UIViewController {
     }
     
     private func setup() {
-        
         switch number {
         case 0:
             image.image = UIImage(named: "peep-107")
@@ -112,8 +112,7 @@ final class PageViewController: UIViewController {
                            animations: {
                             self.titlePage.editColor(color: .secondWhite)
                             self.subtitle.editColor(color: .secondWhite)
-                                        },
-                           completion: nil)
+                                        })
         case 1:
             image.image = UIImage(named: "peep-sitting-19")
             flowHeightConstraint?.constant = heightScreen/2.483
@@ -127,10 +126,7 @@ final class PageViewController: UIViewController {
                            animations: {
                             self.titlePage.editColor(color: .firstBlack)
                             self.subtitle.editColor(color: .secondBlack)
-                                        },
-                           completion: nil)
-            
-
+                                        })
         case 2:
             image.image = UIImage(named: "peep-106")
             flowHeightConstraint?.constant = heightScreen/2.76
@@ -144,10 +140,8 @@ final class PageViewController: UIViewController {
                            animations: {
                             self.titlePage.editColor(color: .firstBlack)
                             self.subtitle.editColor(color: .secondBlack)
-                                        },
-                           completion: nil)
-        default:
-            break
+                                        })
+        default: break
         }
     }
 }

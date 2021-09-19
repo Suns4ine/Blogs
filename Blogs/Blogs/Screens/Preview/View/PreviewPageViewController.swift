@@ -10,12 +10,14 @@ import UIKit
 
 final class PreviewPageViewController: UIPageViewController {
     
-    private var numbPage = 0
+    //MARK: Create Variable
     var delegatePage: PageProtocol?
     private var section: PageSectionRowPresentable?
     
-    private lazy var arrayViewControllers: [UIViewController] = []
+    private var numbPage = 0
+    private var arrayViewControllers: [UIViewController] = []
     
+    //MARK: System override Functions
     convenience init(section: PageSectionRowPresentable) {
         self.init()
         
@@ -33,17 +35,6 @@ final class PreviewPageViewController: UIPageViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func fillArrayViewControllers() {
-        
-        guard let section = section else { return }
-        
-        for model in section.rows {
-            arrayViewControllers.append(PageViewController(pageModel: model))
-        }
-        
-        setViewControllers([arrayViewControllers[numbPage]], direction: .forward, animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,12 +46,21 @@ final class PreviewPageViewController: UIPageViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    //MARK: Personal Functions
+    
+    //Заполняем массив контроллеров нашими viewModel'ями из section
+    private func fillArrayViewControllers() {
+        guard let section = section else { return }
+        
+        for model in section.rows {
+            arrayViewControllers.append(PageViewController(pageModel: model))
+        }
+        
+        setViewControllers([arrayViewControllers[numbPage]], direction: .forward, animated: true, completion: nil)
     }
     
+    //Изменить страницу (вызывается из вне, по кнопке)
     func nextPage() {
-        
         numbPage = numbPage + 1 > arrayViewControllers.count - 1 ? numbPage : numbPage + 1
         
         setViewControllers([arrayViewControllers[numbPage]],
@@ -94,6 +94,7 @@ extension PreviewPageViewController: UIPageViewControllerDelegate, UIPageViewCon
         return nil
     }
     
+    //Передаем номер страницы
     func pageViewController(_ pageViewController: UIPageViewController,
                             didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController],

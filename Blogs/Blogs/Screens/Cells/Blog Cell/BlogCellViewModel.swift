@@ -10,6 +10,7 @@ import UIKit
 
 final class BlogCellViewModel: BlogCellIdentifiable {
     
+    //MARK: Create Variable
     let title: String
     let dateSubTitle: String
     let nameSubTitle: String

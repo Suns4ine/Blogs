@@ -9,6 +9,7 @@ import Foundation
 
 final class PageViewModel: PageIdentifiable {
     
+    //MARK: Create Variable
     let numb: Int
     let title: String
     let subtitle: String
@@ -17,12 +18,9 @@ final class PageViewModel: PageIdentifiable {
         numb = page.numb
         title = page.title
         subtitle = page.subtitle
-        
     }
-    
 }
 
 final class PageSectionViewModel: PageSectionRowPresentable {
     var rows: [PageIdentifiable] = []
-    
 }
