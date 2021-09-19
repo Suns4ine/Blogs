@@ -11,6 +11,11 @@ import Foundation
 final class SettingInteractor {
 	weak var output: SettingInteractorOutput?
     
+    private func setupSetting() {
+        defaultSetting[0].flag = defaultUser.personalSetting.notification
+        defaultSetting[1].flag = defaultUser.personalSetting.sound
+    }
+    
     private func clearDefaultUser() {
         defaultUser.clearUser()
         defaultSetting[0].flag = defaultUser.personalSetting.notification
@@ -80,6 +85,7 @@ extension SettingInteractor: SettingInteractorInput {
     }
     
     func fetchSettings() {
+        setupSetting()
         output?.settingsDidRecieve(defaultSetting)
     }
     

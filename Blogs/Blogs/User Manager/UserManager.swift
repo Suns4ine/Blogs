@@ -101,7 +101,7 @@ final class UserManager {
                 debugPrint("\(String(describing: error?.localizedDescription))!")
             } else {
                 closure()
-                debugPrint("Данные Персональных настроек обновлены!")
+                //debugPrint("Данные Персональных настроек обновлены!")
             }
         }
     }
@@ -252,6 +252,7 @@ final class UserManager {
                     failClosure(2)
                     return
                 }
+                //Здесь мы получаем уникальный индентификатор с бека, который присваиваем новому пользователю
                 user.identifier =  String(result.user.uid)
                 user.randomUserAvatar()
                 
@@ -282,6 +283,7 @@ final class UserManager {
                         failClosure(3)
                     }
                 }
+                
                 defaultUser = user
                 uploadImage(oldName: defaultUser.identifier,
                             closure: {
