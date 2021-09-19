@@ -199,7 +199,6 @@ final class MyProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         output.fetchBlogsCell()
-        output.setupTextInViews()
     }
     
 	override func viewDidLoad() {
@@ -207,6 +206,7 @@ final class MyProfileViewController: UIViewController {
         [extraProfileView, scrollView].forEach{ view.addSubview($0)}
         addSubViewInScrollView()
         
+        output.setupTextInViews()
         moreBlogButton.isHidden = section.rows.count > 3 ? false : true
         scrollView.delegate =  self
         blogTableView.delegate = self

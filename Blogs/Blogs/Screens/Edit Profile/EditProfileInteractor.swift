@@ -90,60 +90,10 @@ final class EditProfileInteractor {
         }
     }
     
-    private func uploadImage(closure: @escaping () -> Void = { }) {
-
-        let ref = Storage.storage().reference().child("avatars").child(defaultUser.identifier)
-        let oldPath = getDocumentsDirectory().appendingPathComponent(avatar)
-        let path = getDocumentsDirectory().appendingPathComponent(defaultUser.identifier)
-        
-        guard let imageData = try? Data(contentsOf: oldPath) else {
-            return
-        }
-        
-        try? imageData.write(to: path)
-        
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/jpeg"
-        
-        ref.putData(imageData, metadata: metadata) { (metadata, error) in
-            guard metadata != nil else {
-                debugPrint("\(String(describing: error?.localizedDescription))!")
-                return
-            }
-            
-            ref.downloadURL { (url, error) in
-                guard let url = url else {
-                    debugPrint("\(String(describing: error?.localizedDescription))!")
-                    return
-                }
-                defaultUser.avatarURL = url.absoluteString
-                closure()
-            }
-        }
-    }
-    
     private func updateUser() {
-        let db = Firestore.firestore()
-        
-        guard let user = user else { return }
-        
-        let updateData = {
-            db.collection("users").document(user.uid).updateData([
-                "name" : defaultUser.name,
-                "surname" : defaultUser.surname,
-                "tagname" : defaultUser.tagname,
-                "aboutMe" : defaultUser.aboutMe,
-                "avatarURL" : defaultUser.avatarURL,
-            ]) {[weak self] error in
-                if error != nil {
-                    self?.output?.transferErrorName(text: "Ошибка обновления данных")
-                } else {
-                    debugPrint("Личные данные обновлены!")
-                }
-            }
+        UserManager.uploadImage(oldName: avatar) {
+            UserManager.updatePersonalDataUser()
         }
-        
-        uploadImage(closure: updateData)
         output?.openBackViewController()
     }
 }

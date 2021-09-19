@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         User.createArrayAnotherUsers()
-        UserManager.getDocument()
+        UserManager.getDataUser()
         return true
     }
 

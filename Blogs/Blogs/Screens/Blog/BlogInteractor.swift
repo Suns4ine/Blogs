@@ -32,23 +32,35 @@ extension BlogInteractor: BlogInteractorInput {
     }
     
     func tapLike() {
-        guard let blog = blog else { return }
+        guard var blog = blog else { return }
+        var haveBlog = false
         
-        if blog.arrayLikeUsers.contains(defaultUser) {
+        for defaultBlog in defaultUser.arrayLikedBlogs {
+            if blog.identifier == defaultBlog.identifier {
+                blog = defaultBlog
+                haveBlog = true
+            }
+        }
+ 
+        if haveBlog {
             defaultUser.arrayLikedBlogs.remove(blog)
-            blog.arrayLikeUsers.remove(defaultUser)
         } else {
             defaultUser.arrayLikedBlogs.insert(blog)
-            blog.arrayLikeUsers.insert(defaultUser)
         }
-        
         giveLike()
     }
     
     func giveLike() {
         guard let blog = blog else { return }
+        var haveBlog = false
         
-        if blog.arrayLikeUsers.contains(defaultUser) {
+        for defaultBlog in defaultUser.arrayLikedBlogs {
+            if blog.identifier == defaultBlog.identifier {
+                haveBlog = true
+            }
+        }
+        
+        if haveBlog {
             output?.updateLike(isOn: true)
         } else {
             output?.updateLike(isOn: false)
@@ -64,7 +76,7 @@ extension BlogInteractor: BlogInteractorInput {
     func getBlog(blog: Blog) {
         self.blog = blog
         
-        isMyBlog()
+        
     }
     
     func giveStatus() {

@@ -40,7 +40,7 @@ extension SearchInteractor: SearchInteractorInput {
     func searchBlogs(word: String) {
         
         var array: [Blog] = []
-        
+
         for blog in allArrayBlogs {
             if blog.title.lowercased().contains(word) {
                 array.append(blog)
