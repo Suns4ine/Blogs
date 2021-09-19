@@ -31,6 +31,15 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     static var passwordTextFieldErrorLoginScreen: String = NSLocalizedString("passwordTextFieldErrorLoginScreen",
                                                                              comment: "")
     
+    static var errorLoginIsEmptyLoginScreen: String = NSLocalizedString("errorLoginIsEmptyLoginScreen", comment: "")
+    static var errorLoginNotCorrectLoginScreen: String = NSLocalizedString("errorLoginNotCorrectLoginScreen", comment: "")
+    static var errorPasswordIsEmptyLoginScreen: String = NSLocalizedString("errorPasswordIsEmptyLoginScreen", comment: "")
+    static var errorPasswordNotCorrectLoginScreen: String = NSLocalizedString("errorPasswordNotCorrectLoginScreen", comment: "")
+    static var errorAuthOneLoginScreen: String = NSLocalizedString("errorAuthOneLoginScreen", comment: "")
+    static var errorAuthTwoLoginScreen: String = NSLocalizedString("errorAuthTwoLoginScreen", comment: "")
+    static var errorAuthThreeLoginScreen: String = NSLocalizedString("errorAuthThreeLoginScreen", comment: "")
+    static var errorAuthFourLoginScreen: String = NSLocalizedString("errorAuthFourLoginScreen", comment: "")
+    
     //MARK: Sign Up Screen
     static var headerTitleSignUpScreen: String = NSLocalizedString("headerTitleSignUpScreen", comment: "")
     static var titleSignUpScreen: String = NSLocalizedString("titleSignUpScreen", comment: "")
@@ -50,6 +59,18 @@ final class StandartLanguage: LanguagesApplicationProtocol {
                                                                                    comment: "")
     static var passwordTextFieldErrorSignUpScreen: String = NSLocalizedString("passwordTextFieldErrorSignUpScreen",
                                                                               comment: "")
+    
+    static var errorTagnameIsEmptySignUpScreen: String = NSLocalizedString("errorTagnameIsEmptySignUpScreen", comment: "")
+    static var errorTagnameLittleSignUpScreen: String = NSLocalizedString("errorTagnameLittleSignUpScreen", comment: "")
+    static var errorTagnameMoreSignUpScreen: String = NSLocalizedString("errorTagnameMoreSignUpScreen", comment: "")
+    static var errorMailIsEmptySignUpScreen: String = NSLocalizedString("errorMailIsEmptySignUpScreen", comment: "")
+    static var errorMailNotCorrectSignUpScreen: String = NSLocalizedString("errorMailNotCorrectSignUpScreen", comment: "")
+    static var errorPasswordIsEmptySignUpScreen: String = NSLocalizedString("errorPasswordIsEmptySignUpScreen", comment: "")
+    static var errorPasswordLittleSignUpScreen: String = NSLocalizedString("errorPasswordLittleSignUpScreen", comment: "")
+    static var errorPasswordMoreSignUpScreen: String = NSLocalizedString("errorPasswordMoreSignUpScreen", comment: "")
+    static var errorRegisterOneSignUpScreen: String = NSLocalizedString("errorRegisterOneSignUpScreen", comment: "")
+    static var errorRegisterTwoSignUpScreen: String = NSLocalizedString("errorRegisterTwoSignUpScreen", comment: "")
+    static var errorRegisterThreeSignUpScreen: String = NSLocalizedString("errorRegisterThreeSignUpScreen", comment: "")
     
     //MARK: Home Screen
     static var headerTitleHomeScreen: String = NSLocalizedString("headerTitleHomeScreen", comment: "")
@@ -86,6 +107,49 @@ final class StandartLanguage: LanguagesApplicationProtocol {
                                                                                  comment: "")
     static var follovingBlogNameTitleMyProfileScreen: String = NSLocalizedString("follovingBlogNameTitleMyProfileScreen",
                                                                                  comment: "")
+    static var aboutMeIsEmptyTextMyProfileScreen: String =
+        NSLocalizedString("aboutMeIsEmptyTextMyProfileScreen", comment: "")
+    
+    static var alertSelectImageTitleEditProfileScreen: String =
+        NSLocalizedString("alertSelectImageTitleEditProfileScreen", comment: "")
+    static var alertSelectImageCameraButtonEditProfileScreen: String =
+        NSLocalizedString("alertSelectImageCameraButtonEditProfileScreen",comment: "")
+    static var alertSelectImageGaleryButtonEditProfileScreen: String =
+        NSLocalizedString("alertSelectImageGaleryButtonEditProfileScreen", comment: "")
+    static var alertSelectImageCancelButtonEditProfileScreen: String =
+        NSLocalizedString("alertSelectImageCancelButtonEditProfileScreen", comment: "")
+    static var alertOpenGalleryTitleEditProfileScreen: String =
+        NSLocalizedString("alertOpenGalleryTitleEditProfileScreen", comment: "")
+    static var alertOpenGalleryMessageEditProfileScreen: String =
+        NSLocalizedString("alertOpenGalleryMessageEditProfileScreen", comment: "")
+    static var alertOpenGalleryCancelButtonEditProfileScreen: String =
+        NSLocalizedString("alertOpenGalleryCancelButtonEditProfileScreen", comment: "")
+    static var alertOpenCameraTitleEditProfileScreen: String =
+        NSLocalizedString("alertOpenCameraTitleEditProfileScreen", comment: "")
+    static var alertOpenCameraMessageEditProfileScreen: String =
+        NSLocalizedString("alertOpenCameraMessageEditProfileScreen", comment: "")
+    static var alertOpenCameraCancelButtonEditProfileScreen: String =
+        NSLocalizedString("alertOpenCameraCancelButtonEditProfileScreen", comment: "")
+    static var errorNameIsEmptyEditProfileScreen: String =
+        NSLocalizedString("errorNameIsEmptyEditProfileScreen", comment: "")
+    static var errorNameLittleEditProfileScreen: String =
+        NSLocalizedString("errorNameLittleEditProfileScreen", comment: "")
+    static var errorNameMoreEditProfileScreen: String =
+        NSLocalizedString("errorNameMoreEditProfileScreen", comment: "")
+    static var errorSurnameIsEmptyEditProfileScreen: String =
+        NSLocalizedString("errorSurnameIsEmptyEditProfileScreen", comment: "")
+    static var errorSurnameLittleEditProfileScreen: String =
+        NSLocalizedString("errorSurnameLittleEditProfileScreen", comment: "")
+    static var errorSurnameMoreEditProfileScreen: String =
+        NSLocalizedString("errorSurnameMoreEditProfileScreen", comment: "")
+    static var errorTagnameIsEmptyEditProfileScreen: String =
+        NSLocalizedString("errorTagnameIsEmptyEditProfileScreen", comment: "")
+    static var errorTagnameLittleEditProfileScreen: String =
+        NSLocalizedString("errorTagnameLittleEditProfileScreen", comment: "")
+    static var errorTagnameMoreEditProfileScreen: String =
+        NSLocalizedString("errorTagnameMoreEditProfileScreen", comment: "")
+    static var errorAboutMeMoreEditProfileScreen: String =
+        NSLocalizedString("errorAboutMeMoreEditProfileScreen", comment: "")
     
     //MARK: Another Profile Screen
     static var headerTitleAnotherProfileScreen: String = NSLocalizedString("headerTitleAnotherProfileScreen", comment: "")
@@ -122,6 +186,12 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     //MARK: Choice Language Screen
     static var headerTitleChoiceLanguageScreen: String = NSLocalizedString("headerTitleChoiceLanguageScreen", comment: "")
     static var emptyArrayTitleChoiceLanguageScreen: String = NSLocalizedString("emptyArrayTitleChoiceLanguageScreen", comment: "")
+    static var alertNotificationTitleChoiceLanguageScreen: String =
+        NSLocalizedString("alertNotificationTitleChoiceLanguageScreen", comment: "")
+    static var alertNotificationMessageChoiceLanguageScreen: String =
+        NSLocalizedString("alertNotificationMessageChoiceLanguageScreen", comment: "")
+    static var alertNotificationCancelButtonChoiceLanguageScreen: String =
+        NSLocalizedString("alertNotificationCancelButtonChoiceLanguageScreen", comment: "")
     
     //MARK: Choice Color Screen
     static var headerTitleChoiceColorScreen: String = NSLocalizedString("headerTitleChoiceColorScreen", comment: "")
@@ -148,6 +218,23 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     static var repeatPasswordTextfieldErrorPasswordChangeScreen: String =
         NSLocalizedString("repeatPasswordTextfieldErrorPasswordChangeScreen", comment: "")
     static var saveButtonPasswordChangeScreen: String = NSLocalizedString("saveButtonPasswordChangeScreen", comment: "")
+    
+    static var newPasswordIsEmptyPasswordChangeScreen: String =
+        NSLocalizedString("newPasswordIsEmptyPasswordChangeScreen", comment: "")
+    static var newPasswordLittlePasswordChangeScreen: String =
+        NSLocalizedString("newPasswordLittlePasswordChangeScreen", comment: "")
+    static var newPasswordEqualityPasswordChangeScreen: String =
+        NSLocalizedString("newPasswordEqualityPasswordChangeScreen", comment: "")
+    static var newPasswordMorePasswordChangeScreen: String =
+        NSLocalizedString("newPasswordMorePasswordChangeScreen", comment: "")
+    static var repeatPasswordIsEmptyPasswordChangeScreen: String =
+        NSLocalizedString("repeatPasswordIsEmptyPasswordChangeScreen", comment: "")
+    static var repeatPasswordNotEqualityPasswordChangeScreen: String =
+        NSLocalizedString("repeatPasswordNotEqualityPasswordChangeScreen", comment: "")
+    static var oldPasswordNotCorrectPasswordChangeScreen: String =
+        NSLocalizedString("oldPasswordNotCorrectPasswordChangeScreen", comment: "")
+    static var errorUpdatePasswordPasswordChangeScreen: String =
+        NSLocalizedString("errorUpdatePasswordPasswordChangeScreen", comment: "")
     
     //MARK: Help Screen
     static var headerTitleHelpScreen: String = NSLocalizedString("headerTitleHelpScreen", comment: "")
@@ -202,6 +289,19 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     static var blogTitleTextAdditionBlogScreen: String = NSLocalizedString("blogTitleTextAdditionBlogScreen", comment: "")
     static var tagTextAdditionBlogScreen: String = NSLocalizedString("tagTextAdditionBlogScreen", comment: "")
     
+    static var errorNameIsEmptyAdditionBlogScreen: String =
+        NSLocalizedString("errorNameIsEmptyAdditionBlogScreen", comment: "")
+    static var errorNameLittleAdditionBlogScreen: String =
+        NSLocalizedString("errorNameLittleAdditionBlogScreen", comment: "")
+    static var errorNameMoreAdditionBlogScreen: String =
+        NSLocalizedString("errorNameMoreAdditionBlogScreen", comment: "")
+    static var errorTagnameLittleAdditionBlogScreen: String =
+        NSLocalizedString("errorTagnameLittleAdditionBlogScreen", comment: "")
+    static var errorTagnameMoreAdditionBlogScreen: String =
+        NSLocalizedString("errorTagnameMoreAdditionBlogScreen", comment: "")
+    static var errorArrayTagsMoreAdditionBlogScreen: String =
+        NSLocalizedString("errorArrayTagsMoreAdditionBlogScreen", comment: "")
+    
     //MARK: My Blog Screen
     static var headerTitlteMyBlogScreen: String = NSLocalizedString("headerTitlteMyBlogScreen", comment: "")
     static var titleBlogMyBlogScreen: String = NSLocalizedString("titleBlogMyBlogScreen", comment: "")
@@ -213,6 +313,7 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     static var dateSubTitleMyBlogScreen: String = NSLocalizedString("dateSubTitleMyBlogScreen", comment: "")
     static var shareSubtitleMyBlogScreen: String = NSLocalizedString("shareSubtitleMyBlogScreen", comment: "")
     static var likeSubtitleMyBlogScreen: String = NSLocalizedString("likeSubtitleMyBlogScreen", comment: "")
+    static var arrayTagsIsEmptyMyBlogScreen: String = NSLocalizedString("arrayTagsIsEmptyMyBlogScreen", comment: "")
     
     //MARK: Another Blog Screen
     static var headerTitleAnotherBlogScreen: String = NSLocalizedString("headerTitleAnotherBlogScreen", comment: "")
@@ -231,6 +332,9 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     static var nextButtonCreateBlogScreen: String = NSLocalizedString("nextButtonCreateBlogScreen", comment: "")
     static var draftButtonCreateBlogScreen: String = NSLocalizedString("draftButtonCreateBlogScreen", comment: "")
     static var textCreateBlogScreen: String = NSLocalizedString("textCreateBlogScreen", comment: "")
+    static var alertTitleCreateBlogScreen: String = NSLocalizedString("alertTitleCreateBlogScreen", comment: "")
+    static var alertMessageCreateBlogScreen: String = NSLocalizedString("alertMessageCreateBlogScreen", comment: "")
+    static var alertButtonCancelCreateBlogScreen: String = NSLocalizedString("alertButtonCancelCreateBlogScreen", comment: "")
     
     //MARK: Setting Screen
     static var headerTitleSettingScreen: String = NSLocalizedString("headerTitleSettingScreen", comment: "")
@@ -251,6 +355,12 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     static var leadingTwoButtonsPreviewScreen: String = NSLocalizedString("leadingTwoButtonsPreviewScreen", comment: "")
     static var tralingTwoButtonsPreviewScreen: String = NSLocalizedString("tralingTwoButtonsPreviewScreen", comment: "")
     static var startedButtonPreviewScreen: String = NSLocalizedString("startedButtonPreviewScreen", comment: "")
+    static var pageOneTitltePreviewScreen: String = NSLocalizedString("pageOneTitltePreviewScreen", comment: "")
+    static var pageOneTextPreviewScreen: String = NSLocalizedString("pageOneTextPreviewScreen", comment: "")
+    static var pageTwoTitltePreviewScreen: String = NSLocalizedString("pageTwoTitltePreviewScreen", comment: "")
+    static var pageTwoTextPreviewScreen: String = NSLocalizedString("pageTwoTextPreviewScreen", comment: "")
+    static var pageThreeTitltePreviewScreen: String = NSLocalizedString("pageThreeTitltePreviewScreen", comment: "")
+    static var pageThreeTextPreviewScreen: String = NSLocalizedString("pageThreeTextPreviewScreen", comment: "")
     
     //MARK: Page Screen
     static var titlePageScreen: String = NSLocalizedString("titlePageScreen", comment: "")
@@ -283,5 +393,16 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     //MARK: Choice Cell
     static var titleChoiceCell: String = NSLocalizedString("titleChoiceCell", comment: "")
     
+    //MARK: Остальные
     
+    //MARK: Languages Application Dictionary
+    static var englishLanguagesApplicationDictionary: String =
+        NSLocalizedString("englishLanguagesApplicationDictionary", comment: "")
+    static var russianLanguagesApplicationDictionary: String =
+        NSLocalizedString("russianLanguagesApplicationDictionary", comment: "")
+    
+    //MARK: Colors Application Dictionary
+    static var lightColorsApplicationDictonary: String = NSLocalizedString("lightColorsApplicationDictonary", comment: "")
+    static var darkColorsApplicationDictonary: String = NSLocalizedString("darkColorsApplicationDictonary", comment: "")
+
 }

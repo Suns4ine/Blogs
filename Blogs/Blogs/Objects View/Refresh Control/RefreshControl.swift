@@ -33,6 +33,7 @@ final class RefreshControl: UIRefreshControl {
     convenience init(indent: CGFloat = 0) {
         self.init()
         self.indent = indent
+        setup()
     }
     
     private override init() {

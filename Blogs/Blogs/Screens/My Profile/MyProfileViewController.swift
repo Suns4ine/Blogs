@@ -402,7 +402,7 @@ extension MyProfileViewController: MyProfileViewInput, UIScrollViewDelegate {
     func updateViews(profile: User) {
         let path = getDocumentsDirectory().appendingPathComponent(profile.identifier)
         let image = UIImage(contentsOfFile: path.path) ?? .init()
-        let aboutMe = profile.aboutMe.isEmpty ? "Здесь будет Ваше описание" : profile.aboutMe
+        let aboutMe = profile.aboutMe.isEmpty ? StandartLanguage.aboutMeIsEmptyTextMyProfileScreen : profile.aboutMe
         
         avatar.editImage(image: image)
         nameTitle.editText(text: profile.surname + " " + profile.name)
@@ -452,7 +452,7 @@ extension MyProfileViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         action.backgroundColor = StandartColors.deleteActionColor
-        action.image = UIImage(named: "trash-2")
+        action.image = UIImage(named: Icons.trash2.rawValue)
         
         return UISwipeActionsConfiguration(actions: [action])
     }

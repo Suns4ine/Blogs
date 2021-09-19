@@ -40,6 +40,7 @@ final class Text: UIView, TextProtocol, UITextViewDelegate {
         self.init()
         textView.font = returnFontForTitle(size: size)
         textView.text = text
+        setup()
     }
     
     private override init(frame: CGRect) {

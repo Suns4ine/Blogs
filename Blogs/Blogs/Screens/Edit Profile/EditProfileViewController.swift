@@ -246,10 +246,18 @@ extension EditProfileViewController: EditProfileViewInput {
     
     //Запускам Алерт, чтобы выбрать где взять изображение для аватарки
     func showAlertAvatar() {
-        let alert = UIAlertController(title: "Выбрать изображение", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in self.openCamera() }))
-        alert.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { _ in self.openGallery() }))
-        alert.addAction(UIAlertAction.init(title: "Отмена", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: StandartLanguage.alertSelectImageTitleEditProfileScreen,
+                                      message: nil,
+                                      preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: StandartLanguage.alertSelectImageCameraButtonEditProfileScreen,
+                                      style: .default,
+                                      handler: { _ in self.openCamera() }))
+        alert.addAction(UIAlertAction(title: StandartLanguage.alertSelectImageGaleryButtonEditProfileScreen,
+                                      style: .default,
+                                      handler: { _ in self.openGallery() }))
+        alert.addAction(UIAlertAction.init(title: StandartLanguage.alertSelectImageCancelButtonEditProfileScreen,
+                                           style: .cancel,
+                                           handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -335,8 +343,7 @@ extension EditProfileViewController {
                             options,
                            animations: {
                             self.view.layoutIfNeeded()
-                           },
-                           completion: nil)
+                           })
         }
     }
     
@@ -353,10 +360,12 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
        } else {
-        let alert  = UIAlertController(title: "Осторожно",
-                                       message: "У вас нет разрешения на доступ к галерее.",
+        let alert  = UIAlertController(title: StandartLanguage.alertOpenGalleryTitleEditProfileScreen,
+                                       message: StandartLanguage.alertOpenGalleryMessageEditProfileScreen,
                                        preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: StandartLanguage.alertOpenGalleryCancelButtonEditProfileScreen,
+                                      style: .default,
+                                      handler: nil))
         self.present(alert, animated: true, completion: nil)
        }
    }
@@ -371,8 +380,12 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
             imagePicker.isEditing = true
             self.present(imagePicker, animated: true, completion: nil)
         } else {
-            let alert  = UIAlertController(title: "Осторожно", message: "У вас нет камеры.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let alert  = UIAlertController(title: StandartLanguage.alertOpenCameraTitleEditProfileScreen,
+                                           message: StandartLanguage.alertOpenCameraMessageEditProfileScreen,
+                                           preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: StandartLanguage.alertOpenCameraCancelButtonEditProfileScreen,
+                                          style: .default,
+                                          handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }

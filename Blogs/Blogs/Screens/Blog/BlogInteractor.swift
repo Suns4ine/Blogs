@@ -90,7 +90,8 @@ extension BlogInteractor: BlogInteractorInput {
     
     func transferTextInViews() {
         guard let blog = blog else { return }
-        let tags = blog.arrayTags.returnEnumerationString().isEmpty ? "Нет тегов" : blog.arrayTags.returnEnumerationString()
+        let tags = blog.arrayTags.returnEnumerationString().isEmpty ?
+            StandartLanguage.arrayTagsIsEmptyMyBlogScreen : blog.arrayTags.returnEnumerationString()
         
         output?.transferTitle(text: blog.title)
         output?.transferText(text: blog.finalPost.text)

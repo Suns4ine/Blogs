@@ -15,8 +15,8 @@ enum ColorsApplication: String {
 }
 
 private (set) var ColorsApplicationDictonary: [ColorsApplication: String] = [
-    .light : "Стандартная",
-    .dark: "Темная"
+    .light : StandartLanguage.lightColorsApplicationDictonary,
+    .dark: StandartLanguage.darkColorsApplicationDictonary
 ]
 
 protocol ColorsApplicationProtocol {

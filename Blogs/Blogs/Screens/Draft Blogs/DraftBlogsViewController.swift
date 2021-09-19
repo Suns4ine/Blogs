@@ -158,7 +158,7 @@ extension DraftBlogsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         action.backgroundColor = StandartColors.deleteActionColor
-        action.image = UIImage(named: "trash-2")
+        action.image = UIImage(named: Icons.trash2.rawValue)
         
         return UISwipeActionsConfiguration(actions: [action])
     }

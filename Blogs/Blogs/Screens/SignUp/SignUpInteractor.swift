@@ -24,13 +24,13 @@ final class SignUpInteractor {
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorName(text: "Пустой поле имя")
+            output?.transferErrorName(text: StandartLanguage.errorTagnameIsEmptySignUpScreen)
             return false
         case let text where text.count < 6:
-            output?.transferErrorName(text: "Минимум 6 символов")
+            output?.transferErrorName(text: StandartLanguage.errorTagnameLittleSignUpScreen)
             return false
         case let text where text.count > 25:
-            output?.transferErrorName(text: "Максимум 25 символов")
+            output?.transferErrorName(text: StandartLanguage.errorTagnameMoreSignUpScreen)
             return false
         default:
             self.tagname = text
@@ -44,10 +44,10 @@ final class SignUpInteractor {
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorMail(text: "Пустое поле почты")
+            output?.transferErrorMail(text: StandartLanguage.errorMailIsEmptySignUpScreen)
             return false
         case let text where (text.rangeOfCharacter(from: CharacterSet(charactersIn: "@")) == nil):
-            output?.transferErrorMail(text: "Не корректная почта")
+            output?.transferErrorMail(text: StandartLanguage.errorMailNotCorrectSignUpScreen)
             return false
         default:
             self.mail = text
@@ -61,13 +61,13 @@ final class SignUpInteractor {
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorPassword(text: "Пустой Пароль")
+            output?.transferErrorPassword(text: StandartLanguage.errorPasswordIsEmptySignUpScreen)
             return false
         case let text where text.count < 6:
-            output?.transferErrorPassword(text: "Минимум 6 символов")
+            output?.transferErrorPassword(text: StandartLanguage.errorPasswordLittleSignUpScreen)
             return false
         case let text where text.count > 40:
-            output?.transferErrorPassword(text: "Максимум 40 символов")
+            output?.transferErrorPassword(text: StandartLanguage.errorPasswordMoreSignUpScreen)
             return false
         default:
             self.password = text
@@ -86,9 +86,9 @@ final class SignUpInteractor {
                                  pass: password,
                                  failClosure: { [weak self] (error) in
                                     switch error {
-                                    case 1: self?.output?.transferErrorName(text: "Ошибка создания пользователя")
-                                    case 2: self?.output?.transferErrorName(text: "Ошибка создания пользователя")
-                                    case 3: self?.output?.transferErrorName(text: "Ошибка сохранения данных")
+                                    case 1: self?.output?.transferErrorName(text: StandartLanguage.errorRegisterOneSignUpScreen)
+                                    case 2: self?.output?.transferErrorName(text: StandartLanguage.errorRegisterTwoSignUpScreen)
+                                    case 3: self?.output?.transferErrorName(text: StandartLanguage.errorRegisterThreeSignUpScreen)
                                     default: return
                                     }
                                  },

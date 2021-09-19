@@ -19,16 +19,16 @@ final class PasswordChangeInteractor {
         let text = pass.trimmingCharacters(in: .whitespaces)
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorNewPassword(text: "Пустое поле")
+            output?.transferErrorNewPassword(text: StandartLanguage.newPasswordIsEmptyPasswordChangeScreen)
             return false
         case let text where text == oldPassword:
-            output?.transferErrorNewPassword(text: "Совпадает со старым паролем")
+            output?.transferErrorNewPassword(text: StandartLanguage.newPasswordEqualityPasswordChangeScreen)
             return false
         case let text where text.count < 6:
-            output?.transferErrorNewPassword(text: "Минимум 6 символов")
+            output?.transferErrorNewPassword(text: StandartLanguage.newPasswordLittlePasswordChangeScreen)
             return false
         case let text where text.count > 40:
-            output?.transferErrorNewPassword(text: "Максимум 40 символов")
+            output?.transferErrorNewPassword(text: StandartLanguage.newPasswordMorePasswordChangeScreen)
             return false
         default:
             newPassword = text
@@ -41,10 +41,10 @@ final class PasswordChangeInteractor {
         let text = pass.trimmingCharacters(in: .whitespaces)
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorRepeatPassword(text: "Пустое поле")
+            output?.transferErrorRepeatPassword(text: StandartLanguage.repeatPasswordIsEmptyPasswordChangeScreen)
             return false
         case let text where text != newPassword:
-            output?.transferErrorRepeatPassword(text: "Пароли не совпадают")
+            output?.transferErrorRepeatPassword(text: StandartLanguage.repeatPasswordNotEqualityPasswordChangeScreen)
             return false
         default:
             output?.transferErrorRepeatPassword(text: "")
@@ -57,7 +57,7 @@ final class PasswordChangeInteractor {
         //Повторно авторизируем пользователя, чтобы в дальнейшем изменить его пароль
         UserManager.resetSignIn(pass: pass,
                                 failClosure: { [weak self] in
-                                    self?.output?.transferErrorOldPassword(text: "Не правильный пароль")
+                                    self?.output?.transferErrorOldPassword(text: StandartLanguage.oldPasswordNotCorrectPasswordChangeScreen)
                                 },
                                 sucsessClosure: { [weak self] in
                                     self?.output?.transferErrorOldPassword(text: "")
@@ -75,7 +75,7 @@ final class PasswordChangeInteractor {
     private func updatePassword(pass: String) {
         UserManager.updatePassword(pass: pass,
                                    failClosure: { [weak self] in
-                                    self?.output?.transferErrorOldPassword(text: "Ошибка смены пароля")
+                                    self?.output?.transferErrorOldPassword(text: StandartLanguage.errorUpdatePasswordPasswordChangeScreen)
                                    },
                                    sucsessClosure: { [weak self] in
                                     self?.output?.openBackViewController()

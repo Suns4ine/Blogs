@@ -70,5 +70,7 @@ enum Icons: String {
     case outline2 = "outline - icon-only-2"
     case outline3 = "outline - icon-only-3"
     case logo = "logo-mark"
+    case trash1 = "trash"
+    case trash2 = "trash-2"
     case none = ""
 }

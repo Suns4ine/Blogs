@@ -105,10 +105,12 @@ extension ChoiceLanguageViewController: ChoiceLanguageViewInput {
     
     //Изменение языка происходит только после перезагрузки приложения, поэтому мы оповещаем
     func showNotification() {
-        let alert = UIAlertController(title: "Важно",
-                                      message: "Для смены языка в приложении, перезагрузите его",
+        let alert = UIAlertController(title: StandartLanguage.alertNotificationTitleChoiceLanguageScreen,
+                                      message: StandartLanguage.alertNotificationMessageChoiceLanguageScreen,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: StandartLanguage.alertNotificationCancelButtonChoiceLanguageScreen,
+                                      style: .cancel,
+                                      handler: nil))
         self.present(alert, animated: true)
     }
     

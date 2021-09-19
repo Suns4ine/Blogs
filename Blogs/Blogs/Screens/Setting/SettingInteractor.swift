@@ -13,15 +13,25 @@ final class SettingInteractor {
     
     //Устанавливаем тогели в зависимости от настроек пользователя
     private func setupSetting() {
-        defaultSetting[0].flag = defaultUser.personalSetting.notification
-        defaultSetting[1].flag = defaultUser.personalSetting.sound
+        for setting in defaultSetting {
+            if setting.identifier == "Notification" {
+                setting.flag = defaultUser.personalSetting.notification
+            } else if setting.identifier == "Sound" {
+                setting.flag = defaultUser.personalSetting.sound
+            }
+        }
     }
     
     //Устанавливаем тогели в дефолтное положение
     private func clearDefaultUser() {
         defaultUser.clearUser()
-        defaultSetting[0].flag = defaultUser.personalSetting.notification
-        defaultSetting[1].flag = defaultUser.personalSetting.sound
+        for setting in defaultSetting {
+            if setting.identifier == "Notification" {
+                setting.flag = defaultUser.personalSetting.notification
+            } else if setting.identifier == "Sound" {
+                setting.flag = defaultUser.personalSetting.sound
+            }
+        }
     }
     
     private func logOut() {

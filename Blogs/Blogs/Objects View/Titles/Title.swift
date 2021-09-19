@@ -34,6 +34,7 @@ final class Title: UIView, TextProtocol {
         self.init()
         label.font = returnFontForTitle(size: size)
         label.text = text
+        setup()
     }
     
     private override init(frame: CGRect) {

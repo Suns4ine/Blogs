@@ -41,6 +41,7 @@ final class FirstSmallButton: UIView {
     convenience init(text: String) {
         self.init()
         button.setTitle(text, for: .normal)
+        setup()
     }
  
     private override init(frame: CGRect) {

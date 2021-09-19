@@ -26,6 +26,7 @@ final class TwoButtons: UIView {
         self.init()
         leadingButton = ThirdBigButton(text: stringLeading)
         trailingButton = SecondBigButton(text: stringTrailing, icon: .none)
+        setup()
     }
     
     private override init(frame: CGRect) {

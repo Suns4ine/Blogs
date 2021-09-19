@@ -161,7 +161,7 @@ extension MyMoreBlogsViewController: UITableViewDelegate, UITableViewDataSource 
         }
         
         action.backgroundColor = StandartColors.deleteActionColor
-        action.image = UIImage(named: "trash-2")?.tinted(with: StandartColors.smallIconColor)
+        action.image = UIImage(named: Icons.trash2.rawValue)
         
         return UISwipeActionsConfiguration(actions: [action])
     }

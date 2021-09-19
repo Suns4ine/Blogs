@@ -22,13 +22,13 @@ final class EditProfileInteractor {
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorName(text: "Пустое поле")
+            output?.transferErrorName(text: StandartLanguage.errorNameIsEmptyEditProfileScreen)
             return false
         case let text where text.count < 4:
-            output?.transferErrorName(text: "Минимум 4 символа")
+            output?.transferErrorName(text: StandartLanguage.errorNameLittleEditProfileScreen)
             return false
         case let text where text.count > 15:
-            output?.transferErrorName(text: "Максимум 15 символов")
+            output?.transferErrorName(text: StandartLanguage.errorNameMoreEditProfileScreen)
             return false
         default:
             output?.transferErrorName(text: "")
@@ -41,13 +41,13 @@ final class EditProfileInteractor {
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorSurname(text: "Пустое поле")
+            output?.transferErrorSurname(text: StandartLanguage.errorSurnameIsEmptyEditProfileScreen)
             return false
         case let text where text.count < 4:
-            output?.transferErrorSurname(text: "Минимум 4 символа")
+            output?.transferErrorSurname(text: StandartLanguage.errorSurnameLittleEditProfileScreen)
             return false
         case let text where text.count > 15:
-            output?.transferErrorSurname(text: "Максимум 15 символов")
+            output?.transferErrorSurname(text: StandartLanguage.errorSurnameMoreEditProfileScreen)
             return false
         default:
             output?.transferErrorSurname(text: "")
@@ -60,13 +60,13 @@ final class EditProfileInteractor {
 
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorTagName(text: "Пустое поле")
+            output?.transferErrorTagName(text: StandartLanguage.errorTagnameIsEmptyEditProfileScreen)
             return false
         case let text where text.count < 6:
-            output?.transferErrorTagName(text: "Минимум 6 символов")
+            output?.transferErrorTagName(text: StandartLanguage.errorTagnameLittleEditProfileScreen)
             return false
         case let text where text.count > 25:
-            output?.transferErrorTagName(text: "Максимум 25 символов")
+            output?.transferErrorTagName(text: StandartLanguage.errorTagnameMoreEditProfileScreen)
             return false
         default:
             output?.transferErrorTagName(text: "")
@@ -79,7 +79,7 @@ final class EditProfileInteractor {
         
         switch text {
         case let text where text.count > 400:
-            output?.transferErrorAboutMe(text: "Максимум 400 символов")
+            output?.transferErrorAboutMe(text: StandartLanguage.errorAboutMeMoreEditProfileScreen)
             return false
         default:
             output?.transferErrorAboutMe(text: "")

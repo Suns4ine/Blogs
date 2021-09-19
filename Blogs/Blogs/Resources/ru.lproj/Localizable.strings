@@ -25,6 +25,15 @@
 "passwordTextFieldShadowTextLoginScreen" = "Пароль";
 "passwordTextFieldErrorLoginScreen" = "Пароль";
 
+"errorLoginIsEmptyLoginScreen" = "Пустой логин";
+"errorLoginNotCorrectLoginScreen" = "Не корректный логин";
+"errorPasswordIsEmptyLoginScreen" = "Пустой Пароль";
+"errorPasswordNotCorrectLoginScreen" = "Не корректный Пароль";
+"errorAuthOneLoginScreen" = "Не правильная почта либо пароль";
+"errorAuthTwoLoginScreen" = "Не правильная почта либо пароль";
+"errorAuthThreeLoginScreen" = "Ошибка получения данных";
+"errorAuthFourLoginScreen" = "Ошибка получения данных";
+
 //MARK: Sign Up Screen
 "headerTitleSignUpScreen" = "";
 "titleSignUpScreen" = "Регистрация";
@@ -39,6 +48,18 @@
 "passwordTextFieldNameSignUpScreen" = "Пароль";
 "passwordTextFieldShadowTextSignUpScreen" = "Пароль";
 "passwordTextFieldErrorSignUpScreen" = "Пароль";
+
+"errorTagnameIsEmptySignUpScreen" = "Пустой поле имя";
+"errorTagnameLittleSignUpScreen" = "Минимум 6 символов";
+"errorTagnameMoreSignUpScreen" = "Максимум 25 символов";
+"errorMailIsEmptySignUpScreen" = "Пустое поле почты";
+"errorMailNotCorrectSignUpScreen" = "Не корректная почта";
+"errorPasswordIsEmptySignUpScreen" = "Пустой Пароль";
+"errorPasswordLittleSignUpScreen" = "Минимум 6 символов";
+"errorPasswordMoreSignUpScreen" = "Максимум 40 символов";
+"errorRegisterOneSignUpScreen" = "Ошибка создания пользователя";
+"errorRegisterTwoSignUpScreen" = "Ошибка создания пользователя";
+"errorRegisterThreeSignUpScreen" = "Ошибка сохранения данных";
 
 //MARK: Home Screen
 "headerTitleHomeScreen" = "Блоги";
@@ -69,6 +90,7 @@
 "numberBlogNameTitleMyProfileScreen" = "Блоги";
 "followersBlogNameTitleMyProfileScreen" = "Подписчики";
 "follovingBlogNameTitleMyProfileScreen" = "Подписки";
+"aboutMeIsEmptyTextMyProfileScreen" = "Здесь будет Ваше описание";
 
 //MARK: Another Profile Screen
 "headerTitleAnotherProfileScreen" = "";
@@ -92,6 +114,9 @@
 //MARK: Choice Language Screen
 "headerTitleChoiceLanguageScreen" = "Язык";
 "emptyArrayTitleChoiceLanguageScreen" = "Какой-то текст";
+"alertNotificationTitleChoiceLanguageScreen" = "Важно";
+"alertNotificationMessageChoiceLanguageScreen" = "Для смены языка в приложении, перезагрузите его";
+"alertNotificationCancelButtonChoiceLanguageScreen" = "Ок";
 
 //MARK: Choice Color Screen
 "headerTitleChoiceColorScreen" = "Тема";
@@ -109,6 +134,15 @@
 "repeatPasswordTextfieldShadowTextPasswordChangeScreen" = "Повтор пароля";
 "repeatPasswordTextfieldErrorPasswordChangeScreen" = "Повтор пароля";
 "saveButtonPasswordChangeScreen" = "Сохранить";
+
+"newPasswordIsEmptyPasswordChangeScreen" = "Пустое поле";
+"newPasswordLittlePasswordChangeScreen" = "Минимум 6 символов";
+"newPasswordEqualityPasswordChangeScreen" = "Совпадает со старым паролем";
+"newPasswordMorePasswordChangeScreen" = "Максимум 40 символов";
+"repeatPasswordIsEmptyPasswordChangeScreen" = "Пустое поле";
+"repeatPasswordNotEqualityPasswordChangeScreen" = "Пароли не совпадают";
+"oldPasswordNotCorrectPasswordChangeScreen" = "Не правильный пароль";
+"errorUpdatePasswordPasswordChangeScreen" = "Ошибка смены пароля";
 
 //MARK: Help Screen
 "headerTitleHelpScreen" = "Помощь";
@@ -140,6 +174,27 @@
 "aboutMeSubTitleEditProfileScreen" = "О Вас";
 "aboutMeErrorSubTitleEditProfileScreen" = "О Вас";
 "saveButtonEditProfileScreen" = "Сохранить";
+"alertSelectImageTitleEditProfileScreen" = "Выбрать изображение";
+"alertSelectImageCameraButtonEditProfileScreen" = "Камера";
+"alertSelectImageGaleryButtonEditProfileScreen" = "Галерея";
+"alertSelectImageCancelButtonEditProfileScreen" = "Отмена";
+"alertOpenGalleryTitleEditProfileScreen" = "Упс";
+"alertOpenGalleryMessageEditProfileScreen" = "У вас нет разрешения на доступ к галерее";
+"alertOpenGalleryCancelButtonEditProfileScreen" = "Ок";
+"alertOpenCameraTitleEditProfileScreen" = "Упс";
+"alertOpenCameraMessageEditProfileScreen" = "У вас нет камеры";
+"alertOpenCameraCancelButtonEditProfileScreen" = "Ок";
+
+"errorNameIsEmptyEditProfileScreen" = "Пустое поле";
+"errorNameLittleEditProfileScreen" = "Минимум 4 символа";
+"errorNameMoreEditProfileScreen" = "Максимум 15 символов";
+"errorSurnameIsEmptyEditProfileScreen" = "Пустое поле";
+"errorSurnameLittleEditProfileScreen" = "Минимум 4 символа";
+"errorSurnameMoreEditProfileScreen" = "Максимум 15 символов";
+"errorTagnameIsEmptyEditProfileScreen" = "Пустое поле";
+"errorTagnameLittleEditProfileScreen" = "Минимум 6 символов";
+"errorTagnameMoreEditProfileScreen" = "Максимум 25 символов";
+"errorAboutMeMoreEditProfileScreen" = "Максимум 400 символов";
 
 //MARK: Addition Blog Screen
 "headerTitleAdditionBlogScreen" = "";
@@ -150,6 +205,13 @@
 "tagErrorSubTitleAdditionBlogScreen" = "Теги";
 "blogTitleTextAdditionBlogScreen" = "Какой-то текст";
 "tagTextAdditionBlogScreen" = "Какой-то текст";
+
+"errorNameIsEmptyAdditionBlogScreen" = "Пустое поле";
+"errorNameLittleAdditionBlogScreen" = "Минимум 6 символов";
+"errorNameMoreAdditionBlogScreen" = "Максимум 80 символов";
+"errorTagnameLittleAdditionBlogScreen" = "Минимум 2 символов тега";
+"errorTagnameMoreAdditionBlogScreen" = "Максимум 20 символов тега";
+"errorArrayTagsMoreAdditionBlogScreen" = "Максимум 10 тегов";
 
 //MARK: My Blog Screen
 "headerTitlteMyBlogScreen" = "";
@@ -162,6 +224,7 @@
 "dateSubTitleMyBlogScreen" = "Дата";
 "shareSubtitleMyBlogScreen" = "Поделиться";
 "likeSubtitleMyBlogScreen" = "Нравится";
+"arrayTagsIsEmptyMyBlogScreen" = "Нет тегов";
 
 //MARK: Another Blog Screen
 "headerTitleAnotherBlogScreen" = "";
@@ -180,6 +243,9 @@
 "nextButtonCreateBlogScreen" = "Далее";
 "draftButtonCreateBlogScreen" = "Черновики";
 "textCreateBlogScreen" = "Какой-то текст";
+"alertTitleCreateBlogScreen" = "Упс";
+"alertMessageCreateBlogScreen" = "В блоге надо что-то написать";
+"alertButtonCancelCreateBlogScreen" = "Ок";
 
 //MARK: Setting Screen
 "headerTitleSettingScreen" = "Настройки";
@@ -197,6 +263,12 @@
 "leadingTwoButtonsPreviewScreen" = "Пропуск";
 "tralingTwoButtonsPreviewScreen" = "Далее";
 "startedButtonPreviewScreen" = "Начать";
+"pageOneTitltePreviewScreen" = "Заголовок 1";
+"pageOneTextPreviewScreen" = "Текст 1";
+"pageTwoTitltePreviewScreen" = "Заголовок 2";
+"pageTwoTextPreviewScreen" = "Текст 2";
+"pageThreeTitltePreviewScreen" = "Заголовок 3";
+"pageThreeTextPreviewScreen" = "Текст 3";
 
 //MARK: Page Screen
 "titlePageScreen" = "Заголовок";
@@ -228,3 +300,11 @@
 
 //MARK: Choice Cell
 "titleChoiceCell" = "Выбор";
+
+//MARK: Languages Application Dictionary
+"englishLanguagesApplicationDictionary" = "Английский";
+"russianLanguagesApplicationDictionary" = "Русский";
+
+//MARK: Colors Application Dictionary
+"lightColorsApplicationDictonary" = "Стандартная";
+"darkColorsApplicationDictonary" = "Темная";

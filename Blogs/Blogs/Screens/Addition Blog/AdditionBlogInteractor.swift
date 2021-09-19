@@ -16,13 +16,13 @@ final class AdditionBlogInteractor {
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorName(text: "Пустое поле")
+            output?.transferErrorName(text: StandartLanguage.errorNameIsEmptyAdditionBlogScreen)
             return false
         case let text where text.count < 6:
-            output?.transferErrorName(text: "Минимум 6 символов")
+            output?.transferErrorName(text: StandartLanguage.errorNameLittleAdditionBlogScreen)
             return false
         case let text where text.count > 80:
-            output?.transferErrorName(text: "Максимум 80 символов")
+            output?.transferErrorName(text: StandartLanguage.errorNameMoreAdditionBlogScreen)
             return false
         default:
             output?.transferErrorName(text: "")
@@ -35,10 +35,10 @@ final class AdditionBlogInteractor {
         
         switch text {
         case let text where text.count < 2:
-            output?.transferErrorTagName(text: "Минимум 2 символов тега")
+            output?.transferErrorTagName(text: StandartLanguage.errorTagnameLittleAdditionBlogScreen)
             return false
         case let text where text.count > 20:
-            output?.transferErrorTagName(text: "Максимум 20 символов тега")
+            output?.transferErrorTagName(text: StandartLanguage.errorTagnameMoreAdditionBlogScreen)
             return false
         default:
             output?.transferErrorTagName(text: "")
@@ -86,7 +86,7 @@ extension AdditionBlogInteractor: AdditionBlogInteractorInput {
     func verificationOfEnteredData() {
 
         if defaultDraft.arrayTags.count > 10 {
-            output?.transferErrorTagName(text: "Максимум 10 тегов")
+            output?.transferErrorTagName(text: StandartLanguage.errorArrayTagsMoreAdditionBlogScreen)
             return
         }
         

@@ -182,8 +182,12 @@ extension CreateBlogViewController: CreateBlogViewInput {
     
     //Показываем Алерт, если текст пустой
     func showAlert() {
-        let alert = UIAlertController(title: "Упс", message: "В блоге надо что-то написать", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: StandartLanguage.alertTitleCreateBlogScreen,
+                                      message: StandartLanguage.alertMessageCreateBlogScreen,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: StandartLanguage.alertButtonCancelCreateBlogScreen,
+                                      style: .cancel,
+                                      handler: nil))
         self.present(alert, animated: true)
     }
     
