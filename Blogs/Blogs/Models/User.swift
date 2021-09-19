@@ -163,24 +163,6 @@ var defaultUser = User(dateCreate: .init(),
                                               language: .ru,
                                               theme: .unspecified))
 
-let newUser = User(dateCreate: .init(),
-                   mail: "",
-                   identifier: "",
-                   name: "".randomName(),
-                   surname: "".randomSurname(),
-                   tagname: "",
-                   arrayBlogs: [],
-                   arrayDrafts: [],
-                   arrayLikedBlogs: [],
-                   arrayFollowers: [],
-                   arrayFolloving: [],
-                   aboutMe: "",
-                   avatarURL: .init(),
-                   personalSetting: PersonalSetting(sound: true,
-                                                    notification: true,
-                                                    language: .ru,
-                                                    theme: .unspecified))
-
 extension User {
     func randomUserAvatar() {
         let array = Array(1...6)
@@ -207,6 +189,28 @@ extension User {
         if let jpegData = image.jpegData(compressionQuality: 0.8) {
                 try? jpegData.write(to: imagePath)
             }
+    }
+    
+    static func returnNewUser() -> User {
+        
+        let newUser = User(dateCreate: .init(),
+                           mail: "",
+                           identifier: "",
+                           name: "".randomName(),
+                           surname: "".randomSurname(),
+                           tagname: "",
+                           arrayBlogs: [],
+                           arrayDrafts: [],
+                           arrayLikedBlogs: [],
+                           arrayFollowers: [],
+                           arrayFolloving: [],
+                           aboutMe: "",
+                           avatarURL: .init(),
+                           personalSetting: PersonalSetting(sound: true,
+                                                            notification: true,
+                                                            language: .ru,
+                                                            theme: .unspecified))
+        return newUser
     }
     
 

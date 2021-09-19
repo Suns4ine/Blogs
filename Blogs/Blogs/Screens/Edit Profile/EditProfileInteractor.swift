@@ -7,13 +7,10 @@
 //
 
 import Foundation
-import Firebase
-import FirebaseStorage
 
 final class EditProfileInteractor {
 	weak var output: EditProfileInteractorOutput?
     
-    private let user = Auth.auth().currentUser
     private var avatar = defaultUser.identifier
     private var newName = defaultUser.name
     private var newSurname = defaultUser.surname
@@ -121,7 +118,6 @@ extension EditProfileInteractor: EditProfileInteractorInput {
             defaultUser.aboutMe = newAboutMe
             
             updateUser()
-            //output?.openBackViewController()
         }
     }
     

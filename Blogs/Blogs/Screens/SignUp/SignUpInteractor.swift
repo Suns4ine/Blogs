@@ -6,9 +6,7 @@
 //  
 //
 
-import Firebase
 import Foundation
-import FirebaseAuth
 
 final class SignUpInteractor {
 	weak var output: SignUpInteractorOutput?
@@ -80,62 +78,23 @@ final class SignUpInteractor {
     
     private func registerUser() {
         
-            // Create the user
-            Auth.auth().createUser(withEmail: mail, password: password) { [weak self] (res, err) in
-                
-                // Check for errors
-                if err != nil {
-                    
-                    // There was an error creating the user
-                    debugPrint("\(err?.localizedDescription)!")
-                    self?.output?.transferErrorName(text: "Ошибка создания пользователя")
-                }
-                else {
-                    
-                    let db = Firestore.firestore()
-                    
-                    guard let result = res else { return }
-                    let createUser = newUser
-                    
-                    createUser.tagname = self?.tagname ?? ""
-                    createUser.mail = self?.mail ?? ""
-                    createUser.identifier =  String(result.user.uid)
-                    createUser.randomUserAvatar()
-                    
-                    db.collection("users").document(result.user.uid).setData([
-                        "name" : createUser.name,
-                        "surname" :  createUser.surname,
-                        "tagname" :  createUser.tagname,
-                        "mail" : createUser.mail,
-                        "dateCreate" : Date.init(),
-                        "identifier" : String(result.user.uid),
-                        "arrayBlogs" :  createUser.arrayBlogs,
-                        "arrayDrafts" : createUser.arrayDrafts,
-                        "arrayLikedBlogs" : Array(createUser.arrayLikedBlogs),
-                        "arrayFollowers" : Array(createUser.arrayFollowers),
-                        "arrayFolloving" : Array(createUser.arrayFolloving),
-                        "aboutMe" : createUser.aboutMe,
-                        "avatarURL" : createUser.avatarURL,
-                        "personalSetting" : [
-                            "sound" : createUser.personalSetting.sound,
-                            "notification" : createUser.personalSetting.notification,
-                            "language" : createUser.personalSetting.language.rawValue,
-                            "theme" : createUser.personalSetting.theme.rawValue
-                        ],
-                        "uid": result.user.uid
-                    ]) { (error) in
-
-                        if error != nil {
-                            // Show error message
-                            debugPrint("\(String(describing: error?.localizedDescription))!")
-                            self?.output?.transferErrorName(text: "Ошибка сохранения данных")
-                        }
-                    }
-                    
-                    defaultUser = newUser
-                    self?.output?.openTabBar()
-                }
-            }
+        let newUser = User.returnNewUser()
+        newUser.mail = mail
+        newUser.tagname = tagname
+        
+        UserManager.registerUser(user: newUser,
+                                 pass: password,
+                                 failClosure: { [weak self] (error) in
+                                    switch error {
+                                    case 1: self?.output?.transferErrorName(text: "Ошибка создания пользователя")
+                                    case 2: self?.output?.transferErrorName(text: "Ошибка создания пользователя")
+                                    case 3: self?.output?.transferErrorName(text: "Ошибка сохранения данных")
+                                    default: return
+                                    }
+                                 },
+                                 sucsessClosure: { [weak self] in
+                                    self?.output?.openTabBar()
+                                 })
     }
 }
 

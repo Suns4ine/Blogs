@@ -19,13 +19,13 @@ final class UserManager {
     let db = Firestore.firestore()
         
     db.collection("users").document(user.uid).getDocument { [self] (snapshot, error) in
-        if snapshot != nil || error != nil {
-            debugPrint(error?.localizedDescription ?? "Ошибка получения данных")
+        if snapshot == nil || error != nil {
+            debugPrint(error?.localizedDescription ?? "Ошибка получения данных!")
         } else {
             guard let snap = snapshot,
                   snap.exists,
                   let document = snap.data() else {
-                debugPrint("Данные отсутствуют")
+                debugPrint("Данные отсутствуют!")
                 return
             }
             self.setUser(document: document)
@@ -231,6 +231,140 @@ final class UserManager {
                 closure()
             }
 
+        }
+    }
+    
+    //MARK: Authorization, Register and LogOut
+    //Регестрируем пользоватетя
+    static func registerUser(user: User,
+                             pass: String,
+                             failClosure: @escaping (_ numbError: Int) -> Void = {_ in },
+                             sucsessClosure: @escaping () -> Void = {}) {
+        Auth.auth().createUser(withEmail: user.mail, password: pass) { (res, err) in
+            if err != nil {
+                debugPrint("\(String(describing: err?.localizedDescription))!")
+                failClosure(1)
+            } else {
+                let db = Firestore.firestore()
+                
+                guard let result = res else {
+                    debugPrint("\(String(describing: err?.localizedDescription))!")
+                    failClosure(2)
+                    return
+                }
+                user.identifier =  String(result.user.uid)
+                user.randomUserAvatar()
+                
+                db.collection("users").document(result.user.uid).setData([
+                    "name" : user.name,
+                    "surname" :  user.surname,
+                    "tagname" :  user.tagname,
+                    "mail" : user.mail,
+                    "dateCreate" : Date.init(),
+                    "identifier" : String(result.user.uid),
+                    "arrayBlogs" :  user.arrayBlogs,
+                    "arrayDrafts" : user.arrayDrafts,
+                    "arrayLikedBlogs" : Array(user.arrayLikedBlogs),
+                    "arrayFollowers" : Array(user.arrayFollowers),
+                    "arrayFolloving" : Array(user.arrayFolloving),
+                    "aboutMe" : user.aboutMe,
+                    "avatarURL" : user.avatarURL,
+                    "personalSetting" : [
+                        "sound" : user.personalSetting.sound,
+                        "notification" : user.personalSetting.notification,
+                        "language" : user.personalSetting.language.rawValue,
+                        "theme" : user.personalSetting.theme.rawValue
+                    ],
+                    "uid": result.user.uid
+                ]) { (err) in
+                    if err != nil {
+                        debugPrint("\(String(describing: err?.localizedDescription))!")
+                        failClosure(3)
+                    }
+                }
+                defaultUser = user
+                uploadImage(oldName: defaultUser.identifier,
+                            closure: {
+                                updatePersonalDataUser()
+                            })
+                sucsessClosure()
+            }
+        }
+        
+    }
+    
+    //Авторизируем пользователя
+    static func authUser(mail: String,
+                         pass: String,
+                         failClosure: @escaping (_ numbError: Int) -> Void = {_ in },
+                         sucsessClosure: @escaping () -> Void = {}) {
+            
+        Auth.auth().signIn(withEmail: mail, password: pass) {(result, error) in
+            
+            if error != nil {
+                failClosure(1)
+            } else {
+                let db = Firestore.firestore()
+                
+                guard let res = result else {
+                    failClosure(2)
+                    return
+                }
+                
+                db.collection("users").document(res.user.uid).getDocument { (snapshot, error) in
+                    if error != nil || snapshot == nil {
+                        failClosure(3)
+                    } else {
+                        guard let snap = snapshot,
+                              snap.exists,
+                              let document = snap.data() else {
+                            failClosure(4)
+                            return
+                        }
+                        setUser(document: document)
+                        sucsessClosure()
+                    }
+                }
+            }
+        }
+    }
+    
+    //Выход пользователя
+    static func logOut(closure: @escaping () -> Void = {}) {
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          debugPrint("Error signing out: %@", signOutError)
+        }
+    }
+    
+    //Обновление пароля
+    static func updatePassword(pass: String ,
+                                failClosure: @escaping () -> Void = {},
+                                sucsessClosure: @escaping () -> Void = {}) {
+        guard let user = Auth.auth().currentUser else { return }
+        
+        user.updatePassword(to: pass) {(error) in
+            if error != nil {
+                failClosure()
+            } else {
+                sucsessClosure()
+            }
+        }
+    }
+    
+    //Повторный вход пользователя
+    static func resetSignIn(pass: String ,
+                            failClosure: @escaping () -> Void = {},
+                            sucsessClosure: @escaping () -> Void = {}) {
+        
+        Auth.auth().signIn(withEmail: defaultUser.mail, password: pass) { (result, error) in
+            if error != nil {
+                failClosure()
+            } else {
+                sucsessClosure()
+            }
         }
     }
 

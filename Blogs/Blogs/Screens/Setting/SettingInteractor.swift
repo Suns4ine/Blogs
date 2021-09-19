@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 final class SettingInteractor {
 	weak var output: SettingInteractorOutput?
@@ -20,13 +19,7 @@ final class SettingInteractor {
     
     private func logOut() {
         
-        let firebaseAuth = Auth.auth()
-        do {
-          try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-          debugPrint("Error signing out: %@", signOutError)
-        }
-
+        UserManager.logOut()
         clearDefaultUser()
         output?.openStart()
     }

@@ -7,12 +7,10 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 final class PasswordChangeInteractor {
 	weak var output: PasswordChangeInteractorOutput?
     
-    private let user = Auth.auth().currentUser
     private var oldPassword = ""
     private var repeatPassword = ""
     private var newPassword = ""
@@ -56,40 +54,32 @@ final class PasswordChangeInteractor {
     
     private func resetSignIn(pass: String) {
 
-        Auth.auth().signIn(withEmail: defaultUser.mail, password: pass) { [weak self] (result, error) in
-            if error != nil {
-                self?.output?.transferErrorOldPassword(text: "Не правильный пароль")
-            } else {
-                self?.output?.transferErrorOldPassword(text: "")
-                
-                /*
-                Пришлось перенести сюда, так как повторная аунтефикаиця проходит
-                после завершения функции, а без нее нельяз проверить старый пароль
-                */
-                guard let newPassword = self?.newPassword else { return }
-                guard let repeatPassword = self?.repeatPassword else { return }
-                
-                
-                if self?.checkNewPassword(pass: newPassword) ?? false,
-                   self?.checkRepeatPassword(pass: repeatPassword) ?? false {
-                    self?.updatePassword(pass: newPassword)
-                }
-            }
-        }
-    }
-    
-    private func updatePassword(pass: String){
-        Auth.auth().currentUser?.updatePassword(to: pass) { [weak self] (error) in
-            if error != nil {
-                self?.output?.transferErrorOldPassword(text: "Ошибка смены пароля")
-            } else {
-                self?.output?.openBackViewController()
-            }
-        }
-    }
-    
+        UserManager.resetSignIn(pass: pass,
+                                failClosure: { [weak self] in
+                                    self?.output?.transferErrorOldPassword(text: "Не правильный пароль")
+                                },
+                                sucsessClosure: { [weak self] in
+                                    self?.output?.transferErrorOldPassword(text: "")
 
+                                    guard let newPassword = self?.newPassword else { return }
+                                    guard let repeatPassword = self?.repeatPassword else { return }
+                                    
+                                    if self?.checkNewPassword(pass: newPassword) ?? false,
+                                       self?.checkRepeatPassword(pass: repeatPassword) ?? false {
+                                        self?.updatePassword(pass: newPassword)
+                                    }
+                                })
+    }
     
+    private func updatePassword(pass: String) {
+        UserManager.updatePassword(pass: pass,
+                                   failClosure: { [weak self] in
+                                    self?.output?.transferErrorOldPassword(text: "Ошибка смены пароля")
+                                   },
+                                   sucsessClosure: { [weak self] in
+                                    self?.output?.openBackViewController()
+                                   })
+    }
 }
 
 extension PasswordChangeInteractor: PasswordChangeInteractorInput {
@@ -110,8 +100,6 @@ extension PasswordChangeInteractor: PasswordChangeInteractorInput {
     }
     
     func verificationOfEnteredData() {
-        
         resetSignIn(pass: oldPassword)
     }
-    
 }

@@ -27,7 +27,7 @@ extension MyProfileInteractor: MyProfileInteractorInput {
     func giveMyProfile() {
         output?.giveAwayMyProfile(profile: defaultUser)
         output?.blogsDidRecieve(defaultUser.arrayBlogs)
-        UserManager.updatePersonalDataUser()
+        //UserManager.updatePersonalDataUser()
     }
     
     func giveBlogsArrayCount() -> Int {

@@ -6,10 +6,7 @@
 //  
 //
 
-import Firebase
 import Foundation
-import FirebaseAuth
-import FirebaseFirestore
 
 final class LoginInteractor {
 	weak var output: LoginInteractorOutput?
@@ -51,39 +48,20 @@ final class LoginInteractor {
     }
     
     private func authUser() {
-            
-        Auth.auth().signIn(withEmail: login, password: password) { [weak self] (result, error) in
-            
-            if error != nil {
-                self?.output?.transferErrorLogin(text: "Не правильная почта либо пароль")
-            }
-            else {
-                
-                let db = Firestore.firestore()
-                
-                guard let res = result else { return }
-                
-                db.collection("users").document(res.user.uid).getDocument { (snapshot, error) in
-
-                    if error != nil || snapshot == nil {
-                        self?.output?.transferErrorLogin(text: "Ошибка получения данных")
-                    } else {
-                        guard let snap = snapshot,
-                              snap.exists,
-                              let document = snap.data() else {
-                            self?.output?.transferErrorLogin(text: "Ошибка получения данных")
-                            return
-                        }
-                        self?.updateDataUser(document: document)
-                        self?.output?.openTabBar()
-                    }
-                }
-            }
-        }
-    }
-    
-    private func updateDataUser(document: [String : Any]) {
-        UserManager.setUser(document: document)
+        UserManager.authUser(mail: login,
+                             pass: password,
+                             failClosure: { [weak self] (error) in
+                                switch error {
+                                case 1: self?.output?.transferErrorLogin(text: "Не правильная почта либо пароль")
+                                case 2: self?.output?.transferErrorLogin(text: "Не правильная почта либо пароль")
+                                case 3: self?.output?.transferErrorLogin(text: "Ошибка получения данных")
+                                case 4: self?.output?.transferErrorLogin(text: "Ошибка получения данных")
+                                default: return
+                                }
+                             },
+                             sucsessClosure: { [weak self] in
+                                self?.output?.openTabBar()
+                             })
     }
 }
 
