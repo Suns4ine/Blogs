@@ -8,5 +8,7 @@
 import Foundation
 
 struct Choice {
+    
+    //MARK: Create Variable
     let title: String
 }

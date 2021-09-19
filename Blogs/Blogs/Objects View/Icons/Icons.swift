@@ -72,27 +72,3 @@ enum Icons: String {
     case logo = "logo-mark"
     case none = ""
 }
-
-func returnIconColor(icon: Icons, size: sizeIcon) -> UIColor {
-    guard !icon.rawValue.isEmpty else { return UIColor.clear }
-    
-    switch (icon, size) {
-    case (.facebook, _): return StandartColors.facebookColor
-    case (.twitter, _): return StandartColors.twitterColor
-    //case (_, .size170): return .clear
-    case(.heartFill, _): return StandartColors.filledHeartColor
-    default: return StandartColors.smallIconColor
-    }
-    
-}
-
-extension UIImage {
-    func tinted(with color: UIColor, isOpaque: Bool = false) -> UIImage? {
-        let format = imageRendererFormat
-        format.opaque = isOpaque
-        return UIGraphicsImageRenderer(size: size, format: format).image { _ in
-            color.set()
-            withRenderingMode(.alwaysTemplate).draw(at: .zero)
-        }
-    }
-}

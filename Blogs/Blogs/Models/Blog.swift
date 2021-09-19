@@ -8,16 +8,16 @@
 import Foundation
 import UIKit
 
+struct Post: Hashable {
+    var date: Date
+    var title: String
+    var text: String
+    var arrayTags: [String]
+}
+
 class Blog: Hashable {
     
-    static func == (lhs: Blog, rhs: Blog) -> Bool {
-        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
-    }
-    
-    public func hash(into hasher: inout Hasher) {
-         hasher.combine(ObjectIdentifier(self))
-    }
-    
+    //MARK: Create Variable
     var user: User
     var nameUser: String = ""
     var title: String = "title"
@@ -52,19 +52,21 @@ class Blog: Hashable {
         nameUser = user.tagname
     }
     
+    //MARK: System override Functions
+    static func == (lhs: Blog, rhs: Blog) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+         hasher.combine(ObjectIdentifier(self))
+    }
+    
+    //MARK: Personal Functions
     func deleteBlog() {
         arrayLikeUsers.forEach{ $0.arrayLikedBlogs.remove(self)}
         arrayShareUsers = []
         arrayLikeUsers = []
     }
-    
-}
-
-struct Post: Hashable {
-    var date: Date
-    var title: String
-    var text: String
-    var arrayTags: [String]
 }
 
 var defaultBlog = Blog(user: defaultUser,
@@ -86,9 +88,7 @@ var defaultDraft = Post(date: .init(),
                         arrayTags: [])
 
 extension Blog {
-    
     static func randomBlog(user: User) -> Blog {
-        
         let post = Post(date: Date.randomBetween(start: user.dateCreate, end: .init()),
                         title: "".randomTitleBlog(),
                         text: "".randomTextBlog(),
@@ -103,7 +103,6 @@ extension Blog {
                         arrayShareUsers: Set(),
                         rating: 0,
                         identifier: UUID().uuidString)
-        
         return blog
     }
 }

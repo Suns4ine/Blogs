@@ -11,14 +11,6 @@ import UIKit
 
 class User: Hashable {
     
-    static func == (lhs: User, rhs: User) -> Bool {
-        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
-    }
-    
-    public func hash(into hasher: inout Hasher) {
-         hasher.combine(ObjectIdentifier(self))
-    }
-    
     enum UserKeys: String {
         case dateCreate
         case mail
@@ -36,6 +28,9 @@ class User: Hashable {
         case personalSetting
     }
     
+    //MARK: Create Variable
+    var arrayFollowers: Set<User>
+    var arrayFolloving: Set<User>
     var dateCreate: Date
     var mail: String
     var identifier: String
@@ -70,10 +65,6 @@ class User: Hashable {
             }
         }
     }
-    
-    
-    var arrayFollowers: Set<User>
-    var arrayFolloving: Set<User>
     var aboutMe: String {
         didSet {
             aboutMe = aboutMe.trimmingCharacters(in: .whitespaces)
@@ -121,6 +112,16 @@ class User: Hashable {
         self.personalSetting = personalSetting
     }
     
+    //MARK: System override Functions
+    static func == (lhs: User, rhs: User) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+         hasher.combine(ObjectIdentifier(self))
+    }
+    
+    //MARK: Personal Functions
     func currentParametrs() {
         UserDefaults.standard.set(identifier, forKey: UserKeys.avatar.rawValue)
     }

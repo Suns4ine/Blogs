@@ -10,6 +10,7 @@ import UIKit
 
 final class SecondBigButton: UIView {
     
+    //MARK: Create Variable
     private var hasIcon = false
     private (set) var indexPath: IndexPath?
     private var sound: NameSound = .tapButton
@@ -66,6 +67,7 @@ final class SecondBigButton: UIView {
         return button
     }()
     
+    //MARK: System override Functions
     convenience init(text: String, icon: Icons) {
         self.init()
         
@@ -73,15 +75,12 @@ final class SecondBigButton: UIView {
         iconImage = IconImage(icon: icon, size: .size24)
         iconImage.layer.zPosition = 3
         iconImage.editColor(color: label.textColor)
-        
         label.text = text
-        
         setup()
     }
  
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
     
@@ -89,24 +88,10 @@ final class SecondBigButton: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
-        if hasIcon { addSubview(iconImage)}
-        [shadowView,  someView, label, button].forEach{ addSubview($0)}
-        
-        self.backgroundColor = .clear
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    @objc
-    private func addSound() {
-        playSound(name: sound)
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             self.heightAnchor.constraint(equalToConstant: 60),
             
             button.topAnchor.constraint(equalTo: self.topAnchor),
@@ -122,7 +107,6 @@ final class SecondBigButton: UIView {
         
         if hasIcon {
             NSLayoutConstraint.activate([
-                
                 iconImage.topAnchor.constraint(equalTo: someView.topAnchor),
                 iconImage.leadingAnchor.constraint(equalTo: someView.leadingAnchor),
                 iconImage.centerYAnchor.constraint(equalTo: someView.centerYAnchor),
@@ -142,10 +126,23 @@ final class SecondBigButton: UIView {
             ])
         }
     }
+    
+    //MARK: Personal Functions
+    private func setup() {
+        if hasIcon { addSubview(iconImage)}
+        [shadowView,  someView, label, button].forEach{ addSubview($0)}
+        
+        self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    @objc
+    private func addSound() {
+        playSound(name: sound)
+    }
 }
 
 extension SecondBigButton {
-    
     func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
         button.addTarget(target, action: action, for: event)
     }

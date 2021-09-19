@@ -149,4 +149,3 @@ extension AnotherMoreBlogsViewController: UITableViewDelegate, UITableViewDataSo
         output.didTapAnotherBlogsTableViewCell(at: indexPath)
     }
 }
-

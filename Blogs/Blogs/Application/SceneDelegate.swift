@@ -19,7 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        
         let previewContainer = PreviewContainer.assemble(with: .init())
         let startContainer = StartContainer.assemble(with: .init())
         let tabBarController = TabBarController()
@@ -37,6 +36,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         }
        
+        setupSceneSetting()
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
@@ -81,6 +82,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 extension SceneDelegate {
+    private func setupSceneSetting() {
+        let theme = ColorsApplication(rawValue: UserDefaults.standard.string(forKey: PersonalSetting.PersonalSettingsKeys.theme.rawValue) ?? "unspecified") ?? .unspecified
+        self.window?.overrideUserInterfaceStyle = setupTheme(theme: theme)
+    }
     
     func setupTheme(theme: ColorsApplication) -> UIUserInterfaceStyle {
         switch theme {

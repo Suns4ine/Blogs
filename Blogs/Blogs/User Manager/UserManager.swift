@@ -373,37 +373,35 @@ final class UserManager {
     //MARK: Setup
     //Устанавливаем скачанные даные в нашего user'a
     static func setUser(document: [String : Any ]) {
+        let personalSetting = document["personalSetting"] as? Dictionary<String, Any> ?? [:]
+        let language = personalSetting["language"] as? String ?? "ErrorLanguage"
+        let theme = personalSetting["theme"] as? String ?? "ErrorTheme"
+        let date = document["dateCreate"] as? Timestamp ?? .init()
         
-    let personalSetting = document["personalSetting"] as? Dictionary<String, Any> ?? [:]
-    let language = personalSetting["language"] as? String ?? "ErrorLanguage"
-    let theme = personalSetting["theme"] as? String ?? "ErrorTheme"
-    let date = document["dateCreate"] as? Timestamp ?? .init()
-    
-    defaultUser.name = document["name"] as? String ?? "ErrorName"
-    defaultUser.surname = document["surname"] as? String ?? "ErrorSurname"
-    defaultUser.tagname = document["tagname"] as? String ?? "ErrorTagname"
-    defaultUser.mail = document["mail"] as? String ?? "ErrorMail"
-    defaultUser.identifier = document["identifier"] as? String ?? "ErrorIdentifier"
-    defaultUser.aboutMe = document["aboutMe"] as? String ?? "ErrorAboutMe"
-    defaultUser.avatarURL = document["avatarURL"] as? String ?? "ErrorAvatarURL"
-    defaultUser.dateCreate = date.dateValue()
+        defaultUser.name = document["name"] as? String ?? "ErrorName"
+        defaultUser.surname = document["surname"] as? String ?? "ErrorSurname"
+        defaultUser.tagname = document["tagname"] as? String ?? "ErrorTagname"
+        defaultUser.mail = document["mail"] as? String ?? "ErrorMail"
+        defaultUser.identifier = document["identifier"] as? String ?? "ErrorIdentifier"
+        defaultUser.aboutMe = document["aboutMe"] as? String ?? "ErrorAboutMe"
+        defaultUser.avatarURL = document["avatarURL"] as? String ?? "ErrorAvatarURL"
+        defaultUser.dateCreate = date.dateValue()
 
-    defaultUser.personalSetting.sound = personalSetting["sound"] as? Bool ?? true
-    defaultUser.personalSetting.notification = personalSetting["notification"] as? Bool ?? true
-    defaultUser.personalSetting.language = LanguagesApplication(rawValue: language) ?? .en
-    defaultUser.personalSetting.theme = ColorsApplication(rawValue: theme) ?? .unspecified
-        
-    getArrayBlogs(document: document)
-    getArrayDraftBlogs(document: document)
-    getArrayLikedBlogs(document: document)
-    downloadAvatar()
+        defaultUser.personalSetting.sound = personalSetting["sound"] as? Bool ?? true
+        defaultUser.personalSetting.notification = personalSetting["notification"] as? Bool ?? true
+        defaultUser.personalSetting.language = LanguagesApplication(rawValue: language) ?? .en
+        defaultUser.personalSetting.theme = ColorsApplication(rawValue: theme) ?? .unspecified
+            
+        getArrayBlogs(document: document)
+        getArrayDraftBlogs(document: document)
+        getArrayLikedBlogs(document: document)
+        downloadAvatar()
     }
     
     //MARK: Parsing
     //Парсим с бекенда массив различных блогов
     private static func parsingBlog(blogs: [Any]) -> [Blog] {
         var arrayBlog: [Blog] = []
-        
         
         //Проходимя по массиву с бека, если не смогли что-то считай в одном блоге, то пропускаем этот блог
         for blog in blogs {

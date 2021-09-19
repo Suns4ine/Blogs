@@ -69,3 +69,12 @@ extension String {
     
     static let tagsBlogArray = ["Тег1", "Тег2", "Тег3", "Тег4"]
 }
+
+extension Array where Element == String {
+    func returnEnumerationString() -> String {
+        let stringArray2 = self.map { String($0) }
+        let string = stringArray2.joined(separator: ", ")
+        
+        return string
+    }
+}

@@ -9,6 +9,28 @@ import Foundation
 
 struct PersonalSetting {
     
+    //MARK: Create Variable
+    var sound: Bool {
+        didSet {
+            currentSetting()
+        }
+    }
+    var notification: Bool {
+        didSet {
+            currentSetting()
+        }
+    }
+    var language: LanguagesApplication {
+        didSet {
+            currentSetting()
+        }
+    }
+    var theme: ColorsApplication {
+        didSet {
+            currentSetting()
+        }
+    }
+    
     enum PersonalSettingsKeys: String {
         case sound
         case notification
@@ -16,30 +38,7 @@ struct PersonalSetting {
         case theme
     }
     
-    var sound: Bool {
-        didSet {
-            currentSetting()
-        }
-    }
-    
-    var notification: Bool {
-        didSet {
-            currentSetting()
-        }
-    }
-    
-    var language: LanguagesApplication {
-        didSet {
-            currentSetting()
-        }
-    }
-    
-    var theme: ColorsApplication {
-        didSet {
-            currentSetting()
-        }
-    }
-    
+    //MARK: System override Functions
     init(sound: Bool,
          notification: Bool,
          language: LanguagesApplication,
@@ -50,6 +49,7 @@ struct PersonalSetting {
         self.theme = theme
     }
     
+    //MARK: Personal Functions
     func currentSetting() {
         UserDefaults.standard.set(sound, forKey: PersonalSettingsKeys.sound.rawValue)
         UserDefaults.standard.set(notification, forKey: PersonalSettingsKeys.notification.rawValue)
@@ -59,4 +59,5 @@ struct PersonalSetting {
     }
 }
 
+//MARK: Флаг на показ экрана превью
 var showPreview = false

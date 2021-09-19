@@ -12,11 +12,8 @@ extension Date {
     static let startDate = Date.from(year: 2014, month: 05, day: 20)
     
     func stringDate() -> String {
-        
         let dateformatter = DateFormatter()
-        
         dateformatter.dateFormat = "d MMM, YY"
-        
         return dateformatter.string(from: self)
     }
     

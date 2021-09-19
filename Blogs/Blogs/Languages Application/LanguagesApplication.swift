@@ -13,8 +13,9 @@ enum LanguagesApplication: String {
 }
 
 private (set) var LanguagesApplicationDictionary: [LanguagesApplication: String] = [
-                                                                        .ru : "Русский",
-                                                                        .en : "Ангийский"]
+    .ru : "Русский",
+    .en : "Ангийский"
+]
 
 protocol LanguagesApplicationProtocol {
     

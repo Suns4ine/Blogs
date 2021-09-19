@@ -10,6 +10,7 @@ import UIKit
 
 final class Header: UIView {
     
+    //MARK: Create Variable
     private var leadingSize: CGFloat = 24
     private var tralingSize: CGFloat = 24
     private var text = ""
@@ -30,6 +31,7 @@ final class Header: UIView {
         return image
     }()
     
+    //MARK: System override Functions
     convenience init(title: String, leftIcon: IconImage, rightIcon: IconImage) {
         self.init()
         
@@ -38,8 +40,44 @@ final class Header: UIView {
         self.title.editText(text: title.isEmpty ? " " : title)
         self.leftIcon = leftIcon
         self.rightIcon = rightIcon
-        
         setup()
+    }
+    
+    private override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+        
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        NSLayoutConstraint.activate([
+            self.heightAnchor.constraint(equalToConstant: 74),
+
+            title.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            title.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 18),
+            title.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -24),
+            title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leadingSize),
+            title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -tralingSize),
+
+            leftIcon.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            leftIcon.centerYAnchor.constraint(equalTo: title.centerYAnchor),
+
+            rightIcon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            rightIcon.centerYAnchor.constraint(equalTo: title.centerYAnchor)
+        ])
+    }
+    
+    //MARK: Personal Functions
+    private func setup() {
+        [title, leftIcon, rightIcon].forEach{ addSubview($0)}
+        
+        self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func sizeTitle(leftIcon: IconImage, rightIcon: IconImage) {
@@ -77,17 +115,9 @@ final class Header: UIView {
             title.editAligent(aligent: .center)
         }
     }
-    
-    private override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setup()
-    }
-        
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+}
+
+extension Header {
     func addLeftIconTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
         leftIcon.addTarget(target, action: action, for: event)
     }
@@ -106,33 +136,5 @@ final class Header: UIView {
     
     func editAligent(aligent: NSTextAlignment) {
         title.editAligent(aligent: aligent)
-    }
-    
-    private func setup() {
-        [title, leftIcon, rightIcon].forEach{ addSubview($0)}
-        
-        self.backgroundColor = .clear
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 74),
-            
-            title.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            title.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 18),
-            title.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -24),
-            title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leadingSize),
-            title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -tralingSize),
-
-            leftIcon.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            leftIcon.centerYAnchor.constraint(equalTo: title.centerYAnchor),
-
-            rightIcon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-            rightIcon.centerYAnchor.constraint(equalTo: title.centerYAnchor)
-            
-        ])
     }
 }

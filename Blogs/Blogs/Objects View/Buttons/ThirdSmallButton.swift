@@ -10,8 +10,8 @@ import UIKit
 
 final class ThirdSmallButton: UIView {
     
+    //MARK: Create Variable
     private var sound: NameSound = .tapButton
-    
     private let shadowView: UIView = {
         let view = UIView()
         view.layer.zPosition = -1
@@ -36,16 +36,14 @@ final class ThirdSmallButton: UIView {
         return button
     }()
     
+    //MARK: System override Functions 
     convenience init(text: String) {
         self.init()
-        
         button.setTitle(text, for: .normal)
-        setup()
     }
  
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
     
@@ -53,23 +51,10 @@ final class ThirdSmallButton: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
-        [shadowView, button].forEach{ addSubview($0)}
-        
-        self.backgroundColor = .clear
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    @objc
-    private func addSound() {
-        playSound(name: sound)
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             self.heightAnchor.constraint(equalToConstant: 36),
             
             button.topAnchor.constraint(equalTo: self.topAnchor),
@@ -83,10 +68,22 @@ final class ThirdSmallButton: UIView {
             shadowView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 4)
         ])
     }
+    
+    //MARK: Personal Functions
+    private func setup() {
+        [shadowView, button].forEach{ addSubview($0)}
+        
+        self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    @objc
+    private func addSound() {
+        playSound(name: sound)
+    }
 }
 
 extension ThirdSmallButton {
-    
     func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
         button.addTarget(target, action: action, for: event)
     }

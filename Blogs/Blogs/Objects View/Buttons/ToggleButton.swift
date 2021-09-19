@@ -10,6 +10,7 @@ import UIKit
 
 final class ToggleButton: UIView {
 
+    //MARK: Create Variable
     private let backgroundOn: UIColor = StandartColors.toggleSwitchOnColor
     private let backgroundOff: UIColor = StandartColors.toggleSwitchOffColor
     
@@ -43,36 +44,14 @@ final class ToggleButton: UIView {
         return view
     }()
     
+    //MARK: System override Functions
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    private func setup() {
-        [ circle, sliderButton].forEach{ addSubview($0)}
-
-        firstSetFlag()
-        
-        self.layer.borderColor = StandartColors.borderColor.cgColor
-        self.layer.borderWidth = 2
-        self.layer.cornerRadius = 18
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func firstSetFlag() {
-        
-        flowLeadingConstraint = sliderButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-                                                                      constant: flag ?
-                                                                        width - height : 0)
-        flowLeadingConstraint?.isActive = true
-        
-        circle.backgroundColor = flag ? backgroundOn : backgroundOff
-        self.backgroundColor = flag ? backgroundOn : backgroundOff
     }
 
     override func layoutSubviews() {
@@ -91,8 +70,27 @@ final class ToggleButton: UIView {
             circle.centerYAnchor.constraint(equalTo: sliderButton.centerYAnchor),
             circle.centerXAnchor.constraint(equalTo: sliderButton.centerXAnchor),
         ])
+    }
+    
+    //MARK: Personal Functions
+    private func setup() {
+        [ circle, sliderButton].forEach{ addSubview($0)}
+        firstSetFlag()
         
+        self.layer.borderColor = StandartColors.borderColor.cgColor
+        self.layer.borderWidth = 2
+        self.layer.cornerRadius = 18
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func firstSetFlag() {
+        flowLeadingConstraint = sliderButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
+                                                                      constant: flag ?
+                                                                        width - height : 0)
+        flowLeadingConstraint?.isActive = true
         
+        circle.backgroundColor = flag ? backgroundOn : backgroundOff
+        self.backgroundColor = flag ? backgroundOn : backgroundOff
     }
     
     @objc
@@ -108,8 +106,7 @@ final class ToggleButton: UIView {
                             self.circle.backgroundColor = self.backgroundOff
                             self.flag = false
                             self.layoutIfNeeded()
-                                        },
-                           completion: nil)
+                                        })
 
             UIView.animate(withDuration: 0.5,
                            delay: 0.15,
@@ -117,8 +114,7 @@ final class ToggleButton: UIView {
                            animations: {
                             self.backgroundColor = self.backgroundOff
                             self.layoutIfNeeded()
-                                        },
-                           completion: nil)
+                                        })
             
         } else {
             UIView.animate(withDuration: 0.4,
@@ -129,8 +125,7 @@ final class ToggleButton: UIView {
                             self.circle.backgroundColor = self.backgroundOn
                             self.flag = true
                             self.layoutIfNeeded()
-                                        },
-                           completion: nil)
+                                        })
             
             UIView.animate(withDuration: 0.5,
                            delay: 0.15,
@@ -138,14 +133,12 @@ final class ToggleButton: UIView {
                            animations: {
                             self.backgroundColor = self.backgroundOn
                             self.layoutIfNeeded()
-                                        },
-                           completion: nil)
+                                        })
         }
     }
 }
 
 extension ToggleButton {
-    
     func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
         sliderButton.addTarget(target, action: action, for: event)
     }

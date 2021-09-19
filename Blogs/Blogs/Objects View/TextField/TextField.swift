@@ -10,6 +10,7 @@ import UIKit
 
 final class TextField: UIView, UITextFieldDelegate {
     
+    //MARK: Create Variable
     var delegate: UITextFieldDelegate?
     private var isSecureTextEntry = false
     private (set) var password: String = ""
@@ -49,6 +50,7 @@ final class TextField: UIView, UITextFieldDelegate {
         return textField
     }()
     
+    //MARK: System override Functions
     convenience init(name: String, shadowText: String, error: String) {
         self.init()
         nameSubTitle.editText(text: name)
@@ -56,7 +58,6 @@ final class TextField: UIView, UITextFieldDelegate {
         
         textField.attributedPlaceholder = NSAttributedString(string: shadowText,
                                                              attributes: [NSAttributedString.Key.foregroundColor : StandartColors.textForTextfieldBackgroundColor.withAlphaComponent(0.5)])
-        
         setup()
     }
     
@@ -68,14 +69,6 @@ final class TextField: UIView, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
-        [nameSubTitle, errorSubTitle, textField].forEach{ addSubview($0)}
-        
-        delegate = textField.delegate
-        self.backgroundColor = .clear
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
@@ -83,6 +76,7 @@ final class TextField: UIView, UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
+        //Делаем проверку на флаг, чтобы знать, отображать текст или нет (Защита для паролей)
         if isSecureTextEntry {
             if string.isEmpty {
                 password = String(password.dropLast())
@@ -97,7 +91,6 @@ final class TextField: UIView, UITextFieldDelegate {
         }
         return true
     }
-    
 
     override func layoutSubviews() {
         NSLayoutConstraint.activate([
@@ -119,20 +112,18 @@ final class TextField: UIView, UITextFieldDelegate {
             textField.bottomAnchor.constraint(equalTo: errorSubTitle.topAnchor, constant: -5)
         ])
     }
-}
-
-extension UITextField {
-    func indent(size:CGFloat) {
-        self.leftView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
-        self.leftViewMode = .always
+    
+    //MARK: Personal Functions
+    private func setup() {
+        [nameSubTitle, errorSubTitle, textField].forEach{ addSubview($0)}
         
-        self.rightView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
-        self.rightViewMode = .always
+        delegate = textField.delegate
+        self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 
 extension TextField {
-    
     func editErrorText(text: String) {
         errorSubTitle.editText(text: text)
     }

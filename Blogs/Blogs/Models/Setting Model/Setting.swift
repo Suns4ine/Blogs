@@ -8,6 +8,8 @@
 import Foundation
 
 class Setting {
+    
+    //MARK: Create Variable
     let title: String
     let subtitle: String
     let icon: Icons = .chervonRight

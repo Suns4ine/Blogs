@@ -97,6 +97,7 @@
 		355D937426EEEE7F009CA8E0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 355D937326EEEE7F009CA8E0 /* Colors.xcassets */; };
 		356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */; };
 		356BE4E126B116E400FFD1F9 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4E026B116E400FFD1F9 /* Text.swift */; };
+		358EDA0226F7491B00F4E8C0 /* UIColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358EDA0126F7491B00F4E8C0 /* UIColorsExtension.swift */; };
 		358FC75A26DE4A3800872EC9 /* PersonalSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358FC75926DE4A3700872EC9 /* PersonalSetting.swift */; };
 		3597349826C9D0E100086C12 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3597349726C9D0E100086C12 /* ToggleButton.swift */; };
 		359734A626C9FE9700086C12 /* PreviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A026C9FE9700086C12 /* PreviewPresenter.swift */; };
@@ -352,6 +353,7 @@
 		355D937326EEEE7F009CA8E0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProtocol.swift; sourceTree = "<group>"; };
 		356BE4E026B116E400FFD1F9 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		358EDA0126F7491B00F4E8C0 /* UIColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorsExtension.swift; sourceTree = "<group>"; };
 		358FC75926DE4A3700872EC9 /* PersonalSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalSetting.swift; sourceTree = "<group>"; };
 		3597349726C9D0E100086C12 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		359734A026C9FE9700086C12 /* PreviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPresenter.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 		3540597C26F451B600CC4D50 /* Another Files */ = {
 			isa = PBXGroup;
 			children = (
+				355D935F26ED70F9009CA8E0 /* Alert */,
 				3505BBAB26E7B83100B13202 /* AnotherData.swift */,
 				3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */,
 			);
@@ -932,13 +935,14 @@
 		35CE261026AE8829000F4E84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3527AFF626F03C7B008D4501 /* PrivateBundle.swift */,
 				35028DF826C5ED6700FF9D68 /* AnotherExtension.swift */,
-				3557F36E26AE54E0001DA6BB /* FontsExtension.swift */,
 				354059AD26F5534700CC4D50 /* UIViewExtension.swift */,
 				35E020F326C2B3AB00C99280 /* UIImagesExtension.swift */,
 				3540596A26F2875100CC4D50 /* StringExtension.swift */,
+				358EDA0126F7491B00F4E8C0 /* UIColorsExtension.swift */,
 				354059A226F519D500CC4D50 /* DateExtension.swift */,
+				3557F36E26AE54E0001DA6BB /* FontsExtension.swift */,
+				3527AFF626F03C7B008D4501 /* PrivateBundle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1023,7 +1027,6 @@
 		35E020C726C1C8E400C99280 /* Objects View */ = {
 			isa = PBXGroup;
 			children = (
-				355D935F26ED70F9009CA8E0 /* Alert */,
 				35DA31D526E0DD200069BEF1 /* Refresh Control */,
 				35E020C926C1C94100C99280 /* Icons */,
 				35E020C826C1C93200C99280 /* TextField */,
@@ -1611,6 +1614,7 @@
 				35E0210126C30A3B00C99280 /* SignUpRouter.swift in Sources */,
 				35DB44AF26C44587002EB53B /* BlogsTableViewCell.swift in Sources */,
 				35028DD326C544D000FF9D68 /* MyProfilePresenter.swift in Sources */,
+				358EDA0226F7491B00F4E8C0 /* UIColorsExtension.swift in Sources */,
 				35B1095726C6AAF0003E3D44 /* ChoiceColorPresenter.swift in Sources */,
 				35B1098F26C6BF4D003E3D44 /* AboutTheApplicationViewController.swift in Sources */,
 				35DB44A726C4392E002EB53B /* HomeProtocols.swift in Sources */,

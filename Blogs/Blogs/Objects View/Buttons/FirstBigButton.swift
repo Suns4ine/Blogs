@@ -10,8 +10,8 @@ import  UIKit
 
 final class FirstBigButton: UIView {
     
+    //MARK: Create Variable
     private var sound: NameSound = .tapButton
-    
     private let shadowView: UIView = {
         let view = UIView()
         view.layer.zPosition = -1
@@ -37,16 +37,14 @@ final class FirstBigButton: UIView {
         return button
     }()
     
+    //MARK: System override Functions
     convenience init(text: String) {
         self.init()
-        
         button.setTitle(text, for: .normal)
-        setup()
     }
  
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
     
@@ -54,23 +52,10 @@ final class FirstBigButton: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
-        [shadowView, button].forEach{ addSubview($0)}
-        
-        self.backgroundColor = .clear
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    @objc
-    private func addSound() {
-        playSound(name: sound)
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             self.heightAnchor.constraint(equalToConstant: 60),
             
             button.topAnchor.constraint(equalTo: self.topAnchor),
@@ -84,10 +69,21 @@ final class FirstBigButton: UIView {
             shadowView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 4)
         ])
     }
+    
+    //MARK: Personal Functions
+    private func setup() {
+        [shadowView, button].forEach{ addSubview($0)}
+        self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    @objc
+    private func addSound() {
+        playSound(name: sound)
+    }
 }
 
 extension FirstBigButton {
-    
     func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
         button.addTarget(target, action: action, for: event)
     }

@@ -10,13 +10,14 @@ import UIKit
 
 final class RefreshControl: UIRefreshControl {
     
+    //MARK: Create Variable
     private let size: CGFloat = 60
     private var indent: CGFloat = 0
-    
+
     private let updateIcon: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = UIImage(named: "logo-mark")
+        view.image = UIImage(named: Icons.logo.rawValue)
         return view
     }()
     
@@ -28,26 +29,15 @@ final class RefreshControl: UIRefreshControl {
         return view
     }()
     
+    //MARK: System override Functions
     convenience init(indent: CGFloat = 0) {
         self.init()
-        
         self.indent = indent
     }
     
     private override init() {
         super.init()
-        
         setup()
-    }
-    
-    private func setup () {
-        
-        [shadowView, updateIcon].forEach{ self.addSubview($0)}
-        
-        self.tintColor = .clear
-        self.backgroundColor = .clear
-        self.attributedTitle = NSAttributedString(string: StandartLanguage.refreshControlAnotherMoreBlogsScreen)
-        startAnimation()
     }
     
     required init?(coder: NSCoder) {
@@ -61,7 +51,6 @@ final class RefreshControl: UIRefreshControl {
             updateIcon.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             updateIcon.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: indent),
             
-            
             shadowView.topAnchor.constraint(equalTo: updateIcon.topAnchor, constant: 4),
             shadowView.leadingAnchor.constraint(equalTo: updateIcon.leadingAnchor),
             shadowView.trailingAnchor.constraint(equalTo: updateIcon.trailingAnchor),
@@ -69,6 +58,18 @@ final class RefreshControl: UIRefreshControl {
         ])
     }
     
+    //MARK: Personal Functions
+    private func setup () {
+        [shadowView, updateIcon].forEach{ self.addSubview($0)}
+        
+        self.tintColor = .clear
+        self.backgroundColor = .clear
+        self.attributedTitle = NSAttributedString(string: StandartLanguage.refreshControlAnotherMoreBlogsScreen)
+        startAnimation()
+    }
+}
+
+extension RefreshControl {
     func startAnimation() {
         updateIcon.rotate(duration: 1.2)
     }

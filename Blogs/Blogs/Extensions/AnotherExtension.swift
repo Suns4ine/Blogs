@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// Если у  объекта меньше 3 (маленьких расширений) расширений, то он будет лежать тут
+//MARK: Если у объекта меньше 3 (маленьких расширений) расширений, то он будет лежать тут
 
 extension CALayer {
   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
@@ -47,7 +47,6 @@ public extension UIViewController {
 private var pTouchAreaEdgeInsets: UIEdgeInsets = .zero
 
 extension UIButton {
-    
     var touchAreaEdgeInsets: UIEdgeInsets {
         get {
             if let value = objc_getAssociatedObject(self, &pTouchAreaEdgeInsets) as? NSValue {
@@ -79,68 +78,9 @@ extension UIButton {
     }
 }
 
-extension Array where Element == String {
-    
-    func returnEnumerationString() -> String {
-        
-        let stringArray2 = self.map { String($0) }
-        let string = stringArray2.joined(separator: ", ")
-        
-        return string
-    }
-}
-
-
-func getImage(from string: String) -> UIImage? {
-    //2. Get valid URL
-    guard let url = URL(string: string)
-        else {
-            print("Unable to create URL")
-            return nil
-    }
-
-    var image: UIImage? = nil
-    do {
-        //3. Get valid data
-        let data = try Data(contentsOf: url, options: [])
-
-        //4. Make image
-        image = UIImage(data: data)
-    }
-    catch {
-        print(error.localizedDescription)
-    }
-
-    return image
-}
-
-
 func getDocumentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
-}
-
-extension UIView {
-    
-    func snapshot(scrollView: UIScrollView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(scrollView.contentSize, false, UIScreen.main.scale)
-        layer.render(in: UIGraphicsGetCurrentContext()!)
-        let savedContentOffset = scrollView.contentOffset
-        let savedFrame = frame
-        
-        scrollView.contentOffset = CGPoint.zero
-        frame = CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height)
-        
-        layer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        
-        scrollView.contentOffset = savedContentOffset
-        frame = savedFrame
-        
-        UIGraphicsEndImageContext()
-        
-        return image
-    }
 }
 
 fileprivate extension UIScrollView {
@@ -162,4 +102,14 @@ fileprivate extension UIScrollView {
 
             return image
         }
+}
+
+extension UITextField {
+    func indent(size:CGFloat) {
+        self.leftView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
+        self.leftViewMode = .always
+        
+        self.rightView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
+        self.rightViewMode = .always
+    }
 }
