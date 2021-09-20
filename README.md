@@ -19,7 +19,7 @@
 
 [https://firebase.google.com/docs/firestore/solutions/search](https://firebase.google.com/docs/firestore/solutions/search)
 
-<img width="221" alt="MyProfile" src="https://user-images.githubusercontent.com/18112464/134072005-c44c3df7-790a-4507-9697-0dddbbf310a5.png"><img width="223" alt="Sign In" src="https://user-images.githubusercontent.com/18112464/134072028-f9e265cf-ef7d-47ac-8668-dfd3bae96443.png">
+<img width="221" alt="MyProfile" src="https://user-images.githubusercontent.com/18112464/134072005-c44c3df7-790a-4507-9697-0dddbbf310a5.png"><img width="221" alt="Sign In" src="https://user-images.githubusercontent.com/18112464/134072028-f9e265cf-ef7d-47ac-8668-dfd3bae96443.png">
 
 
 ## Требования:
@@ -71,11 +71,11 @@ UserDefaults используется для сохранения персона
 
 Вся верстка, не считая LaunchScreen, выполнена в коде.
 
-<img width="219" alt="AnotherProfile" src="https://user-images.githubusercontent.com/18112464/134072017-dfd32791-9285-4a49-8c81-b94942e6f73a.png"><img width="220" alt="Blog" src="https://user-images.githubusercontent.com/18112464/134072011-1d8894c0-8f85-4d14-a996-20f376ca0e6c.png">
+<img width="221" alt="AnotherProfile" src="https://user-images.githubusercontent.com/18112464/134072017-dfd32791-9285-4a49-8c81-b94942e6f73a.png"><img width="221" alt="Blog" src="https://user-images.githubusercontent.com/18112464/134072011-1d8894c0-8f85-4d14-a996-20f376ca0e6c.png">
 
 - Обязательно использовать UITableView/UICollectionView
 
-<img width="219" alt="Liked" src="https://user-images.githubusercontent.com/18112464/134072021-eae5fc7e-b359-4002-ad73-be87700398ab.png">
+<img width="221" alt="Liked" src="https://user-images.githubusercontent.com/18112464/134072021-eae5fc7e-b359-4002-ad73-be87700398ab.png">
 
 UITableView реализован в 10 экранах
 
@@ -87,4 +87,4 @@ UITableView реализован в 10 экранах
 
 К Сожалению не было реализовано из-за не правильного распределения нагрузки. Чтобы приложения не крашилось или работало не стабильно, Core Data не была добавлена в финальный релиз
 
-<img width="219" alt="Settinglight theme" src="https://user-images.githubusercontent.com/18112464/134072026-f89d2e68-4491-4e57-852c-2a382c60ad3b.png"><img width="216" alt="Setting dark Theme" src="https://user-images.githubusercontent.com/18112464/134072029-8dc1c236-9160-477c-a73c-45a46162ebff.png"><img width="222" alt="Setting Localization" src="https://user-images.githubusercontent.com/18112464/134072023-7cd5076e-e988-4eca-a319-9ac687b80bbb.png">
+<img width="221" alt="Settinglight theme" src="https://user-images.githubusercontent.com/18112464/134072026-f89d2e68-4491-4e57-852c-2a382c60ad3b.png"><img width="221" alt="Setting dark Theme" src="https://user-images.githubusercontent.com/18112464/134072029-8dc1c236-9160-477c-a73c-45a46162ebff.png"><img width="221" alt="Setting Localization" src="https://user-images.githubusercontent.com/18112464/134072023-7cd5076e-e988-4eca-a319-9ac687b80bbb.png">
