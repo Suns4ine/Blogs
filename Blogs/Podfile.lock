@@ -489,6 +489,7 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
+  - SnapshotTesting (1.9.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -497,6 +498,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - FirebaseUI/Auth
+  - SnapshotTesting (~> 1.9.0)
 
 SPEC REPOS:
   trunk:
@@ -522,6 +524,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SnapshotTesting
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -546,7 +549,8 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
 
-PODFILE CHECKSUM: e8db638136b5f8c0fc3c88c8474e1c4a9d6e3928
+PODFILE CHECKSUM: b3e70a8ed77d79d9070547e64abdd1f39b6364b7
 
 COCOAPODS: 1.10.1

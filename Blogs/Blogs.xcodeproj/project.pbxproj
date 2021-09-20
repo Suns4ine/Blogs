@@ -364,6 +364,7 @@
 		35B10A3926C97FD8003E3D44 /* SettingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A3326C97FD8003E3D44 /* SettingInteractor.swift */; };
 		35B10A3A26C97FD8003E3D44 /* SettingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A3426C97FD8003E3D44 /* SettingContainer.swift */; };
 		35B10A3F26C99CB6003E3D44 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A3E26C99CB6003E3D44 /* SettingTableViewCell.swift */; };
+		35B7E61826F9121900871685 /* SnapahotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B7E61726F9121900871685 /* SnapahotTests.swift */; };
 		35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondBigButton.swift */; };
 		35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261A26AEBDEC000F4E84 /* Icons.swift */; };
 		35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */; };
@@ -623,6 +624,7 @@
 		35B10A3326C97FD8003E3D44 /* SettingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInteractor.swift; sourceTree = "<group>"; };
 		35B10A3426C97FD8003E3D44 /* SettingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingContainer.swift; sourceTree = "<group>"; };
 		35B10A3E26C99CB6003E3D44 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		35B7E61726F9121900871685 /* SnapahotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapahotTests.swift; sourceTree = "<group>"; };
 		35CE261526AEBA66000F4E84 /* SecondBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBigButton.swift; sourceTree = "<group>"; };
 		35CE261A26AEBDEC000F4E84 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBigButton.swift; sourceTree = "<group>"; };
@@ -882,6 +884,7 @@
 			children = (
 				3557F2FB26AD65AA001DA6BB /* BlogsUITests.swift */,
 				3557F2FD26AD65AA001DA6BB /* Info.plist */,
+				35B7E61726F9121900871685 /* SnapahotTests.swift */,
 			);
 			path = BlogsUITests;
 			sourceTree = "<group>";
@@ -2013,6 +2016,7 @@
 				350CF50426F8972700E9CE00 /* Text.swift in Sources */,
 				350CF3ED26F8965100E9CE00 /* AboutTheApplicationRouter.swift in Sources */,
 				350CF51D26F8974700E9CE00 /* StandartLanguage.swift in Sources */,
+				35B7E61826F9121900871685 /* SnapahotTests.swift in Sources */,
 				350CF40926F8966400E9CE00 /* PasswordChangeProtocols.swift in Sources */,
 				350CF36526F895F600E9CE00 /* MyMoreBlogsInteractor.swift in Sources */,
 				350CF52E26F8975800E9CE00 /* StringExtension.swift in Sources */,
