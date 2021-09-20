@@ -8,7 +8,7 @@
 
 //MARK: Start Screen
 "titleStartScreen" = "Авторизация";
-"textStartScreen" = "Чтобы вам присоединиться, стоит пройти авторизации и вести себя как человек, а не как робот";
+"textStartScreen" = "Чтобы вам присоединиться, стоит пройти авторизацию и вести себя как человек, а не как робот";
 "mailButtonStartScreen" = "Почта";
 "facebookButtonStartScreen" = "Facebook";
 "twitterButtonStartScreen" = "Twitter";
