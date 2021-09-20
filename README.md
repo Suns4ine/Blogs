@@ -19,9 +19,8 @@
 
 [https://firebase.google.com/docs/firestore/solutions/search](https://firebase.google.com/docs/firestore/solutions/search)
 
-<img width="113" alt="MyProfile" src="https://user-images.githubusercontent.com/18112464/134067965-978685a1-6476-496a-9cf7-8258fd6082cb.png">
+<img width="221" alt="MyProfile" src="https://user-images.githubusercontent.com/18112464/134072005-c44c3df7-790a-4507-9697-0dddbbf310a5.png"><img width="223" alt="Sign In" src="https://user-images.githubusercontent.com/18112464/134072028-f9e265cf-ef7d-47ac-8668-dfd3bae96443.png">
 
-<img width="113" alt="Register" src="https://user-images.githubusercontent.com/18112464/134067993-cc1dc989-7409-4892-9343-e78e82e28fbb.png">
 
 ## Требования:
 
@@ -59,26 +58,24 @@ UserDefaults используется для сохранения персона
 
 Благодаря ей можно спокойно масштабировать приложения, без страха перегрузки экранов. 
 
-![VIPER](https://user-images.githubusercontent.com/18112464/134068000-4e8f5552-824f-4bf1-81dc-3454d5f771f7.png)
+![VIPER](https://user-images.githubusercontent.com/18112464/134072010-93618ddf-e476-4ebf-9b31-a8cbdf63f2ef.png)
 
 Для ячеек была выбрана архитектура MVVM
 
 Чтобы не усложнять и много не декомпозировать, была выбрана архитектура для ячеек и страниц (PageController). Можно безболезненно для себя передавать и отслеживать данные ячейки (пример: различное количество кнопок в ячеейке).
 
-![MVVM](https://user-images.githubusercontent.com/18112464/134067999-05132914-1f48-4579-b1da-3dc107bff438.png)
+![MVVM](https://user-images.githubusercontent.com/18112464/134072001-5ea89117-d90d-42c0-9dad-40db687be1c7.png)
 
 
 - Верстка UI в коде
 
 Вся верстка, не считая LaunchScreen, выполнена в коде.
 
-<img width="113" alt="Blog" src="https://user-images.githubusercontent.com/18112464/134067997-a816e25e-c30a-40eb-8052-e95676dbe573.png">
-
-<img width="113" alt="AnotherProfile" src="https://user-images.githubusercontent.com/18112464/134067982-d3f77d25-fe91-418d-b6f6-e6a85f2c6980.png">
+<img width="219" alt="AnotherProfile" src="https://user-images.githubusercontent.com/18112464/134072017-dfd32791-9285-4a49-8c81-b94942e6f73a.png"><img width="220" alt="Blog" src="https://user-images.githubusercontent.com/18112464/134072011-1d8894c0-8f85-4d14-a996-20f376ca0e6c.png">
 
 - Обязательно использовать UITableView/UICollectionView
 
-<img width="113" alt="Liked" src="https://user-images.githubusercontent.com/18112464/134067983-79af958c-c230-40c4-ba3c-ad145059a5ea.png">
+<img width="219" alt="Liked" src="https://user-images.githubusercontent.com/18112464/134072021-eae5fc7e-b359-4002-ad73-be87700398ab.png">
 
 UITableView реализован в 10 экранах
 
@@ -90,4 +87,4 @@ UITableView реализован в 10 экранах
 
 К Сожалению не было реализовано из-за не правильного распределения нагрузки. Чтобы приложения не крашилось или работало не стабильно, Core Data не была добавлена в финальный релиз
 
-<img width="226" alt="SetingDarTheme" src="https://user-images.githubusercontent.com/18112464/134067987-1eb93454-59c3-4318-9e30-256a52b6d7e0.png"><img width="226" alt="Setting Russia" src="https://user-images.githubusercontent.com/18112464/134067990-bfbcd97f-fe1a-4b09-bccc-2e84c9e97217.png"><img width="226" alt="Setting English" src="https://user-images.githubusercontent.com/18112464/134067995-c862415f-5f37-41ec-9352-b4aa08cb25d7.png">
+<img width="219" alt="Settinglight theme" src="https://user-images.githubusercontent.com/18112464/134072026-f89d2e68-4491-4e57-852c-2a382c60ad3b.png"><img width="216" alt="Setting dark Theme" src="https://user-images.githubusercontent.com/18112464/134072029-8dc1c236-9160-477c-a73c-45a46162ebff.png"><img width="222" alt="Setting Localization" src="https://user-images.githubusercontent.com/18112464/134072023-7cd5076e-e988-4eca-a319-9ac687b80bbb.png">
