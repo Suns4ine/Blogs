@@ -8,7 +8,7 @@
 
 //MARK: Start Screen
 "titleStartScreen" = "Авторизация";
-"textStartScreen" = "Какой-то текст";
+"textStartScreen" = "Чтобы вам присоединиться, стоит пройти авторизации и вести себя как человек, а не как робот";
 "mailButtonStartScreen" = "Почта";
 "facebookButtonStartScreen" = "Facebook";
 "twitterButtonStartScreen" = "Twitter";
@@ -20,10 +20,10 @@
 "signUpButtonLoginScreen" = "Или Зарегестрироваться";
 "loginTextFieldNameLoginScreen" = "Логин";
 "loginTextFieldShadowTextLoginScreen" = "Логин";
-"loginTextFieldErrorLoginScreen" = "Логин";
+"loginTextFieldErrorLoginScreen" = "";
 "passwordTextFieldNameLoginScreen" = "Пароль";
 "passwordTextFieldShadowTextLoginScreen" = "Пароль";
-"passwordTextFieldErrorLoginScreen" = "Пароль";
+"passwordTextFieldErrorLoginScreen" = "";
 
 "errorLoginIsEmptyLoginScreen" = "Пустой логин";
 "errorLoginNotCorrectLoginScreen" = "Не корректный логин";
@@ -37,17 +37,17 @@
 //MARK: Sign Up Screen
 "headerTitleSignUpScreen" = "";
 "titleSignUpScreen" = "Регистрация";
-"textSignUpScreen" = "Какой-то текст";
+"textSignUpScreen" = "У вас есть возможность создать новую учетную запись, если вы действительно этого хотите";
 "registerButtonSignUpScreen" = "Зарегестрироваться";
 "tagnameTextFieldNameSignUpScreen" = "Тег имя";
 "tagnameTextFieldShadowTextSignUpScreen" = "Тег имя";
-"tagnameTextFieldErrorSignUpScreen" = "Тег имя";
+"tagnameTextFieldErrorSignUpScreen" = "";
 "mailTextFieldNameSignUpScreen" = "Почта";
 "mailTextFieldShadowTextSignUpScreen" = "Почта";
-"mailTextFieldErrorSignUpScreen" = "Почта";
+"mailTextFieldErrorSignUpScreen" = "";
 "passwordTextFieldNameSignUpScreen" = "Пароль";
 "passwordTextFieldShadowTextSignUpScreen" = "Пароль";
-"passwordTextFieldErrorSignUpScreen" = "Пароль";
+"passwordTextFieldErrorSignUpScreen" = "";
 
 "errorTagnameIsEmptySignUpScreen" = "Пустой поле имя";
 "errorTagnameLittleSignUpScreen" = "Минимум 6 символов";
@@ -63,30 +63,30 @@
 
 //MARK: Home Screen
 "headerTitleHomeScreen" = "Блоги";
-"emptyArrayTitleHomeScreen" = "Какой-то текст";
+"emptyArrayTitleHomeScreen" = "Здесь будут отображаться блоги тех людей, на кого вы подписаны";
 
 //MARK: Search Screen
 "headerTitleSearchScreen" = "Поиск";
-"emptyArrayTitleSearchScreen" = "Какой-то текст";
+"emptyArrayTitleSearchScreen" = "Скорее всего, такое найти не предоставляется возможным";
 "searchTextFieldShadowTextSearchScreen" = "Поиск...";
 
 //MARK: Saved Screen
 "headerTitleSavedScreen" = "Понравилось";
-"emptyArrayTitleSavedScreen" = "Какой-то текст";
+"emptyArrayTitleSavedScreen" = "Здесь будут блоги, которые вам понравились";
 
 //MARK: My Profile Screen
 "headerTitleMyProfileScreen" = "";
-"nameTitleMyProfileScreen" = "Имя и Фамилия";
+"nameTitleMyProfileScreen" = "Фамилия и Имя";
 "nameTagSubtitleMyProfileScreen" = "Тег Имя";
 "editButtonMyProfileScreen" = "Изменить";
 "aboutMeSubTitleMyProfileScreen" = "О Вас";
-"aboutMeTextMyProfileScreen" = "Какой-то текст";
+"aboutMeTextMyProfileScreen" = "Ваше описание";
 "myBlogsSubTitleMyProfileScreen" = "Ваши Блоги";
 "createBlogButtonMyProfileScreen" = "Создать Блог";
 "moreBlogButtonMyProfileScreen" = "Больше ваших Блогов";
-"numberBlogTitleMyProfileScreen" = "123456";
-"followersBlogTitleMyProfileScreen" = "123456";
-"follovingBlogTitleMyProfileScreen" = "123456";
+"numberBlogTitleMyProfileScreen" = "число";
+"followersBlogTitleMyProfileScreen" = "число";
+"follovingBlogTitleMyProfileScreen" = "число";
 "numberBlogNameTitleMyProfileScreen" = "Блоги";
 "followersBlogNameTitleMyProfileScreen" = "Подписчики";
 "follovingBlogNameTitleMyProfileScreen" = "Подписки";
@@ -94,45 +94,45 @@
 
 //MARK: Another Profile Screen
 "headerTitleAnotherProfileScreen" = "";
-"nameTitleAnotherProfileScreen" = "Имя и Фамилия";
+"nameTitleAnotherProfileScreen" = "Фамилия и Имя";
 "nameTagSubtitleAnotherProfileScreen" = "Тег Имя";
 "followButtonAnotherProfileScreen" = "Подписаться";
 "statusOnFollowButtonAnotherProfileScreen" = "Отписаться";
 "statusOffFollowButtonAnotherProfileScreen" = "Подписаться";
-"aboutAnotherSubTitleAnotherProfileScreen" = "О чужом пользователе";
-"aboutAnotherTextAnotherProfileScreen" = "Какой-то текст";
+"aboutAnotherSubTitleAnotherProfileScreen" = "О пользователе";
+"aboutAnotherTextAnotherProfileScreen" = "описание пользователя";
 "anotherBlogsSubTitleAnotherProfileScreen" = "Чужие Блоги";
-"emptyTitleAnotherProfileScreen" = "Какой-то текст";
-"moreBlogButtonAnotherProfileScreen" = "Больше чужих Блогов";
-"numberBlogTitleAnotherProfileScreen" = "123456";
-"followersBlogTitleAnotherProfileScreen" = "123456";
-"follovingBlogTitleAnotherProfileScreen" = "123456";
+"emptyTitleAnotherProfileScreen" = "Еще нет блогов, но можно подписаться и прочитать их первыми";
+"moreBlogButtonAnotherProfileScreen" = "Больше Блогов";
+"numberBlogTitleAnotherProfileScreen" = "число";
+"followersBlogTitleAnotherProfileScreen" = "число";
+"follovingBlogTitleAnotherProfileScreen" = "число";
 "numberBlogNameTitleAnotherProfileScreen" = "Блоги";
 "followersBlogNameTitleAnotherProfileScreen" = "Подписчики";
 "follovingBlogNameTitleAnotherProfileScreen" = "Подписки";
 
 //MARK: Choice Language Screen
 "headerTitleChoiceLanguageScreen" = "Язык";
-"emptyArrayTitleChoiceLanguageScreen" = "Какой-то текст";
+"emptyArrayTitleChoiceLanguageScreen" = "Если ты видешь этот текст, значит язык поменять нельзя";
 "alertNotificationTitleChoiceLanguageScreen" = "Важно";
 "alertNotificationMessageChoiceLanguageScreen" = "Для смены языка в приложении, перезагрузите его";
 "alertNotificationCancelButtonChoiceLanguageScreen" = "Ок";
 
 //MARK: Choice Color Screen
 "headerTitleChoiceColorScreen" = "Тема";
-"emptyArrayTitleChoiceColorScreen" = "Какой-то текст";
+"emptyArrayTitleChoiceColorScreen" = "Если ты видешь этот текст, значит тему поменять нельзя";
 
 //MARK: Password Change Screen
 "headerTitlePasswordChangeScreen" = "Пароль";
 "oldPasswordTextfieldNamePasswordChangeScreen" = "Старый пароль";
 "oldPasswordTextfieldShadowTextPasswordChangeScreen" = "Старый пароль";
-"oldPasswordTextfieldErrorPasswordChangeScreen" = "Старый пароль";
+"oldPasswordTextfieldErrorPasswordChangeScreen" = "";
 "newPasswordTextfieldNamePasswordChangeScreen" = "Новый пароль";
 "newPasswordTextfieldShadowTextPasswordChangeScreen" = "Новый пароль";
-"newPasswordTextfieldErrorPasswordChangeScreen" = "Новый пароль";
+"newPasswordTextfieldErrorPasswordChangeScreen" = "";
 "repeatPasswordTextfieldNamePasswordChangeScreen" = "Повтор пароля";
 "repeatPasswordTextfieldShadowTextPasswordChangeScreen" = "Повтор пароля";
-"repeatPasswordTextfieldErrorPasswordChangeScreen" = "Повтор пароля";
+"repeatPasswordTextfieldErrorPasswordChangeScreen" = "";
 "saveButtonPasswordChangeScreen" = "Сохранить";
 
 "newPasswordIsEmptyPasswordChangeScreen" = "Пустое поле";
@@ -146,33 +146,33 @@
 
 //MARK: Help Screen
 "headerTitleHelpScreen" = "Помощь";
-"textHelpScreen" = "Какой-то текст";
-"emptyArrayTitleHelpScreen" = "Какой-то текст";
+"textHelpScreen" = "Здесь есть руководство по эксплуатации приложения Blogs.\n\nДля того, чтобы начать свой блог, надо на экране профиля нажать создать блог. Далее вам надо написать то, что вы хотели. После этого, вы сможете задать заголовок (минимум 6, максимум 80 символов) и теги (минимум длина тега: 2, максимум: 20, максимальное колличество: 10). Теперь у вас есть блог. Другие смогут его читать и им делиться.\n\nЧтобы добавить блог в 'Понравилось', достаочно нажать на сердечко и он окажется у вас там (потяните пальцем вниз, чтобы обновить таблицу с ними).\n\nЧтобы удалить свой блог или из раздела 'Понравилось', достаточно сделать свайп влево.\n\nЕсли Вы хотите подписатсья на кого-то или отписатсья, достаточно перейти к пользователю в профиль и нажать на кнопку 'Подписаться' (В зависимости от вашего статуса).\n\nВо вкладке 'Домой', будут отображаться те блоги, на кого Вы оформили подписку.\n\nВо вкладке 'Поиск' можно найти не только блоги по запросу, но также и увидеть те, которые имеют популярность на тот момент.\n\nВо вкладке 'Профиль', можно по нажатию на кнопку 'Изменить' перейти на экран редактирования и изменить свой профиль как считаете нужным. Присутствуют ограничения: минимум 6 и максимум 15 символов для имя и фамилии, минимум 6 и максимум 25 символов для тег имени, максимум 400 символов для рассказа о Вас.\n\nВ настройках вы можете: отключить (либо включить) звук или уведомления, изменить тему приложения или язык, поменять пароль, очистить кеш или выйти.";
+"emptyArrayTitleHelpScreen" = "Здесь будет отображаться помощь в эксплуатации приложения";
 
 //MARK: About The Application Screen
 "headerTitleAboutTheApplicationScreen" = "О Приложении";
-"textAboutTheApplicationScreen" = "Какой-то текст";
-"emptyArrayTitleAboutTheApplicationScreen" = "Какой-то текст";
+"textAboutTheApplicationScreen" = "Приложение Blogs - это способ рассказать что-то аудитории или найти для себя нечто захватывающее. Ведите свой блог или следите другими. Чтобы вы не выбрали, здесь всегда найдется что-то для вас.\n\nПриложение является некоммерческой разработкой. По всем вопросам или предложениям, пишите на почту: pronin.slavok@mail.ru.\n\nВерсия приложения: 1.0.0";
+"emptyArrayTitleAboutTheApplicationScreen" = "Здесь будет отображаться информация о приложении";
 
 //MARK: Draft Blogs Screen
 "headerTitleDraftBlogsScreen" = "Черновики";
-"emptyArrayTitleDraftBlogsScreen" = "Какой-то текст";
+"emptyArrayTitleDraftBlogsScreen" = "Здесь будут храниться ваши черновики";
 
 //MARK: Edit Profile Screen
 "headerTitleEditProfileScreen" = "Редактирование";
 "editAvatarButtonEditProfileScreen" = "Изменить изображение";
 "nameTextfieldNameEditProfileScreen" = "Имя";
 "nameTextfieldShadowTextEditProfileScreen" = "Имя";
-"nameTextfieldErrorEditProfileScreen" = "Имя";
+"nameTextfieldErrorEditProfileScreen" = "";
 "surnameTextfieldNameEditProfileScreen" = "Фамилия";
 "surnameTextfieldShadowTextEditProfileScreen" = "Фамилия";
-"surnameTextfieldErrorEditProfileScreen" = "Фамилия";
+"surnameTextfieldErrorEditProfileScreen" = "";
 "tagNameTextfieldNameEditProfileScreen" = "Тег Имя";
 "tagNameTextfieldShadowTextEditProfileScreen" = "Тег Имя";
-"tagNameTextfieldErrorEditProfileScreen" = "Тег Имя";
+"tagNameTextfieldErrorEditProfileScreen" = "";
 "aboutMeTextEditProfileScreen" = "О Вас";
 "aboutMeSubTitleEditProfileScreen" = "О Вас";
-"aboutMeErrorSubTitleEditProfileScreen" = "О Вас";
+"aboutMeErrorSubTitleEditProfileScreen" = "";
 "saveButtonEditProfileScreen" = "Сохранить";
 "alertSelectImageTitleEditProfileScreen" = "Выбрать изображение";
 "alertSelectImageCameraButtonEditProfileScreen" = "Камера";
@@ -201,10 +201,10 @@
 "nextButtonAdditionBlogScreen" = "Закончить";
 "blogTitleSubTitleAdditionBlogScreen" = "Заголовок";
 "tagSubTitleAdditionBlogScreen" = "Теги";
-"blogTitleErrorSubTitleAdditionBlogScreen" = "Заголовок";
-"tagErrorSubTitleAdditionBlogScreen" = "Теги";
-"blogTitleTextAdditionBlogScreen" = "Какой-то текст";
-"tagTextAdditionBlogScreen" = "Какой-то текст";
+"blogTitleErrorSubTitleAdditionBlogScreen" = "";
+"tagErrorSubTitleAdditionBlogScreen" = "";
+"blogTitleTextAdditionBlogScreen" = "";
+"tagTextAdditionBlogScreen" = "";
 
 "errorNameIsEmptyAdditionBlogScreen" = "Пустое поле";
 "errorNameLittleAdditionBlogScreen" = "Минимум 6 символов";
@@ -218,7 +218,7 @@
 "titleBlogMyBlogScreen" = "Заголовок";
 "textMyBlogScreen" = "Какой-то текст";
 "tagSubtitleMyBlogScreen" = "Тег";
-"tagTextMyBlogScreen" = "Какой-то текст";
+"tagTextMyBlogScreen" = "Здесь показываются теги";
 "editButtonMyBlogScreen" = "Изменить";
 "nameSubTitleMyBlogScreen" = "Имя и Фамилия";
 "dateSubTitleMyBlogScreen" = "Дата";
@@ -242,7 +242,7 @@
 "headerTitleCreateBlogScreen" = "";
 "nextButtonCreateBlogScreen" = "Далее";
 "draftButtonCreateBlogScreen" = "Черновики";
-"textCreateBlogScreen" = "Какой-то текст";
+"textCreateBlogScreen" = "";
 "alertTitleCreateBlogScreen" = "Упс";
 "alertMessageCreateBlogScreen" = "В блоге надо что-то написать";
 "alertButtonCancelCreateBlogScreen" = "Ок";
@@ -252,23 +252,23 @@
 
 //MARK: My More Blogs Screen
 "headerTitleMyMoreBlogsScreen" = "Ваши Блоги";
-"emptyArrayTitleMyMoreBlogsScreen" = "Какой-то текст";
+"emptyArrayTitleMyMoreBlogsScreen" = "Здесь располгаются все ваши блоги";
 
 //MARK: Another More Blogs Screen
 "headerTitleAnotherMoreBlogsScreen" = "Чужие Блоги";
-"emptyArrayTitleAnotherMoreBlogsScreen" = "Какой-то текст";
+"emptyArrayTitleAnotherMoreBlogsScreen" = "Здесь располагаются чужие блоги";
 "refreshControlAnotherMoreBlogsScreen" = "";
 
 //MARK: Preview Screen
 "leadingTwoButtonsPreviewScreen" = "Пропуск";
 "tralingTwoButtonsPreviewScreen" = "Далее";
 "startedButtonPreviewScreen" = "Начать";
-"pageOneTitltePreviewScreen" = "Заголовок 1";
-"pageOneTextPreviewScreen" = "Текст 1";
-"pageTwoTitltePreviewScreen" = "Заголовок 2";
-"pageTwoTextPreviewScreen" = "Текст 2";
-"pageThreeTitltePreviewScreen" = "Заголовок 3";
-"pageThreeTextPreviewScreen" = "Текст 3";
+"pageOneTitltePreviewScreen" = "Истории";
+"pageOneTextPreviewScreen" = "Здесь вы всегда найдете, что-то по вкусу, либо пробудите интерес к новому";
+"pageTwoTitltePreviewScreen" = "Общение";
+"pageTwoTextPreviewScreen" = "Или расскажите что-то стоящее и найдите свою аудиторию";
+"pageThreeTitltePreviewScreen" = "Уже ждем";
+"pageThreeTextPreviewScreen" = "Начните пользоваться Blogs прямо сейчас";
 
 //MARK: Page Screen
 "titlePageScreen" = "Заголовок";
@@ -283,12 +283,12 @@
 //MARK: Blog Cell
 "titleBlogCell" = "Заголовок";
 "dateSubTitleBlogCell" = "Дата";
-"nameSubTitleBlogCell" = "Имя и Фамилия";
+"nameSubTitleBlogCell" = "Фамилия и Имя";
 "tagSubTitleBlogCell" = "Тег";
 
 //MARK: Standart Blog Cell
 "titleStandartBlogCell" = "Заголовок";
-"nameSubTitleStandartBlogCell" = "Имя и Фамилия";
+"nameSubTitleStandartBlogCell" = "Фамилия и Имя";
 "dateSubTitleStandartBlogCell" = "Дата";
 "deleteActionStandartBlogCell" = "";
 
@@ -300,6 +300,26 @@
 
 //MARK: Choice Cell
 "titleChoiceCell" = "Выбор";
+
+//MARK: Settins Array
+"notificationTitleSettingArray" = "Уведомления";
+"notificationSubtitleSettingArray" = "Пока в разработке, но вы можете заранее выставить статус этой настройке";
+"soundTitleSettingArray" = "Звук";
+"soundSubtitleSettingArray" = "Здесь можно настроить звук в приложении";
+"changeThemeTitleSettingArray" = "Изменить тему";
+"changeThemeSubtitleSettingArray" = "";
+"changeLanguageTitleSettingArray" = "Изменить язык";
+"changeLanguageSubtitleSettingArray" = "";
+"changePasswordTitleSettingArray" = "Изменить пароль";
+"changePasswordSubtitleSettingArray" = "";
+"helpTitleSettingArray" = "Помощь";
+"helpSubtitleSettingArray" = "";
+"aboutTheApplicationTitleSettingArray" = "О Приложении";
+"AboutTheApplicationSubtitleSettingArray" = "";
+"clearCacheTitleSettingArray" = "Очистить кеш";
+"ClearCacheSubtitleSettingArray" = "";
+"logOutTitleSettingArray" = "Выйти";
+"LogOutSubtitleSettingArray" = "";
 
 //MARK: Languages Application Dictionary
 "englishLanguagesApplicationDictionary" = "Английский";

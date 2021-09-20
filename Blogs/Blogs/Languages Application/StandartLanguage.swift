@@ -393,7 +393,26 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     //MARK: Choice Cell
     static var titleChoiceCell: String = NSLocalizedString("titleChoiceCell", comment: "")
     
-    //MARK: Остальные
+    //MARK: Settins Array
+    static var notificationTitleSettingArray: String = NSLocalizedString("notificationTitleSettingArray", comment: "")
+    static var notificationSubtitleSettingArray: String = NSLocalizedString("notificationSubtitleSettingArray", comment: "")
+    static var soundTitleSettingArray: String = NSLocalizedString("soundTitleSettingArray", comment: "")
+    static var soundSubtitleSettingArray: String = NSLocalizedString("soundSubtitleSettingArray", comment: "")
+    static var changeThemeTitleSettingArray: String = NSLocalizedString("changeThemeTitleSettingArray", comment: "")
+    static var changeThemeSubtitleSettingArray: String = NSLocalizedString("changeThemeSubtitleSettingArray", comment: "")
+    static var changeLanguageTitleSettingArray: String = NSLocalizedString("changeLanguageTitleSettingArray", comment: "")
+    static var changeLanguageSubtitleSettingArray: String = NSLocalizedString("changeLanguageSubtitleSettingArray", comment: "")
+    static var changePasswordTitleSettingArray: String = NSLocalizedString("changePasswordTitleSettingArray", comment: "")
+    static var changePasswordSubtitleSettingArray: String = NSLocalizedString("changePasswordSubtitleSettingArray", comment: "")
+    static var helpTitleSettingArray: String = NSLocalizedString("helpTitleSettingArray", comment: "")
+    static var helpSubtitleSettingArray: String = NSLocalizedString("helpSubtitleSettingArray", comment: "")
+    static var aboutTheApplicationTitleSettingArray: String = NSLocalizedString("aboutTheApplicationTitleSettingArray", comment: "")
+    static var AboutTheApplicationSubtitleSettingArray: String =
+        NSLocalizedString("AboutTheApplicationSubtitleSettingArray", comment: "")
+    static var clearCacheTitleSettingArray: String = NSLocalizedString("clearCacheTitleSettingArray", comment: "")
+    static var ClearCacheSubtitleSettingArray: String = NSLocalizedString("ClearCacheSubtitleSettingArray", comment: "")
+    static var logOutTitleSettingArray: String = NSLocalizedString("logOutTitleSettingArray", comment: "")
+    static var LogOutSubtitleSettingArray: String = NSLocalizedString("LogOutSubtitleSettingArray", comment: "")
     
     //MARK: Languages Application Dictionary
     static var englishLanguagesApplicationDictionary: String =
@@ -404,5 +423,5 @@ final class StandartLanguage: LanguagesApplicationProtocol {
     //MARK: Colors Application Dictionary
     static var lightColorsApplicationDictonary: String = NSLocalizedString("lightColorsApplicationDictonary", comment: "")
     static var darkColorsApplicationDictonary: String = NSLocalizedString("darkColorsApplicationDictonary", comment: "")
-
+    
 }
