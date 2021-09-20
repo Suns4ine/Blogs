@@ -90,7 +90,4 @@ UITableView реализован в 10 экранах
 
 К Сожалению не было реализовано из-за не правильного распределения нагрузки. Чтобы приложения не крашилось или работало не стабильно, Core Data не была добавлена в финальный релиз
 
-<img width="113" alt="SetingDarTheme" src="https://user-images.githubusercontent.com/18112464/134067987-1eb93454-59c3-4318-9e30-256a52b6d7e0.png">
-<img width="113" alt="Setting Russia" src="https://user-images.githubusercontent.com/18112464/134067990-bfbcd97f-fe1a-4b09-bccc-2e84c9e97217.png">
-
-<img width="113" alt="Setting English" src="https://user-images.githubusercontent.com/18112464/134067995-c862415f-5f37-41ec-9352-b4aa08cb25d7.png">
+<img width="226" alt="SetingDarTheme" src="https://user-images.githubusercontent.com/18112464/134067987-1eb93454-59c3-4318-9e30-256a52b6d7e0.png"><img width="226" alt="Setting Russia" src="https://user-images.githubusercontent.com/18112464/134067990-bfbcd97f-fe1a-4b09-bccc-2e84c9e97217.png"><img width="226" alt="Setting English" src="https://user-images.githubusercontent.com/18112464/134067995-c862415f-5f37-41ec-9352-b4aa08cb25d7.png">
