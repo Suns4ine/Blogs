@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07A729722FAEC71FA373C421 /* Pods_BlogsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 100283F2411D352A14DD6A78 /* Pods_BlogsTests.framework */; };
 		237DC3E0C564E2A279C53456 /* Pods_Blogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92001B53180CB04A8B476183 /* Pods_Blogs.framework */; };
 		35028DC826C4747D00FF9D68 /* StandartBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DC726C4747D00FF9D68 /* StandartBlogTableViewCell.swift */; };
 		35028DD326C544D000FF9D68 /* MyProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DCD26C544D000FF9D68 /* MyProfilePresenter.swift */; };
@@ -39,9 +38,203 @@
 		3505BB6126E5313300B13202 /* BlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5B26E5313300B13202 /* BlogInteractor.swift */; };
 		3505BB6226E5313300B13202 /* BlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5C26E5313300B13202 /* BlogContainer.swift */; };
 		3505BBAC26E7B83200B13202 /* AnotherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BBAB26E7B83100B13202 /* AnotherData.swift */; };
+		350CF34326F895DE00E9CE00 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5926E5313300B13202 /* BlogViewController.swift */; };
+		350CF34426F895DE00E9CE00 /* BlogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5A26E5313300B13202 /* BlogProtocols.swift */; };
+		350CF34526F895DE00E9CE00 /* BlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5B26E5313300B13202 /* BlogInteractor.swift */; };
+		350CF34626F895DE00E9CE00 /* BlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5C26E5313300B13202 /* BlogContainer.swift */; };
+		350CF34726F895DE00E9CE00 /* BlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5826E5313300B13202 /* BlogRouter.swift */; };
+		350CF34826F895DE00E9CE00 /* BlogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5726E5313300B13202 /* BlogPresenter.swift */; };
+		350CF35526F895ED00E9CE00 /* AnotherMoreBlogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE326D528DD0080B184 /* AnotherMoreBlogsPresenter.swift */; };
+		350CF35626F895ED00E9CE00 /* AnotherMoreBlogsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE426D528DD0080B184 /* AnotherMoreBlogsRouter.swift */; };
+		350CF35726F895ED00E9CE00 /* AnotherMoreBlogsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE826D528DD0080B184 /* AnotherMoreBlogsContainer.swift */; };
+		350CF35826F895ED00E9CE00 /* AnotherMoreBlogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE526D528DD0080B184 /* AnotherMoreBlogsViewController.swift */; };
+		350CF35926F895ED00E9CE00 /* AnotherMoreBlogsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE626D528DD0080B184 /* AnotherMoreBlogsProtocols.swift */; };
+		350CF35A26F895ED00E9CE00 /* AnotherMoreBlogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE726D528DD0080B184 /* AnotherMoreBlogsInteractor.swift */; };
+		350CF36426F895F600E9CE00 /* MyMoreBlogsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD126D524BF0080B184 /* MyMoreBlogsRouter.swift */; };
+		350CF36526F895F600E9CE00 /* MyMoreBlogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD426D524BF0080B184 /* MyMoreBlogsInteractor.swift */; };
+		350CF36626F895F600E9CE00 /* MyMoreBlogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD226D524BF0080B184 /* MyMoreBlogsViewController.swift */; };
+		350CF36726F895F600E9CE00 /* MyMoreBlogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD026D524BF0080B184 /* MyMoreBlogsPresenter.swift */; };
+		350CF36826F895F600E9CE00 /* MyMoreBlogsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD326D524BF0080B184 /* MyMoreBlogsProtocols.swift */; };
+		350CF36926F895F600E9CE00 /* MyMoreBlogsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AD526D524BF0080B184 /* MyMoreBlogsContainer.swift */; };
+		350CF37326F8961000E9CE00 /* PreviewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A326C9FE9700086C12 /* PreviewProtocols.swift */; };
+		350CF37426F8961000E9CE00 /* PreviewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734C226CAC34200086C12 /* PreviewPageViewController.swift */; };
+		350CF37526F8961000E9CE00 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A226C9FE9700086C12 /* PreviewViewController.swift */; };
+		350CF37626F8961000E9CE00 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A526C9FE9700086C12 /* PreviewContainer.swift */; };
+		350CF37726F8961000E9CE00 /* PreviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A426C9FE9700086C12 /* PreviewInteractor.swift */; };
+		350CF37826F8961000E9CE00 /* PreviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A026C9FE9700086C12 /* PreviewPresenter.swift */; };
+		350CF37926F8961000E9CE00 /* PreviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A126C9FE9700086C12 /* PreviewRouter.swift */; };
+		350CF38726F8961A00E9CE00 /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A2F26C97FD8003E3D44 /* SettingPresenter.swift */; };
+		350CF38826F8961A00E9CE00 /* SettingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A3326C97FD8003E3D44 /* SettingInteractor.swift */; };
+		350CF38926F8961A00E9CE00 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A3126C97FD8003E3D44 /* SettingViewController.swift */; };
+		350CF38A26F8961A00E9CE00 /* SettingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A3026C97FD8003E3D44 /* SettingRouter.swift */; };
+		350CF38B26F8961A00E9CE00 /* SettingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A3226C97FD8003E3D44 /* SettingProtocols.swift */; };
+		350CF38C26F8961A00E9CE00 /* SettingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A3426C97FD8003E3D44 /* SettingContainer.swift */; };
+		350CF39F26F8962400E9CE00 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A2026C8742B003E3D44 /* SearchInteractor.swift */; };
+		350CF3A026F8962400E9CE00 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A1C26C8742B003E3D44 /* SearchPresenter.swift */; };
+		350CF3A126F8962400E9CE00 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A1F26C8742B003E3D44 /* SearchProtocols.swift */; };
+		350CF3A226F8962400E9CE00 /* SearchContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A2126C8742B003E3D44 /* SearchContainer.swift */; };
+		350CF3A326F8962400E9CE00 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A1E26C8742B003E3D44 /* SearchViewController.swift */; };
+		350CF3A426F8962400E9CE00 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A1D26C8742B003E3D44 /* SearchRouter.swift */; };
+		350CF3A826F8962C00E9CE00 /* CreateBlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109FE26C85DAC003E3D44 /* CreateBlogRouter.swift */; };
+		350CF3A926F8962C00E9CE00 /* CreateBlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A0126C85DAC003E3D44 /* CreateBlogInteractor.swift */; };
+		350CF3AA26F8962C00E9CE00 /* CreateBlogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A0026C85DAC003E3D44 /* CreateBlogProtocols.swift */; };
+		350CF3AB26F8962C00E9CE00 /* CreateBlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A0226C85DAC003E3D44 /* CreateBlogContainer.swift */; };
+		350CF3AC26F8962C00E9CE00 /* CreateBlogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109FD26C85DAC003E3D44 /* CreateBlogPresenter.swift */; };
+		350CF3AD26F8962D00E9CE00 /* CreateBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109FF26C85DAC003E3D44 /* CreateBlogViewController.swift */; };
+		350CF3B726F8963600E9CE00 /* AdditionBlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C126C71E7D003E3D44 /* AdditionBlogRouter.swift */; };
+		350CF3B826F8963600E9CE00 /* AdditionBlogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C326C71E7D003E3D44 /* AdditionBlogProtocols.swift */; };
+		350CF3B926F8963600E9CE00 /* AdditionBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C226C71E7D003E3D44 /* AdditionBlogViewController.swift */; };
+		350CF3BA26F8963600E9CE00 /* AdditionBlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C426C71E7D003E3D44 /* AdditionBlogInteractor.swift */; };
+		350CF3BB26F8963600E9CE00 /* AdditionBlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C526C71E7D003E3D44 /* AdditionBlogContainer.swift */; };
+		350CF3BC26F8963600E9CE00 /* AdditionBlogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C026C71E7D003E3D44 /* AdditionBlogPresenter.swift */; };
+		350CF3C926F8963E00E9CE00 /* EditProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109B026C6D9C5003E3D44 /* EditProfileProtocols.swift */; };
+		350CF3CA26F8963E00E9CE00 /* EditProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109AE26C6D9C5003E3D44 /* EditProfileRouter.swift */; };
+		350CF3CB26F8963E00E9CE00 /* EditProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109B126C6D9C5003E3D44 /* EditProfileInteractor.swift */; };
+		350CF3CC26F8963E00E9CE00 /* EditProfileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109B226C6D9C5003E3D44 /* EditProfileContainer.swift */; };
+		350CF3CD26F8963E00E9CE00 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109AF26C6D9C5003E3D44 /* EditProfileViewController.swift */; };
+		350CF3CE26F8963E00E9CE00 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109AD26C6D9C5003E3D44 /* EditProfilePresenter.swift */; };
+		350CF3D826F8964700E9CE00 /* DraftBlogsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1099B26C6D559003E3D44 /* DraftBlogsRouter.swift */; };
+		350CF3D926F8964700E9CE00 /* DraftBlogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1099E26C6D559003E3D44 /* DraftBlogsInteractor.swift */; };
+		350CF3DA26F8964700E9CE00 /* DraftBlogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1099A26C6D559003E3D44 /* DraftBlogsPresenter.swift */; };
+		350CF3DB26F8964700E9CE00 /* DraftBlogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1099C26C6D559003E3D44 /* DraftBlogsViewController.swift */; };
+		350CF3DC26F8964700E9CE00 /* DraftBlogsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1099F26C6D559003E3D44 /* DraftBlogsContainer.swift */; };
+		350CF3DD26F8964700E9CE00 /* DraftBlogsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1099D26C6D559003E3D44 /* DraftBlogsProtocols.swift */; };
+		350CF3EA26F8965100E9CE00 /* AboutTheApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1098926C6BF4D003E3D44 /* AboutTheApplicationViewController.swift */; };
+		350CF3EB26F8965100E9CE00 /* AboutTheApplicationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1098A26C6BF4D003E3D44 /* AboutTheApplicationProtocols.swift */; };
+		350CF3EC26F8965100E9CE00 /* AboutTheApplicationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1098726C6BF4D003E3D44 /* AboutTheApplicationPresenter.swift */; };
+		350CF3ED26F8965100E9CE00 /* AboutTheApplicationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1098826C6BF4D003E3D44 /* AboutTheApplicationRouter.swift */; };
+		350CF3EE26F8965100E9CE00 /* AboutTheApplicationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1098B26C6BF4D003E3D44 /* AboutTheApplicationInteractor.swift */; };
+		350CF3EF26F8965100E9CE00 /* AboutTheApplicationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1098C26C6BF4D003E3D44 /* AboutTheApplicationContainer.swift */; };
+		350CF3F926F8965B00E9CE00 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097626C6B99C003E3D44 /* HelpViewController.swift */; };
+		350CF3FA26F8965B00E9CE00 /* HelpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097926C6B99C003E3D44 /* HelpContainer.swift */; };
+		350CF3FB26F8965B00E9CE00 /* HelpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097426C6B99C003E3D44 /* HelpPresenter.swift */; };
+		350CF3FC26F8965B00E9CE00 /* HelpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097526C6B99C003E3D44 /* HelpRouter.swift */; };
+		350CF3FD26F8965B00E9CE00 /* HelpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097826C6B99C003E3D44 /* HelpInteractor.swift */; };
+		350CF3FE26F8965B00E9CE00 /* HelpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1097726C6B99C003E3D44 /* HelpProtocols.swift */; };
+		350CF40826F8966400E9CE00 /* PasswordChangeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096526C6B110003E3D44 /* PasswordChangeInteractor.swift */; };
+		350CF40926F8966400E9CE00 /* PasswordChangeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096426C6B110003E3D44 /* PasswordChangeProtocols.swift */; };
+		350CF40A26F8966400E9CE00 /* PasswordChangeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096626C6B110003E3D44 /* PasswordChangeContainer.swift */; };
+		350CF40B26F8966400E9CE00 /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096326C6B110003E3D44 /* PasswordChangeViewController.swift */; };
+		350CF40C26F8966400E9CE00 /* PasswordChangePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096126C6B110003E3D44 /* PasswordChangePresenter.swift */; };
+		350CF40D26F8966400E9CE00 /* PasswordChangeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1096226C6B110003E3D44 /* PasswordChangeRouter.swift */; };
+		350CF41726F8966E00E9CE00 /* ChoiceColorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1095426C6AAF0003E3D44 /* ChoiceColorProtocols.swift */; };
+		350CF41826F8966E00E9CE00 /* ChoiceColorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1095226C6AAF0003E3D44 /* ChoiceColorRouter.swift */; };
+		350CF41926F8966E00E9CE00 /* ChoiceColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1095326C6AAF0003E3D44 /* ChoiceColorViewController.swift */; };
+		350CF41A26F8966E00E9CE00 /* ChoiceColorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1095126C6AAF0003E3D44 /* ChoiceColorPresenter.swift */; };
+		350CF41B26F8966E00E9CE00 /* ChoiceColorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1095526C6AAF0003E3D44 /* ChoiceColorInteractor.swift */; };
+		350CF41C26F8966E00E9CE00 /* ChoiceColorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1095626C6AAF0003E3D44 /* ChoiceColorContainer.swift */; };
+		350CF42626F8967600E9CE00 /* ChoiceLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E1126C69C5A00FF9D68 /* ChoiceLanguageViewController.swift */; };
+		350CF42726F8967600E9CE00 /* ChoiceLanguagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E0F26C69C5A00FF9D68 /* ChoiceLanguagePresenter.swift */; };
+		350CF42826F8967600E9CE00 /* ChoiceLanguageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E1026C69C5A00FF9D68 /* ChoiceLanguageRouter.swift */; };
+		350CF42926F8967600E9CE00 /* ChoiceLanguageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E1226C69C5A00FF9D68 /* ChoiceLanguageProtocols.swift */; };
+		350CF42A26F8967600E9CE00 /* ChoiceLanguageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E1326C69C5A00FF9D68 /* ChoiceLanguageInteractor.swift */; };
+		350CF42B26F8967600E9CE00 /* ChoiceLanguageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E1426C69C5A00FF9D68 /* ChoiceLanguageContainer.swift */; };
+		350CF43526F8968100E9CE00 /* AnotherProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E0326C5F47200FF9D68 /* AnotherProfileInteractor.swift */; };
+		350CF43626F8968100E9CE00 /* AnotherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E0126C5F47200FF9D68 /* AnotherProfileViewController.swift */; };
+		350CF43726F8968100E9CE00 /* AnotherProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E0026C5F47200FF9D68 /* AnotherProfileRouter.swift */; };
+		350CF43826F8968100E9CE00 /* AnotherProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DFF26C5F47200FF9D68 /* AnotherProfilePresenter.swift */; };
+		350CF43926F8968100E9CE00 /* AnotherProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E0226C5F47200FF9D68 /* AnotherProfileProtocols.swift */; };
+		350CF43A26F8968100E9CE00 /* AnotherProfileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028E0426C5F47200FF9D68 /* AnotherProfileContainer.swift */; };
+		350CF44726F8968A00E9CE00 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DCF26C544D000FF9D68 /* MyProfileViewController.swift */; };
+		350CF44826F8968A00E9CE00 /* MyProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DCE26C544D000FF9D68 /* MyProfileRouter.swift */; };
+		350CF44926F8968A00E9CE00 /* MyProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DD126C544D000FF9D68 /* MyProfileInteractor.swift */; };
+		350CF44A26F8968A00E9CE00 /* MyProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DCD26C544D000FF9D68 /* MyProfilePresenter.swift */; };
+		350CF44B26F8968A00E9CE00 /* MyProfileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DD226C544D000FF9D68 /* MyProfileContainer.swift */; };
+		350CF44C26F8968A00E9CE00 /* MyProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DD026C544D000FF9D68 /* MyProfileProtocols.swift */; };
+		350CF45626F8969200E9CE00 /* SavedProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44BD26C46E5F002EB53B /* SavedProtocols.swift */; };
+		350CF45726F8969200E9CE00 /* SavedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44BE26C46E5F002EB53B /* SavedInteractor.swift */; };
+		350CF45826F8969200E9CE00 /* SavedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44BF26C46E5F002EB53B /* SavedContainer.swift */; };
+		350CF45926F8969200E9CE00 /* SavedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44BB26C46E5F002EB53B /* SavedRouter.swift */; };
+		350CF45A26F8969200E9CE00 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44BC26C46E5F002EB53B /* SavedViewController.swift */; };
+		350CF45B26F8969200E9CE00 /* SavedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44BA26C46E5F002EB53B /* SavedPresenter.swift */; };
+		350CF46826F8969B00E9CE00 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB449F26C4392E002EB53B /* HomeRouter.swift */; };
+		350CF46926F8969B00E9CE00 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB449E26C4392E002EB53B /* HomePresenter.swift */; };
+		350CF46A26F8969B00E9CE00 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44A226C4392E002EB53B /* HomeInteractor.swift */; };
+		350CF46B26F8969B00E9CE00 /* HomeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44A326C4392E002EB53B /* HomeContainer.swift */; };
+		350CF46C26F8969B00E9CE00 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44A026C4392E002EB53B /* HomeViewController.swift */; };
+		350CF46D26F8969B00E9CE00 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44A126C4392E002EB53B /* HomeProtocols.swift */; };
+		350CF47726F896A300E9CE00 /* SignUpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020FD26C30A3A00C99280 /* SignUpProtocols.swift */; };
+		350CF47826F896A300E9CE00 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020FB26C30A3A00C99280 /* SignUpRouter.swift */; };
+		350CF47926F896A300E9CE00 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020FA26C30A3A00C99280 /* SignUpPresenter.swift */; };
+		350CF47A26F896A300E9CE00 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020FE26C30A3A00C99280 /* SignUpInteractor.swift */; };
+		350CF47B26F896A300E9CE00 /* SignUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020FF26C30A3B00C99280 /* SignUpContainer.swift */; };
+		350CF47C26F896A300E9CE00 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020FC26C30A3A00C99280 /* SignUpViewController.swift */; };
+		350CF48926F896C600E9CE00 /* StartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020DF26C1FCBE00C99280 /* StartRouter.swift */; };
+		350CF48A26F896C600E9CE00 /* StartProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020E126C1FCBE00C99280 /* StartProtocols.swift */; };
+		350CF48B26F896C600E9CE00 /* StartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020E226C1FCBE00C99280 /* StartInteractor.swift */; };
+		350CF48C26F896C600E9CE00 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020E026C1FCBE00C99280 /* StartViewController.swift */; };
+		350CF48D26F896C600E9CE00 /* StartContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020E326C1FCBE00C99280 /* StartContainer.swift */; };
+		350CF48E26F896C600E9CE00 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020DE26C1FCBE00C99280 /* StartPresenter.swift */; };
+		350CF49C26F896D000E9CE00 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB448926C40923002EB53B /* TabBarController.swift */; };
+		350CF4A026F896D900E9CE00 /* PageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB1D26E1418800B13202 /* PageViewModel.swift */; };
+		350CF4A126F896D900E9CE00 /* PageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB1226E1410E00B13202 /* PageProtocol.swift */; };
+		350CF4A226F896D900E9CE00 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB0C26E13DF600B13202 /* Page.swift */; };
+		350CF4A326F896D900E9CE00 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734D026CACF5600086C12 /* PageViewController.swift */; };
+		350CF4AE26F896DE00E9CE00 /* StandartBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DC726C4747D00FF9D68 /* StandartBlogTableViewCell.swift */; };
+		350CF4AF26F896DE00E9CE00 /* StandartBlogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC4826D6A3F700A84B99 /* StandartBlogCellViewModel.swift */; };
+		350CF4B026F896DE00E9CE00 /* StandartBlogCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC3A26D69EBC00A84B99 /* StandartBlogCellProtocol.swift */; };
+		350CF4B426F896E600E9CE00 /* BlogsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB44AE26C44587002EB53B /* BlogsTableViewCell.swift */; };
+		350CF4B526F896E600E9CE00 /* BlogCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC2526D651B500A84B99 /* BlogCellProtocol.swift */; };
+		350CF4B626F896E600E9CE00 /* BlogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC1B26D637AD00A84B99 /* BlogCellViewModel.swift */; };
+		350CF4BD26F896ED00E9CE00 /* UtiliesCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC6926D79E1700A84B99 /* UtiliesCellProtocol.swift */; };
+		350CF4BE26F896ED00E9CE00 /* UtilitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A0D26C86945003E3D44 /* UtilitiesCollectionViewCell.swift */; };
+		350CF4BF26F896ED00E9CE00 /* UtiliesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC6E26D79E9E00A84B99 /* UtiliesCellViewModel.swift */; };
+		350CF4C326F896F300E9CE00 /* SettingCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC8826D7CAB700A84B99 /* SettingCellProtocol.swift */; };
+		350CF4C426F896F300E9CE00 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A3E26C99CB6003E3D44 /* SettingTableViewCell.swift */; };
+		350CF4C526F896F300E9CE00 /* SettingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC9026D7CAFC00A84B99 /* SettingCellViewModel.swift */; };
+		350CF4CF26F896FB00E9CE00 /* ChoiceCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC9E26D7E07C00A84B99 /* ChoiceCellProtocol.swift */; };
+		350CF4D026F896FB00E9CE00 /* ChoiceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACA326D7E0EC00A84B99 /* ChoiceCellViewModel.swift */; };
+		350CF4D126F896FB00E9CE00 /* ChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1094826C6A776003E3D44 /* ChoiceTableViewCell.swift */; };
+		350CF4D826F8970400E9CE00 /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DA31D026E0D2990069BEF1 /* RefreshControl.swift */; };
+		350CF4DD26F8970B00E9CE00 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020B826C1812A00C99280 /* Avatar.swift */; };
+		350CF4DE26F8970B00E9CE00 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263426AF2DBC000F4E84 /* IconImage.swift */; };
+		350CF4DF26F8970B00E9CE00 /* UtiliesIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC7926D7A45E00A84B99 /* UtiliesIcon.swift */; };
+		350CF4E026F8970B00E9CE00 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261A26AEBDEC000F4E84 /* Icons.swift */; };
+		350CF4E926F8971100E9CE00 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020BD26C18FE800C99280 /* TextField.swift */; };
+		350CF4EA26F8971A00E9CE00 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3597349726C9D0E100086C12 /* ToggleButton.swift */; };
+		350CF4EB26F8971A00E9CE00 /* FirstSmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE262926AF2BFB000F4E84 /* FirstSmallButton.swift */; };
+		350CF4EC26F8971A00E9CE00 /* TwoButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE263926AF707A000F4E84 /* TwoButtons.swift */; };
+		350CF4ED26F8971A00E9CE00 /* FirstBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F36626AE54BA001DA6BB /* FirstBigButton.swift */; };
+		350CF4EE26F8971A00E9CE00 /* ThirdBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */; };
+		350CF4EF26F8971A00E9CE00 /* SecondBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondBigButton.swift */; };
+		350CF4F026F8971A00E9CE00 /* ThirdSmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE262426AF2A44000F4E84 /* ThirdSmallButton.swift */; };
+		350CF4FF26F8972000E9CE00 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51926B01CBB0032321B /* Header.swift */; };
+		350CF50126F8972700E9CE00 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51F26B020690032321B /* Title.swift */; };
+		350CF50226F8972700E9CE00 /* SubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE52726B02DF70032321B /* SubTitle.swift */; };
+		350CF50326F8972700E9CE00 /* TextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */; };
+		350CF50426F8972700E9CE00 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4E026B116E400FFD1F9 /* Text.swift */; };
+		350CF50C26F8973900E9CE00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D626AD65A6001DA6BB /* AppDelegate.swift */; };
+		350CF50D26F8973900E9CE00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */; };
+		350CF51726F8974100E9CE00 /* StandartSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D935126EBBE78009CA8E0 /* StandartSound.swift */; };
+		350CF51D26F8974700E9CE00 /* StandartLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACC326D8D7D700A84B99 /* StandartLanguage.swift */; };
+		350CF51E26F8974700E9CE00 /* LanguagesApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACBE26D8050900A84B99 /* LanguagesApplication.swift */; };
+		350CF52426F8975000E9CE00 /* StandartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F34726AE4DAB001DA6BB /* StandartColors.swift */; };
+		350CF52526F8975000E9CE00 /* ColorsApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F31526AE3A1E001DA6BB /* ColorsApplication.swift */; };
+		350CF52926F8975800E9CE00 /* PrivateBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527AFF626F03C7B008D4501 /* PrivateBundle.swift */; };
+		350CF52A26F8975800E9CE00 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352E0AB726F83C5B002409F5 /* ArrayExtension.swift */; };
+		350CF52B26F8975800E9CE00 /* AnotherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35028DF826C5ED6700FF9D68 /* AnotherExtension.swift */; };
+		350CF52C26F8975800E9CE00 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354059A226F519D500CC4D50 /* DateExtension.swift */; };
+		350CF52D26F8975800E9CE00 /* UIColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358EDA0126F7491B00F4E8C0 /* UIColorsExtension.swift */; };
+		350CF52E26F8975800E9CE00 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596A26F2875100CC4D50 /* StringExtension.swift */; };
+		350CF52F26F8975800E9CE00 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354059AD26F5534700CC4D50 /* UIViewExtension.swift */; };
+		350CF53026F8975800E9CE00 /* FontsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F36E26AE54E0001DA6BB /* FontsExtension.swift */; };
+		350CF53126F8975800E9CE00 /* UIImagesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020F326C2B3AB00C99280 /* UIImagesExtension.swift */; };
+		350CF53E26F8976300E9CE00 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDACB126D7F63D00A84B99 /* Choice.swift */; };
+		350CF53F26F8976300E9CE00 /* PersonalSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358FC75926DE4A3700872EC9 /* PersonalSetting.swift */; };
+		350CF54026F8976300E9CE00 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC2026D63B4600A84B99 /* User.swift */; };
+		350CF54126F8976300E9CE00 /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC1526D6342A00A84B99 /* Blog.swift */; };
+		350CF54226F8976300E9CE00 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDAC9826D7CB8900A84B99 /* Setting.swift */; };
+		350CF54C26F8976A00E9CE00 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596F26F2E1E300CC4D50 /* UserManager.swift */; };
+		350CF58826F89EB100E9CE00 /* BlogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350CF58726F89EB100E9CE00 /* BlogsTests.swift */; };
 		3527AFE126EF4AC3008D4501 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3527AFE326EF4AC3008D4501 /* Localizable.strings */; };
 		3527AFF726F03C7B008D4501 /* PrivateBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527AFF626F03C7B008D4501 /* PrivateBundle.swift */; };
 		352E0AB826F83C5B002409F5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352E0AB726F83C5B002409F5 /* ArrayExtension.swift */; };
+		352E0AD426F890E7002409F5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020CF26C1FBA100C99280 /* LoginViewController.swift */; };
+		352E0AD526F890E7002409F5 /* LoginContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020D226C1FBA100C99280 /* LoginContainer.swift */; };
+		352E0AD626F890E7002409F5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020CE26C1FBA100C99280 /* LoginRouter.swift */; };
+		352E0AD726F890E7002409F5 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020CD26C1FBA100C99280 /* LoginPresenter.swift */; };
+		352E0AD826F890E7002409F5 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020D026C1FBA100C99280 /* LoginProtocols.swift */; };
+		352E0AD926F890E7002409F5 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E020D126C1FBA100C99280 /* LoginInteractor.swift */; };
 		3540596B26F2875100CC4D50 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596A26F2875100CC4D50 /* StringExtension.swift */; };
 		3540597026F2E1E300CC4D50 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596F26F2E1E300CC4D50 /* UserManager.swift */; };
 		3540599B26F5130100CC4D50 /* Avatars.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3540599A26F5130100CC4D50 /* Avatars.xcassets */; };
@@ -53,7 +246,6 @@
 		3557F2E126AD65A7001DA6BB /* Blogs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2DF26AD65A7001DA6BB /* Blogs.xcdatamodeld */; };
 		3557F2E326AD65A9001DA6BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3557F2E226AD65A9001DA6BB /* Assets.xcassets */; };
 		3557F2E626AD65A9001DA6BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3557F2E426AD65A9001DA6BB /* LaunchScreen.storyboard */; };
-		3557F2F126AD65AA001DA6BB /* BlogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2F026AD65AA001DA6BB /* BlogsTests.swift */; };
 		3557F2FC26AD65AA001DA6BB /* BlogsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2FB26AD65AA001DA6BB /* BlogsUITests.swift */; };
 		3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F31526AE3A1E001DA6BB /* ColorsApplication.swift */; };
 		3557F33126AE4B08001DA6BB /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3557F31E26AE4B08001DA6BB /* Montserrat-LightItalic.ttf */; };
@@ -237,10 +429,11 @@
 		35FFE52026B020690032321B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE51F26B020690032321B /* Title.swift */; };
 		35FFE52826B02DF70032321B /* SubTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFE52726B02DF70032321B /* SubTitle.swift */; };
 		7691B1A3650320F9E486C23A /* Pods_Blogs_BlogsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96949E140A0CB89E6B1C9614 /* Pods_Blogs_BlogsUITests.framework */; };
+		E5C52C1B50B2F9807B1F7271 /* Pods_Blogs_BlogsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5288C7FA36B1909C388E15 /* Pods_Blogs_BlogsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3557F2ED26AD65AA001DA6BB /* PBXContainerItemProxy */ = {
+		350CF58A26F89EB100E9CE00 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3557F2CB26AD65A6001DA6BB /* Project object */;
 			proxyType = 1;
@@ -257,6 +450,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07B961CDA460F95D0E04B2D2 /* Pods-Blogs-BlogsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogs-BlogsTests.debug.xcconfig"; path = "Target Support Files/Pods-Blogs-BlogsTests/Pods-Blogs-BlogsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		100283F2411D352A14DD6A78 /* Pods_BlogsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlogsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35028DC726C4747D00FF9D68 /* StandartBlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartBlogTableViewCell.swift; sourceTree = "<group>"; };
 		35028DCD26C544D000FF9D68 /* MyProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfilePresenter.swift; sourceTree = "<group>"; };
@@ -288,6 +482,9 @@
 		3505BB5B26E5313300B13202 /* BlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogInteractor.swift; sourceTree = "<group>"; };
 		3505BB5C26E5313300B13202 /* BlogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogContainer.swift; sourceTree = "<group>"; };
 		3505BBAB26E7B83100B13202 /* AnotherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherData.swift; sourceTree = "<group>"; };
+		350CF58526F89EB100E9CE00 /* BlogsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		350CF58726F89EB100E9CE00 /* BlogsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsTests.swift; sourceTree = "<group>"; };
+		350CF58926F89EB100E9CE00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3527AFDD26EF4848008D4501 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3527AFE226EF4AC3008D4501 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3527AFE526EF4AF3008D4501 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -306,9 +503,6 @@
 		3557F2E226AD65A9001DA6BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3557F2E526AD65A9001DA6BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3557F2E726AD65A9001DA6BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3557F2EC26AD65AA001DA6BB /* BlogsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3557F2F026AD65AA001DA6BB /* BlogsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsTests.swift; sourceTree = "<group>"; };
-		3557F2F226AD65AA001DA6BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3557F2F726AD65AA001DA6BB /* BlogsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3557F2FB26AD65AA001DA6BB /* BlogsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsUITests.swift; sourceTree = "<group>"; };
 		3557F2FD26AD65AA001DA6BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -494,9 +688,11 @@
 		35FFE51F26B020690032321B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		35FFE52726B02DF70032321B /* SubTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitle.swift; sourceTree = "<group>"; };
 		501CFC48DFBD75702E7D7B9A /* Pods-BlogsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlogsTests.release.xcconfig"; path = "Target Support Files/Pods-BlogsTests/Pods-BlogsTests.release.xcconfig"; sourceTree = "<group>"; };
+		8A5288C7FA36B1909C388E15 /* Pods_Blogs_BlogsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blogs_BlogsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92001B53180CB04A8B476183 /* Pods_Blogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95657469445BF00C45749603 /* Pods-Blogs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogs.release.xcconfig"; path = "Target Support Files/Pods-Blogs/Pods-Blogs.release.xcconfig"; sourceTree = "<group>"; };
 		96949E140A0CB89E6B1C9614 /* Pods_Blogs_BlogsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blogs_BlogsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A8BB0AEC49D096CFF98AFA8 /* Pods-Blogs-BlogsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogs-BlogsTests.release.xcconfig"; path = "Target Support Files/Pods-Blogs-BlogsTests/Pods-Blogs-BlogsTests.release.xcconfig"; sourceTree = "<group>"; };
 		9CC4394CD9079AA423CCC141 /* Pods-Blogs-BlogsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogs-BlogsUITests.debug.xcconfig"; path = "Target Support Files/Pods-Blogs-BlogsUITests/Pods-Blogs-BlogsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A2D3D1A1A4C51905A82616C8 /* Pods-Blogs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogs.debug.xcconfig"; path = "Target Support Files/Pods-Blogs/Pods-Blogs.debug.xcconfig"; sourceTree = "<group>"; };
 		D78FAB95AC6C98F4C596F6FF /* Pods-Blogs-BlogsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blogs-BlogsUITests.release.xcconfig"; path = "Target Support Files/Pods-Blogs-BlogsUITests/Pods-Blogs-BlogsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -504,19 +700,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		350CF58226F89EB100E9CE00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5C52C1B50B2F9807B1F7271 /* Pods_Blogs_BlogsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3557F2D026AD65A6001DA6BB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				237DC3E0C564E2A279C53456 /* Pods_Blogs.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3557F2E926AD65AA001DA6BB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				07A729722FAEC71FA373C421 /* Pods_BlogsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +790,15 @@
 			path = Blog;
 			sourceTree = "<group>";
 		};
+		350CF58626F89EB100E9CE00 /* BlogsTests */ = {
+			isa = PBXGroup;
+			children = (
+				350CF58726F89EB100E9CE00 /* BlogsTests.swift */,
+				350CF58926F89EB100E9CE00 /* Info.plist */,
+			);
+			path = BlogsTests;
+			sourceTree = "<group>";
+		};
 		3540597C26F451B600CC4D50 /* Another Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,8 +841,8 @@
 			isa = PBXGroup;
 			children = (
 				3557F2D526AD65A6001DA6BB /* Blogs */,
-				3557F2EF26AD65AA001DA6BB /* BlogsTests */,
 				3557F2FA26AD65AA001DA6BB /* BlogsUITests */,
+				350CF58626F89EB100E9CE00 /* BlogsTests */,
 				3557F2D426AD65A6001DA6BB /* Products */,
 				A9BEF76C9B52F1C17CDF07C6 /* Pods */,
 				81807D7113CEBA3A83DBDE6D /* Frameworks */,
@@ -648,8 +853,8 @@
 			isa = PBXGroup;
 			children = (
 				3557F2D326AD65A6001DA6BB /* Blogs.app */,
-				3557F2EC26AD65AA001DA6BB /* BlogsTests.xctest */,
 				3557F2F726AD65AA001DA6BB /* BlogsUITests.xctest */,
+				350CF58526F89EB100E9CE00 /* BlogsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -670,15 +875,6 @@
 				3540597C26F451B600CC4D50 /* Another Files */,
 			);
 			path = Blogs;
-			sourceTree = "<group>";
-		};
-		3557F2EF26AD65AA001DA6BB /* BlogsTests */ = {
-			isa = PBXGroup;
-			children = (
-				3557F2F026AD65AA001DA6BB /* BlogsTests.swift */,
-				3557F2F226AD65AA001DA6BB /* Info.plist */,
-			);
-			path = BlogsTests;
 			sourceTree = "<group>";
 		};
 		3557F2FA26AD65AA001DA6BB /* BlogsUITests */ = {
@@ -1226,6 +1422,7 @@
 				92001B53180CB04A8B476183 /* Pods_Blogs.framework */,
 				96949E140A0CB89E6B1C9614 /* Pods_Blogs_BlogsUITests.framework */,
 				100283F2411D352A14DD6A78 /* Pods_BlogsTests.framework */,
+				8A5288C7FA36B1909C388E15 /* Pods_Blogs_BlogsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1239,6 +1436,8 @@
 				D78FAB95AC6C98F4C596F6FF /* Pods-Blogs-BlogsUITests.release.xcconfig */,
 				DBBBF5BFF3E83F33A05D6A24 /* Pods-BlogsTests.debug.xcconfig */,
 				501CFC48DFBD75702E7D7B9A /* Pods-BlogsTests.release.xcconfig */,
+				07B961CDA460F95D0E04B2D2 /* Pods-Blogs-BlogsTests.debug.xcconfig */,
+				9A8BB0AEC49D096CFF98AFA8 /* Pods-Blogs-BlogsTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1246,6 +1445,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		350CF58426F89EB100E9CE00 /* BlogsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 350CF58C26F89EB100E9CE00 /* Build configuration list for PBXNativeTarget "BlogsTests" */;
+			buildPhases = (
+				B076A64B82A38ED242CC5711 /* [CP] Check Pods Manifest.lock */,
+				350CF58126F89EB100E9CE00 /* Sources */,
+				350CF58226F89EB100E9CE00 /* Frameworks */,
+				350CF58326F89EB100E9CE00 /* Resources */,
+				9B3D2181D59B6B2570D6A1A2 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				350CF58B26F89EB100E9CE00 /* PBXTargetDependency */,
+			);
+			name = BlogsTests;
+			productName = BlogsTests;
+			productReference = 350CF58526F89EB100E9CE00 /* BlogsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3557F2D226AD65A6001DA6BB /* Blogs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3557F30026AD65AA001DA6BB /* Build configuration list for PBXNativeTarget "Blogs" */;
@@ -1264,25 +1483,6 @@
 			productName = Blogs;
 			productReference = 3557F2D326AD65A6001DA6BB /* Blogs.app */;
 			productType = "com.apple.product-type.application";
-		};
-		3557F2EB26AD65AA001DA6BB /* BlogsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3557F30326AD65AA001DA6BB /* Build configuration list for PBXNativeTarget "BlogsTests" */;
-			buildPhases = (
-				7F5773F91B1475C978560015 /* [CP] Check Pods Manifest.lock */,
-				3557F2E826AD65AA001DA6BB /* Sources */,
-				3557F2E926AD65AA001DA6BB /* Frameworks */,
-				3557F2EA26AD65AA001DA6BB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3557F2EE26AD65AA001DA6BB /* PBXTargetDependency */,
-			);
-			name = BlogsTests;
-			productName = BlogsTests;
-			productReference = 3557F2EC26AD65AA001DA6BB /* BlogsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		3557F2F626AD65AA001DA6BB /* BlogsUITests */ = {
 			isa = PBXNativeTarget;
@@ -1313,10 +1513,11 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
-					3557F2D226AD65A6001DA6BB = {
+					350CF58426F89EB100E9CE00 = {
 						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 3557F2D226AD65A6001DA6BB;
 					};
-					3557F2EB26AD65AA001DA6BB = {
+					3557F2D226AD65A6001DA6BB = {
 						CreatedOnToolsVersion = 12.4;
 					};
 					3557F2F626AD65AA001DA6BB = {
@@ -1340,13 +1541,20 @@
 			projectRoot = "";
 			targets = (
 				3557F2D226AD65A6001DA6BB /* Blogs */,
-				3557F2EB26AD65AA001DA6BB /* BlogsTests */,
 				3557F2F626AD65AA001DA6BB /* BlogsUITests */,
+				350CF58426F89EB100E9CE00 /* BlogsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		350CF58326F89EB100E9CE00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3557F2D126AD65A6001DA6BB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1379,13 +1587,6 @@
 				35FDACC926DA500200A84B99 /* GoogleService-Info.plist in Resources */,
 				3557F34226AE4B08001DA6BB /* Montserrat-SemiBoldItalic.ttf in Resources */,
 				3557F33C26AE4B08001DA6BB /* Montserrat-ExtraLightItalic.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3557F2EA26AD65AA001DA6BB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1438,28 +1639,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Blogs-BlogsUITests/Pods-Blogs-BlogsUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7F5773F91B1475C978560015 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BlogsTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		986E2AA3CEBE47FA7BDEC66F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1476,6 +1655,45 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Blogs-BlogsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B3D2181D59B6B2570D6A1A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Blogs-BlogsTests/Pods-Blogs-BlogsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Blogs-BlogsTests/Pods-Blogs-BlogsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Blogs-BlogsTests/Pods-Blogs-BlogsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B076A64B82A38ED242CC5711 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Blogs-BlogsTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1502,6 +1720,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		350CF58126F89EB100E9CE00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				350CF58826F89EB100E9CE00 /* BlogsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3557F2CF26AD65A6001DA6BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1706,29 +1932,214 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3557F2E826AD65AA001DA6BB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3557F2F126AD65AA001DA6BB /* BlogsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3557F2F326AD65AA001DA6BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				350CF35926F895ED00E9CE00 /* AnotherMoreBlogsProtocols.swift in Sources */,
+				350CF40C26F8966400E9CE00 /* PasswordChangePresenter.swift in Sources */,
+				350CF4AE26F896DE00E9CE00 /* StandartBlogTableViewCell.swift in Sources */,
+				350CF3D826F8964700E9CE00 /* DraftBlogsRouter.swift in Sources */,
+				350CF49C26F896D000E9CE00 /* TabBarController.swift in Sources */,
+				350CF37826F8961000E9CE00 /* PreviewPresenter.swift in Sources */,
+				350CF48A26F896C600E9CE00 /* StartProtocols.swift in Sources */,
+				350CF4B526F896E600E9CE00 /* BlogCellProtocol.swift in Sources */,
+				350CF48C26F896C600E9CE00 /* StartViewController.swift in Sources */,
+				350CF51726F8974100E9CE00 /* StandartSound.swift in Sources */,
+				350CF4A026F896D900E9CE00 /* PageViewModel.swift in Sources */,
+				350CF38B26F8961A00E9CE00 /* SettingProtocols.swift in Sources */,
+				350CF52F26F8975800E9CE00 /* UIViewExtension.swift in Sources */,
+				350CF3A826F8962C00E9CE00 /* CreateBlogRouter.swift in Sources */,
+				350CF4DE26F8970B00E9CE00 /* IconImage.swift in Sources */,
+				350CF44A26F8968A00E9CE00 /* MyProfilePresenter.swift in Sources */,
+				350CF46926F8969B00E9CE00 /* HomePresenter.swift in Sources */,
+				350CF39F26F8962400E9CE00 /* SearchInteractor.swift in Sources */,
+				352E0AD726F890E7002409F5 /* LoginPresenter.swift in Sources */,
+				350CF47C26F896A300E9CE00 /* SignUpViewController.swift in Sources */,
+				350CF52526F8975000E9CE00 /* ColorsApplication.swift in Sources */,
+				350CF46B26F8969B00E9CE00 /* HomeContainer.swift in Sources */,
+				350CF34826F895DE00E9CE00 /* BlogPresenter.swift in Sources */,
+				350CF35626F895ED00E9CE00 /* AnotherMoreBlogsRouter.swift in Sources */,
+				350CF40826F8966400E9CE00 /* PasswordChangeInteractor.swift in Sources */,
+				350CF38926F8961A00E9CE00 /* SettingViewController.swift in Sources */,
+				350CF3BB26F8963600E9CE00 /* AdditionBlogContainer.swift in Sources */,
+				350CF45726F8969200E9CE00 /* SavedInteractor.swift in Sources */,
+				350CF4B626F896E600E9CE00 /* BlogCellViewModel.swift in Sources */,
+				350CF4DF26F8970B00E9CE00 /* UtiliesIcon.swift in Sources */,
+				350CF4BD26F896ED00E9CE00 /* UtiliesCellProtocol.swift in Sources */,
+				350CF4D026F896FB00E9CE00 /* ChoiceCellViewModel.swift in Sources */,
+				350CF36726F895F600E9CE00 /* MyMoreBlogsPresenter.swift in Sources */,
+				350CF46C26F8969B00E9CE00 /* HomeViewController.swift in Sources */,
+				352E0AD826F890E7002409F5 /* LoginProtocols.swift in Sources */,
+				350CF37426F8961000E9CE00 /* PreviewPageViewController.swift in Sources */,
+				350CF4C526F896F300E9CE00 /* SettingCellViewModel.swift in Sources */,
+				350CF3A226F8962400E9CE00 /* SearchContainer.swift in Sources */,
+				350CF38A26F8961A00E9CE00 /* SettingRouter.swift in Sources */,
+				350CF4EB26F8971A00E9CE00 /* FirstSmallButton.swift in Sources */,
+				350CF4EE26F8971A00E9CE00 /* ThirdBigButton.swift in Sources */,
+				350CF37326F8961000E9CE00 /* PreviewProtocols.swift in Sources */,
+				350CF51E26F8974700E9CE00 /* LanguagesApplication.swift in Sources */,
+				350CF4BE26F896ED00E9CE00 /* UtilitiesCollectionViewCell.swift in Sources */,
+				350CF36626F895F600E9CE00 /* MyMoreBlogsViewController.swift in Sources */,
+				350CF50D26F8973900E9CE00 /* SceneDelegate.swift in Sources */,
+				350CF3EB26F8965100E9CE00 /* AboutTheApplicationProtocols.swift in Sources */,
+				350CF3DC26F8964700E9CE00 /* DraftBlogsContainer.swift in Sources */,
+				350CF52926F8975800E9CE00 /* PrivateBundle.swift in Sources */,
+				350CF3A326F8962400E9CE00 /* SearchViewController.swift in Sources */,
+				350CF48E26F896C600E9CE00 /* StartPresenter.swift in Sources */,
+				350CF47826F896A300E9CE00 /* SignUpRouter.swift in Sources */,
+				350CF54226F8976300E9CE00 /* Setting.swift in Sources */,
+				350CF43526F8968100E9CE00 /* AnotherProfileInteractor.swift in Sources */,
+				350CF41926F8966E00E9CE00 /* ChoiceColorViewController.swift in Sources */,
+				350CF3CE26F8963E00E9CE00 /* EditProfilePresenter.swift in Sources */,
+				350CF3DB26F8964700E9CE00 /* DraftBlogsViewController.swift in Sources */,
+				350CF52D26F8975800E9CE00 /* UIColorsExtension.swift in Sources */,
+				350CF4F026F8971A00E9CE00 /* ThirdSmallButton.swift in Sources */,
+				350CF50226F8972700E9CE00 /* SubTitle.swift in Sources */,
+				350CF47926F896A300E9CE00 /* SignUpPresenter.swift in Sources */,
+				350CF4EA26F8971A00E9CE00 /* ToggleButton.swift in Sources */,
+				350CF35526F895ED00E9CE00 /* AnotherMoreBlogsPresenter.swift in Sources */,
+				350CF4B426F896E600E9CE00 /* BlogsTableViewCell.swift in Sources */,
+				350CF35A26F895ED00E9CE00 /* AnotherMoreBlogsInteractor.swift in Sources */,
+				350CF3B826F8963600E9CE00 /* AdditionBlogProtocols.swift in Sources */,
+				350CF45826F8969200E9CE00 /* SavedContainer.swift in Sources */,
+				350CF44726F8968A00E9CE00 /* MyProfileViewController.swift in Sources */,
+				350CF40A26F8966400E9CE00 /* PasswordChangeContainer.swift in Sources */,
+				350CF41826F8966E00E9CE00 /* ChoiceColorRouter.swift in Sources */,
+				350CF3C926F8963E00E9CE00 /* EditProfileProtocols.swift in Sources */,
+				350CF3EE26F8965100E9CE00 /* AboutTheApplicationInteractor.swift in Sources */,
+				350CF4CF26F896FB00E9CE00 /* ChoiceCellProtocol.swift in Sources */,
+				350CF43826F8968100E9CE00 /* AnotherProfilePresenter.swift in Sources */,
+				350CF50426F8972700E9CE00 /* Text.swift in Sources */,
+				350CF3ED26F8965100E9CE00 /* AboutTheApplicationRouter.swift in Sources */,
+				350CF51D26F8974700E9CE00 /* StandartLanguage.swift in Sources */,
+				350CF40926F8966400E9CE00 /* PasswordChangeProtocols.swift in Sources */,
+				350CF36526F895F600E9CE00 /* MyMoreBlogsInteractor.swift in Sources */,
+				350CF52E26F8975800E9CE00 /* StringExtension.swift in Sources */,
+				350CF40B26F8966400E9CE00 /* PasswordChangeViewController.swift in Sources */,
+				350CF4BF26F896ED00E9CE00 /* UtiliesCellViewModel.swift in Sources */,
+				350CF52A26F8975800E9CE00 /* ArrayExtension.swift in Sources */,
+				350CF3CB26F8963E00E9CE00 /* EditProfileInteractor.swift in Sources */,
+				350CF41726F8966E00E9CE00 /* ChoiceColorProtocols.swift in Sources */,
+				350CF4A126F896D900E9CE00 /* PageProtocol.swift in Sources */,
+				350CF3FC26F8965B00E9CE00 /* HelpRouter.swift in Sources */,
+				350CF38826F8961A00E9CE00 /* SettingInteractor.swift in Sources */,
+				350CF3BA26F8963600E9CE00 /* AdditionBlogInteractor.swift in Sources */,
+				350CF48B26F896C600E9CE00 /* StartInteractor.swift in Sources */,
+				352E0AD426F890E7002409F5 /* LoginViewController.swift in Sources */,
+				352E0AD926F890E7002409F5 /* LoginInteractor.swift in Sources */,
+				350CF34726F895DE00E9CE00 /* BlogRouter.swift in Sources */,
+				350CF47B26F896A300E9CE00 /* SignUpContainer.swift in Sources */,
+				350CF35726F895ED00E9CE00 /* AnotherMoreBlogsContainer.swift in Sources */,
+				350CF4C326F896F300E9CE00 /* SettingCellProtocol.swift in Sources */,
+				350CF3DA26F8964700E9CE00 /* DraftBlogsPresenter.swift in Sources */,
+				350CF3A426F8962400E9CE00 /* SearchRouter.swift in Sources */,
+				350CF50126F8972700E9CE00 /* Title.swift in Sources */,
+				350CF40D26F8966400E9CE00 /* PasswordChangeRouter.swift in Sources */,
+				350CF54C26F8976A00E9CE00 /* UserManager.swift in Sources */,
+				350CF43626F8968100E9CE00 /* AnotherProfileViewController.swift in Sources */,
+				350CF4E926F8971100E9CE00 /* TextField.swift in Sources */,
+				350CF3CC26F8963E00E9CE00 /* EditProfileContainer.swift in Sources */,
+				350CF3A026F8962400E9CE00 /* SearchPresenter.swift in Sources */,
+				350CF44926F8968A00E9CE00 /* MyProfileInteractor.swift in Sources */,
+				350CF41A26F8966E00E9CE00 /* ChoiceColorPresenter.swift in Sources */,
+				350CF54126F8976300E9CE00 /* Blog.swift in Sources */,
+				350CF4AF26F896DE00E9CE00 /* StandartBlogCellViewModel.swift in Sources */,
+				350CF3BC26F8963600E9CE00 /* AdditionBlogPresenter.swift in Sources */,
+				350CF42626F8967600E9CE00 /* ChoiceLanguageViewController.swift in Sources */,
+				350CF37926F8961000E9CE00 /* PreviewRouter.swift in Sources */,
+				350CF4EC26F8971A00E9CE00 /* TwoButtons.swift in Sources */,
+				350CF3A926F8962C00E9CE00 /* CreateBlogInteractor.swift in Sources */,
+				350CF38C26F8961A00E9CE00 /* SettingContainer.swift in Sources */,
 				3557F2FC26AD65AA001DA6BB /* BlogsUITests.swift in Sources */,
+				350CF3FA26F8965B00E9CE00 /* HelpContainer.swift in Sources */,
+				350CF46D26F8969B00E9CE00 /* HomeProtocols.swift in Sources */,
+				350CF3EF26F8965100E9CE00 /* AboutTheApplicationContainer.swift in Sources */,
+				350CF45926F8969200E9CE00 /* SavedRouter.swift in Sources */,
+				350CF43726F8968100E9CE00 /* AnotherProfileRouter.swift in Sources */,
+				350CF53F26F8976300E9CE00 /* PersonalSetting.swift in Sources */,
+				350CF3CA26F8963E00E9CE00 /* EditProfileRouter.swift in Sources */,
+				350CF3AB26F8962C00E9CE00 /* CreateBlogContainer.swift in Sources */,
+				350CF3DD26F8964700E9CE00 /* DraftBlogsProtocols.swift in Sources */,
+				350CF34426F895DE00E9CE00 /* BlogProtocols.swift in Sources */,
+				350CF35826F895ED00E9CE00 /* AnotherMoreBlogsViewController.swift in Sources */,
+				350CF3A126F8962400E9CE00 /* SearchProtocols.swift in Sources */,
+				350CF3AA26F8962C00E9CE00 /* CreateBlogProtocols.swift in Sources */,
+				350CF41C26F8966E00E9CE00 /* ChoiceColorContainer.swift in Sources */,
+				350CF52B26F8975800E9CE00 /* AnotherExtension.swift in Sources */,
+				350CF3AD26F8962D00E9CE00 /* CreateBlogViewController.swift in Sources */,
+				350CF34626F895DE00E9CE00 /* BlogContainer.swift in Sources */,
+				350CF44C26F8968A00E9CE00 /* MyProfileProtocols.swift in Sources */,
+				350CF42A26F8967600E9CE00 /* ChoiceLanguageInteractor.swift in Sources */,
+				350CF52426F8975000E9CE00 /* StandartColors.swift in Sources */,
+				350CF36826F895F600E9CE00 /* MyMoreBlogsProtocols.swift in Sources */,
+				350CF41B26F8966E00E9CE00 /* ChoiceColorInteractor.swift in Sources */,
+				350CF3FD26F8965B00E9CE00 /* HelpInteractor.swift in Sources */,
+				350CF3FE26F8965B00E9CE00 /* HelpProtocols.swift in Sources */,
+				350CF3EC26F8965100E9CE00 /* AboutTheApplicationPresenter.swift in Sources */,
+				350CF37726F8961000E9CE00 /* PreviewInteractor.swift in Sources */,
+				350CF44826F8968A00E9CE00 /* MyProfileRouter.swift in Sources */,
+				350CF48926F896C600E9CE00 /* StartRouter.swift in Sources */,
+				350CF4EF26F8971A00E9CE00 /* SecondBigButton.swift in Sources */,
+				350CF42926F8967600E9CE00 /* ChoiceLanguageProtocols.swift in Sources */,
+				352E0AD626F890E7002409F5 /* LoginRouter.swift in Sources */,
+				350CF3B726F8963600E9CE00 /* AdditionBlogRouter.swift in Sources */,
+				350CF48D26F896C600E9CE00 /* StartContainer.swift in Sources */,
+				350CF3AC26F8962C00E9CE00 /* CreateBlogPresenter.swift in Sources */,
+				350CF47726F896A300E9CE00 /* SignUpProtocols.swift in Sources */,
+				350CF43A26F8968100E9CE00 /* AnotherProfileContainer.swift in Sources */,
+				350CF34326F895DE00E9CE00 /* BlogViewController.swift in Sources */,
+				350CF43926F8968100E9CE00 /* AnotherProfileProtocols.swift in Sources */,
+				350CF50326F8972700E9CE00 /* TextProtocol.swift in Sources */,
+				350CF42B26F8967600E9CE00 /* ChoiceLanguageContainer.swift in Sources */,
+				350CF4FF26F8972000E9CE00 /* Header.swift in Sources */,
+				350CF46826F8969B00E9CE00 /* HomeRouter.swift in Sources */,
+				350CF37626F8961000E9CE00 /* PreviewContainer.swift in Sources */,
+				350CF4C426F896F300E9CE00 /* SettingTableViewCell.swift in Sources */,
+				350CF53E26F8976300E9CE00 /* Choice.swift in Sources */,
+				350CF3F926F8965B00E9CE00 /* HelpViewController.swift in Sources */,
+				350CF4ED26F8971A00E9CE00 /* FirstBigButton.swift in Sources */,
+				350CF44B26F8968A00E9CE00 /* MyProfileContainer.swift in Sources */,
+				350CF50C26F8973900E9CE00 /* AppDelegate.swift in Sources */,
+				350CF3EA26F8965100E9CE00 /* AboutTheApplicationViewController.swift in Sources */,
+				350CF53026F8975800E9CE00 /* FontsExtension.swift in Sources */,
+				350CF37526F8961000E9CE00 /* PreviewViewController.swift in Sources */,
+				350CF53126F8975800E9CE00 /* UIImagesExtension.swift in Sources */,
+				350CF45B26F8969200E9CE00 /* SavedPresenter.swift in Sources */,
+				350CF3D926F8964700E9CE00 /* DraftBlogsInteractor.swift in Sources */,
+				350CF42726F8967600E9CE00 /* ChoiceLanguagePresenter.swift in Sources */,
+				350CF38726F8961A00E9CE00 /* SettingPresenter.swift in Sources */,
+				350CF52C26F8975800E9CE00 /* DateExtension.swift in Sources */,
+				350CF4DD26F8970B00E9CE00 /* Avatar.swift in Sources */,
+				350CF3CD26F8963E00E9CE00 /* EditProfileViewController.swift in Sources */,
+				350CF4D826F8970400E9CE00 /* RefreshControl.swift in Sources */,
+				350CF4E026F8970B00E9CE00 /* Icons.swift in Sources */,
+				350CF4A326F896D900E9CE00 /* PageViewController.swift in Sources */,
+				350CF3FB26F8965B00E9CE00 /* HelpPresenter.swift in Sources */,
+				350CF34526F895DE00E9CE00 /* BlogInteractor.swift in Sources */,
+				352E0AD526F890E7002409F5 /* LoginContainer.swift in Sources */,
+				350CF54026F8976300E9CE00 /* User.swift in Sources */,
+				350CF36426F895F600E9CE00 /* MyMoreBlogsRouter.swift in Sources */,
+				350CF4D126F896FB00E9CE00 /* ChoiceTableViewCell.swift in Sources */,
+				350CF42826F8967600E9CE00 /* ChoiceLanguageRouter.swift in Sources */,
+				350CF3B926F8963600E9CE00 /* AdditionBlogViewController.swift in Sources */,
+				350CF36926F895F600E9CE00 /* MyMoreBlogsContainer.swift in Sources */,
+				350CF45A26F8969200E9CE00 /* SavedViewController.swift in Sources */,
+				350CF4A226F896D900E9CE00 /* Page.swift in Sources */,
+				350CF4B026F896DE00E9CE00 /* StandartBlogCellProtocol.swift in Sources */,
+				350CF45626F8969200E9CE00 /* SavedProtocols.swift in Sources */,
+				350CF47A26F896A300E9CE00 /* SignUpInteractor.swift in Sources */,
+				350CF46A26F8969B00E9CE00 /* HomeInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3557F2EE26AD65AA001DA6BB /* PBXTargetDependency */ = {
+		350CF58B26F89EB100E9CE00 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3557F2D226AD65A6001DA6BB /* Blogs */;
-			targetProxy = 3557F2ED26AD65AA001DA6BB /* PBXContainerItemProxy */;
+			targetProxy = 350CF58A26F89EB100E9CE00 /* PBXContainerItemProxy */;
 		};
 		3557F2F926AD65AA001DA6BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1759,6 +2170,70 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		350CF58D26F89EB100E9CE00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07B961CDA460F95D0E04B2D2 /* Pods-Blogs-BlogsTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QZA5Q28CH8;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					HEADER_SEARCH_PATHS,
+					"=",
+					"\"${PODS_ROOT} /Firebase/CoreOnly/Sources\"",
+				);
+				INFOPLIST_FILE = BlogsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Sber-Project.BlogsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				"SYSTEM_HEADER_SEARCH_PATHS[arch=*]" = (
+					HEADER_SEARCH_PATHS,
+					"=",
+					"\"${PODS_ROOT}/Firebase/CoreOnly/Sources\"",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blogs.app/Blogs";
+			};
+			name = Debug;
+		};
+		350CF58E26F89EB100E9CE00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A8BB0AEC49D096CFF98AFA8 /* Pods-Blogs-BlogsTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QZA5Q28CH8;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					HEADER_SEARCH_PATHS,
+					"=",
+					"\"${PODS_ROOT}/Firebase/CoreOnly/Sources\"",
+				);
+				INFOPLIST_FILE = BlogsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Sber-Project.BlogsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				"SYSTEM_HEADER_SEARCH_PATHS[arch=*]" = (
+					HEADER_SEARCH_PATHS,
+					"=",
+					"\"${PODS_ROOT}/Firebase/CoreOnly/Sources\"",
+				);
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blogs.app/Blogs";
+			};
+			name = Release;
+		};
 		3557F2FE26AD65AA001DA6BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1919,48 +2394,6 @@
 			};
 			name = Release;
 		};
-		3557F30426AD65AA001DA6BB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBBBF5BFF3E83F33A05D6A24 /* Pods-BlogsTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QZA5Q28CH8;
-				INFOPLIST_FILE = BlogsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Pronin-Project.BlogsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		3557F30526AD65AA001DA6BB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 501CFC48DFBD75702E7D7B9A /* Pods-BlogsTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QZA5Q28CH8;
-				INFOPLIST_FILE = BlogsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Pronin-Project.BlogsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		3557F30726AD65AA001DA6BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CC4394CD9079AA423CCC141 /* Pods-Blogs-BlogsUITests.debug.xcconfig */;
@@ -2006,6 +2439,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		350CF58C26F89EB100E9CE00 /* Build configuration list for PBXNativeTarget "BlogsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				350CF58D26F89EB100E9CE00 /* Debug */,
+				350CF58E26F89EB100E9CE00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3557F2CE26AD65A6001DA6BB /* Build configuration list for PBXProject "Blogs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2020,15 +2462,6 @@
 			buildConfigurations = (
 				3557F30126AD65AA001DA6BB /* Debug */,
 				3557F30226AD65AA001DA6BB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3557F30326AD65AA001DA6BB /* Build configuration list for PBXNativeTarget "BlogsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3557F30426AD65AA001DA6BB /* Debug */,
-				3557F30526AD65AA001DA6BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

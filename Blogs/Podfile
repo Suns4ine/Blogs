@@ -14,7 +14,7 @@ target 'Blogs' do
   pod 'Firebase/Database'
 
   target 'BlogsTests' do
-    inherit! :search_paths
+    inherit! :complete
     # Pods for testing
   end
 
