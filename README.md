@@ -19,6 +19,10 @@
 
 [https://firebase.google.com/docs/firestore/solutions/search](https://firebase.google.com/docs/firestore/solutions/search)
 
+<img width="337" alt="MyProfile" src="https://user-images.githubusercontent.com/18112464/134067965-978685a1-6476-496a-9cf7-8258fd6082cb.png">
+
+<img width="329" alt="Register" src="https://user-images.githubusercontent.com/18112464/134067993-cc1dc989-7409-4892-9343-e78e82e28fbb.png">
+
 ## Требования:
 
 - Использовать KeyChain/UserDefaults для пользовательских настроек
@@ -55,21 +59,28 @@ UserDefaults используется для сохранения персона
 
 Благодаря ей можно спокойно масштабировать приложения, без страха перегрузки экранов. 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/22e21a7f-ba98-45ea-9673-a499487f3c04/Untitled.png)
+![VIPER](https://user-images.githubusercontent.com/18112464/134068000-4e8f5552-824f-4bf1-81dc-3454d5f771f7.png)
 
 Для ячеек была выбрана архитектура MVVM
 
 Чтобы не усложнять и много не декомпозировать, была выбрана архитектура для ячеек и страниц (PageController). Можно безболезненно для себя передавать и отслеживать данные ячейки (пример: различное количество кнопок в ячеейке).
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/43dd09f6-2a9b-4c78-854e-be9b878a9be8/Untitled.png)
+![MVVM](https://user-images.githubusercontent.com/18112464/134067999-05132914-1f48-4579-b1da-3dc107bff438.png)
+
 
 - Верстка UI в коде
 
 Вся верстка, не считая LaunchScreen, выполнена в коде.
 
+<img width="331" alt="Blog" src="https://user-images.githubusercontent.com/18112464/134067997-a816e25e-c30a-40eb-8052-e95676dbe573.png">
+
+<img width="329" alt="AnotherProfile" src="https://user-images.githubusercontent.com/18112464/134067982-d3f77d25-fe91-418d-b6f6-e6a85f2c6980.png">
+
 - Обязательно использовать UITableView/UICollectionView
 
-UITableView реализован 10 экранах
+<img width="331" alt="Liked" src="https://user-images.githubusercontent.com/18112464/134067983-79af958c-c230-40c4-ba3c-ad145059a5ea.png">
+
+UITableView реализован в 10 экранах
 
 - Покрытие тестами 10 % и более
 
@@ -78,3 +89,8 @@ UITableView реализован 10 экранах
 - Использовать Core Data для хранения моделей данных
 
 К Сожалению не было реализовано из-за не правильного распределения нагрузки. Чтобы приложения не крашилось или работало не стабильно, Core Data не была добавлена в финальный релиз
+
+<img width="318" alt="SetingDarTheme" src="https://user-images.githubusercontent.com/18112464/134067987-1eb93454-59c3-4318-9e30-256a52b6d7e0.png">
+<img width="328" alt="Setting Russia" src="https://user-images.githubusercontent.com/18112464/134067990-bfbcd97f-fe1a-4b09-bccc-2e84c9e97217.png">
+
+<img width="337" alt="Setting English" src="https://user-images.githubusercontent.com/18112464/134067995-c862415f-5f37-41ec-9352-b4aa08cb25d7.png">
