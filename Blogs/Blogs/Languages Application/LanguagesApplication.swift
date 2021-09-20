@@ -8,9 +8,14 @@
 import Foundation
 
 enum LanguagesApplication: String {
-    case rus = "Русский"
-    case eng = "Ангийский"
+    case ru
+    case en
 }
+
+private (set) var LanguagesApplicationDictionary: [LanguagesApplication: String] = [
+    .ru : StandartLanguage.russianLanguagesApplicationDictionary,
+    .en : StandartLanguage.englishLanguagesApplicationDictionary
+]
 
 protocol LanguagesApplicationProtocol {
     
@@ -38,9 +43,9 @@ protocol LanguagesApplicationProtocol {
     static var titleSignUpScreen: String { get }
     static var textSignUpScreen: String { get }
     static var registerButtonSignUpScreen: String { get }
-    static var nameTextFieldNameSignUpScreen: String { get }
-    static var nameTextFieldShadowTextSignUpScreen: String { get }
-    static var nameTextFieldErrorSignUpScreen: String { get }
+    static var tagnameTextFieldNameSignUpScreen: String { get }
+    static var tagnameTextFieldShadowTextSignUpScreen: String { get }
+    static var tagnameTextFieldErrorSignUpScreen: String { get }
     static var mailTextFieldNameSignUpScreen: String { get }
     static var mailTextFieldShadowTextSignUpScreen: String { get }
     static var mailTextFieldErrorSignUpScreen: String { get }

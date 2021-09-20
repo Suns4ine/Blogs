@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// Если у  объекта меньше 3 (маленьких расширений) расширений, то он будет лежать тут
+//MARK: Если у объекта меньше 3 (маленьких расширений) расширений, то он будет лежать тут
 
 extension CALayer {
   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
@@ -47,8 +47,6 @@ public extension UIViewController {
 private var pTouchAreaEdgeInsets: UIEdgeInsets = .zero
 
 extension UIButton {
-
-    
     var touchAreaEdgeInsets: UIEdgeInsets {
         get {
             if let value = objc_getAssociatedObject(self, &pTouchAreaEdgeInsets) as? NSValue {
@@ -80,49 +78,38 @@ extension UIButton {
     }
 }
 
-
-
-extension UIView {
-    private static let kRotationAnimationKey = "rotationanimationkey"
-
-    func rotate(duration: Double = 1) {
-        if layer.animation(forKey: UIView.kRotationAnimationKey) == nil {
-            let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
-
-            rotationAnimation.fromValue = 0.0
-            rotationAnimation.toValue = Float.pi * 2.0
-            rotationAnimation.duration = duration
-            rotationAnimation.repeatCount = Float.infinity
-
-            layer.add(rotationAnimation, forKey: UIView.kRotationAnimationKey)
-        }
-    }
-
-    func stopRotating() {
-        if layer.animation(forKey: UIView.kRotationAnimationKey) != nil {
-            layer.removeAnimation(forKey: UIView.kRotationAnimationKey)
-        }
-    }
+func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
 }
 
-extension Date {
-    func stringDate() -> String {
-        
-        let dateformatter = DateFormatter()
-        
-        dateformatter.dateFormat = "d MMM, YY"
-        
-        return dateformatter.string(from: self)
-    }
+fileprivate extension UIScrollView {
+    func screenshot() -> UIImage? {
+            let savedContentOffset = contentOffset
+            let savedFrame = frame
+            defer {
+                contentOffset = savedContentOffset
+                frame = savedFrame
+            }
+
+            contentOffset = .zero
+            frame = CGRect(x: 0, y: 0, width: contentSize.width, height: contentSize.height)
+
+            let image = UIGraphicsImageRenderer(bounds: CGRect(origin: .zero, size: contentSize)).image { renderer in
+                let context = renderer.cgContext
+                layer.render(in: context)
+            }
+
+            return image
+        }
 }
 
-extension Array where Element == String {
-    
-    func returnEnumerationString() -> String {
+extension UITextField {
+    func indent(size:CGFloat) {
+        self.leftView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
+        self.leftViewMode = .always
         
-        let stringArray2 = self.map { String($0) }
-        let string = stringArray2.joined(separator: ", ")
-        
-        return string
+        self.rightView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
+        self.rightViewMode = .always
     }
 }

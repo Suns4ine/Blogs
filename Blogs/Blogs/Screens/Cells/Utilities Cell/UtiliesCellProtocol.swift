@@ -10,13 +10,13 @@ import UIKit
 
 protocol UtiliesCellIdentifiable {
     var cellIdentifier: String { get }
-    var cellHeight: CGFloat { get }
-    var cellWidth: CGFloat { get }
+    var cellHeight: Float { get }
+    var cellWidth: Float { get }
 }
 
 protocol UtiliesSectionRowPresentable {
     var rows: [UtiliesCellIdentifiable] { get set }
-    var minimumLineSpacing: CGFloat { get }
+    var minimumLineSpacing: Float { get }
 }
 
 

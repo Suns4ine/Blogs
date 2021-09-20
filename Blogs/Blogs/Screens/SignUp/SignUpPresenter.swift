@@ -40,10 +40,9 @@ extension SignUpPresenter: SignUpViewOutput {
     func didTapBackButton() {
         router.popViewController()
     }
-    //MARK: Потом убрать
+
     func didTapRegisterButton() {
-       // interactor.verificationOfEnteredData()
-        router.openTabBarViewController()
+        interactor.verificationOfEnteredData()
     }
 }
 

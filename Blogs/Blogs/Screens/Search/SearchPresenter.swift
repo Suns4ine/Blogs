@@ -25,6 +25,10 @@ extension SearchPresenter: SearchModuleInput {
 }
 
 extension SearchPresenter: SearchViewOutput {
+    func searchWord(word: String) {
+        interactor.getWord(word: word)
+    }
+    
     func fetchBlogsCell() {
         interactor.fetchBlogs()
     }

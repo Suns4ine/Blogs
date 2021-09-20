@@ -17,11 +17,15 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
     
     private func updateViews() {
         guard let viewModel = viewModel as? BlogCellViewModel else { return }
+        
+        let path = getDocumentsDirectory().appendingPathComponent(viewModel.user.identifier)
+        let image = UIImage(contentsOfFile: path.path) ?? .init()
+        
         title.editText(text: viewModel.title)
         nameSubTitle.editText(text: viewModel.nameSubTitle)
         dateSubTitle.editText(text: viewModel.dateSubTitle)
         tagSubTitle.editText(text: viewModel.tagSubTitle)
-        avatar.editImage(image: viewModel.user.avatar)
+        avatar.editImage(image: image)
         BlogsTableViewCell.identifier = viewModel.cellIdentifier
     }
     
@@ -87,7 +91,7 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
     }
     
     private func setup() {
-        [shadowView, blogView, avatar, title, dateSubTitle, nameSubTitle, tagSubTitle].forEach{ contentView.addSubview($0)}
+        [shadowView, blogView, avatar, title, dateSubTitle, nameSubTitle].forEach{ contentView.addSubview($0)}
         
         self.backgroundColor = .clear
         self.selectionStyle = .none
@@ -112,6 +116,7 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
             
             dateSubTitle.bottomAnchor.constraint(equalTo: blogView.bottomAnchor, constant: -24),
             dateSubTitle.leadingAnchor.constraint(equalTo: blogView.leadingAnchor, constant: 24),
+            dateSubTitle.heightAnchor.constraint(equalToConstant: 20),
             
             nameSubTitle.bottomAnchor.constraint(equalTo: dateSubTitle.topAnchor),
             nameSubTitle.leadingAnchor.constraint(equalTo: blogView.leadingAnchor, constant: 24),
@@ -123,10 +128,10 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
             title.trailingAnchor.constraint(lessThanOrEqualTo: blogView.trailingAnchor, constant: -24),
             title.bottomAnchor.constraint(lessThanOrEqualTo: nameSubTitle.topAnchor, constant: -12),
             
-            tagSubTitle.bottomAnchor.constraint(equalTo: blogView.bottomAnchor, constant: -24),
-            tagSubTitle.trailingAnchor.constraint(equalTo: blogView.trailingAnchor, constant: -24),
-            tagSubTitle.leadingAnchor.constraint(equalTo: dateSubTitle.trailingAnchor, constant: 16),
-            tagSubTitle.heightAnchor.constraint(equalToConstant: 20)
+//            tagSubTitle.bottomAnchor.constraint(equalTo: blogView.bottomAnchor, constant: -24),
+//            tagSubTitle.trailingAnchor.constraint(equalTo: blogView.trailingAnchor, constant: -24),
+//            tagSubTitle.leadingAnchor.constraint(lessThanOrEqualTo: dateSubTitle.trailingAnchor, constant: 16),
+//            tagSubTitle.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     

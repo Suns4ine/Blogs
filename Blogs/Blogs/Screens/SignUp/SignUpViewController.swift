@@ -11,13 +11,22 @@ import UIKit
 final class SignUpViewController: UIViewController {
 	private let output: SignUpViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private let header: Header = {
         let header = Header(title: StandartLanguage.headerTitleSignUpScreen,
                             leftIcon: .init(icon: .outline1, size: .size48),
                             rightIcon: .init(icon: .none, size: .size24))
         header.addLeftIconTarget(self, action: #selector(tapBackButton))
         return header
+    }()
+    
+    private lazy var scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.backgroundColor = .clear
+        scroll.showsVerticalScrollIndicator = false
+        scroll.showsHorizontalScrollIndicator = false
+        return scroll
     }()
     
     private let signUpTitle: Title = {
@@ -32,11 +41,10 @@ final class SignUpViewController: UIViewController {
         return text
     }()
     
-    private let nameTextField: TextField = {
-        let textfiled = TextField(name: StandartLanguage.nameTextFieldNameSignUpScreen,
-                                  shadowText: StandartLanguage.nameTextFieldShadowTextSignUpScreen,
-                                  error: StandartLanguage.nameTextFieldErrorSignUpScreen)
-        textfiled.editAutocapitalizationType(type: .sentences)
+    private let tagnameTextField: TextField = {
+        let textfiled = TextField(name: StandartLanguage.tagnameTextFieldNameSignUpScreen,
+                                  shadowText: StandartLanguage.tagnameTextFieldShadowTextSignUpScreen,
+                                  error: StandartLanguage.tagnameTextFieldErrorSignUpScreen)
         return textfiled
     }()
     
@@ -61,9 +69,9 @@ final class SignUpViewController: UIViewController {
         return button
     }()
     
+    //MARK: System override Functions
     init(output: SignUpViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -72,17 +80,34 @@ final class SignUpViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func addSubViewInScrollView() {
+        let array =  [header, signUpTitle, text,
+                      tagnameTextField, mailTextField,
+                      passwordTextField, registerButton]
+        array.forEach{ scrollView.addSubview($0)}
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        nameTextField.clearText()
+        tagnameTextField.clearText()
         mailTextField.clearText()
         passwordTextField.clearText()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromAllNotifications()
     }
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, signUpTitle, text, nameTextField, mailTextField, passwordTextField, registerButton].forEach{ view.addSubview($0)}
+       [scrollView].forEach{ view.addSubview($0)}
+        addSubViewInScrollView()
         
+        subscribeToNotification(UIResponder.keyboardWillShowNotification, selector: #selector(keyboardWillShowOrHide))
+        subscribeToNotification(UIResponder.keyboardWillHideNotification, selector: #selector(keyboardWillShowOrHide))
+        
+        initializeHideKeyboard()
         view.backgroundColor = StandartColors.firstLoginBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
@@ -91,7 +116,12 @@ final class SignUpViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            header.topAnchor.constraint(equalTo: scrollView.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
@@ -102,11 +132,11 @@ final class SignUpViewController: UIViewController {
             text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             text.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
 
-            nameTextField.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 15),
-            nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            tagnameTextField.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 15),
+            tagnameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            tagnameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
-            mailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 5),
+            mailTextField.topAnchor.constraint(equalTo: tagnameTextField.bottomAnchor, constant: 5),
             mailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             mailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
@@ -118,8 +148,11 @@ final class SignUpViewController: UIViewController {
             registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+        //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
+        scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
     }
     
+    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.didTapBackButton()
@@ -127,7 +160,7 @@ final class SignUpViewController: UIViewController {
     
     @objc
     private func tapRegisterButton() {
-        output.didFinishNameText(text: nameTextField.textField.text ?? "")
+        output.didFinishNameText(text: tagnameTextField.textField.text ?? "")
         output.didFinishMailText(text: mailTextField.textField.text ?? "")
         output.didFinishPasswordText(text: passwordTextField.password)
         output.didTapRegisterButton()
@@ -136,7 +169,7 @@ final class SignUpViewController: UIViewController {
 
 extension SignUpViewController: SignUpViewInput {
     func showErrorName(text: String) {
-        nameTextField.editErrorText(text: text)
+        tagnameTextField.editErrorText(text: text)
     }
     
     func showErrorMail(text: String) {
@@ -147,4 +180,53 @@ extension SignUpViewController: SignUpViewInput {
         passwordTextField.editErrorText(text: text)
     }
     
+}
+
+extension SignUpViewController {
+    
+    func initializeHideKeyboard(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissMyKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissMyKeyboard(){
+        view.endEditing(true)
+    }
+    
+    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
+        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
+    }
+    
+    func unsubscribeFromAllNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShowOrHide(notification: NSNotification) {
+        
+        if let userInfo = notification.userInfo,
+           let endValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey],
+           let durationValue = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey],
+           let curveValue = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] {
+            
+            let endRect = view.convert((endValue as AnyObject).cgRectValue, from: view.window)
+            let keyboardOverlap = scrollView.frame.maxY - endRect.origin.y
+            
+            scrollView.contentInset.bottom = keyboardOverlap
+
+            scrollView.verticalScrollIndicatorInsets.bottom = keyboardOverlap
+            scrollView.horizontalScrollIndicatorInsets.bottom = keyboardOverlap
+            
+            let duration = (durationValue as AnyObject).doubleValue
+            let options = UIView.AnimationOptions(rawValue: UInt((curveValue as AnyObject).integerValue << 16))
+            UIView.animate(withDuration: duration ?? TimeInterval.init(),
+                           delay: 0,
+                           options: options,
+                           animations: {
+                            self.view.layoutIfNeeded()
+                           })
+        }
+    }
 }

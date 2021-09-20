@@ -10,28 +10,31 @@ import Foundation
 
 final class MyProfileInteractor {
 	weak var output: MyProfileInteractorOutput?
-    
-   // private var arrayBlogs: [Blog] = defaultUser.arrayBlogs
 }
-//MARK: Убрать дефолтного юзера
+
 extension MyProfileInteractor: MyProfileInteractorInput {
     func deleteBlog(at indexPath: IndexPath) {
-        defaultUser.arrayBlogs.remove(at: indexPath.row)
         
+        if defaultUser.arrayBlogs.indices.contains(indexPath.row) {
+            defaultUser.arrayBlogs[indexPath.row].deleteBlog()
+            defaultUser.arrayBlogs.remove(at: indexPath.row)
+        }
         output?.indexDeleteReiceve(indexPath)
     }
     
     func giveMyProfile() {
         output?.giveAwayMyProfile(profile: defaultUser)
+        output?.blogsDidRecieve(defaultUser.arrayBlogs)
+        UserManager.getDataUser()
     }
     
     func giveBlogsArrayCount() -> Int {
         return defaultUser.arrayBlogs.count
     }
     
-    
     func getBlog(at indexPath: IndexPath) {
         let blog = defaultUser.arrayBlogs[indexPath.row]
+        playSound(name: .openController)
         
         output?.blogDidRecieve(blog)
     }

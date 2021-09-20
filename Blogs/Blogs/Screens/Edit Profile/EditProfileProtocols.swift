@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol EditProfileModuleInput {
 	var moduleOutput: EditProfileModuleOutput? { get }
@@ -16,14 +17,18 @@ protocol EditProfileModuleOutput: class {
 }
 
 protocol EditProfileViewInput: class {
+    func showAlertAvatar()
     func updateViews(profile: User)
     func showErrorName(text: String)
     func showErrorSurname(text: String)
     func showErrorTagName(text: String)
     func showErrorAboutMe(text: String)
+    func newAvatar(image: String)
 }
 
 protocol EditProfileViewOutput: class {
+    func getAvatar(image: String)
+    func didTapAvatarButton()
     func didFinishNameText(text: String)
     func didFinishSurnameText(text: String)
     func didFinishTagNameText(text: String)
@@ -35,6 +40,8 @@ protocol EditProfileViewOutput: class {
 }
 
 protocol EditProfileInteractorInput: class {
+    func giveAvatar(image: String)
+    func editAvatar()
     func giveMyProfile()
     func newNameText(text: String)
     func newSurnameText(text: String)
@@ -44,8 +51,10 @@ protocol EditProfileInteractorInput: class {
 }
 
 protocol EditProfileInteractorOutput: class {
+    func callAlertAvatar()
     func giveAwayMyProfile(profile: User)
     func openBackViewController()
+    func transferAvatar(image: String)
     func transferErrorName(text: String)
     func transferErrorSurname(text: String)
     func transferErrorTagName(text: String)

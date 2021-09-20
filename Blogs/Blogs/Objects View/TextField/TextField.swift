@@ -8,13 +8,10 @@
 import Foundation
 import UIKit
 
-protocol TextFieldDelegateProtocol {
-    func action(text: String)
-}
-
 final class TextField: UIView, UITextFieldDelegate {
     
-    var delegate: TextFieldDelegateProtocol?
+    //MARK: Create Variable
+    var delegate: UITextFieldDelegate?
     private var isSecureTextEntry = false
     private (set) var password: String = ""
     private var textInPassword: [String] = []
@@ -41,7 +38,7 @@ final class TextField: UIView, UITextFieldDelegate {
         textField.autocapitalizationType = .none
         
         textField.indent(size: 16)
-        textField.tintColor = StandartColors.enteredTextColor
+        textField.tintColor = StandartColors.highlightTextColor
         textField.textColor = StandartColors.enteredTextColor
         textField.font = .secondTextFont
         textField.layer.cornerRadius = 16
@@ -53,6 +50,7 @@ final class TextField: UIView, UITextFieldDelegate {
         return textField
     }()
     
+    //MARK: System override Functions
     convenience init(name: String, shadowText: String, error: String) {
         self.init()
         nameSubTitle.editText(text: name)
@@ -60,18 +58,73 @@ final class TextField: UIView, UITextFieldDelegate {
         
         textField.attributedPlaceholder = NSAttributedString(string: shadowText,
                                                              attributes: [NSAttributedString.Key.foregroundColor : StandartColors.textForTextfieldBackgroundColor.withAlphaComponent(0.5)])
-        
         setup()
     }
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        //Делаем проверку на флаг, чтобы знать, отображать текст или нет (Защита для паролей)
+        if isSecureTextEntry {
+            if string.isEmpty {
+                password = String(password.dropLast())
+                textField.text = String(textField.text?.dropLast() ?? "")
+            } else {
+                textInPassword = []
+                textInPassword = Array(repeating: "●", count: string.count)
+                password = password + string
+                textField.text = (textField.text ?? "") + textInPassword.joined()
+            }
+            return false
+        }
+        return true
+    }
+
+    override func layoutSubviews() {
+        NSLayoutConstraint.activate([
+            self.heightAnchor.constraint(equalToConstant: 106),
+            
+            nameSubTitle.topAnchor.constraint(equalTo: self.topAnchor),
+            nameSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 19),
+            nameSubTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            nameSubTitle.heightAnchor.constraint(equalToConstant: 20),
+            
+            errorSubTitle.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            errorSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 19),
+            errorSubTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            errorSubTitle.heightAnchor.constraint(equalToConstant: 20),
+            
+            textField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            textField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            textField.topAnchor.constraint(equalTo: nameSubTitle.bottomAnchor, constant: 5),
+            textField.bottomAnchor.constraint(equalTo: errorSubTitle.topAnchor, constant: -5)
+        ])
+    }
+    
+    //MARK: Personal Functions
+    private func setup() {
+        [nameSubTitle, errorSubTitle, textField].forEach{ addSubview($0)}
+        
+        delegate = textField.delegate
+        self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+}
+
+extension TextField {
     func editErrorText(text: String) {
         errorSubTitle.editText(text: text)
     }
@@ -100,70 +153,7 @@ final class TextField: UIView, UITextFieldDelegate {
         textField.text = text
     }
     
-    private func setup() {
-        [nameSubTitle, errorSubTitle, textField].forEach{ addSubview($0)}
-        
-        self.backgroundColor = .clear
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    self.resignFirstResponder()
-        if isSecureTextEntry {
-            delegate?.action(text: password)
-        } else {
-            delegate?.action(text: textField.text ?? "")
-        }
-    return true
-}
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
-    {
-        
-        if isSecureTextEntry {
-            if string.isEmpty {
-                password = String(password.dropLast())
-                textField.text = String(textField.text?.dropLast() ?? "")
-            } else {
-                textInPassword = []
-                textInPassword = Array(repeating: "●", count: string.count)
-                password = password + string
-                textField.text = (textField.text ?? "") + textInPassword.joined()
-            }
-            return false
-        }
-        return true
-    }
-    
-
-    override func layoutSubviews() {
-        NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 106),
-            
-            nameSubTitle.topAnchor.constraint(equalTo: self.topAnchor),
-            nameSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 19),
-            nameSubTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            nameSubTitle.heightAnchor.constraint(equalToConstant: 20),
-            
-            errorSubTitle.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            errorSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 19),
-            errorSubTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            errorSubTitle.heightAnchor.constraint(equalToConstant: 20),
-            
-            textField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            textField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            textField.topAnchor.constraint(equalTo: nameSubTitle.bottomAnchor, constant: 5),
-            textField.bottomAnchor.constraint(equalTo: errorSubTitle.topAnchor, constant: -5)
-        ])
-    }
-}
-
-extension UITextField {
-    func indent(size:CGFloat) {
-        self.leftView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
-        self.leftViewMode = .always
-        
-        self.rightView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
-        self.rightViewMode = .always
+    func addTag(numb: Int) {
+        textField.tag = numb
     }
 }

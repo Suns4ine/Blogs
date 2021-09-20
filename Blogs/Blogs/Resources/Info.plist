@@ -76,5 +76,7 @@
 	</array>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Safe Image</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Take Photo</string>
 </dict>
 </plist>

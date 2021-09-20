@@ -11,7 +11,7 @@ import UIKit
 final class HomeViewController: UIViewController {
 	private let output: HomeViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private var section: BlogSectionRowPresentable = BlogSectionViewModel() {
         didSet {
             emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
@@ -50,9 +50,9 @@ final class HomeViewController: UIViewController {
         return refresh
     }()
     
+    //MARK: System override Functions
     init(output: HomeViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -96,9 +96,9 @@ final class HomeViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func refreshControlUpDate() {
-        
         self.refreshControl.startAnimation()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {

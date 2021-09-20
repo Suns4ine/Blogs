@@ -12,19 +12,17 @@ final class CreateBlogInteractor {
 	weak var output: CreateBlogInteractorOutput?
     
     private var nextCreateModule: AdditionBlogModuleInput?
-    
     private var utilitiesArray: [Utility] = [.image, .alignJustify, .alignLeft, .alignRight, .bold, .italic, .underline]
     
     private func clearText(_ text: String) -> String {
         let result = text.condenseWhitespace()
-        
         return result
     }
-    
 }
 
 extension CreateBlogInteractor: CreateBlogInteractorInput {
     
+    //Сохраняем черновик если, мы не создали блог, но что-то написали
     func safeDraft() {
         if  !defaultDraft.text.isEmpty ||
             !defaultDraft.title.isEmpty {
@@ -35,14 +33,12 @@ extension CreateBlogInteractor: CreateBlogInteractorInput {
             let draftBlog = Blog(user: defaultUser,
                                  title: finalDraft.title.isEmpty ? finalDraft.text : finalDraft.title,
                                  dateCreate: .init(),
-                                 dateEdit: nil,
                                  finalPost: finalDraft,
                                  arrayTags: [],
                                  arrayLikeUsers: [],
                                  arrayShareUsers: [],
                                  rating: 0,
                                  identifier: "")
-            
             
             defaultUser.arrayDrafts.insert(draftBlog, at: 0)
         }
@@ -51,6 +47,7 @@ extension CreateBlogInteractor: CreateBlogInteractorInput {
                             title: "",
                             text: "",
                             arrayTags: [])
+
         output?.openBackController()
     }
     
@@ -60,7 +57,9 @@ extension CreateBlogInteractor: CreateBlogInteractorInput {
 
     func verificationOfEnteredData() {
         if !defaultDraft.text.isEmpty {
-            output?.openAdditionblog(defaultDraft)
+            output?.openAdditionblog()
+        } else {
+            output?.callAlert()
         }
     }
     
@@ -76,11 +75,4 @@ extension CreateBlogInteractor: CreateBlogInteractorInput {
         output?.utiliesDidRecieve(utilitiesArray)
     }
     
-}
-
-extension String {
-    func condenseWhitespace() -> String {
-        let components = self.components(separatedBy: .whitespacesAndNewlines)
-        return components.filter { !$0.isEmpty }.joined(separator: " ")
-    }
 }

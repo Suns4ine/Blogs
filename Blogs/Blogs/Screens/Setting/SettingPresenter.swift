@@ -25,6 +25,7 @@ extension SettingPresenter: SettingModuleInput {
 }
 
 extension SettingPresenter: SettingViewOutput {
+    
     func didTapSettingButtonTableViewCell(at indexPath: IndexPath) {
         interactor.settingButtonCell(at: indexPath)
     }
@@ -47,12 +48,17 @@ extension SettingPresenter: SettingViewOutput {
 }
 
 extension SettingPresenter: SettingInteractorOutput {
+    func settingDidRecieve(cartage: (IndexPath, Setting)) {
+        let index = cartage.0
+        let viewModel = SettingCellViewModel.init(setting: cartage.1)
+        
+        view?.updateSettingCell(cartage: (index, viewModel))
+    }
     
     func settingsDidRecieve(_ settings: [Setting]) {
         let section = SettingSectionViewModel()
         settings.forEach{ section.rows.append(SettingCellViewModel.init(setting: $0))}
         view?.reloadData(for: section)
-
     }
     
     func openChoiceColor(_ setting: Setting) {
@@ -78,6 +84,4 @@ extension SettingPresenter: SettingInteractorOutput {
     func openStart() {
         router.openStartViewController()
     }
-    
-    
 }

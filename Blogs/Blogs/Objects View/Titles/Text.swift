@@ -15,11 +15,12 @@ enum SizeText {
     case mm13
 }
 
-final class Text: UIView, TextProtocol {
+final class Text: UIView, TextProtocol, UITextViewDelegate {
     
+    //MARK: Create Variable
     private (set) lazy var textView: UITextView = {
         let text = UITextView()
-        text.tintColor = StandartColors.enteredTextColor
+        text.tintColor = StandartColors.highlightTextColor
         text.backgroundColor = .clear
         text.textAlignment = .center
         text.font = .firstTextFont
@@ -30,12 +31,13 @@ final class Text: UIView, TextProtocol {
         text.translatesAutoresizingMaskIntoConstraints = false
         text.isEditable = false
         text.isScrollEnabled = false
+        text.delegate = self
         return text
     }()
     
+    //MARK: System override Functions
     convenience init(text: String, size: SizeText) {
         self.init()
-        
         textView.font = returnFontForTitle(size: size)
         textView.text = text
         setup()
@@ -43,7 +45,6 @@ final class Text: UIView, TextProtocol {
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
     
@@ -51,6 +52,26 @@ final class Text: UIView, TextProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text.last == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        NSLayoutConstraint.activate([
+            textView.topAnchor.constraint(equalTo: self.topAnchor),
+            textView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            textView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            textView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        ])
+    }
+    
+    //MARK: Personal Functions
     private func setup() {
         [textView].forEach{ addSubview($0) }
         
@@ -59,17 +80,17 @@ final class Text: UIView, TextProtocol {
     }
     
     private func returnFontForTitle(size: SizeText) -> UIFont? {
-        
         switch size {
         case .mm21: return .firstTextFont
         case .mm17: return .secondTextFont
         case .mm15: return .thirdTextFont
         case .mm13: return .fourthTextFont
         default: return .secondTextFont
-            
         }
     }
-    
+}
+
+extension Text {
     func editColor(color: UIColor) {
         textView.textColor = color
     }
@@ -92,16 +113,5 @@ final class Text: UIView, TextProtocol {
     
     func editShowsVerticalScrollIndicator(edit: Bool) {
         textView.showsVerticalScrollIndicator = edit
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        NSLayoutConstraint.activate([
-            textView.topAnchor.constraint(equalTo: self.topAnchor),
-            textView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            textView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            textView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-        ])
     }
 }

@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import UIKit
 
 protocol ChoiceCellIdentifiable {
     var cellIdentifier: String { get }
-    var cellHeight: CGFloat { get }
+    var cellHeight: Float { get }
 }
 
 protocol ChoiceSectionRowPresentable {

@@ -25,6 +25,10 @@ extension StartPresenter: StartModuleInput {
 }
 
 extension StartPresenter: StartViewOutput {
+    func statusUser() {
+        router.openLoginViewController()
+    }
+    
     func didTapEmailButton() {
         router.openLoginViewController()
     }
@@ -36,7 +40,6 @@ extension StartPresenter: StartViewOutput {
     func didTapTwitterButton() {
         router.openLoginViewController()
     }
-    
 }
 
 extension StartPresenter: StartInteractorOutput {

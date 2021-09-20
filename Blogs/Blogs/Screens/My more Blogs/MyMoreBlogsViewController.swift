@@ -11,7 +11,7 @@ import UIKit
 final class MyMoreBlogsViewController: UIViewController {
 	private let output: MyMoreBlogsViewOutput
     
-    //MARK: Объявлены переменные
+    //MARK: Create Variable
     private var section: StandartBlogSectionRowPresentable = StandartBlogSectionViewModel() {
         didSet {
             emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
@@ -52,6 +52,7 @@ final class MyMoreBlogsViewController: UIViewController {
         return refresh
     }()
 
+    //MARK: System override Functions
     init(output: MyMoreBlogsViewOutput) {
         self.output = output
 
@@ -98,9 +99,9 @@ final class MyMoreBlogsViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func refreshControlUpDate() {
-        
         self.refreshControl.startAnimation()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -118,7 +119,7 @@ final class MyMoreBlogsViewController: UIViewController {
 extension MyMoreBlogsViewController: MyMoreBlogsViewInput {
     func clearTableCell(at indexPath: IndexPath) {
         section.rows.remove(at: indexPath.row)
-        myBlogsTableView.deleteRows(at: [indexPath], with: .right)
+        myBlogsTableView.deleteRows(at: [indexPath], with: .left)
     }
     
     func reloadData(for section: StandartBlogSectionViewModel) {
@@ -144,7 +145,7 @@ extension MyMoreBlogsViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return section.rows[indexPath.row].cellHeight
+        return CGFloat(section.rows[indexPath.row].cellHeight)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -160,7 +161,7 @@ extension MyMoreBlogsViewController: UITableViewDelegate, UITableViewDataSource 
         }
         
         action.backgroundColor = StandartColors.deleteActionColor
-        action.image = UIImage(named: "trash-2")?.tinted(with: StandartColors.smallIconColor)
+        action.image = UIImage(named: Icons.trash2.rawValue)
         
         return UISwipeActionsConfiguration(actions: [action])
     }

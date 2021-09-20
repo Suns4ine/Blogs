@@ -40,6 +40,10 @@ extension ChoiceColorPresenter: ChoiceColorViewOutput {
 }
 
 extension ChoiceColorPresenter: ChoiceColorInteractorOutput {
+    func transferTheme(theme: ColorsApplication) {
+        view?.editTheme(theme: theme)
+    }
+    
     func choicesDidRecieve(_ choices: [Choice]) {
         let section = ChoiceSectionViewModel()
         choices.forEach{ section.rows.append(ChoiceCellViewModel.init(choice: $0))}

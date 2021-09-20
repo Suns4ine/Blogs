@@ -38,6 +38,15 @@
 		3505BB6026E5313300B13202 /* BlogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5A26E5313300B13202 /* BlogProtocols.swift */; };
 		3505BB6126E5313300B13202 /* BlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5B26E5313300B13202 /* BlogInteractor.swift */; };
 		3505BB6226E5313300B13202 /* BlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BB5C26E5313300B13202 /* BlogContainer.swift */; };
+		3505BBAC26E7B83200B13202 /* AnotherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BBAB26E7B83100B13202 /* AnotherData.swift */; };
+		3527AFE126EF4AC3008D4501 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3527AFE326EF4AC3008D4501 /* Localizable.strings */; };
+		3527AFF726F03C7B008D4501 /* PrivateBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527AFF626F03C7B008D4501 /* PrivateBundle.swift */; };
+		352E0AB826F83C5B002409F5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352E0AB726F83C5B002409F5 /* ArrayExtension.swift */; };
+		3540596B26F2875100CC4D50 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596A26F2875100CC4D50 /* StringExtension.swift */; };
+		3540597026F2E1E300CC4D50 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596F26F2E1E300CC4D50 /* UserManager.swift */; };
+		3540599B26F5130100CC4D50 /* Avatars.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3540599A26F5130100CC4D50 /* Avatars.xcassets */; };
+		354059A326F519D500CC4D50 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354059A226F519D500CC4D50 /* DateExtension.swift */; };
+		354059AE26F5534700CC4D50 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354059AD26F5534700CC4D50 /* UIViewExtension.swift */; };
 		3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D626AD65A6001DA6BB /* AppDelegate.swift */; };
 		3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */; };
 		3557F2DB26AD65A7001DA6BB /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */; };
@@ -81,8 +90,15 @@
 		35595AEC26D528DD0080B184 /* AnotherMoreBlogsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE626D528DD0080B184 /* AnotherMoreBlogsProtocols.swift */; };
 		35595AED26D528DD0080B184 /* AnotherMoreBlogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE726D528DD0080B184 /* AnotherMoreBlogsInteractor.swift */; };
 		35595AEE26D528DD0080B184 /* AnotherMoreBlogsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35595AE826D528DD0080B184 /* AnotherMoreBlogsContainer.swift */; };
+		355D934A26EBBD2C009CA8E0 /* close controller.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 355D934726EBBD2B009CA8E0 /* close controller.mp3 */; };
+		355D934B26EBBD2C009CA8E0 /* tap button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 355D934826EBBD2B009CA8E0 /* tap button.mp3 */; };
+		355D934C26EBBD2C009CA8E0 /* open controller.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 355D934926EBBD2C009CA8E0 /* open controller.mp3 */; };
+		355D935226EBBE78009CA8E0 /* StandartSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D935126EBBE78009CA8E0 /* StandartSound.swift */; };
+		355D936126ED7120009CA8E0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D936026ED711F009CA8E0 /* Alert.swift */; };
+		355D937426EEEE7F009CA8E0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 355D937326EEEE7F009CA8E0 /* Colors.xcassets */; };
 		356BE4DC26B10C0700FFD1F9 /* TextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */; };
 		356BE4E126B116E400FFD1F9 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BE4E026B116E400FFD1F9 /* Text.swift */; };
+		358EDA0226F7491B00F4E8C0 /* UIColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358EDA0126F7491B00F4E8C0 /* UIColorsExtension.swift */; };
 		358FC75A26DE4A3800872EC9 /* PersonalSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358FC75926DE4A3700872EC9 /* PersonalSetting.swift */; };
 		3597349826C9D0E100086C12 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3597349726C9D0E100086C12 /* ToggleButton.swift */; };
 		359734A626C9FE9700086C12 /* PreviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359734A026C9FE9700086C12 /* PreviewPresenter.swift */; };
@@ -136,12 +152,6 @@
 		35B109C926C71E7D003E3D44 /* AdditionBlogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C326C71E7D003E3D44 /* AdditionBlogProtocols.swift */; };
 		35B109CA26C71E7D003E3D44 /* AdditionBlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C426C71E7D003E3D44 /* AdditionBlogInteractor.swift */; };
 		35B109CB26C71E7D003E3D44 /* AdditionBlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109C526C71E7D003E3D44 /* AdditionBlogContainer.swift */; };
-		35B109F026C85010003E3D44 /* AnotherBlogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109EA26C8500F003E3D44 /* AnotherBlogPresenter.swift */; };
-		35B109F126C85010003E3D44 /* AnotherBlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109EB26C8500F003E3D44 /* AnotherBlogRouter.swift */; };
-		35B109F226C85010003E3D44 /* AnotherBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109EC26C8500F003E3D44 /* AnotherBlogViewController.swift */; };
-		35B109F326C85010003E3D44 /* AnotherBlogProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109ED26C8500F003E3D44 /* AnotherBlogProtocols.swift */; };
-		35B109F426C85010003E3D44 /* AnotherBlogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109EE26C8500F003E3D44 /* AnotherBlogInteractor.swift */; };
-		35B109F526C85010003E3D44 /* AnotherBlogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109EF26C8500F003E3D44 /* AnotherBlogContainer.swift */; };
 		35B10A0326C85DAC003E3D44 /* CreateBlogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109FD26C85DAC003E3D44 /* CreateBlogPresenter.swift */; };
 		35B10A0426C85DAC003E3D44 /* CreateBlogRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109FE26C85DAC003E3D44 /* CreateBlogRouter.swift */; };
 		35B10A0526C85DAC003E3D44 /* CreateBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B109FF26C85DAC003E3D44 /* CreateBlogViewController.swift */; };
@@ -277,6 +287,17 @@
 		3505BB5A26E5313300B13202 /* BlogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogProtocols.swift; sourceTree = "<group>"; };
 		3505BB5B26E5313300B13202 /* BlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogInteractor.swift; sourceTree = "<group>"; };
 		3505BB5C26E5313300B13202 /* BlogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogContainer.swift; sourceTree = "<group>"; };
+		3505BBAB26E7B83100B13202 /* AnotherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherData.swift; sourceTree = "<group>"; };
+		3527AFDD26EF4848008D4501 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3527AFE226EF4AC3008D4501 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3527AFE526EF4AF3008D4501 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3527AFF626F03C7B008D4501 /* PrivateBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateBundle.swift; sourceTree = "<group>"; };
+		352E0AB726F83C5B002409F5 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		3540596A26F2875100CC4D50 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3540596F26F2E1E300CC4D50 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		3540599A26F5130100CC4D50 /* Avatars.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Avatars.xcassets; sourceTree = "<group>"; };
+		354059A226F519D500CC4D50 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		354059AD26F5534700CC4D50 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3557F2D326AD65A6001DA6BB /* Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3557F2D626AD65A6001DA6BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3557F2D826AD65A6001DA6BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -326,8 +347,15 @@
 		35595AE626D528DD0080B184 /* AnotherMoreBlogsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoreBlogsProtocols.swift; sourceTree = "<group>"; };
 		35595AE726D528DD0080B184 /* AnotherMoreBlogsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoreBlogsInteractor.swift; sourceTree = "<group>"; };
 		35595AE826D528DD0080B184 /* AnotherMoreBlogsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoreBlogsContainer.swift; sourceTree = "<group>"; };
+		355D934726EBBD2B009CA8E0 /* close controller.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "close controller.mp3"; sourceTree = "<group>"; };
+		355D934826EBBD2B009CA8E0 /* tap button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tap button.mp3"; sourceTree = "<group>"; };
+		355D934926EBBD2C009CA8E0 /* open controller.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "open controller.mp3"; sourceTree = "<group>"; };
+		355D935126EBBE78009CA8E0 /* StandartSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartSound.swift; sourceTree = "<group>"; };
+		355D936026ED711F009CA8E0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		355D937326EEEE7F009CA8E0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		356BE4DB26B10C0700FFD1F9 /* TextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProtocol.swift; sourceTree = "<group>"; };
 		356BE4E026B116E400FFD1F9 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		358EDA0126F7491B00F4E8C0 /* UIColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorsExtension.swift; sourceTree = "<group>"; };
 		358FC75926DE4A3700872EC9 /* PersonalSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalSetting.swift; sourceTree = "<group>"; };
 		3597349726C9D0E100086C12 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		359734A026C9FE9700086C12 /* PreviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPresenter.swift; sourceTree = "<group>"; };
@@ -381,12 +409,6 @@
 		35B109C326C71E7D003E3D44 /* AdditionBlogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionBlogProtocols.swift; sourceTree = "<group>"; };
 		35B109C426C71E7D003E3D44 /* AdditionBlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionBlogInteractor.swift; sourceTree = "<group>"; };
 		35B109C526C71E7D003E3D44 /* AdditionBlogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionBlogContainer.swift; sourceTree = "<group>"; };
-		35B109EA26C8500F003E3D44 /* AnotherBlogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogPresenter.swift; sourceTree = "<group>"; };
-		35B109EB26C8500F003E3D44 /* AnotherBlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogRouter.swift; sourceTree = "<group>"; };
-		35B109EC26C8500F003E3D44 /* AnotherBlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogViewController.swift; sourceTree = "<group>"; };
-		35B109ED26C8500F003E3D44 /* AnotherBlogProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogProtocols.swift; sourceTree = "<group>"; };
-		35B109EE26C8500F003E3D44 /* AnotherBlogInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogInteractor.swift; sourceTree = "<group>"; };
-		35B109EF26C8500F003E3D44 /* AnotherBlogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherBlogContainer.swift; sourceTree = "<group>"; };
 		35B109FD26C85DAC003E3D44 /* CreateBlogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBlogPresenter.swift; sourceTree = "<group>"; };
 		35B109FE26C85DAC003E3D44 /* CreateBlogRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBlogRouter.swift; sourceTree = "<group>"; };
 		35B109FF26C85DAC003E3D44 /* CreateBlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBlogViewController.swift; sourceTree = "<group>"; };
@@ -551,10 +573,10 @@
 		3505BB1126E140E800B13202 /* Page Section */ = {
 			isa = PBXGroup;
 			children = (
-				3505BB0C26E13DF600B13202 /* Page.swift */,
+				359734D026CACF5600086C12 /* PageViewController.swift */,
 				3505BB1D26E1418800B13202 /* PageViewModel.swift */,
 				3505BB1226E1410E00B13202 /* PageProtocol.swift */,
-				359734D026CACF5600086C12 /* PageViewController.swift */,
+				3505BB0C26E13DF600B13202 /* Page.swift */,
 			);
 			path = "Page Section";
 			sourceTree = "<group>";
@@ -570,6 +592,44 @@
 				3505BB5C26E5313300B13202 /* BlogContainer.swift */,
 			);
 			path = Blog;
+			sourceTree = "<group>";
+		};
+		3540597C26F451B600CC4D50 /* Another Files */ = {
+			isa = PBXGroup;
+			children = (
+				355D935F26ED70F9009CA8E0 /* Alert */,
+				3505BBAB26E7B83100B13202 /* AnotherData.swift */,
+				3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */,
+			);
+			path = "Another Files";
+			sourceTree = "<group>";
+		};
+		3540598026F4520500CC4D50 /* User Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3540596F26F2E1E300CC4D50 /* UserManager.swift */,
+			);
+			path = "User Manager";
+			sourceTree = "<group>";
+		};
+		3540598126F4522A00CC4D50 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3540598B26F4524500CC4D50 /* Setting Model */,
+				35FDAC1526D6342A00A84B99 /* Blog.swift */,
+				35FDAC2026D63B4600A84B99 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3540598B26F4524500CC4D50 /* Setting Model */ = {
+			isa = PBXGroup;
+			children = (
+				35FDAC9826D7CB8900A84B99 /* Setting.swift */,
+				35FDACB126D7F63D00A84B99 /* Choice.swift */,
+				358FC75926DE4A3700872EC9 /* PersonalSetting.swift */,
+			);
+			path = "Setting Model";
 			sourceTree = "<group>";
 		};
 		3557F2CA26AD65A6001DA6BB = {
@@ -601,15 +661,13 @@
 				35E020C726C1C8E400C99280 /* Objects View */,
 				35E020C326C1C79100C99280 /* Application */,
 				35E020C226C1C76B00C99280 /* Resources */,
+				355D935026EBBE5E009CA8E0 /* Sound Application */,
 				35FDACBD26D804A700A84B99 /* Languages Application */,
 				35CE261126AE8848000F4E84 /* Colors Application */,
 				35CE261026AE8829000F4E84 /* Extensions */,
-				3557F2DA26AD65A7001DA6BB /* SomeViewController.swift */,
-				35FDAC1526D6342A00A84B99 /* Blog.swift */,
-				35FDAC2026D63B4600A84B99 /* User.swift */,
-				35FDAC9826D7CB8900A84B99 /* Setting.swift */,
-				35FDACB126D7F63D00A84B99 /* Choice.swift */,
-				358FC75926DE4A3700872EC9 /* PersonalSetting.swift */,
+				3540598126F4522A00CC4D50 /* Models */,
+				3540598026F4520500CC4D50 /* User Manager */,
+				3540597C26F451B600CC4D50 /* Another Files */,
 			);
 			path = Blogs;
 			sourceTree = "<group>";
@@ -696,6 +754,32 @@
 				35595AE826D528DD0080B184 /* AnotherMoreBlogsContainer.swift */,
 			);
 			path = "Another more Blogs";
+			sourceTree = "<group>";
+		};
+		355D934626EBBD1A009CA8E0 /* sound effects */ = {
+			isa = PBXGroup;
+			children = (
+				355D934726EBBD2B009CA8E0 /* close controller.mp3 */,
+				355D934926EBBD2C009CA8E0 /* open controller.mp3 */,
+				355D934826EBBD2B009CA8E0 /* tap button.mp3 */,
+			);
+			path = "sound effects";
+			sourceTree = "<group>";
+		};
+		355D935026EBBE5E009CA8E0 /* Sound Application */ = {
+			isa = PBXGroup;
+			children = (
+				355D935126EBBE78009CA8E0 /* StandartSound.swift */,
+			);
+			path = "Sound Application";
+			sourceTree = "<group>";
+		};
+		355D935F26ED70F9009CA8E0 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				355D936026ED711F009CA8E0 /* Alert.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		3597349F26C9FE4400086C12 /* Preview */ = {
@@ -811,19 +895,6 @@
 			path = "Addition Blog";
 			sourceTree = "<group>";
 		};
-		35B109E926C84FEA003E3D44 /* Another Blog */ = {
-			isa = PBXGroup;
-			children = (
-				35B109EA26C8500F003E3D44 /* AnotherBlogPresenter.swift */,
-				35B109EB26C8500F003E3D44 /* AnotherBlogRouter.swift */,
-				35B109EC26C8500F003E3D44 /* AnotherBlogViewController.swift */,
-				35B109ED26C8500F003E3D44 /* AnotherBlogProtocols.swift */,
-				35B109EE26C8500F003E3D44 /* AnotherBlogInteractor.swift */,
-				35B109EF26C8500F003E3D44 /* AnotherBlogContainer.swift */,
-			);
-			path = "Another Blog";
-			sourceTree = "<group>";
-		};
 		35B109FC26C85D91003E3D44 /* Create Blog */ = {
 			isa = PBXGroup;
 			children = (
@@ -866,9 +937,15 @@
 		35CE261026AE8829000F4E84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3557F36E26AE54E0001DA6BB /* FontsExtension.swift */,
-				35E020F326C2B3AB00C99280 /* UIImagesExtension.swift */,
 				35028DF826C5ED6700FF9D68 /* AnotherExtension.swift */,
+				354059AD26F5534700CC4D50 /* UIViewExtension.swift */,
+				35E020F326C2B3AB00C99280 /* UIImagesExtension.swift */,
+				3540596A26F2875100CC4D50 /* StringExtension.swift */,
+				358EDA0126F7491B00F4E8C0 /* UIColorsExtension.swift */,
+				354059A226F519D500CC4D50 /* DateExtension.swift */,
+				3557F36E26AE54E0001DA6BB /* FontsExtension.swift */,
+				3527AFF626F03C7B008D4501 /* PrivateBundle.swift */,
+				352E0AB726F83C5B002409F5 /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -927,11 +1004,15 @@
 		35E020C226C1C76B00C99280 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3557F2E226AD65A9001DA6BB /* Assets.xcassets */,
-				3557F2E426AD65A9001DA6BB /* LaunchScreen.storyboard */,
 				3557F2E726AD65A9001DA6BB /* Info.plist */,
 				3557F2DF26AD65A7001DA6BB /* Blogs.xcdatamodeld */,
 				35FDACC826DA500000A84B99 /* GoogleService-Info.plist */,
+				3557F2E426AD65A9001DA6BB /* LaunchScreen.storyboard */,
+				3557F2E226AD65A9001DA6BB /* Assets.xcassets */,
+				355D937326EEEE7F009CA8E0 /* Colors.xcassets */,
+				3540599A26F5130100CC4D50 /* Avatars.xcassets */,
+				3527AFE326EF4AC3008D4501 /* Localizable.strings */,
+				355D934626EBBD1A009CA8E0 /* sound effects */,
 				3557F31D26AE4B08001DA6BB /* TypeFont */,
 			);
 			path = Resources;
@@ -1014,7 +1095,6 @@
 				35B10A2B26C97FC7003E3D44 /* Setting */,
 				35B10A1826C87412003E3D44 /* Search */,
 				35B109FC26C85D91003E3D44 /* Create Blog */,
-				35B109E926C84FEA003E3D44 /* Another Blog */,
 				35B109BF26C71E5A003E3D44 /* Addition Blog */,
 				35B109AC26C6D9AB003E3D44 /* Edit Profile */,
 				35B1099926C6D535003E3D44 /* Draft Blogs */,
@@ -1252,6 +1332,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 3557F2CA26AD65A6001DA6BB;
 			productRefGroup = 3557F2D426AD65A6001DA6BB /* Products */;
@@ -1274,21 +1355,27 @@
 				3557F33926AE4B08001DA6BB /* Montserrat-MediumItalic.ttf in Resources */,
 				3557F33F26AE4B08001DA6BB /* Montserrat-Black.ttf in Resources */,
 				3557F33826AE4B08001DA6BB /* Montserrat-Bold.ttf in Resources */,
+				3527AFE126EF4AC3008D4501 /* Localizable.strings in Resources */,
 				3557F33B26AE4B08001DA6BB /* Montserrat-SemiBold.ttf in Resources */,
 				3557F33426AE4B08001DA6BB /* Montserrat-Light.ttf in Resources */,
 				3557F34126AE4B08001DA6BB /* Montserrat-Italic.ttf in Resources */,
 				3557F33726AE4B08001DA6BB /* Montserrat-Thin.ttf in Resources */,
 				3557F33526AE4B08001DA6BB /* Montserrat-ThinItalic.ttf in Resources */,
+				3540599B26F5130100CC4D50 /* Avatars.xcassets in Resources */,
 				3557F33E26AE4B08001DA6BB /* OFL.txt in Resources */,
 				3557F2E626AD65A9001DA6BB /* LaunchScreen.storyboard in Resources */,
 				3557F2E326AD65A9001DA6BB /* Assets.xcassets in Resources */,
 				3557F33226AE4B08001DA6BB /* Montserrat-Medium.ttf in Resources */,
 				3557F33626AE4B08001DA6BB /* Montserrat-ExtraLight.ttf in Resources */,
+				355D934A26EBBD2C009CA8E0 /* close controller.mp3 in Resources */,
+				355D937426EEEE7F009CA8E0 /* Colors.xcassets in Resources */,
 				3557F33D26AE4B08001DA6BB /* Montserrat-ExtraBold.ttf in Resources */,
 				3557F33A26AE4B08001DA6BB /* Montserrat-BlackItalic.ttf in Resources */,
 				3557F33326AE4B08001DA6BB /* Montserrat-BoldItalic.ttf in Resources */,
 				3557F33126AE4B08001DA6BB /* Montserrat-LightItalic.ttf in Resources */,
 				3557F34326AE4B08001DA6BB /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+				355D934C26EBBD2C009CA8E0 /* open controller.mp3 in Resources */,
+				355D934B26EBBD2C009CA8E0 /* tap button.mp3 in Resources */,
 				35FDACC926DA500200A84B99 /* GoogleService-Info.plist in Resources */,
 				3557F34226AE4B08001DA6BB /* Montserrat-SemiBoldItalic.ttf in Resources */,
 				3557F33C26AE4B08001DA6BB /* Montserrat-ExtraLightItalic.ttf in Resources */,
@@ -1423,6 +1510,7 @@
 				35B10A2226C8742B003E3D44 /* SearchPresenter.swift in Sources */,
 				35E020E626C1FCBE00C99280 /* StartViewController.swift in Sources */,
 				35B109C626C71E7D003E3D44 /* AdditionBlogPresenter.swift in Sources */,
+				355D935226EBBE78009CA8E0 /* StandartSound.swift in Sources */,
 				35B109C926C71E7D003E3D44 /* AdditionBlogProtocols.swift in Sources */,
 				35B10A3526C97FD8003E3D44 /* SettingPresenter.swift in Sources */,
 				35FDAC2126D63B4600A84B99 /* User.swift in Sources */,
@@ -1440,7 +1528,6 @@
 				3597349826C9D0E100086C12 /* ToggleButton.swift in Sources */,
 				35E020E726C1FCBE00C99280 /* StartProtocols.swift in Sources */,
 				35B10A0826C85DAC003E3D44 /* CreateBlogContainer.swift in Sources */,
-				35B109F326C85010003E3D44 /* AnotherBlogProtocols.swift in Sources */,
 				35B109CA26C71E7D003E3D44 /* AdditionBlogInteractor.swift in Sources */,
 				35FDACB226D7F63D00A84B99 /* Choice.swift in Sources */,
 				35E020BE26C18FE800C99280 /* TextField.swift in Sources */,
@@ -1459,7 +1546,6 @@
 				35B1097F26C6B99C003E3D44 /* HelpContainer.swift in Sources */,
 				35028E1826C69C5A00FF9D68 /* ChoiceLanguageProtocols.swift in Sources */,
 				35B1095B26C6AAF0003E3D44 /* ChoiceColorInteractor.swift in Sources */,
-				35B109F026C85010003E3D44 /* AnotherBlogPresenter.swift in Sources */,
 				35E020D326C1FBA100C99280 /* LoginPresenter.swift in Sources */,
 				35595AE926D528DD0080B184 /* AnotherMoreBlogsPresenter.swift in Sources */,
 				359734A826C9FE9700086C12 /* PreviewViewController.swift in Sources */,
@@ -1493,8 +1579,6 @@
 				35FFE52826B02DF70032321B /* SubTitle.swift in Sources */,
 				35B10A2426C8742B003E3D44 /* SearchViewController.swift in Sources */,
 				356BE4E126B116E400FFD1F9 /* Text.swift in Sources */,
-				35B109F526C85010003E3D44 /* AnotherBlogContainer.swift in Sources */,
-				35B109F126C85010003E3D44 /* AnotherBlogRouter.swift in Sources */,
 				35028E1726C69C5A00FF9D68 /* ChoiceLanguageViewController.swift in Sources */,
 				35028E1926C69C5A00FF9D68 /* ChoiceLanguageInteractor.swift in Sources */,
 				35E020D626C1FBA100C99280 /* LoginProtocols.swift in Sources */,
@@ -1504,7 +1588,9 @@
 				35B1097B26C6B99C003E3D44 /* HelpRouter.swift in Sources */,
 				3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */,
 				35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */,
+				352E0AB826F83C5B002409F5 /* ArrayExtension.swift in Sources */,
 				35FDAC9126D7CAFC00A84B99 /* SettingCellViewModel.swift in Sources */,
+				354059A326F519D500CC4D50 /* DateExtension.swift in Sources */,
 				35B1097D26C6B99C003E3D44 /* HelpProtocols.swift in Sources */,
 				3557F2D926AD65A6001DA6BB /* SceneDelegate.swift in Sources */,
 				35B1096926C6B110003E3D44 /* PasswordChangeViewController.swift in Sources */,
@@ -1524,7 +1610,7 @@
 				358FC75A26DE4A3800872EC9 /* PersonalSetting.swift in Sources */,
 				3505BB6026E5313300B13202 /* BlogProtocols.swift in Sources */,
 				35E020D526C1FBA100C99280 /* LoginViewController.swift in Sources */,
-				35B109F426C85010003E3D44 /* AnotherBlogInteractor.swift in Sources */,
+				3505BBAC26E7B83200B13202 /* AnotherData.swift in Sources */,
 				3505BB5D26E5313300B13202 /* BlogPresenter.swift in Sources */,
 				35DB44A526C4392E002EB53B /* HomeRouter.swift in Sources */,
 				35028DD826C544D000FF9D68 /* MyProfileContainer.swift in Sources */,
@@ -1532,6 +1618,7 @@
 				35E0210126C30A3B00C99280 /* SignUpRouter.swift in Sources */,
 				35DB44AF26C44587002EB53B /* BlogsTableViewCell.swift in Sources */,
 				35028DD326C544D000FF9D68 /* MyProfilePresenter.swift in Sources */,
+				358EDA0226F7491B00F4E8C0 /* UIColorsExtension.swift in Sources */,
 				35B1095726C6AAF0003E3D44 /* ChoiceColorPresenter.swift in Sources */,
 				35B1098F26C6BF4D003E3D44 /* AboutTheApplicationViewController.swift in Sources */,
 				35DB44A726C4392E002EB53B /* HomeProtocols.swift in Sources */,
@@ -1559,8 +1646,8 @@
 				35E020D826C1FBA100C99280 /* LoginContainer.swift in Sources */,
 				35E0210226C30A3B00C99280 /* SignUpViewController.swift in Sources */,
 				35595AD826D524BF0080B184 /* MyMoreBlogsViewController.swift in Sources */,
-				35B109F226C85010003E3D44 /* AnotherBlogViewController.swift in Sources */,
 				35CE263526AF2DBC000F4E84 /* IconImage.swift in Sources */,
+				355D936126ED7120009CA8E0 /* Alert.swift in Sources */,
 				35FDAC1C26D637AD00A84B99 /* BlogCellViewModel.swift in Sources */,
 				35B10A2726C8742B003E3D44 /* SearchContainer.swift in Sources */,
 				35E0210526C30A3B00C99280 /* SignUpContainer.swift in Sources */,
@@ -1576,7 +1663,9 @@
 				35B109B526C6D9C5003E3D44 /* EditProfileViewController.swift in Sources */,
 				35E020F426C2B3AB00C99280 /* UIImagesExtension.swift in Sources */,
 				35B109C726C71E7D003E3D44 /* AdditionBlogRouter.swift in Sources */,
+				3527AFF726F03C7B008D4501 /* PrivateBundle.swift in Sources */,
 				35E020E526C1FCBE00C99280 /* StartRouter.swift in Sources */,
+				3540597026F2E1E300CC4D50 /* UserManager.swift in Sources */,
 				35B109A026C6D559003E3D44 /* DraftBlogsPresenter.swift in Sources */,
 				35B10A3F26C99CB6003E3D44 /* SettingTableViewCell.swift in Sources */,
 				35B109B426C6D9C5003E3D44 /* EditProfileRouter.swift in Sources */,
@@ -1584,7 +1673,9 @@
 				3505BB6126E5313300B13202 /* BlogInteractor.swift in Sources */,
 				35595AEC26D528DD0080B184 /* AnotherMoreBlogsProtocols.swift in Sources */,
 				35595AD726D524BF0080B184 /* MyMoreBlogsRouter.swift in Sources */,
+				354059AE26F5534700CC4D50 /* UIViewExtension.swift in Sources */,
 				35B10A0526C85DAC003E3D44 /* CreateBlogViewController.swift in Sources */,
+				3540596B26F2875100CC4D50 /* StringExtension.swift in Sources */,
 				35FDACBF26D8050900A84B99 /* LanguagesApplication.swift in Sources */,
 				3557F31626AE3A1E001DA6BB /* ColorsApplication.swift in Sources */,
 				35B109B826C6D9C5003E3D44 /* EditProfileContainer.swift in Sources */,
@@ -1647,10 +1738,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3527AFE326EF4AC3008D4501 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3527AFE226EF4AC3008D4501 /* ru */,
+				3527AFE526EF4AF3008D4501 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		3557F2E426AD65A9001DA6BB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3557F2E526AD65A9001DA6BB /* Base */,
+				3527AFDD26EF4848008D4501 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1662,6 +1763,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1723,6 +1825,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

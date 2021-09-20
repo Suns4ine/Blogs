@@ -10,6 +10,7 @@ import Foundation
 
 protocol AnotherProfileModuleInput {
 	var moduleOutput: AnotherProfileModuleOutput? { get }
+    func openUser(user: User)
 }
 
 protocol AnotherProfileModuleOutput: class {
@@ -33,6 +34,8 @@ protocol AnotherProfileViewOutput: class {
 }
 
 protocol AnotherProfileInteractorInput: class {
+    func getBlogs()
+    func setupUser(user: User)
     func giveStatus()
     func subscribe()
     func giveAnotherProfile()
@@ -42,6 +45,7 @@ protocol AnotherProfileInteractorInput: class {
 }
 
 protocol AnotherProfileInteractorOutput: class {
+    func openAnotherMoreBlogsblogs(blogs: [Blog])
     func updateStatus(text: String)
     func giveAwayAnotherProfile(profile: User)
     func blogsDidRecieve(_ blogs: [Blog])
@@ -50,6 +54,6 @@ protocol AnotherProfileInteractorOutput: class {
 
 protocol AnotherProfileRouterInput: class {
     func popViewController()
-    func openAnotherMoreBlogsViewController()
+    func openAnotherMoreBlogsViewController(blogs: [Blog])
     func openBlogViewController(with blog: Blog)
 }

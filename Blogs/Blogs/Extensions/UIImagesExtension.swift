@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    
     func randomStandingPeople() -> UIImage {
         let numb = Int.random(in: 1...30)
         
@@ -26,5 +25,16 @@ extension UIImageView {
         let numb = Int.random(in: 1...18)
         
         return UIImage(named: "peep-sitting-\(numb)") ?? UIImage.init()
+    }
+}
+
+extension UIImage {
+    func tinted(with color: UIColor, isOpaque: Bool = false) -> UIImage? {
+        let format = imageRendererFormat
+        format.opaque = isOpaque
+        return UIGraphicsImageRenderer(size: size, format: format).image { _ in
+            color.set()
+            withRenderingMode(.alwaysTemplate).draw(at: .zero)
+        }
     }
 }

@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import UIKit
 
 final class SettingCellViewModel: SettingCellIdentifiable {
     
-    
+    //MARK: Create Variable
     let title: String
     let subtitle: String
     let icon: Icons
@@ -21,7 +20,7 @@ final class SettingCellViewModel: SettingCellIdentifiable {
         "SettingTableViewCell"
     }
     
-    var cellHeight: CGFloat {
+    var cellHeight: Float {
         returnCellHeight(condition: condition)
     }
     
@@ -33,7 +32,7 @@ final class SettingCellViewModel: SettingCellIdentifiable {
         self.condition = setting.condition
     }
     
-    private func returnCellHeight(condition: SelectSettingCell) -> CGFloat {
+    private func returnCellHeight(condition: SelectSettingCell) -> Float {
         switch condition {
         case .toggle: return 120
         case .screen: return 76
@@ -41,10 +40,8 @@ final class SettingCellViewModel: SettingCellIdentifiable {
         default: return 0
         }
     }
-    
 }
 
 final class SettingSectionViewModel: SettingSectionRowPresentable {
     var rows: [SettingCellIdentifiable] = []
-    
 }

@@ -17,26 +17,13 @@ enum SelectSettingCell: CaseIterable {
 
 final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable {
     
+    //MARK: Create Variable
     private (set) var flag = false
-    
     var viewModel: SettingCellIdentifiable? {
         didSet {
             updateViews()
         }
     }
-    
-    private func updateViews() {
-        guard let viewModel = viewModel as? SettingCellViewModel else { return }
-        title.editText(text: viewModel.title)
-        subtitle.editText(text: viewModel.subtitle)
-        icon.editIcon(icon: viewModel.icon)
-        button.editText(text: viewModel.title)
-        typeCell = viewModel.condition
-        SettingTableViewCell.identifier = viewModel.cellIdentifier
-        flag = viewModel.flag
-        togleButton.isOn(bool: !flag)
-    }
-    
     
     static var identifier = "SettingTableViewCell"
     private var typeCell: SelectSettingCell = .none {
@@ -76,28 +63,19 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
         return button
     }()
     
-    private lazy var togleButton: ToggleButton = {
+    private let togleButton: ToggleButton = {
         let button = ToggleButton()
         return button
     }()
     
+    //MARK: System override Functions
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         setup()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setup() {
-        [backgroundSettingView, title, subtitle,
-         button, icon, togleButton].forEach{ contentView.addSubview($0)}
-        selectCell(cell: typeCell)
-        
-        self.backgroundColor = .clear
-        self.selectionStyle = .none
     }
     
     override func layoutSubviews() {
@@ -111,8 +89,17 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
         ])
     }
     
-    func selectCell(cell: SelectSettingCell) {
+    //MARK: Personal Functions
+    private func setup() {
+        [backgroundSettingView, title, subtitle,
+         button, icon, togleButton].forEach{ contentView.addSubview($0)}
+        selectCell(cell: typeCell)
         
+        self.backgroundColor = .clear
+        self.selectionStyle = .none
+    }
+    
+    func selectCell(cell: SelectSettingCell) {
         [title, subtitle, button, icon, togleButton].forEach{ $0.isHidden = true }
         
         switch cell {
@@ -128,12 +115,10 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
         default:
             break
         }
-        
         layoutCell()
     }
     
     private func layoutCell() {
-        
         switch typeCell {
         case .button:
             NSLayoutConstraint.activate([
@@ -154,7 +139,6 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
             ])
         case .toggle:
             NSLayoutConstraint.activate([
-                
                 togleButton.topAnchor.constraint(equalTo: backgroundSettingView.topAnchor, constant: 24),
                 togleButton.trailingAnchor.constraint(equalTo: backgroundSettingView.trailingAnchor, constant: -24),
                 
@@ -168,11 +152,24 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
                 subtitle.trailingAnchor.constraint(lessThanOrEqualTo: togleButton.leadingAnchor, constant: -14),
                 subtitle.bottomAnchor.constraint(lessThanOrEqualTo: backgroundSettingView.bottomAnchor, constant: -4)
             ])
-        default:
-            break
+        default: break
         }
     }
     
+    private func updateViews() {
+        guard let viewModel = viewModel as? SettingCellViewModel else { return }
+        title.editText(text: viewModel.title)
+        subtitle.editText(text: viewModel.subtitle)
+        icon.editIcon(icon: viewModel.icon)
+        button.editText(text: viewModel.title)
+        typeCell = viewModel.condition
+        SettingTableViewCell.identifier = viewModel.cellIdentifier
+        flag = viewModel.flag
+        togleButton.isOn(bool: !flag)
+    }
+}
+
+extension SettingTableViewCell {
     func addTargeSettingButton(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
         button.addTarget(target, action: action, for: event)
     }
@@ -190,9 +187,5 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
     func addTag(_ tag: Int) {
         button.addTag(tag)
         togleButton.addTag(tag)
-    }
-    
-    func editFlag(isOn: Bool) {
-        flag = isOn
     }
 }

@@ -10,13 +10,15 @@ import UIKit
 
 final class SecondBigButton: UIView {
     
+    //MARK: Create Variable
     private var hasIcon = false
     private (set) var indexPath: IndexPath?
+    private var sound: NameSound = .tapButton
     
     private lazy var iconImage: IconImage = {
         let image = IconImage(icon: .none, size: .size24)
         image.layer.zPosition = 3
-        image.newColorImage(color: label.textColor)
+        image.editColor(color: label.textColor)
         return image
     }()
     
@@ -52,6 +54,7 @@ final class SecondBigButton: UIView {
     private let button: UIButton = {
         let button = UIButton()
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        button.addTarget(self, action: #selector(addSound), for: .touchUpInside)
         button.backgroundColor = StandartColors.secondButtonColor
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = .firstBigButtonFont
@@ -64,22 +67,20 @@ final class SecondBigButton: UIView {
         return button
     }()
     
+    //MARK: System override Functions
     convenience init(text: String, icon: Icons) {
         self.init()
         
         hasIcon = icon == .none ? false : true
         iconImage = IconImage(icon: icon, size: .size24)
         iconImage.layer.zPosition = 3
-        iconImage.newColorImage(color: label.textColor)
-        
+        iconImage.editColor(color: label.textColor)
         label.text = text
-        
         setup()
     }
  
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
     
@@ -87,39 +88,10 @@ final class SecondBigButton: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
-        if hasIcon { addSubview(iconImage)}
-        [shadowView,  someView, label, button].forEach{ addSubview($0)}
-        
-        self.backgroundColor = .clear
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        button.addTarget(target, action: action, for: event)
-    }
-    
-    func editColor(color: UIColor) {
-        button.backgroundColor = color
-    }
-    
-    func editText(text: String) {
-        label.text = text
-    }
-    
-    func addTag(_ tag: Int) {
-        button.tag = tag
-    }
-    
-    func addIndexPath(index: IndexPath) {
-        indexPath = index
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             self.heightAnchor.constraint(equalToConstant: 60),
             
             button.topAnchor.constraint(equalTo: self.topAnchor),
@@ -135,7 +107,6 @@ final class SecondBigButton: UIView {
         
         if hasIcon {
             NSLayoutConstraint.activate([
-                
                 iconImage.topAnchor.constraint(equalTo: someView.topAnchor),
                 iconImage.leadingAnchor.constraint(equalTo: someView.leadingAnchor),
                 iconImage.centerYAnchor.constraint(equalTo: someView.centerYAnchor),
@@ -154,5 +125,41 @@ final class SecondBigButton: UIView {
                 label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             ])
         }
+    }
+    
+    //MARK: Personal Functions
+    private func setup() {
+        if hasIcon { addSubview(iconImage)}
+        [shadowView,  someView, label, button].forEach{ addSubview($0)}
+        
+        self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    @objc
+    private func addSound() {
+        playSound(name: sound)
+    }
+}
+
+extension SecondBigButton {
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
+    }
+    
+    func editColor(color: UIColor) {
+        button.backgroundColor = color
+    }
+    
+    func editText(text: String) {
+        label.text = text
+    }
+    
+    func addTag(_ tag: Int) {
+        button.tag = tag
+    }
+    
+    func addIndexPath(index: IndexPath) {
+        indexPath = index
     }
 }

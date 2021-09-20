@@ -10,11 +10,12 @@ import UIKit
 
 final class BlogCellViewModel: BlogCellIdentifiable {
     
+    //MARK: Create Variable
     let title: String
     let dateSubTitle: String
     let nameSubTitle: String
     let tagSubTitle: String
-    let avatar: UIImage
+    let avatar: String
     let user: User
     
     var cellIdentifier: String {
@@ -27,13 +28,12 @@ final class BlogCellViewModel: BlogCellIdentifiable {
     
     init(blog: Blog) {
         title = blog.title
-        nameSubTitle = blog.user.tagname
+        nameSubTitle = blog.nameUser
         dateSubTitle = blog.finalPost.date.stringDate()
         tagSubTitle = blog.arrayTags.returnEnumerationString()
-        avatar = UIImage()
+        avatar = blog.user.avatarURL
         user = blog.user
     }
-    
 }
 
 final class BlogSectionViewModel: BlogSectionRowPresentable {

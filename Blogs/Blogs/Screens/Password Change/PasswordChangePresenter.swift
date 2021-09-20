@@ -38,18 +38,15 @@ extension PasswordChangePresenter: PasswordChangeViewOutput {
         interactor.newRepeatPasswordText(text: text)
     }
 
-    
     func didTapBackButton() {
         router.popViewController()
     }
     
     func didTapSaveButton() {
-        //interactor.verificationOfEnteredData()
-        router.popViewController()
+        interactor.verificationOfEnteredData()
     }
-    
 }
-//MARK: Вернуть обратно верификацию
+
 extension PasswordChangePresenter: PasswordChangeInteractorOutput {
     func openBackViewController() {
         router.popViewController()

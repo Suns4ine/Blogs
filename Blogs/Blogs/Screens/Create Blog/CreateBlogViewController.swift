@@ -11,7 +11,7 @@ import UIKit
 final class CreateBlogViewController: UIViewController {
 	private let output: CreateBlogViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private var section: UtiliesSectionRowPresentable = UtiliesSectionViewModel()
     
     private let header: Header = {
@@ -76,9 +76,9 @@ final class CreateBlogViewController: UIViewController {
         return text
     }()
     
+    //MARK: System override Functions
     init(output: CreateBlogViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -89,7 +89,6 @@ final class CreateBlogViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         output.setupText()
     }
     
@@ -99,6 +98,10 @@ final class CreateBlogViewController: UIViewController {
 //        [utilitiesView, utilitiesCollectionView,
 //        borderView, utilitiesAutoLayoutView].forEach{ view.addSubview($0)}
         
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
         
         utilitiesCollectionView.delegate = self
         utilitiesCollectionView.dataSource = self
@@ -107,6 +110,7 @@ final class CreateBlogViewController: UIViewController {
         
         output.setupText()
         output.fetchUtiliesCell()
+        initializeHideKeyboard()
         
         view.backgroundColor = StandartColors.createBlogBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -154,6 +158,7 @@ final class CreateBlogViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.giveText(text: text.textView.text)
@@ -174,6 +179,18 @@ final class CreateBlogViewController: UIViewController {
 }
 
 extension CreateBlogViewController: CreateBlogViewInput {
+    
+    //Показываем Алерт, если текст пустой
+    func showAlert() {
+        let alert = UIAlertController(title: StandartLanguage.alertTitleCreateBlogScreen,
+                                      message: StandartLanguage.alertMessageCreateBlogScreen,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: StandartLanguage.alertButtonCancelCreateBlogScreen,
+                                      style: .cancel,
+                                      handler: nil))
+        self.present(alert, animated: true)
+    }
+    
     func showText(text: String) {
         self.text.editText(text: text)
     }
@@ -202,15 +219,50 @@ extension CreateBlogViewController: UICollectionViewDelegate, UICollectionViewDa
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: section.rows[indexPath.row].cellWidth, height: section.rows[indexPath.row].cellHeight)
+        return CGSize(width: CGFloat(section.rows[indexPath.row].cellWidth),
+                      height: CGFloat(section.rows[indexPath.row].cellHeight))
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return self.section.minimumLineSpacing
+        return CGFloat(self.section.minimumLineSpacing)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         output.didTapUtilitiesCollectionViewCell(at: indexPath)
+    }
+}
+
+extension CreateBlogViewController {
+    
+    //Иницилизируем клавиатуру
+    func initializeHideKeyboard(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissMyKeyboard))
+
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissMyKeyboard(){
+        view.endEditing(true)
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            text.textView.contentInset = .zero
+        } else {
+            text.textView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+        }
+
+        text.textView.scrollIndicatorInsets = text.textView.contentInset
+
+        let selectedRange = text.textView.selectedRange
+        text.textView.scrollRangeToVisible(selectedRange)
     }
 }

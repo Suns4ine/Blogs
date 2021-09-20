@@ -36,16 +36,14 @@ extension LoginPresenter: LoginViewOutput {
     func didTapBackButton() {
         router.popViewController()
     }
-    //MARK: Убрать потом 
+
     func didTapSignInButton() {
-        router.openTabBarViewController()
-        //interactor.verificationOfEnteredData()
+        interactor.verificationOfEnteredData()
     }
     
     func didTapSignUpButton() {
         router.openSignUpViewController()
     }
-    
 }
 
 extension LoginPresenter: LoginInteractorOutput {
@@ -60,5 +58,4 @@ extension LoginPresenter: LoginInteractorOutput {
     func openTabBar() {
         router.openTabBarViewController()
     }
-    
 }

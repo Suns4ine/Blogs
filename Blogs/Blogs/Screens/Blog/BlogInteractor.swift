@@ -12,6 +12,7 @@ final class BlogInteractor {
 	weak var output: BlogInteractorOutput?
     private var blog: Blog?
     
+    //Проверяем наш ли этот блог (сейчас не нужно, так как концеация на время изменилась)
     private func isMyBlog() {
         guard let blog = blog else { return }
         
@@ -24,31 +25,42 @@ final class BlogInteractor {
 }
 
 extension BlogInteractor: BlogInteractorInput {
-    
+
     func tapProfile() {
         guard let blog = blog else { return }
-        
         output?.userDidRecieve(blog.user)
     }
     
     func tapLike() {
-        guard let blog = blog else { return }
+        guard var blog = blog else { return }
+        var haveBlog = false
         
-        if blog.arrayLikeUsers.contains(defaultUser) {
+        for defaultBlog in defaultUser.arrayLikedBlogs {
+            if blog.identifier == defaultBlog.identifier {
+                blog = defaultBlog
+                haveBlog = true
+            }
+        }
+ 
+        if haveBlog {
             defaultUser.arrayLikedBlogs.remove(blog)
-            blog.arrayLikeUsers.remove(defaultUser)
         } else {
             defaultUser.arrayLikedBlogs.insert(blog)
-            blog.arrayLikeUsers.insert(defaultUser)
         }
-        
         giveLike()
     }
     
     func giveLike() {
         guard let blog = blog else { return }
+        var haveBlog = false
         
-        if blog.arrayLikeUsers.contains(defaultUser) {
+        for defaultBlog in defaultUser.arrayLikedBlogs {
+            if blog.identifier == defaultBlog.identifier {
+                haveBlog = true
+            }
+        }
+        
+        if haveBlog {
             output?.updateLike(isOn: true)
         } else {
             output?.updateLike(isOn: false)
@@ -57,22 +69,16 @@ extension BlogInteractor: BlogInteractorInput {
     
     func shareBlogs() {
         guard let blog = blog else { return }
-        
         output?.transferData(cartage: (blog.title, blog.finalPost.text))
     }
     
     func getBlog(blog: Blog) {
         self.blog = blog
-        
-        isMyBlog()
     }
     
     func giveStatus() {
-        
         guard let blog = blog else { return }
-        
         let user = blog.user
-        
         guard user != defaultUser else { return }
         
         if defaultUser.arrayFolloving.contains(user) {
@@ -84,21 +90,19 @@ extension BlogInteractor: BlogInteractorInput {
     
     func transferTextInViews() {
         guard let blog = blog else { return }
-        
-        let tags = blog.arrayTags.returnEnumerationString().isEmpty ? "Нет тегов" : blog.arrayTags.returnEnumerationString()
+        let tags = blog.arrayTags.returnEnumerationString().isEmpty ?
+            StandartLanguage.arrayTagsIsEmptyMyBlogScreen : blog.arrayTags.returnEnumerationString()
         
         output?.transferTitle(text: blog.title)
         output?.transferText(text: blog.finalPost.text)
         output?.transferTags(text: tags)
         output?.transferDate(text: blog.dateCreate.stringDate())
-        output?.transferName(text: blog.user.tagname)
+        output?.transferName(text: blog.nameUser)
     }
     
     func subscribe() {
         guard let blog = blog else { return }
-        
         let user = blog.user
-        
         guard user != defaultUser else { return }
         
         if defaultUser.arrayFolloving.contains(user),

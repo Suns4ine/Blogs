@@ -16,15 +16,17 @@ enum SizeAvatar: CGFloat {
 
 final class Avatar: UIView {
     
+    //MARK: Create Variable
     private lazy var avatarViewHeightConstraint: NSLayoutConstraint = self.heightAnchor.constraint(equalToConstant: SizeAvatar.size100.rawValue)
     private lazy var avatarViewWidthConstraint: NSLayoutConstraint  = self.widthAnchor.constraint(equalToConstant: SizeAvatar.size100.rawValue)
     
-    private lazy var imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = StandartColors.backgroundAvatarColor
-        image.layer.borderColor = StandartColors.titleColor.cgColor
+        image.layer.borderColor = StandartColors.borderColor.cgColor
         image.layer.borderWidth = 2
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.clipsToBounds = true
         return image
     }()
     
@@ -35,6 +37,7 @@ final class Avatar: UIView {
         return button
     }()
     
+    //MARK: System override Functions
     convenience init(image: UIImage?, size: SizeAvatar) {
         self.init()
         
@@ -49,7 +52,6 @@ final class Avatar: UIView {
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
     
@@ -57,18 +59,23 @@ final class Avatar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        button.addTarget(target, action: action, for: event)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: self.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+            button.topAnchor.constraint(equalTo: self.topAnchor),
+            button.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
     }
     
-    func addTag(_ tag: Int) {
-        button.tag = tag
-    }
-    
-    func editImage(image: UIImage) {
-        imageView.image = image
-    }
-    
+    //MARK: Personal Functions
     private func editConstraint(size: SizeAvatar) {
         switch size {
         case .size170:
@@ -97,20 +104,18 @@ final class Avatar: UIView {
         self.backgroundColor = .clear
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+}
+
+extension Avatar {
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
+    }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: self.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
-            button.topAnchor.constraint(equalTo: self.topAnchor),
-            button.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            button.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+    func addTag(_ tag: Int) {
+        button.tag = tag
+    }
+    
+    func editImage(image: UIImage) {
+        imageView.image = image
     }
 }

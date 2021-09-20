@@ -18,13 +18,14 @@ final class LoginInteractor {
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorLogin(text: "Пустой логин")
+            output?.transferErrorLogin(text: StandartLanguage.errorLoginIsEmptyLoginScreen)
             return false
         case let text where (text.rangeOfCharacter(from: CharacterSet(charactersIn: "@")) == nil):
-            output?.transferErrorLogin(text: "Не корректный логин")
+            output?.transferErrorLogin(text: StandartLanguage.errorLoginNotCorrectLoginScreen)
             return false
         default:
             output?.transferErrorLogin(text: "")
+            self.login = text
             return true
         }
     }
@@ -34,26 +35,43 @@ final class LoginInteractor {
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorPassword(text: "Пустой Пароль")
+            output?.transferErrorPassword(text: StandartLanguage.errorPasswordIsEmptyLoginScreen)
             return false
         case let text where text.count < 6:
-            output?.transferErrorPassword(text: "Не корректный Пароль")
+            output?.transferErrorPassword(text: StandartLanguage.errorPasswordNotCorrectLoginScreen)
             return false
         default:
             output?.transferErrorPassword(text: "")
+            password = text
             return true
         }
+    }
+    
+    private func authUser() {
+        UserManager.authUser(mail: login,
+                             pass: password,
+                             failClosure: { [weak self] (error) in
+                                switch error {
+                                case 1: self?.output?.transferErrorLogin(text: StandartLanguage.errorAuthOneLoginScreen)
+                                case 2: self?.output?.transferErrorLogin(text: StandartLanguage.errorAuthTwoLoginScreen)
+                                case 3: self?.output?.transferErrorLogin(text: StandartLanguage.errorAuthThreeLoginScreen)
+                                case 4: self?.output?.transferErrorLogin(text: StandartLanguage.errorAuthFourLoginScreen)
+                                default: return
+                                }
+                             },
+                             sucsessClosure: { [weak self] in
+                                self?.output?.openTabBar()
+                             })
     }
 }
 
 extension LoginInteractor: LoginInteractorInput {
     
     func verificationOfEnteredData() {
-        
-        if checkLogin(login: login) && checkPassword(pass: password) {
-            output?.openTabBar()
+        if checkLogin(login: login),
+           checkPassword(pass: password) {
+            authUser()
         }
-        
     }
     
     func newLoginText(text: String) {
@@ -63,5 +81,4 @@ extension LoginInteractor: LoginInteractorInput {
     func newPasswordText(text: String) {
         password = text
     }
-    
 }

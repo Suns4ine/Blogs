@@ -34,21 +34,21 @@ extension PreviewPresenter: PreviewViewOutput {
         interactor.fetchPages()
     }
     
-    func didTapTralingButton() {
-        debugPrint("didTapTralingButton")
-    }
-    
     func didTapLeadingButton() {
-        router.openStartViewController()
+        interactor.finishPreview()
     }
     
     func didTapStartButton() {
-        router.openStartViewController()
+        interactor.finishPreview()
     }
     
 }
 
 extension PreviewPresenter: PreviewInteractorOutput {
+    func openStartViewController() {
+        router.openStartViewController()
+    }
+    
     func finalChanges() {
         view?.setupFinalChanges()
     }

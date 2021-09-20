@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import PDFKit
 
 final class BlogViewController: UIViewController {
 	private let output: BlogViewOutput
     
-    //MARK: Объявление переменных
-    
+    //MARK: Create Variable
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -130,6 +130,7 @@ final class BlogViewController: UIViewController {
         return button
     }()
 
+    //MARK: System override Functions
     init(output: BlogViewOutput) {
         self.output = output
 
@@ -157,15 +158,6 @@ final class BlogViewController: UIViewController {
         view.backgroundColor = StandartColors.blogBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
-    
-    private func addSubViewInScrollView() {
-        let array = [header, titleBlog, text, tagSubtitle,
-                     tagText, editButton, nameSubTitle, dateSubTitle,
-                     separatorView, shareIcon, shareSubtitle, likeIcon,
-                     likeSubtitle, followButton, profileButton]
-        
-        array.forEach{ scrollView.addSubview($0)}
-    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -243,9 +235,19 @@ final class BlogViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
+    private func addSubViewInScrollView() {
+        let array = [header, titleBlog, text, tagSubtitle,
+                     tagText, editButton, nameSubTitle, dateSubTitle,
+                     separatorView, shareIcon, shareSubtitle, likeIcon,
+                     likeSubtitle, followButton, profileButton]
+        
+        array.forEach{ scrollView.addSubview($0)}
+    }
+    
     @objc
     private func tapProfileButton() {
-        output.didTapProfile()
+       // output.didTapProfile()
     }
     
     @objc
@@ -275,6 +277,8 @@ final class BlogViewController: UIViewController {
 }
 
 extension BlogViewController: BlogViewInput {
+    
+    //Обновляем статус кнопки like (красим ее или нет)
     func showLike(isOn: Bool) {
         if isOn {
             likeIcon.editIcon(icon: .heartFill)
@@ -285,21 +289,18 @@ extension BlogViewController: BlogViewInput {
         }
     }
     
+    //Делимся данными через activityViewController
     func shareData(cartage: (String, String)) {
         
-        let text = cartage.0
-        let screen = scrollView.screenshot()
         
-        guard let finalData = screen else {
-            debugPrint("finalData")
-            return }
+        //Хотел сначала делиться пдф, но с ней вышло как-то не очень (урезается или не показывается весь контент scroll view)
+        let title = cartage.0
+        let text = title + "\n" + cartage.1
+       //var data = generatePDFdata(withView: scrollView)
         
-        let activityViewController = UIActivityViewController(activityItems: [finalData] , applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [text] , applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
-//        let vc = UIActivityViewController(activityItems: [text], applicationActivities: [])
-//        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-//        present(vc, animated: true)
     }
     
     func showStatus(text: String) {
@@ -327,57 +328,13 @@ extension BlogViewController: BlogViewInput {
     }
     
     func setupViewMyBlog() {
-        followButton.isHidden = true
-        editButton.isHidden = false
+        //followButton.isHidden = true
+        //editButton.isHidden = false
     }
     
     func setupViewAnotherBlog() {
-        editButton.isHidden = true
-        followButton.isHidden = false
+        //editButton.isHidden = true
+        //followButton.isHidden = false
     }
 
-}
-
-extension UIView {
-    
-    func snapshot(scrollView: UIScrollView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(scrollView.contentSize, false, UIScreen.main.scale)
-        layer.render(in: UIGraphicsGetCurrentContext()!)
-        let savedContentOffset = scrollView.contentOffset
-        let savedFrame = frame
-        
-        scrollView.contentOffset = CGPoint.zero
-        frame = CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height)
-        
-        layer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        
-        scrollView.contentOffset = savedContentOffset
-        frame = savedFrame
-        
-        UIGraphicsEndImageContext()
-        
-        return image
-    }
-}
-
-fileprivate extension UIScrollView {
-    func screenshot() -> UIImage? {
-            let savedContentOffset = contentOffset
-            let savedFrame = frame
-            defer {
-                contentOffset = savedContentOffset
-                frame = savedFrame
-            }
-
-            contentOffset = .zero
-            frame = CGRect(x: 0, y: 0, width: contentSize.width, height: contentSize.height)
-
-            let image = UIGraphicsImageRenderer(bounds: CGRect(origin: .zero, size: contentSize)).image { renderer in
-                let context = renderer.cgContext
-                layer.render(in: context)
-            }
-
-            return image
-        }
 }

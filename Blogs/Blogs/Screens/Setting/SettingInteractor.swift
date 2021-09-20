@@ -11,20 +11,46 @@ import Foundation
 final class SettingInteractor {
 	weak var output: SettingInteractorOutput?
     
-    private var settingArray: [Setting] = defaultSetting
+    //Устанавливаем тогели в зависимости от настроек пользователя
+    private func setupSetting() {
+        for setting in defaultSetting {
+            if setting.identifier == "Notification" {
+                setting.flag = defaultUser.personalSetting.notification
+            } else if setting.identifier == "Sound" {
+                setting.flag = defaultUser.personalSetting.sound
+            }
+        }
+    }
+    
+    //Устанавливаем тогели в дефолтное положение
+    private func clearDefaultUser() {
+        defaultUser.clearUser()
+        for setting in defaultSetting {
+            if setting.identifier == "Notification" {
+                setting.flag = defaultUser.personalSetting.notification
+            } else if setting.identifier == "Sound" {
+                setting.flag = defaultUser.personalSetting.sound
+            }
+        }
+    }
+    
+    private func logOut() {
+        UserManager.logOut()
+        clearDefaultUser()
+        output?.openStart()
+    }
 }
 
 extension SettingInteractor: SettingInteractorInput {
+    
     func settingButtonCell(at indexPath: IndexPath) {
         
-        
-        let setting = settingArray[indexPath.row]
-
+        let setting = defaultSetting[indexPath.row]
         guard setting.condition == .button else { return }
         
         switch setting.identifier {
-        case "ClearCache": defaultUser.personalSetting.cache = "Clear Cache"
-        case "LogOut": output?.openStart()
+        case "ClearCache": break
+        case "LogOut": logOut()
         default: break
         }
     }
@@ -34,10 +60,7 @@ extension SettingInteractor: SettingInteractorInput {
         let index = cortage.0
         let flag = cortage.1
         
-        let setting = settingArray[index.row]
-        
-        
-        
+        let setting = defaultSetting[index.row]
         guard setting.condition == .toggle else { return }
         
         setting.flag = flag
@@ -47,13 +70,15 @@ extension SettingInteractor: SettingInteractorInput {
         case "Sound": defaultUser.personalSetting.sound = flag
         default: break
         }
+        
+        output?.settingDidRecieve(cartage: (index, defaultSetting[index.row]))
     }
     
     func getSetting(at indexPath: IndexPath) {
-        let setting = settingArray[indexPath.row]
+        let setting = defaultSetting[indexPath.row]
+        playSound(name: .openController)
         
         guard setting.condition == .screen else { return }
-        
         
         switch setting.identifier {
         case "Color": output?.openChoiceColor(setting)
@@ -66,7 +91,8 @@ extension SettingInteractor: SettingInteractorInput {
     }
     
     func fetchSettings() {
-        output?.settingsDidRecieve(settingArray)
+        setupSetting()
+        output?.settingsDidRecieve(defaultSetting)
     }
     
 }

@@ -16,6 +16,7 @@ protocol ChoiceLanguageModuleOutput: class {
 }
 
 protocol ChoiceLanguageViewInput: class {
+    func showNotification()
     func reloadData(for section: ChoiceSectionViewModel)
 }
 
@@ -31,6 +32,7 @@ protocol ChoiceLanguageInteractorInput: class {
 }
 
 protocol ChoiceLanguageInteractorOutput: class {
+    func callAlertNotifiaction()
     func choicesDidRecieve(_ choices: [Choice])
 }
 

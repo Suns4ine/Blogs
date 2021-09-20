@@ -11,24 +11,29 @@ import Foundation
 final class SignUpInteractor {
 	weak var output: SignUpInteractorOutput?
     
-    private var name: String = ""
     private var mail: String = ""
     private var password: String = ""
+    private var tagname: String = "" {
+        didSet {
+            tagname = tagname.lowercased()
+        }
+    }
     
-    private func checkName(name: String) -> Bool {
-        let text = name.trimmingCharacters(in: .whitespaces)
+    private func checkTagname(tagname: String) -> Bool {
+        let text = tagname.trimmingCharacters(in: .whitespaces)
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorName(text: "Пустой поле имя")
+            output?.transferErrorName(text: StandartLanguage.errorTagnameIsEmptySignUpScreen)
             return false
         case let text where text.count < 6:
-            output?.transferErrorName(text: "Минимум 6 символов")
+            output?.transferErrorName(text: StandartLanguage.errorTagnameLittleSignUpScreen)
             return false
         case let text where text.count > 25:
-            output?.transferErrorName(text: "Максимум 25 символов")
+            output?.transferErrorName(text: StandartLanguage.errorTagnameMoreSignUpScreen)
             return false
         default:
+            self.tagname = text
             output?.transferErrorName(text: "")
             return true
         }
@@ -39,12 +44,13 @@ final class SignUpInteractor {
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorMail(text: "Пустое поле почты")
+            output?.transferErrorMail(text: StandartLanguage.errorMailIsEmptySignUpScreen)
             return false
         case let text where (text.rangeOfCharacter(from: CharacterSet(charactersIn: "@")) == nil):
-            output?.transferErrorMail(text: "Не корректная почта")
+            output?.transferErrorMail(text: StandartLanguage.errorMailNotCorrectSignUpScreen)
             return false
         default:
+            self.mail = text
             output?.transferErrorMail(text: "")
             return true
         }
@@ -55,46 +61,62 @@ final class SignUpInteractor {
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorPassword(text: "Пустой Пароль")
+            output?.transferErrorPassword(text: StandartLanguage.errorPasswordIsEmptySignUpScreen)
             return false
         case let text where text.count < 6:
-            output?.transferErrorPassword(text: "Минимум 6 символов")
+            output?.transferErrorPassword(text: StandartLanguage.errorPasswordLittleSignUpScreen)
             return false
         case let text where text.count > 40:
-            output?.transferErrorPassword(text: "Максимум 40 символов")
+            output?.transferErrorPassword(text: StandartLanguage.errorPasswordMoreSignUpScreen)
             return false
         default:
+            self.password = text
             output?.transferErrorPassword(text: "")
             return true
         }
+    }
+    
+    private func registerUser() {
+        
+        let newUser = User.returnNewUser()
+        newUser.mail = mail
+        newUser.tagname = tagname
+        
+        UserManager.registerUser(user: newUser,
+                                 pass: password,
+                                 failClosure: { [weak self] (error) in
+                                    switch error {
+                                    case 1: self?.output?.transferErrorName(text: StandartLanguage.errorRegisterOneSignUpScreen)
+                                    case 2: self?.output?.transferErrorName(text: StandartLanguage.errorRegisterTwoSignUpScreen)
+                                    case 3: self?.output?.transferErrorName(text: StandartLanguage.errorRegisterThreeSignUpScreen)
+                                    default: return
+                                    }
+                                 },
+                                 sucsessClosure: { [weak self] in
+                                    self?.output?.openTabBar()
+                                 })
     }
 }
 
 extension SignUpInteractor: SignUpInteractorInput {
     
     func verificationOfEnteredData() {
-        
-        if checkName(name: name),
+        if checkTagname(tagname: tagname),
            checkMail(mail: mail),
            checkPassword(pass: password) {
-            output?.openTabBar()
+            registerUser()
         }
-        
     }
     
     func newNameText(text: String) {
-        name = text
-        debugPrint("name - \(text)")
+        tagname = text
     }
     
     func newMailText(text: String) {
         mail = text
-        debugPrint("mail - \(text)")
     }
     
     func newPasswordText(text: String) {
         password = text
-        debugPrint("password - \(text)")
     }
-    
 }

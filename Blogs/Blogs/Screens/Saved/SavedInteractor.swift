@@ -10,27 +10,32 @@ import Foundation
 
 final class SavedInteractor {
 	weak var output: SavedInteractorOutput?
-    
-    private var savedArray: [Blog] = Array(defaultUser.arrayLikedBlogs)
 }
 
 extension SavedInteractor: SavedInteractorInput {
     func deleteBlog(at indexPath: IndexPath) {
         let array = Array(defaultUser.arrayLikedBlogs)
-        let deleteBlog =  array[indexPath.row]
-        
-        deleteBlog.arrayLikeUsers.remove(defaultUser)
-        
-        defaultUser.arrayLikedBlogs.remove(deleteBlog)
+
+        if array.indices.contains(indexPath.row) {
+            let deleteBlog =  array[indexPath.row]
+            deleteBlog.arrayLikeUsers.remove(defaultUser)
+            defaultUser.arrayLikedBlogs.remove(deleteBlog)
+        }
         
         output?.indexDeleteReiceve(indexPath)
     }
     
-    
     func getBlog(at indexPath: IndexPath) {
-        let blog = Array(defaultUser.arrayLikedBlogs)[indexPath.row]
+        let array = Array(defaultUser.arrayLikedBlogs)
         
-        output?.blogDidRecieve(blog)
+        if array.indices.contains(indexPath.row) {
+            let blog = Array(defaultUser.arrayLikedBlogs)[indexPath.row]
+            playSound(name: .openController)
+            
+            output?.blogDidRecieve(blog)
+        } else {
+            deleteBlog(at: indexPath)
+        }
     }
     
     func fetchBlogs() {

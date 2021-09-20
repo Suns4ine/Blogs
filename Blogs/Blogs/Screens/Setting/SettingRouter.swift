@@ -44,7 +44,6 @@ extension SettingRouter: SettingRouterInput {
         self.sourceViewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     
-    
     func popViewController() {
         self.sourceViewController?.navigationController?.popViewController(animated: true)
     }

@@ -20,12 +20,14 @@ protocol SearchViewInput: class {
 }
 
 protocol SearchViewOutput: class {
+    func searchWord(word: String)
     func fetchBlogsCell()
     func didTapSettingButton()
     func didTapSearchTableViewCell(at indexPath: IndexPath)
 }
 
 protocol SearchInteractorInput: class {
+    func getWord(word: String)
     func getBlog(at indexPath: IndexPath)
     func fetchBlogs()
 }

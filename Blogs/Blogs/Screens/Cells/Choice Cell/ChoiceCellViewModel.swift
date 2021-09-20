@@ -6,17 +6,16 @@
 //
 
 import Foundation
-import UIKit
 
 final class ChoiceCellViewModel: ChoiceCellIdentifiable {
     
+    //MARK: Create Variable
     let title: String
-    
     var cellIdentifier: String {
         "ChoiceTableViewCell"
     }
     
-    var cellHeight: CGFloat {
+    var cellHeight: Float {
         84
     }
     
@@ -27,5 +26,4 @@ final class ChoiceCellViewModel: ChoiceCellIdentifiable {
 
 final class ChoiceSectionViewModel: ChoiceSectionRowPresentable {
     var rows: [ChoiceCellIdentifiable] = []
-    
 }

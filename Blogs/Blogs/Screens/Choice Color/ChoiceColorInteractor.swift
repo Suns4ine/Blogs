@@ -11,8 +11,9 @@ import Foundation
 final class ChoiceColorInteractor {
 	weak var output: ChoiceColorInteractorOutput?
     
-    private var colorArray: [Choice] = [.init(title: ColorsApplication.standart.rawValue),
-                                        .init(title: ColorsApplication.darkTheme.rawValue)]
+    private var colorArray: [Choice] = [
+        .init(title: ColorsApplicationDictonary[.light] ?? ColorsApplication.light.rawValue),
+        .init(title: ColorsApplicationDictonary[.dark] ?? ColorsApplication.dark.rawValue)]
 }
 
 extension ChoiceColorInteractor: ChoiceColorInteractorInput {
@@ -22,12 +23,13 @@ extension ChoiceColorInteractor: ChoiceColorInteractorInput {
         var theme = defaultUser.personalSetting.theme
         
         switch choice.title {
-        case ColorsApplication.standart.rawValue: theme = ColorsApplication.standart
-        case ColorsApplication.darkTheme.rawValue: theme = ColorsApplication.darkTheme
+        case ColorsApplicationDictonary[.light]: theme = ColorsApplication.light
+        case ColorsApplicationDictonary[.dark]: theme = ColorsApplication.dark
         default: theme = defaultUser.personalSetting.theme
         }
         
         defaultUser.personalSetting.theme = theme
+        output?.transferTheme(theme: theme)
     }
     
     func fetchChoices() {

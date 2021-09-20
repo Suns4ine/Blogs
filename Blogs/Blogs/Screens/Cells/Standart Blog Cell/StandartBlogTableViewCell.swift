@@ -9,22 +9,15 @@ import Foundation
 import UIKit
 
 final class StandartBlogTableViewCell: UITableViewCell, StandartBlogCellModelRepresentable {
+    
+    //MARK: Create Variable
     var viewModel: StandartBlogCellIdentifiable? {
         didSet {
             updateViews()
         }
     }
     
-    private func updateViews() {
-        guard let viewModel = viewModel as? StandartBlogCellViewModel else { return }
-        nameSubTitle.editText(text: viewModel.nameSubTitle)
-        dateSubTitle.editText(text: " • " +  viewModel.dateSubTitle)
-        title.editText(text: viewModel.title)
-        StandartBlogTableViewCell.identifier = viewModel.cellIdentifier
-    }
-    
     static var identifier = "StandartBlogTableViewCell"
-    
     private var indentLeading: CGFloat = 12
     private var indentTrailing: CGFloat = 12
     private var indentTop: CGFloat = 12
@@ -70,26 +63,14 @@ final class StandartBlogTableViewCell: UITableViewCell, StandartBlogCellModelRep
         return title
     }()
     
+    //MARK: System override Functions
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         setup()
     }
-    
-    func ediTindentHeight(top: CGFloat, bot: CGFloat) {
-        indentTop = top
-        indentBot = bot
-    }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setup() {
-        [shadowView, savedView, nameSubTitle, dateSubTitle, title].forEach{ addSubview($0)}
-        
-        self.backgroundColor = .clear
-        self.selectionStyle = .none
     }
     
     override func layoutSubviews() {
@@ -121,5 +102,26 @@ final class StandartBlogTableViewCell: UITableViewCell, StandartBlogCellModelRep
             title.leadingAnchor.constraint(equalTo: savedView.leadingAnchor, constant: 24),
             title.trailingAnchor.constraint(lessThanOrEqualTo: savedView.trailingAnchor, constant: -24)
         ])
+    }
+    
+    //MARK: Personal Functions
+    private func setup() {
+        [shadowView, savedView, nameSubTitle, dateSubTitle, title].forEach{ addSubview($0)}
+        
+        self.backgroundColor = .clear
+        self.selectionStyle = .none
+    }
+    
+    private func updateViews() {
+        guard let viewModel = viewModel as? StandartBlogCellViewModel else { return }
+        nameSubTitle.editText(text: viewModel.nameSubTitle)
+        dateSubTitle.editText(text: " • " +  viewModel.dateSubTitle)
+        title.editText(text: viewModel.title)
+        StandartBlogTableViewCell.identifier = viewModel.cellIdentifier
+    }
+    
+    func ediTindentHeight(top: CGFloat, bot: CGFloat) {
+        indentTop = top
+        indentBot = bot
     }
 }

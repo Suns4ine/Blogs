@@ -16,6 +16,7 @@ protocol SettingModuleOutput: class {
 }
 
 protocol SettingViewInput: class {
+    func updateSettingCell(cartage: (IndexPath, SettingCellIdentifiable))
     func reloadData(for section: SettingSectionViewModel)
 }
 
@@ -42,6 +43,7 @@ protocol SettingInteractorOutput: class {
     func openHelp(_ setting: Setting)
     func openAboutTheApplication(_ setting: Setting)
     func openStart()
+    func settingDidRecieve(cartage: (IndexPath, Setting))
 }
 
 protocol SettingRouterInput: class {

@@ -21,7 +21,6 @@ final class DraftBlogsInteractor {
             let draftBlog = Blog(user: defaultUser,
                                  title: finalDraft.title.isEmpty ? finalDraft.text : finalDraft.title,
                                  dateCreate: .init(),
-                                 dateEdit: nil,
                                  finalPost: finalDraft,
                                  arrayTags: [],
                                  arrayLikeUsers: [],
@@ -40,18 +39,16 @@ final class DraftBlogsInteractor {
 
 extension DraftBlogsInteractor: DraftBlogsInteractorInput {
     
-
-    
     func deleteBlog(at indexPath: IndexPath) {
         defaultUser.arrayDrafts.remove(at: indexPath.row)
         
-        output?.indexDeleteReiceve(indexPath)
+        self.output?.indexDeleteReiceve(indexPath)
     }
-    
     
     func getBlog(at indexPath: IndexPath) {
         let blog = defaultUser.arrayDrafts.remove(at: indexPath.row)
         
+        playSound(name: .closeController)
         safeDraft(blog)
         output?.openBackController()
     }

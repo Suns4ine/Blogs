@@ -18,13 +18,15 @@ enum sizeIcon: CGFloat {
 
 final class IconImage: UIView {
     
+    //MARK: Create Variable
     private (set) var size: CGFloat = 24
     private (set) var name: String = ""
     private var constShadow: CGFloat = 2
-    
     private var clickAreaButton: CGFloat = 0
     
     private let shadowIconArray: [Icons] = [.fill1, .fill2, .fill3, .outline1, .outline2, .outline3, .logo]
+    private let exceptionsIconArray: [Icons] = [.fill1, .fill2, .fill3, .outline1, .outline2,
+                                                .outline3, .logo, .facebook, .twitter, .heartFill]
     
     private let image: UIImageView = {
         let imageView = UIImageView()
@@ -35,6 +37,7 @@ final class IconImage: UIView {
     private let button: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(addSound), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -47,6 +50,7 @@ final class IconImage: UIView {
         return view
     }()
     
+    //MARK: System override Functions
     convenience  init(icon: Icons, size: sizeIcon) {
         self.init()
         
@@ -61,46 +65,17 @@ final class IconImage: UIView {
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
-        if !name.isEmpty {
-            [shadowView, image, button].forEach{ addSubview($0)}
-        }
-        
-        self.backgroundColor = .clear
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    func newColorImage(color: UIColor) {
-        image.image = image.image?.tinted(with: color)
-    }
-    
-    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        button.addTarget(target, action: action, for: event)
-    }
-    
-    func addTag(_ tag: Int) {
-        button.tag = tag
-    }
-    
-    func editIcon(icon: Icons) {
-        image.image = UIImage(named: icon.rawValue)
-    }
-    
-    func editColor(color: UIColor) {
-        image.image = image.image?.tinted(with: color)
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             self.heightAnchor.constraint(equalToConstant: size),
             self.widthAnchor.constraint(equalToConstant: size),
         ])
@@ -123,5 +98,38 @@ final class IconImage: UIView {
                 shadowView.bottomAnchor.constraint(equalTo: image.bottomAnchor, constant: 2)
             ])
         }
+    }
+    
+    //MARK: Personal Functions
+    private func setup() {
+        if !name.isEmpty {
+            [shadowView, image, button].forEach{ addSubview($0)}
+        }
+        
+        self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    @objc
+    private func addSound() {
+        playSound(name: .tapButton)
+    }
+}
+
+extension IconImage {
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
+    }
+    
+    func addTag(_ tag: Int) {
+        button.tag = tag
+    }
+    
+    func editIcon(icon: Icons) {
+        image.image = UIImage(named: icon.rawValue)
+    }
+    
+    func editColor(color: UIColor) {
+        image.image = image.image?.tinted(with: color)
     }
 }

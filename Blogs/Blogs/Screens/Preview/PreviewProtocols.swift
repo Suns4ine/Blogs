@@ -24,17 +24,18 @@ protocol PreviewViewInput: class {
 protocol PreviewViewOutput: class {
     func newPage(numb: Int)
     func fetchViewPages()
-    func didTapTralingButton()
     func didTapLeadingButton()
     func didTapStartButton()
 }
 
 protocol PreviewInteractorInput: class {
+    func finishPreview()
     func fetchPage(numb: Int)
     func fetchPages()
 }
 
 protocol PreviewInteractorOutput: class {
+    func openStartViewController()
     func pagesDidRecieve(_ pages: [Page])
     func finalChanges()
 }

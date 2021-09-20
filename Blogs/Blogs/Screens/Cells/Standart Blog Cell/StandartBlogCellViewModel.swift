@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import UIKit
 
 final class StandartBlogCellViewModel: StandartBlogCellIdentifiable {
     
+    //MARK: Create Variable
     let title: String
     let dateSubTitle: String
     let nameSubTitle: String
@@ -19,20 +19,18 @@ final class StandartBlogCellViewModel: StandartBlogCellIdentifiable {
         "StandartBlogTableViewCell"
     }
     
-    var cellHeight: CGFloat {
+    var cellHeight: Float {
         168
     }
     
     init(blog: Blog) {
         title = blog.title
-        nameSubTitle = blog.user.tagname
+        nameSubTitle = blog.nameUser.trimmingCharacters(in: .whitespaces)
         dateSubTitle = blog.finalPost.date.stringDate()
         user = blog.user
     }
-    
 }
 
 final class StandartBlogSectionViewModel: StandartBlogSectionRowPresentable {
     var rows: [StandartBlogCellIdentifiable] = []
-    
 }

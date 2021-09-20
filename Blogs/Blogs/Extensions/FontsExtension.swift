@@ -31,5 +31,4 @@ extension UIFont {
     static let firstBigButtonFont = UIFont(name: "Montserrat-ExtraBold", size: 21)
     static let firstStandartButtonFont = UIFont(name: "Montserrat-ExtraBold", size: 21)
     static let firstSmallButtonFont = UIFont(name: "Montserrat-ExtraBold", size: 12)
-
 }

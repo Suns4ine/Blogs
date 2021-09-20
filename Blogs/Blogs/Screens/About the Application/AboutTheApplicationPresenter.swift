@@ -28,7 +28,6 @@ extension AboutTheApplicationPresenter: AboutTheApplicationViewOutput {
     func didTapBackButton() {
         router.popViewController()
     }
-    
 }
 
 extension AboutTheApplicationPresenter: AboutTheApplicationInteractorOutput {

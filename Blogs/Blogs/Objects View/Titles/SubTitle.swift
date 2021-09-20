@@ -21,6 +21,7 @@ enum SizeSubTitle {
 
 final class SubTitle: UIView, TextProtocol {
     
+    //MARK: Create Variable
     private let label: UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
@@ -33,9 +34,9 @@ final class SubTitle: UIView, TextProtocol {
         return label
     }()
     
+    //MARK: System override Functions
     convenience init(text: String, size: SizeSubTitle) {
         self.init()
-        
         label.font = returnFontForTitle(size: size)
         label.text = text
         setup()
@@ -43,47 +44,11 @@ final class SubTitle: UIView, TextProtocol {
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setup() {
-        [label].forEach{ addSubview($0) }
-        
-        self.backgroundColor = .clear
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func returnFontForTitle(size: SizeSubTitle) -> UIFont? {
-        
-        switch size {
-        case .meb24: return .firstSubTitleFont
-        case .meb21: return .secondSubTitleFont
-        case .meb17: return .thirdSubTitleFont
-        case .mb17: return .fourthSubTitleFont
-        case .mm15: return .fifthSubTitleFont
-        case .meb12: return .sixthSubTitleFont
-        case .mb21: return .seventhSubTitleFont
-        case .mm21: return .eighthSubTitleFont
-        default: return .secondSubTitleFont
-            
-        }
-    }
-    
-    func editColor(color: UIColor) {
-        label.textColor = color
-    }
-    
-    func editText(text: String) {
-        label.text = text
-    }
-    
-    func editAligent(aligent: NSTextAlignment) {
-        label.textAlignment = aligent
     }
     
     override func layoutSubviews() {
@@ -95,5 +60,41 @@ final class SubTitle: UIView, TextProtocol {
             label.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             label.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ])
+    }
+    
+    //MARK: Personal Functions
+    private func setup() {
+        [label].forEach{ addSubview($0) }
+        
+        self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func returnFontForTitle(size: SizeSubTitle) -> UIFont? {
+        switch size {
+        case .meb24: return .firstSubTitleFont
+        case .meb21: return .secondSubTitleFont
+        case .meb17: return .thirdSubTitleFont
+        case .mb17: return .fourthSubTitleFont
+        case .mm15: return .fifthSubTitleFont
+        case .meb12: return .sixthSubTitleFont
+        case .mb21: return .seventhSubTitleFont
+        case .mm21: return .eighthSubTitleFont
+        default: return .secondSubTitleFont
+        }
+    }
+}
+
+extension SubTitle {
+    func editColor(color: UIColor) {
+        label.textColor = color
+    }
+    
+    func editText(text: String) {
+        label.text = text
+    }
+    
+    func editAligent(aligent: NSTextAlignment) {
+        label.textAlignment = aligent
     }
 }

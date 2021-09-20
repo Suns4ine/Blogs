@@ -11,7 +11,7 @@ import UIKit
 final class AnotherMoreBlogsViewController: UIViewController {
 	private let output: AnotherMoreBlogsViewOutput
     
-    //MARK: Объявлены переменные
+    //MARK: Create Variable
     private var section: StandartBlogSectionRowPresentable = StandartBlogSectionViewModel() {
         didSet {
             emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
@@ -52,6 +52,7 @@ final class AnotherMoreBlogsViewController: UIViewController {
         return refresh
     }()
     
+    //MARK: System override Functions
     init(output: AnotherMoreBlogsViewOutput) {
         self.output = output
 
@@ -99,9 +100,9 @@ final class AnotherMoreBlogsViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func refreshControlUpDate() {
-        
         self.refreshControl.startAnimation()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -141,11 +142,10 @@ extension AnotherMoreBlogsViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return section.rows[indexPath.row].cellHeight
+        return CGFloat(section.rows[indexPath.row].cellHeight)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output.didTapAnotherBlogsTableViewCell(at: indexPath)
     }
 }
-

@@ -11,7 +11,7 @@ import UIKit
 final class DraftBlogsViewController: UIViewController {
 	private let output: DraftBlogsViewOutput
 
-    //MARK: Объявлены переменные
+    //MARK: Create Variable
     private var section: StandartBlogSectionRowPresentable = StandartBlogSectionViewModel() {
         didSet {
             emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
@@ -50,9 +50,9 @@ final class DraftBlogsViewController: UIViewController {
         return refresh
     }()
     
+    //MARK: System override Functions
     init(output: DraftBlogsViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -97,9 +97,9 @@ final class DraftBlogsViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func refreshControlUpDate() {
-        
         self.refreshControl.startAnimation()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -124,7 +124,6 @@ extension DraftBlogsViewController: DraftBlogsViewInput {
         self.section = section
         draftTableView.reloadData()
     }
-    
 }
 
 extension DraftBlogsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -143,7 +142,7 @@ extension DraftBlogsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return section.rows[indexPath.row].cellHeight
+        return CGFloat(section.rows[indexPath.row].cellHeight)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -159,7 +158,7 @@ extension DraftBlogsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         action.backgroundColor = StandartColors.deleteActionColor
-        action.image = UIImage(named: "trash-2")?.tinted(with: StandartColors.smallIconColor)
+        action.image = UIImage(named: Icons.trash2.rawValue)
         
         return UISwipeActionsConfiguration(actions: [action])
     }

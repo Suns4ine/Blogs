@@ -11,7 +11,7 @@ import UIKit
 final class EditProfileViewController: UIViewController {
 	private let output: EditProfileViewOutput
 
-    //MARK: Объявление переменных
+    //MARK: Create Variable
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +32,7 @@ final class EditProfileViewController: UIViewController {
     
     private let avatar: Avatar = {
         let avatar = Avatar(image: nil, size: .size100)
+        avatar.addTarget(self, action: #selector(tapAvatar))
         return avatar
     }()
     
@@ -83,7 +84,6 @@ final class EditProfileViewController: UIViewController {
         return text
     }()
     
-    
     private let aboutMeText: Text = {
         let text = Text(text: StandartLanguage.aboutMeTextEditProfileScreen,
                         size: .mm17)
@@ -112,6 +112,7 @@ final class EditProfileViewController: UIViewController {
         return button
     }()
     
+    //MARK: System override Functions
     init(output: EditProfileViewOutput) {
         self.output = output
 
@@ -123,13 +124,9 @@ final class EditProfileViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func addSubViewInScrollView() {
-        let array = [header, avatar, editAvatarButton, nameTextfield,
-                    surnameTextfield, tagNameTextfield, aboutMeView,
-                    aboutMeText, aboutMeSubTitle, aboutMeErrorSubTitle,
-                    saveButton]
-        
-        array.forEach{ scrollView.addSubview($0) }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromAllNotifications()
     }
 
 	override func viewDidLoad() {
@@ -139,6 +136,10 @@ final class EditProfileViewController: UIViewController {
         
         output.setupTextInViews()
         
+        subscribeToNotification(UIResponder.keyboardWillShowNotification, selector: #selector(keyboardWillShowOrHide))
+        subscribeToNotification(UIResponder.keyboardWillHideNotification, selector: #selector(keyboardWillShowOrHide))
+        initializeHideKeyboard()
+        
         self.view.backgroundColor = StandartColors.myProfileColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
@@ -147,7 +148,6 @@ final class EditProfileViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -200,13 +200,26 @@ final class EditProfileViewController: UIViewController {
             saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             saveButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
-            
         ])
+    }
+    
+    //MARK: Personal Functions
+    private func addSubViewInScrollView() {
+        let array = [header, avatar, editAvatarButton, nameTextfield,
+                    surnameTextfield, tagNameTextfield, aboutMeView,
+                    aboutMeText, aboutMeSubTitle, aboutMeErrorSubTitle,
+                    saveButton]
+        array.forEach{ scrollView.addSubview($0) }
     }
     
     @objc
     private func tapBackButton() {
         output.didTapBackButton()
+    }
+    
+    @objc
+    private func tapAvatar() {
+        output.didTapAvatarButton()
     }
     
     @objc
@@ -230,6 +243,24 @@ final class EditProfileViewController: UIViewController {
 }
 
 extension EditProfileViewController: EditProfileViewInput {
+    
+    //Запускам Алерт, чтобы выбрать где взять изображение для аватарки
+    func showAlertAvatar() {
+        let alert = UIAlertController(title: StandartLanguage.alertSelectImageTitleEditProfileScreen,
+                                      message: nil,
+                                      preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: StandartLanguage.alertSelectImageCameraButtonEditProfileScreen,
+                                      style: .default,
+                                      handler: { _ in self.openCamera() }))
+        alert.addAction(UIAlertAction(title: StandartLanguage.alertSelectImageGaleryButtonEditProfileScreen,
+                                      style: .default,
+                                      handler: { _ in self.openGallery() }))
+        alert.addAction(UIAlertAction.init(title: StandartLanguage.alertSelectImageCancelButtonEditProfileScreen,
+                                           style: .cancel,
+                                           handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func showErrorName(text: String) {
         nameTextfield.editErrorText(text: text)
     }
@@ -247,11 +278,137 @@ extension EditProfileViewController: EditProfileViewInput {
     }
     
     func updateViews(profile: User) {
-        avatar.editImage(image: profile.avatar)
+        let path = getDocumentsDirectory().appendingPathComponent(profile.identifier)
+        let newAvatar = UIImage(contentsOfFile: path.path) ?? .init()
+        
+        avatar.editImage(image: newAvatar)
         nameTextfield.addText(text: profile.name)
         surnameTextfield.addText(text: profile.surname)
         tagNameTextfield.addText(text: profile.tagname)
         aboutMeText.editText(text: profile.aboutMe)
     }
     
+    func newAvatar(image: String) {
+        let path = getDocumentsDirectory().appendingPathComponent(image)
+        let newAvatar = UIImage(contentsOfFile: path.path) ?? .init()
+        
+        avatar.editImage(image: newAvatar)
+    }
+    
+}
+
+extension EditProfileViewController {
+    
+    //Инициализируем клавиатуру
+    func initializeHideKeyboard(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissMyKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissMyKeyboard(){
+        view.endEditing(true)
+    }
+    
+    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
+        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
+    }
+    
+    func unsubscribeFromAllNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShowOrHide(notification: NSNotification) {
+        
+        if let userInfo = notification.userInfo,
+           let endValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey],
+           let durationValue = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey],
+           let curveValue = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] {
+            
+            let endRect = view.convert((endValue as AnyObject).cgRectValue, from: view.window)
+            let keyboardOverlap = scrollView.frame.maxY - endRect.origin.y
+            
+            scrollView.contentInset.bottom = keyboardOverlap
+
+            scrollView.verticalScrollIndicatorInsets.bottom = keyboardOverlap
+            scrollView.horizontalScrollIndicatorInsets.bottom = keyboardOverlap
+            
+            let duration = (durationValue as AnyObject).doubleValue
+            let options = UIView.AnimationOptions(rawValue: UInt((curveValue as AnyObject).integerValue << 16))
+            UIView.animate(withDuration: duration ?? TimeInterval.init(),
+                           delay: 0,
+                           options:
+                            options,
+                           animations: {
+                            self.view.layoutIfNeeded()
+                           })
+        }
+    }
+    
+}
+
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    
+    private func openGallery() {
+       if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        imagePicker.isEditing = true
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        self.present(imagePicker, animated: true, completion: nil)
+       } else {
+        let alert  = UIAlertController(title: StandartLanguage.alertOpenGalleryTitleEditProfileScreen,
+                                       message: StandartLanguage.alertOpenGalleryMessageEditProfileScreen,
+                                       preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: StandartLanguage.alertOpenGalleryCancelButtonEditProfileScreen,
+                                      style: .default,
+                                      handler: nil))
+        self.present(alert, animated: true, completion: nil)
+       }
+   }
+    
+    private func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.allowsEditing = true
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            imagePicker.isEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        } else {
+            let alert  = UIAlertController(title: StandartLanguage.alertOpenCameraTitleEditProfileScreen,
+                                           message: StandartLanguage.alertOpenCameraMessageEditProfileScreen,
+                                           preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: StandartLanguage.alertOpenCameraCancelButtonEditProfileScreen,
+                                          style: .default,
+                                          handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        //Создаем уникальное имя для изображения, дальше мы его заменим на наш
+        // индентификатор (если решим сохранить аватарку сохраним)
+        let imageName = UUID().uuidString
+        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+    
+        if let pickedImage = info[.editedImage] as? UIImage {
+            if let jpegData = pickedImage.jpegData(compressionQuality: 0.8) {
+                try? jpegData.write(to: imagePath)
+                output.getAvatar(image: imageName)
+            }
+        } else if let pickedImage = info[.originalImage] as? UIImage {
+            if let jpegData = pickedImage.jpegData(compressionQuality: 0.8) {
+                try? jpegData.write(to: imagePath)
+                output.getAvatar(image: imageName)
+            }
+        }
+        dismiss(animated: true)
+    }
 }

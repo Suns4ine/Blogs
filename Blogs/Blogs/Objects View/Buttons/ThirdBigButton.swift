@@ -10,6 +10,8 @@ import UIKit
 
 final class ThirdBigButton: UIView {
     
+    //MARK: Create Variable
+    private var sound: NameSound = .tapButton
     private let shadowView: UIView = {
         let view = UIView()
         view.layer.zPosition = -1
@@ -22,6 +24,7 @@ final class ThirdBigButton: UIView {
     private let button: UIButton = {
         let button = UIButton()
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        button.addTarget(self, action: #selector(addSound), for: .touchUpInside)
         button.backgroundColor = StandartColors.thirdButtonColor
         button.titleLabel?.font = .firstBigButtonFont
         button.setTitleColor(StandartColors.firstTextButtonColor, for: .normal)
@@ -33,36 +36,20 @@ final class ThirdBigButton: UIView {
         return button
     }()
     
+    //MARK: System override Functions
     convenience init(text: String) {
         self.init()
-        
         button.setTitle(text, for: .normal)
         setup()
     }
  
     private override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setup()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setup() {
-        [shadowView, button].forEach{ addSubview($0)}
-        
-        self.backgroundColor = .clear
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
-        button.addTarget(target, action: action, for: event)
-    }
-    
-    func editText(text: String) {
-        button.setTitle(text, for: .normal)
     }
     
     override func layoutSubviews() {
@@ -82,5 +69,28 @@ final class ThirdBigButton: UIView {
             shadowView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
             shadowView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 4)
         ])
+    }
+    
+    //MARK: Personal Functions
+    private func setup() {
+        [shadowView, button].forEach{ addSubview($0)}
+        
+        self.backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    @objc
+    private func addSound() {
+        playSound(name: sound)
+    }
+}
+
+extension ThirdBigButton {
+    func addTarget(_ target: Any?, action: Selector, for event: UIControl.Event = .touchUpInside) {
+        button.addTarget(target, action: action, for: event)
+    }
+    
+    func editText(text: String) {
+        button.setTitle(text, for: .normal)
     }
 }

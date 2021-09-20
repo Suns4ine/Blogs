@@ -56,6 +56,9 @@ extension CreateBlogPresenter: CreateBlogViewOutput {
 }
 
 extension CreateBlogPresenter: CreateBlogInteractorOutput {
+    func callAlert() {
+        view?.showAlert()
+    }
     
     func openBackController() {
         router.popViewController()
@@ -65,7 +68,7 @@ extension CreateBlogPresenter: CreateBlogInteractorOutput {
         view?.showText(text: text)
     }
     
-    func openAdditionblog(_ draft: Post) {
+    func openAdditionblog() {
         router.openAdditionBlogViewController()
     }
     

@@ -11,7 +11,7 @@ import UIKit
 final class StartViewController: UIViewController {
 	private let output: StartViewOutput
     
-    //MARK: Объявление перменных
+    //MARK: Create Variable
     private let leftMan: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "peep-standing-1")
@@ -29,7 +29,6 @@ final class StartViewController: UIViewController {
         return image
     }()
     
-
     private let titleLogin: Title = {
         let title = Title(text: StandartLanguage.titleStartScreen, size: .meb36)
         return title
@@ -45,7 +44,7 @@ final class StartViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = StandartColors.firstLoginBackgroundColor
         view.layer.cornerRadius = 16
-        view.layer.borderColor = StandartColors.titleColor.cgColor
+        view.layer.borderColor = StandartColors.borderColor.cgColor
         view.layer.borderWidth = 2
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.zPosition = 2
@@ -73,9 +72,9 @@ final class StartViewController: UIViewController {
         return button
     }()
     
+    //MARK: System override Functions
     init(output: StartViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -149,6 +148,7 @@ final class StartViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func tapEmailButton() {
         output.didTapEmailButton()

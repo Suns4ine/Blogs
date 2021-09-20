@@ -57,7 +57,6 @@ extension AdditionBlogPresenter: AdditionBlogInteractorOutput {
         view?.showTags(text: text)
     }
     
-    
     func openMyProfile() {
         router.openMyProfileViewController()
     }

@@ -16,13 +16,13 @@ final class AdditionBlogInteractor {
         
         switch text {
         case let text where text.isEmpty:
-            output?.transferErrorName(text: "Пустое поле")
+            output?.transferErrorName(text: StandartLanguage.errorNameIsEmptyAdditionBlogScreen)
             return false
         case let text where text.count < 6:
-            output?.transferErrorName(text: "Минимум 6 символов")
+            output?.transferErrorName(text: StandartLanguage.errorNameLittleAdditionBlogScreen)
             return false
-        case let text where text.count > 15:
-            output?.transferErrorName(text: "Максимум 250 символов")
+        case let text where text.count > 80:
+            output?.transferErrorName(text: StandartLanguage.errorNameMoreAdditionBlogScreen)
             return false
         default:
             output?.transferErrorName(text: "")
@@ -35,10 +35,10 @@ final class AdditionBlogInteractor {
         
         switch text {
         case let text where text.count < 2:
-            output?.transferErrorTagName(text: "Минимум 2 символов тега")
+            output?.transferErrorTagName(text: StandartLanguage.errorTagnameLittleAdditionBlogScreen)
             return false
         case let text where text.count > 20:
-            output?.transferErrorTagName(text: "Максимум 20 символов тега")
+            output?.transferErrorTagName(text: StandartLanguage.errorTagnameMoreAdditionBlogScreen)
             return false
         default:
             output?.transferErrorTagName(text: "")
@@ -57,7 +57,6 @@ final class AdditionBlogInteractor {
         let blog = Blog(user: defaultUser,
                         title: draft.title,
                         dateCreate: .init(),
-                        dateEdit: nil,
                         finalPost: draft,
                         arrayTags: draft.arrayTags,
                         arrayLikeUsers: [],
@@ -70,17 +69,14 @@ final class AdditionBlogInteractor {
 
 extension AdditionBlogInteractor: AdditionBlogInteractorInput {
     
-    
     func giveText() {
         output?.transferTitle(text: defaultDraft.title)
         output?.transferTags(text: defaultDraft.arrayTags.returnEnumerationString())
     }
     
-    
     func newNameText(text: String) {
         defaultDraft.title = text
     }
-    
     
     func newTagNameText(text: String) {
         let array = text.components(separatedBy: " ")
@@ -90,7 +86,7 @@ extension AdditionBlogInteractor: AdditionBlogInteractorInput {
     func verificationOfEnteredData() {
 
         if defaultDraft.arrayTags.count > 10 {
-            output?.transferErrorTagName(text: "Максимум 10 тегов")
+            output?.transferErrorTagName(text: StandartLanguage.errorArrayTagsMoreAdditionBlogScreen)
             return
         }
         
@@ -102,7 +98,7 @@ extension AdditionBlogInteractor: AdditionBlogInteractorInput {
             defaultDraft.date = .init()
             defaultUser.arrayBlogs.insert(createBlog(draft: defaultDraft), at: 0)
             clearDraft()
-            output?.openMyProfile()
+            self.output?.openMyProfile()
         }
     }
 }

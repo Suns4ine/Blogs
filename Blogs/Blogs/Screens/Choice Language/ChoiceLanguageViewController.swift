@@ -11,7 +11,7 @@ import UIKit
 final class ChoiceLanguageViewController: UIViewController {
 	private let output: ChoiceLanguageViewOutput
 
-    //MARK: Объявлние переменных
+    //MARK: Create Variable
     private var section: ChoiceSectionRowPresentable = ChoiceSectionViewModel() {
         didSet {
             emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
@@ -37,16 +37,16 @@ final class ChoiceLanguageViewController: UIViewController {
         return table
     }()
     
-    private lazy var emptyArrayTitle: Title = {
+    private let emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleChoiceLanguageScreen,
                           size: .meb36)
         title.sizeToFit()
         return title
     }()
     
+    //MARK: System override Functions
     init(output: ChoiceLanguageViewOutput) {
         self.output = output
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -89,6 +89,7 @@ final class ChoiceLanguageViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.didTapBackButton()
@@ -101,6 +102,18 @@ final class ChoiceLanguageViewController: UIViewController {
 }
 
 extension ChoiceLanguageViewController: ChoiceLanguageViewInput {
+    
+    //Изменение языка происходит только после перезагрузки приложения, поэтому мы оповещаем
+    func showNotification() {
+        let alert = UIAlertController(title: StandartLanguage.alertNotificationTitleChoiceLanguageScreen,
+                                      message: StandartLanguage.alertNotificationMessageChoiceLanguageScreen,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: StandartLanguage.alertNotificationCancelButtonChoiceLanguageScreen,
+                                      style: .cancel,
+                                      handler: nil))
+        self.present(alert, animated: true)
+    }
+    
     func reloadData(for section: ChoiceSectionViewModel) {
         self.section = section
         languageTableView.reloadData()
@@ -127,7 +140,7 @@ extension ChoiceLanguageViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return section.rows[indexPath.row].cellHeight
+        return CGFloat(section.rows[indexPath.row].cellHeight)
     }
 }
  

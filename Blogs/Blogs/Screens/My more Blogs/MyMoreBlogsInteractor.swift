@@ -10,25 +10,27 @@ import Foundation
 
 final class MyMoreBlogsInteractor {
 	weak var output: MyMoreBlogsInteractorOutput?
-    
-    private var blogArray: [Blog] = defaultUser.arrayBlogs
 }
 
 extension MyMoreBlogsInteractor: MyMoreBlogsInteractorInput {
     func deleteBlog(at indexPath: IndexPath) {
-        blogArray.remove(at: indexPath.row)
-        defaultUser.arrayBlogs = blogArray
+        
+        if defaultUser.arrayBlogs.indices.contains(indexPath.row) {
+            defaultUser.arrayBlogs[indexPath.row].deleteBlog()
+            defaultUser.arrayBlogs.remove(at: indexPath.row)
+        }
         
         output?.indexDeleteReiceve(indexPath)
     }
     
     func getBlog(at indexPath: IndexPath) {
-        let blog = blogArray[indexPath.row]
+        let blog = defaultUser.arrayBlogs[indexPath.row]
+        playSound(name: .openController)
         
         output?.blogDidRecieve(blog)
     }
     
     func fetchBlogs() {
-        output?.blogsDidRecieve(blogArray)
+        output?.blogsDidRecieve(defaultUser.arrayBlogs)
     }
 }

@@ -19,6 +19,7 @@ protocol StartViewInput: class {
 }
 
 protocol StartViewOutput: class {
+    func statusUser()
     func didTapEmailButton()
     func didTapFacebookButton()
     func didTapTwitterButton()

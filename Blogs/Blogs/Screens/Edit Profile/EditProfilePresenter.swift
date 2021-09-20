@@ -25,6 +25,14 @@ extension EditProfilePresenter: EditProfileModuleInput {
 }
 
 extension EditProfilePresenter: EditProfileViewOutput {
+    func getAvatar(image: String) {
+        interactor.giveAvatar(image: image)
+    }
+    
+    func didTapAvatarButton() {
+        interactor.editAvatar()
+    }
+    
     func didFinishNameText(text: String) {
         interactor.newNameText(text: text)
     }
@@ -50,17 +58,24 @@ extension EditProfilePresenter: EditProfileViewOutput {
     }
     
     func didTapEditAvatarButton() {
-        debugPrint("didTapEditAvatarButton")
+        interactor.editAvatar()
     }
     
     func didTapSaveButton() {
         interactor.verificationOfEnteredData()
-        //router.popViewController()
     }
     
 }
 
 extension EditProfilePresenter: EditProfileInteractorOutput {
+    func transferAvatar(image: String) {
+        view?.newAvatar(image: image)
+    }
+    
+    func callAlertAvatar() {
+        view?.showAlertAvatar()
+    }
+    
     func transferErrorName(text: String) {
         view?.showErrorName(text: text)
     }

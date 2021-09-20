@@ -11,7 +11,7 @@ import UIKit
 final class SettingViewController: UIViewController {
 	private let output: SettingViewOutput
 
-    //MARK: Объявление переенных
+    //MARK: Create Variable
     private var section: SettingSectionRowPresentable = SettingSectionViewModel()
     
     private let header: Header = {
@@ -33,6 +33,7 @@ final class SettingViewController: UIViewController {
         return table
     }()
     
+    //MARK: System override Functions
     init(output: SettingViewOutput) {
         self.output = output
 
@@ -74,6 +75,7 @@ final class SettingViewController: UIViewController {
         ])
     }
     
+    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.didTapBackButton()
@@ -88,6 +90,7 @@ final class SettingViewController: UIViewController {
     
     @objc
     private func tapToggleButton( _ button: ToggleButton) {
+        //Передаем indexPath  и статус тогеля
         guard let buttonToggle = (button.superview as? ToggleButton) else { return }
         guard let index = buttonToggle.indexPath else { return }
         
@@ -96,6 +99,12 @@ final class SettingViewController: UIViewController {
 }
 
 extension SettingViewController: SettingViewInput {
+    func updateSettingCell(cartage: (IndexPath, SettingCellIdentifiable)) {
+        let index = cartage.0
+        let viewModel = cartage.1
+        
+        section.rows[index.row] = viewModel
+    }
     
     func reloadData(for section: SettingSectionViewModel) {
         self.section = section
@@ -124,7 +133,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return section.rows[indexPath.row].cellHeight
+        return CGFloat(section.rows[indexPath.row].cellHeight)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
