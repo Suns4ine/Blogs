@@ -41,6 +41,7 @@
 		3505BBAC26E7B83200B13202 /* AnotherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505BBAB26E7B83100B13202 /* AnotherData.swift */; };
 		3527AFE126EF4AC3008D4501 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3527AFE326EF4AC3008D4501 /* Localizable.strings */; };
 		3527AFF726F03C7B008D4501 /* PrivateBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527AFF626F03C7B008D4501 /* PrivateBundle.swift */; };
+		352E0AB826F83C5B002409F5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352E0AB726F83C5B002409F5 /* ArrayExtension.swift */; };
 		3540596B26F2875100CC4D50 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596A26F2875100CC4D50 /* StringExtension.swift */; };
 		3540597026F2E1E300CC4D50 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3540596F26F2E1E300CC4D50 /* UserManager.swift */; };
 		3540599B26F5130100CC4D50 /* Avatars.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3540599A26F5130100CC4D50 /* Avatars.xcassets */; };
@@ -291,6 +292,7 @@
 		3527AFE226EF4AC3008D4501 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3527AFE526EF4AF3008D4501 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3527AFF626F03C7B008D4501 /* PrivateBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateBundle.swift; sourceTree = "<group>"; };
+		352E0AB726F83C5B002409F5 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		3540596A26F2875100CC4D50 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		3540596F26F2E1E300CC4D50 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		3540599A26F5130100CC4D50 /* Avatars.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Avatars.xcassets; sourceTree = "<group>"; };
@@ -943,6 +945,7 @@
 				354059A226F519D500CC4D50 /* DateExtension.swift */,
 				3557F36E26AE54E0001DA6BB /* FontsExtension.swift */,
 				3527AFF626F03C7B008D4501 /* PrivateBundle.swift */,
+				352E0AB726F83C5B002409F5 /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1585,6 +1588,7 @@
 				35B1097B26C6B99C003E3D44 /* HelpRouter.swift in Sources */,
 				3557F2D726AD65A6001DA6BB /* AppDelegate.swift in Sources */,
 				35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */,
+				352E0AB826F83C5B002409F5 /* ArrayExtension.swift in Sources */,
 				35FDAC9126D7CAFC00A84B99 /* SettingCellViewModel.swift in Sources */,
 				354059A326F519D500CC4D50 /* DateExtension.swift in Sources */,
 				35B1097D26C6B99C003E3D44 /* HelpProtocols.swift in Sources */,

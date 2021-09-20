@@ -179,13 +179,14 @@ extension User {
     }
 
     func randomAnotherUserAvatar() {
-        
-        let array = Array(1...18)
+        if User.arrayAnotherUserAvatar.isEmpty {
+            User.arrayAnotherUserAvatar = Array(1...18)
+        }
         
         let imageName = self.identifier
         let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
         
-        let image = UIImage(named: "AnotherUser\(array.randomElement() ?? 11)") ?? .init()
+        let image = UIImage(named: "AnotherUser\(User.arrayAnotherUserAvatar.removeRandom() ?? 11)") ?? .init()
         
         if let jpegData = image.jpegData(compressionQuality: 0.8) {
                 try? jpegData.write(to: imagePath)
@@ -193,7 +194,6 @@ extension User {
     }
     
     static func returnNewUser() -> User {
-        
         let newUser = User(dateCreate: .init(),
                            mail: "",
                            identifier: "",
@@ -219,6 +219,7 @@ extension User {
         arrayAnotherUsers = returnArrayAnotherUsers()
     }
     
+    static var arrayAnotherUserAvatar: [Int] = Array(1...18)
     static var arrayAnotherUsers: [User] = []
 
     static func returnArrayAnotherUsers() -> [User] {
@@ -236,7 +237,7 @@ extension User {
                            arrayLikedBlogs: Set(),
                            arrayFollowers: Set(),
                            arrayFolloving: Set(),
-                           aboutMe: "".randomTagname(),
+                           aboutMe: "".randomAboutMe(),
                            avatarURL: "",
                            personalSetting: PersonalSetting(sound: true,
                                                             notification: true,

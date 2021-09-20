@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    
     func randomStandingPeople() -> UIImage {
         let numb = Int.random(in: 1...30)
         
