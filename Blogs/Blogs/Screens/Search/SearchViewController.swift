@@ -103,6 +103,7 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         [header, searchTableView, emptyArrayTitle, shadowSearchBarView, searchBar].forEach{ view.addSubview($0)}
         searchTableView.addSubview(refreshControl)
+        addLayoutSubviews()
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -118,9 +119,8 @@ final class SearchViewController: UIViewController {
         initializeHideKeyboard()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+    //MARK: Personal Functions
+    private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -147,7 +147,6 @@ final class SearchViewController: UIViewController {
         ])
     }
     
-    //MARK: Personal Functions
     @objc
     private func refreshControlUpDate() {
         self.refreshControl.startAnimation()

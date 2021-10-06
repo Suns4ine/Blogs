@@ -97,6 +97,7 @@ final class CreateBlogViewController: UIViewController {
         [header, nextButton, draftButton, text].forEach{ view.addSubview($0)}
 //        [utilitiesView, utilitiesCollectionView,
 //        borderView, utilitiesAutoLayoutView].forEach{ view.addSubview($0)}
+        addLayoutSubviews()
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -116,9 +117,8 @@ final class CreateBlogViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+    //MARK: Personal Functions
+    private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -158,7 +158,6 @@ final class CreateBlogViewController: UIViewController {
         ])
     }
     
-    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.giveText(text: text.textView.text)

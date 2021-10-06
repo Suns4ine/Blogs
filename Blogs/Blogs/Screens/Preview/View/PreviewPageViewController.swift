@@ -55,7 +55,6 @@ final class PreviewPageViewController: UIPageViewController {
         for model in section.rows {
             arrayViewControllers.append(PageViewController(pageModel: model))
         }
-        
         setViewControllers([arrayViewControllers[numbPage]], direction: .forward, animated: true, completion: nil)
     }
     

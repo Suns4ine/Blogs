@@ -65,6 +65,7 @@ final class SavedViewController: UIViewController {
 		super.viewDidLoad()
         [header, savedTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
         savedTableView.addSubview(refreshControl)
+        addLayoutSubviews()
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -77,9 +78,8 @@ final class SavedViewController: UIViewController {
         savedTableView.register(StandartBlogTableViewCell.self, forCellReuseIdentifier: StandartBlogTableViewCell.identifier)
 	}
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+    //MARK: Personal Functions
+    private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -96,7 +96,6 @@ final class SavedViewController: UIViewController {
         ])
     }
     
-    //MARK: Personal Functions
     @objc
     private func refreshControlUpDate() {
         self.refreshControl.startAnimation()

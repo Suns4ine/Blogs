@@ -206,6 +206,7 @@ final class MyProfileViewController: UIViewController {
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+
     }
     
     init(output: MyProfileViewOutput) {
@@ -225,7 +226,6 @@ final class MyProfileViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

@@ -154,14 +154,14 @@ final class BlogViewController: UIViewController {
 		super.viewDidLoad()
         [scrollView].forEach{ view.addSubview($0)}
         addSubViewInScrollView()
+        addLayoutSubviews()
         
         view.backgroundColor = StandartColors.blogBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+    //MARK: Personal Functions
+    private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -235,7 +235,6 @@ final class BlogViewController: UIViewController {
         ])
     }
     
-    //MARK: Personal Functions
     private func addSubViewInScrollView() {
         let array = [header, titleBlog, text, tagSubtitle,
                      tagText, editButton, nameSubTitle, dateSubTitle,

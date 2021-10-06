@@ -88,14 +88,14 @@ final class StartViewController: UIViewController {
         [loginView, leftMan, rightMan].forEach{ view.addSubview($0)}
         [titleLogin, textLogin, emailButton].forEach{ loginView.addSubview($0)}
         //[facebookButton, twitterButton].forEach{ loginView.addSubview($0)}
+        addLayoutSubviews()
         
         view.backgroundColor = StandartColors.startBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+    //MARK: Personal Functions
+    private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
             //loginView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
             loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
@@ -148,7 +148,6 @@ final class StartViewController: UIViewController {
         ])
     }
     
-    //MARK: Personal Functions
     @objc
     private func tapEmailButton() {
         output.didTapEmailButton()

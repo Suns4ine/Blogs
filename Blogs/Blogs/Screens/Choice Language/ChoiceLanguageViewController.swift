@@ -58,6 +58,7 @@ final class ChoiceLanguageViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         [header, languageTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
+        addLayoutSubviews()
         
         emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
         self.view.backgroundColor = StandartColors.settingBackgroundColor
@@ -70,9 +71,8 @@ final class ChoiceLanguageViewController: UIViewController {
         languageTableView.register(ChoiceTableViewCell.self, forCellReuseIdentifier: ChoiceTableViewCell.identifier)
 	}
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+    //MARK: Personal Functions
+    private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -89,7 +89,6 @@ final class ChoiceLanguageViewController: UIViewController {
         ])
     }
     
-    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.didTapBackButton()

@@ -109,12 +109,14 @@ final class PreviewViewController: UIViewController , PageProtocol {
         addViews()
         editView(numb: 0)
         add(pageViewController)
+        addLayoutSubviews()
         
         view.backgroundColor = .firstBlue
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    override func viewDidLayoutSubviews() {
+    //MARK: Personal Functions
+    private func addLayoutSubviews() {
         
         twoButtonsBottonConstraint = twoButtons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
                                                                         constant: -24)
@@ -163,7 +165,6 @@ final class PreviewViewController: UIViewController , PageProtocol {
         circle.layer.cornerRadius = (view.frame.width - 66) / 2
     }
     
-    //MARK: Personal Functions
     func numbPage(numb: Int) {
         output.newPage(numb: numb)
         editView(numb: numb)

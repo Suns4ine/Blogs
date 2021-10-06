@@ -49,15 +49,15 @@ final class HelpViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         [header, text, emptyArrayTitle].forEach{ view.addSubview($0)}
+        addLayoutSubviews()
         
         emptyArrayTitle.isHidden = text.textView.text.isEmpty ? false : true
         self.view.backgroundColor = StandartColors.settingBackgroundColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+    //MARK: Personal Functions
+    private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -74,7 +74,6 @@ final class HelpViewController: UIViewController {
         ])
     }
     
-    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.didTapBackButton()

@@ -103,6 +103,7 @@ final class SignUpViewController: UIViewController {
 		super.viewDidLoad()
        [scrollView].forEach{ view.addSubview($0)}
         addSubViewInScrollView()
+        addLayoutSubviews()
         
         subscribeToNotification(UIResponder.keyboardWillShowNotification, selector: #selector(keyboardWillShowOrHide))
         subscribeToNotification(UIResponder.keyboardWillHideNotification, selector: #selector(keyboardWillShowOrHide))
@@ -112,9 +113,8 @@ final class SignUpViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+    //MARK: Personal Functions
+    private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -152,7 +152,6 @@ final class SignUpViewController: UIViewController {
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
     }
     
-    //MARK: Personal Functions
     @objc
     private func tapBackButton() {
         output.didTapBackButton()
