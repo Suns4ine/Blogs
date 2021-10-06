@@ -57,7 +57,7 @@ final class ChoiceColorViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, colorTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
+        addSubViewInView()
         addLayoutSubviews()
         
         emptyArrayTitle.isHidden = section.rows.isEmpty ? false : true
@@ -88,6 +88,10 @@ final class ChoiceColorViewController: UIViewController {
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    private func addSubViewInView() {
+        [header, colorTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
     }
     
     @objc

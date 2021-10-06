@@ -70,12 +70,6 @@ final class PasswordChangeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func addSubViewInScrollView() {
-        let array = [header, oldPasswordTextfield, newPasswordTextfield,
-                     repeatPasswordTextfield, saveButton]
-        array.forEach{ scrollView.addSubview($0)}
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromAllNotifications()
@@ -83,8 +77,7 @@ final class PasswordChangeViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [scrollView].forEach{ view.addSubview($0)}
-        addSubViewInScrollView()
+        addSubViewInView()
         addLayoutSubviews()
         
         subscribeToNotification(UIResponder.keyboardWillShowNotification, selector: #selector(keyboardWillShowOrHide))
@@ -125,6 +118,13 @@ final class PasswordChangeViewController: UIViewController {
         ])
         //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
+    }
+    
+    private func addSubViewInView() {
+        let array = [header, oldPasswordTextfield, newPasswordTextfield,
+                     repeatPasswordTextfield, saveButton]
+        [scrollView].forEach{ view.addSubview($0)}
+        array.forEach{ scrollView.addSubview($0)}
     }
     
     @objc

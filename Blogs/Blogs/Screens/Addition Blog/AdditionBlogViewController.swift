@@ -124,8 +124,7 @@ final class AdditionBlogViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [scrollView].forEach{ view.addSubview($0)}
-        addSubViewInScrollView()
+        addSubViewInView()
         addLayoutSubviews()
         
         output.setupText()
@@ -197,11 +196,11 @@ final class AdditionBlogViewController: UIViewController {
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
     }
     
-    private func addSubViewInScrollView() {
+    private func addSubViewInView() {
         let array = [header, nextButton, blogTitleSubTitle, tagSubTitle,
                      blogTitleView, blogTitleErrorSubTitle, tagView,
                      tagErrorSubTitle, blogTitleText, tagText]
-        
+        [scrollView].forEach{ view.addSubview($0)}
         array.forEach{ scrollView.addSubview($0)}
     }
     

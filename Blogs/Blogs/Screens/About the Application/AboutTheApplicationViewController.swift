@@ -48,7 +48,7 @@ final class AboutTheApplicationViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, text, emptyArrayTitle].forEach{ view.addSubview($0)}
+        addSubViewInView()
         addLayoutSubviews()
         
         emptyArrayTitle.isHidden = text.textView.text.isEmpty ? false : true
@@ -72,6 +72,10 @@ final class AboutTheApplicationViewController: UIViewController {
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    private func addSubViewInView() {
+        [header, text, emptyArrayTitle].forEach{ view.addSubview($0)}
     }
     
     @objc

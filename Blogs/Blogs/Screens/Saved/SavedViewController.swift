@@ -63,8 +63,7 @@ final class SavedViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, savedTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
-        savedTableView.addSubview(refreshControl)
+        addSubViewInView()
         addLayoutSubviews()
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
@@ -94,6 +93,11 @@ final class SavedViewController: UIViewController {
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    private func addSubViewInView() {
+        [header, savedTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
+        savedTableView.addSubview(refreshControl)
     }
     
     @objc

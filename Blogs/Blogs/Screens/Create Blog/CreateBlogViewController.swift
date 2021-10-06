@@ -13,6 +13,7 @@ final class CreateBlogViewController: UIViewController {
 
     //MARK: Create Variable
     private var section: UtiliesSectionRowPresentable = UtiliesSectionViewModel()
+    private var heightUtilietsViewConstraint: NSLayoutConstraint?
     
     private let header: Header = {
         let header = Header(title: StandartLanguage.headerTitleCreateBlogScreen,
@@ -94,15 +95,15 @@ final class CreateBlogViewController: UIViewController {
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, nextButton, draftButton, text].forEach{ view.addSubview($0)}
-//        [utilitiesView, utilitiesCollectionView,
-//        borderView, utilitiesAutoLayoutView].forEach{ view.addSubview($0)}
+        addSubViewInView()
         addLayoutSubviews()
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
+        heightUtilietsViewConstraint = utilitiesView.heightAnchor.constraint(equalToConstant: 56)
+        heightUtilietsViewConstraint?.isActive = true
         
         utilitiesCollectionView.delegate = self
         utilitiesCollectionView.dataSource = self
@@ -130,32 +131,39 @@ final class CreateBlogViewController: UIViewController {
             draftButton.centerYAnchor.constraint(equalTo: header.leftIcon.centerYAnchor),
             draftButton.trailingAnchor.constraint(equalTo: nextButton.leadingAnchor, constant: -12),
             
-//            utilitiesView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-//            utilitiesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            utilitiesView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            utilitiesView.heightAnchor.constraint(equalToConstant: 56),
-//
-//            borderView.topAnchor.constraint(equalTo: utilitiesView.topAnchor),
-//            borderView.leadingAnchor.constraint(equalTo: utilitiesView.leadingAnchor),
-//            borderView.trailingAnchor.constraint(equalTo: utilitiesView.trailingAnchor),
-//            borderView.heightAnchor.constraint(equalToConstant: 1),
-//
-//            utilitiesCollectionView.topAnchor.constraint(equalTo: utilitiesView.topAnchor),
-//            utilitiesCollectionView.leadingAnchor.constraint(equalTo: utilitiesView.leadingAnchor),
-//            utilitiesCollectionView.trailingAnchor.constraint(equalTo: utilitiesView.trailingAnchor),
-//            utilitiesCollectionView.bottomAnchor.constraint(equalTo: utilitiesView.bottomAnchor),
-//
-//            utilitiesAutoLayoutView.topAnchor.constraint(equalTo: utilitiesView.bottomAnchor),
-//            utilitiesAutoLayoutView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            utilitiesAutoLayoutView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            utilitiesAutoLayoutView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            utilitiesView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            utilitiesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            utilitiesView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            //utilitiesView.heightAnchor.constraint(equalToConstant: 56),
+
+            borderView.topAnchor.constraint(equalTo: utilitiesView.topAnchor),
+            borderView.leadingAnchor.constraint(equalTo: utilitiesView.leadingAnchor),
+            borderView.trailingAnchor.constraint(equalTo: utilitiesView.trailingAnchor),
+            borderView.heightAnchor.constraint(equalToConstant: 1),
+
+            utilitiesCollectionView.topAnchor.constraint(equalTo: utilitiesView.topAnchor),
+            utilitiesCollectionView.leadingAnchor.constraint(equalTo: utilitiesView.leadingAnchor),
+            utilitiesCollectionView.trailingAnchor.constraint(equalTo: utilitiesView.trailingAnchor),
+            //utilitiesCollectionView.bottomAnchor.constraint(equalTo: utilitiesView.bottomAnchor),
+            utilitiesCollectionView.heightAnchor.constraint(equalToConstant: 56),
+            
+            utilitiesAutoLayoutView.topAnchor.constraint(equalTo: utilitiesView.bottomAnchor),
+            utilitiesAutoLayoutView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            utilitiesAutoLayoutView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            utilitiesAutoLayoutView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             text.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 14),
             text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             text.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            text.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -14)
-//            text.bottomAnchor.constraint(equalTo: utilitiesView.topAnchor, constant: -14)
+//            text.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -14)
+            text.bottomAnchor.constraint(equalTo: utilitiesView.topAnchor, constant: -14)
         ])
+    }
+    
+    private func addSubViewInView() {
+        [header, nextButton, draftButton, text].forEach{ view.addSubview($0)}
+        [utilitiesView, utilitiesCollectionView,
+        borderView, utilitiesAutoLayoutView].forEach{ view.addSubview($0)}
     }
     
     @objc
@@ -166,12 +174,14 @@ final class CreateBlogViewController: UIViewController {
     
     @objc
     private func tapNextButton() {
+        dismissMyKeyboard()
         output.giveText(text: text.textView.text)
         output.didTapNextButton()
     }
     
     @objc
     private func tapDraftButton() {
+        dismissMyKeyboard()
         output.giveText(text: text.textView.text)
         output.didTapDraftButton()
     }
@@ -240,7 +250,8 @@ extension CreateBlogViewController {
             target: self,
             action: #selector(dismissMyKeyboard))
 
-        view.addGestureRecognizer(tap)
+        header.addGestureRecognizer(tap)
+        //view.addGestureRecognizer(tap)
     }
     
     @objc func dismissMyKeyboard(){
@@ -255,13 +266,19 @@ extension CreateBlogViewController {
 
         if notification.name == UIResponder.keyboardWillHideNotification {
             text.textView.contentInset = .zero
+            heightUtilietsViewConstraint?.constant = 56
         } else {
-            text.textView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            heightUtilietsViewConstraint?.constant = keyboardViewEndFrame.height - view.safeAreaInsets.bottom + 56
+            text.textView.contentInset = UIEdgeInsets(top: 0,
+                                                      left: 0,
+                                                      bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom - (heightUtilietsViewConstraint?.constant ?? 0) + 56,
+                                                      right: 0)
         }
 
         text.textView.scrollIndicatorInsets = text.textView.contentInset
 
         let selectedRange = text.textView.selectedRange
         text.textView.scrollRangeToVisible(selectedRange)
+        self.loadViewIfNeeded()
     }
 }

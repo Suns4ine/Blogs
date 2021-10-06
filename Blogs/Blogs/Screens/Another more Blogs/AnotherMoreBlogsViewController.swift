@@ -66,8 +66,7 @@ final class AnotherMoreBlogsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        [header, anotherBlogsTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
-        anotherBlogsTableView.addSubview(refreshControl)
+        addSubViewInView()
         addLayoutSubviews()
         
         self.view.backgroundColor = StandartColors.anotherProfileColor
@@ -98,6 +97,11 @@ final class AnotherMoreBlogsViewController: UIViewController {
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    private func addSubViewInView() {
+        [header, anotherBlogsTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
+        anotherBlogsTableView.addSubview(refreshControl)
     }
     
     @objc

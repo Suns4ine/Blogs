@@ -63,8 +63,7 @@ final class HomeViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [header, blogsTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
-        blogsTableView.addSubview(refreshControl)
+        addSubViewInView()
         addLayoutSubviews()
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
@@ -94,6 +93,11 @@ final class HomeViewController: UIViewController {
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    private func addSubViewInView() {
+        [header, blogsTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
+        blogsTableView.addSubview(refreshControl)
     }
     
     @objc

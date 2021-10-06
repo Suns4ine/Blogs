@@ -80,13 +80,6 @@ final class SignUpViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func addSubViewInScrollView() {
-        let array =  [header, signUpTitle, text,
-                      tagnameTextField, mailTextField,
-                      passwordTextField, registerButton]
-        array.forEach{ scrollView.addSubview($0)}
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tagnameTextField.clearText()
@@ -101,8 +94,7 @@ final class SignUpViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-       [scrollView].forEach{ view.addSubview($0)}
-        addSubViewInScrollView()
+        addSubViewInView()
         addLayoutSubviews()
         
         subscribeToNotification(UIResponder.keyboardWillShowNotification, selector: #selector(keyboardWillShowOrHide))
@@ -150,6 +142,14 @@ final class SignUpViewController: UIViewController {
         ])
         //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
+    }
+    
+    private func addSubViewInView() {
+        let array =  [header, signUpTitle, text,
+                      tagnameTextField, mailTextField,
+                      passwordTextField, registerButton]
+        [scrollView].forEach{ view.addSubview($0)}
+        array.forEach{ scrollView.addSubview($0)}
     }
     
     @objc

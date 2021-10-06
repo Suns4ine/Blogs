@@ -63,8 +63,7 @@ final class DraftBlogsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        [header, draftTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
-        draftTableView.addSubview(refreshControl)
+        addSubViewInView()
         addLayoutSubviews()
         
         self.view.backgroundColor = StandartColors.standartBackgroundColor
@@ -95,6 +94,11 @@ final class DraftBlogsViewController: UIViewController {
             emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
+    }
+    
+    private func addSubViewInView() {
+        [header, draftTableView, emptyArrayTitle].forEach{ view.addSubview($0)}
+        draftTableView.addSubview(refreshControl)
     }
     
     @objc

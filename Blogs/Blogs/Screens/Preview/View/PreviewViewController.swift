@@ -106,7 +106,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
 		super.viewDidLoad()
         output.fetchViewPages()
         
-        addViews()
+        addSubViewInView()
         editView(numb: 0)
         add(pageViewController)
         addLayoutSubviews()
@@ -209,7 +209,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
         }
     }
     
-    private func addViews() {
+    private func addSubViewInView() {
         [twoButtons, circle, sliderView, startedButton].forEach{ view.addSubview($0) }
         [smallCircleOne, smallCircleTwo, smallCircleThree].forEach{ sliderView.addSubview($0) }
     }

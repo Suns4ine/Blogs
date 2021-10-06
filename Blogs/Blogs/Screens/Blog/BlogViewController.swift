@@ -152,8 +152,7 @@ final class BlogViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [scrollView].forEach{ view.addSubview($0)}
-        addSubViewInScrollView()
+        addSubViewInView()
         addLayoutSubviews()
         
         view.backgroundColor = StandartColors.blogBackgroundColor
@@ -235,12 +234,12 @@ final class BlogViewController: UIViewController {
         ])
     }
     
-    private func addSubViewInScrollView() {
+    private func addSubViewInView() {
         let array = [header, titleBlog, text, tagSubtitle,
                      tagText, editButton, nameSubTitle, dateSubTitle,
                      separatorView, shareIcon, shareSubtitle, likeIcon,
                      likeSubtitle, followButton, profileButton]
-        
+        [scrollView].forEach{ view.addSubview($0)}
         array.forEach{ scrollView.addSubview($0)}
     }
     

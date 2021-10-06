@@ -30,7 +30,7 @@ final class StartViewController: UIViewController {
     }()
     
     private let titleLogin: Title = {
-        let title = Title(text: StandartLanguage.titleStartScreen, size: .meb36)
+        let title = Title(text:  StandartLanguage.titleStartScreen, size: .meb36)
         return title
     }()
     
@@ -85,9 +85,7 @@ final class StartViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [loginView, leftMan, rightMan].forEach{ view.addSubview($0)}
-        [titleLogin, textLogin, emailButton].forEach{ loginView.addSubview($0)}
-        //[facebookButton, twitterButton].forEach{ loginView.addSubview($0)}
+        addSubViewInView()
         addLayoutSubviews()
         
         view.backgroundColor = StandartColors.startBackgroundColor
@@ -97,44 +95,31 @@ final class StartViewController: UIViewController {
     //MARK: Personal Functions
     private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
-            //loginView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
             loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 120),
-            
-            emailButton.bottomAnchor.constraint(equalTo: loginView.bottomAnchor, constant: -22),
+
+            titleLogin.centerXAnchor.constraint(equalTo: loginView.centerXAnchor),
+            titleLogin.topAnchor.constraint(equalTo: loginView.topAnchor, constant: 24),
+            titleLogin.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
+            titleLogin.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
+
+            textLogin.topAnchor.constraint(equalTo: titleLogin.bottomAnchor, constant: 16),
+            textLogin.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
+            textLogin.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
+
+            emailButton.topAnchor.constraint(equalTo: textLogin.bottomAnchor, constant: 16),
             emailButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
             emailButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
 
-            textLogin.bottomAnchor.constraint(equalTo: emailButton.topAnchor, constant: -16),
-            textLogin.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
-            textLogin.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
-            
-            titleLogin.centerXAnchor.constraint(equalTo: loginView.centerXAnchor),
-            titleLogin.bottomAnchor.constraint(equalTo: textLogin.topAnchor, constant: -16),
-            titleLogin.topAnchor.constraint(equalTo: loginView.topAnchor, constant: 24),
-//            loginView.heightAnchor.constraint(equalToConstant: 414),
-//
-//            titleLogin.centerXAnchor.constraint(equalTo: loginView.centerXAnchor),
-//            titleLogin.topAnchor.constraint(equalTo: loginView.topAnchor, constant: 24),
-//
-//            textLogin.topAnchor.constraint(equalTo: titleLogin.bottomAnchor, constant: 16),
-//            textLogin.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
-//            textLogin.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
-//
-//            emailButton.topAnchor.constraint(equalTo: textLogin.bottomAnchor, constant: 16),
-//            emailButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
-//            emailButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
-            
-            
-            
-//            facebookButton.topAnchor.constraint(equalTo: emailButton.bottomAnchor, constant: 16),
-//            facebookButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
-//            facebookButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
-//
-//            twitterButton.topAnchor.constraint(equalTo: facebookButton.bottomAnchor, constant: 16),
-//            twitterButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
-//            twitterButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
+            facebookButton.topAnchor.constraint(equalTo: emailButton.bottomAnchor, constant: 16),
+            facebookButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
+            facebookButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
+
+            twitterButton.topAnchor.constraint(equalTo: facebookButton.bottomAnchor, constant: 16),
+            twitterButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
+            twitterButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
+            twitterButton.bottomAnchor.constraint(equalTo: loginView.bottomAnchor, constant: -22),
             
             leftMan.heightAnchor.constraint(equalToConstant: 462),
             leftMan.widthAnchor.constraint(equalToConstant: 174),
@@ -146,6 +131,12 @@ final class StartViewController: UIViewController {
             rightMan.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             rightMan.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 3),
         ])
+    }
+    
+    private func addSubViewInView() {
+        [loginView, leftMan, rightMan].forEach{ view.addSubview($0)}
+        [titleLogin, textLogin, emailButton,
+         facebookButton, twitterButton].forEach{ loginView.addSubview($0)}
     }
     
     @objc

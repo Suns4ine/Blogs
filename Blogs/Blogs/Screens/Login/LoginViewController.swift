@@ -97,8 +97,7 @@ final class LoginViewController: UIViewController {
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        [scrollView].forEach{ view.addSubview($0)}
-        addSubViewInScrollView()
+        addSubViewInView()
         addLayoutSubviews()
         
         subscribeToNotification(UIResponder.keyboardWillShowNotification, selector: #selector(keyboardWillShowOrHide))
@@ -146,10 +145,11 @@ final class LoginViewController: UIViewController {
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
     }
     
-    private func addSubViewInScrollView() {
+    private func addSubViewInView() {
         let array = [header, logo, LoginTitle, loginTextField,
                      passwordTextField, signInButton, signUpButton]
         
+        [scrollView].forEach{ view.addSubview($0)}
         array.forEach{ scrollView.addSubview($0)}
     }
     
