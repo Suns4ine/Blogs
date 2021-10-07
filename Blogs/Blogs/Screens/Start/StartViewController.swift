@@ -43,9 +43,9 @@ final class StartViewController: UIViewController {
     private let loginView: UIView = {
         let view = UIView()
         view.backgroundColor = StandartColors.firstLoginBackgroundColor
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
         view.layer.borderColor = StandartColors.borderColor.cgColor
-        view.layer.borderWidth = 2
+        view.layer.borderWidth = CGFloat.borderConstant
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.zPosition = 2
         view.sizeToFit()
@@ -95,31 +95,31 @@ final class StartViewController: UIViewController {
     //MARK: Personal Functions
     private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
-            loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 120),
+            loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: CGFloat.loginViewIdentConstant),
 
             titleLogin.centerXAnchor.constraint(equalTo: loginView.centerXAnchor),
-            titleLogin.topAnchor.constraint(equalTo: loginView.topAnchor, constant: 24),
-            titleLogin.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
-            titleLogin.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
+            titleLogin.topAnchor.constraint(equalTo: loginView.topAnchor, constant: CGFloat.standartIdentConstant),
+            titleLogin.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            titleLogin.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
 
-            textLogin.topAnchor.constraint(equalTo: titleLogin.bottomAnchor, constant: 16),
-            textLogin.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
-            textLogin.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
+            textLogin.topAnchor.constraint(equalTo: titleLogin.bottomAnchor, constant: CGFloat.standartIdentConstant - 8),
+            textLogin.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            textLogin.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
 
-            emailButton.topAnchor.constraint(equalTo: textLogin.bottomAnchor, constant: 16),
-            emailButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
-            emailButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
+            emailButton.topAnchor.constraint(equalTo: textLogin.bottomAnchor, constant: CGFloat.standartIdentConstant - 8),
+            emailButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            emailButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
 
-            facebookButton.topAnchor.constraint(equalTo: emailButton.bottomAnchor, constant: 16),
-            facebookButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
-            facebookButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
+            facebookButton.topAnchor.constraint(equalTo: emailButton.bottomAnchor, constant: CGFloat.standartIdentConstant - 8),
+            facebookButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            facebookButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
 
-            twitterButton.topAnchor.constraint(equalTo: facebookButton.bottomAnchor, constant: 16),
-            twitterButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: 24),
-            twitterButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -24),
-            twitterButton.bottomAnchor.constraint(equalTo: loginView.bottomAnchor, constant: -22),
+            twitterButton.topAnchor.constraint(equalTo: facebookButton.bottomAnchor, constant: CGFloat.standartIdentConstant - 8),
+            twitterButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            twitterButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            twitterButton.bottomAnchor.constraint(equalTo: loginView.bottomAnchor, constant: -(CGFloat.standartIdentConstant - 2)),
             
             leftMan.heightAnchor.constraint(equalToConstant: 462),
             leftMan.widthAnchor.constraint(equalToConstant: 174),

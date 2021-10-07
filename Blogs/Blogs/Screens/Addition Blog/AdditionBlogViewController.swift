@@ -153,7 +153,8 @@ final class AdditionBlogViewController: UIViewController {
             nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
             blogTitleSubTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.minimumIdentConstant + 3),
-            blogTitleSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant + 19),
+            blogTitleSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                       constant: (CGFloat.standartIdentConstant * 2) - 5),
             blogTitleSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             blogTitleSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight28Constant),
             
@@ -176,7 +177,7 @@ final class AdditionBlogViewController: UIViewController {
             blogTitleErrorSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight20Constant),
             
             tagSubTitle.topAnchor.constraint(equalTo: blogTitleErrorSubTitle.bottomAnchor, constant: CGFloat.minimumIdentConstant),
-            tagSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant + 19),
+            tagSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: (CGFloat.standartIdentConstant * 2) - 5),
             tagSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             tagSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight28Constant),
             

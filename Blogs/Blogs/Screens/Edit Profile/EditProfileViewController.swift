@@ -98,8 +98,8 @@ final class EditProfileViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.tintColor = StandartColors.enteredTextColor
-        view.layer.cornerRadius = 16
-        view.layer.borderWidth = 2
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
+        view.layer.borderWidth = CGFloat.borderConstant
         view.layer.borderColor = StandartColors.titleColor.cgColor
         view.backgroundColor = StandartColors.standartBackgroundColor
         return view
@@ -156,49 +156,51 @@ final class EditProfileViewController: UIViewController {
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            avatar.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 14),
-            avatar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            avatar.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.standartIdentConstant - 10),
+            avatar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
             
             editAvatarButton.centerYAnchor.constraint(equalTo: avatar.centerYAnchor),
-            editAvatarButton.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: 34),
-            editAvatarButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            editAvatarButton.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: CGFloat.standartIdentConstant + 10),
+            editAvatarButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            nameTextfield.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 5),
-            nameTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            nameTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            nameTextfield.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            nameTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            nameTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            surnameTextfield.topAnchor.constraint(equalTo: nameTextfield.bottomAnchor, constant: 5),
-            surnameTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            surnameTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            surnameTextfield.topAnchor.constraint(equalTo: nameTextfield.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            surnameTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            surnameTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            tagNameTextfield.topAnchor.constraint(equalTo: surnameTextfield.bottomAnchor, constant: 5),
-            tagNameTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            tagNameTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            tagNameTextfield.topAnchor.constraint(equalTo: surnameTextfield.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            tagNameTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            tagNameTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            aboutMeSubTitle.topAnchor.constraint(equalTo: tagNameTextfield.bottomAnchor, constant: 5),
-            aboutMeSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            aboutMeSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            aboutMeSubTitle.heightAnchor.constraint(equalToConstant: 20),
+            aboutMeSubTitle.topAnchor.constraint(equalTo: tagNameTextfield.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            aboutMeSubTitle.leadingAnchor.constraint(equalTo: tagNameTextfield.leadingAnchor,
+                                                     constant: CGFloat.standartIdentConstant - 5),
+            aboutMeSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            aboutMeSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight20Constant),
             
-            aboutMeView.topAnchor.constraint(equalTo: aboutMeSubTitle.bottomAnchor, constant: 5),
-            aboutMeView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            aboutMeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            aboutMeView.heightAnchor.constraint(equalToConstant: 168),
+            aboutMeView.topAnchor.constraint(equalTo: aboutMeSubTitle.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            aboutMeView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            aboutMeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            aboutMeView.heightAnchor.constraint(equalToConstant: CGFloat.textHeightConstant),
             
-            aboutMeText.topAnchor.constraint(equalTo: aboutMeView.topAnchor, constant: 14),
-            aboutMeText.bottomAnchor.constraint(equalTo: aboutMeView.bottomAnchor, constant: -14),
-            aboutMeText.leadingAnchor.constraint(equalTo: aboutMeView.leadingAnchor, constant: 16),
-            aboutMeText.trailingAnchor.constraint(equalTo: aboutMeView.trailingAnchor, constant: -16),
+            aboutMeText.topAnchor.constraint(equalTo: aboutMeView.topAnchor, constant: CGFloat.textVerticalConstant),
+            aboutMeText.bottomAnchor.constraint(equalTo: aboutMeView.bottomAnchor, constant: -CGFloat.textVerticalConstant),
+            aboutMeText.leadingAnchor.constraint(equalTo: aboutMeView.leadingAnchor, constant: CGFloat.textHorizontalConstant),
+            aboutMeText.trailingAnchor.constraint(equalTo: aboutMeView.trailingAnchor, constant: -CGFloat.textHorizontalConstant),
             
-            aboutMeErrorSubTitle.topAnchor.constraint(equalTo: aboutMeView.bottomAnchor, constant: 5),
-            aboutMeErrorSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            aboutMeErrorSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            aboutMeErrorSubTitle.heightAnchor.constraint(equalToConstant: 20),
+            aboutMeErrorSubTitle.topAnchor.constraint(equalTo: aboutMeView.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            aboutMeErrorSubTitle.leadingAnchor.constraint(equalTo: aboutMeView.leadingAnchor,
+                                                          constant: CGFloat.standartIdentConstant - 5),
+            aboutMeErrorSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            aboutMeErrorSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight20Constant),
             
-            saveButton.topAnchor.constraint(equalTo: aboutMeErrorSubTitle.bottomAnchor, constant: 24),
-            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            saveButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
+            saveButton.topAnchor.constraint(equalTo: aboutMeErrorSubTitle.bottomAnchor, constant: CGFloat.standartIdentConstant),
+            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            saveButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -CGFloat.standartIdentConstant)
         ])
     }
     

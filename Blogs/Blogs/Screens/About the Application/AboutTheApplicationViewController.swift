@@ -63,14 +63,14 @@ final class AboutTheApplicationViewController: UIViewController {
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            text.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 15),
-            text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            text.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            text.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.textVerticalConstant + 1),
+            text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            text.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             text.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
-            emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 44),
-            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            emptyArrayTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.emptyArrayTitleTopConstant),
+            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant)
         ])
     }
     

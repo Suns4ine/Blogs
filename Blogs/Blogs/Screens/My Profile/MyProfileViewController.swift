@@ -46,7 +46,7 @@ final class MyProfileViewController: UIViewController {
     
     private let profileView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 32
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant * 2
         view.backgroundColor = StandartColors.myProfileColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -233,7 +233,7 @@ final class MyProfileViewController: UIViewController {
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             avatar.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            avatar.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 25.5),
+            avatar.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: CGFloat.standartIdentConstant + 1.5),
             
             header.topAnchor.constraint(equalTo: scrollView.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -242,34 +242,37 @@ final class MyProfileViewController: UIViewController {
             extraProfileView.topAnchor.constraint(equalTo: view.topAnchor),
             extraProfileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             extraProfileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            extraProfileView.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -10),
+            extraProfileView.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -(CGFloat.minimumIdentConstant * 2)),
 
-            nameTitle.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 21),
-            nameTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26),
-            nameTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26),
-            nameTitle.heightAnchor.constraint(lessThanOrEqualToConstant: 88),
+            nameTitle.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: CGFloat.standartIdentConstant - 3),
+            nameTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant + 2),
+            nameTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(CGFloat.standartIdentConstant + 2)),
+            nameTitle.heightAnchor.constraint(lessThanOrEqualToConstant: CGFloat.nameTitleProfileHeightConstant * 2),
             
-            nameTagSubtitle.topAnchor.constraint(equalTo: nameTitle.bottomAnchor, constant: 7),
-            nameTagSubtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26),
-            nameTagSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26),
-            nameTagSubtitle.heightAnchor.constraint(equalToConstant: 24),
+            nameTagSubtitle.topAnchor.constraint(equalTo: nameTitle.bottomAnchor, constant: CGFloat.minimumIdentConstant + 2),
+            nameTagSubtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant + 2),
+            nameTagSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(CGFloat.standartIdentConstant + 2)),
+            nameTagSubtitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight20Constant + 4),
             
-            editButton.topAnchor.constraint(equalTo: nameTagSubtitle.bottomAnchor, constant: 24),
+            editButton.topAnchor.constraint(equalTo: nameTagSubtitle.bottomAnchor, constant: CGFloat.standartIdentConstant),
             editButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            editButton.leadingAnchor.constraint(lessThanOrEqualTo: view.leadingAnchor, constant: 44),
-            editButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -44),
+            editButton.leadingAnchor.constraint(lessThanOrEqualTo: view.leadingAnchor,
+                                                constant: CGFloat.standartIdentConstant + 20),
+            editButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor,
+                                                 constant: -(CGFloat.standartIdentConstant + 20)),
             
-            statisticView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 32),
-            statisticView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            statisticView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            statisticView.heightAnchor.constraint(equalToConstant: 60),
+            statisticView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: CGFloat.standartIdentConstant + 8),
+            statisticView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            statisticView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            statisticView.heightAnchor.constraint(equalToConstant: CGFloat.statisticViewProfileHeightConstant),
             
             followersBlogTitle.topAnchor.constraint(equalTo: statisticView.topAnchor),
             followersBlogTitle.centerXAnchor.constraint(equalTo: statisticView.centerXAnchor),
             followersBlogTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
             followersBlogTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
             
-            followersBlogNameTitle.topAnchor.constraint(equalTo: followersBlogTitle.bottomAnchor, constant: 8),
+            followersBlogNameTitle.topAnchor.constraint(equalTo: followersBlogTitle.bottomAnchor,
+                                                        constant: CGFloat.minimumIdentConstant + 3),
             followersBlogNameTitle.centerXAnchor.constraint(equalTo: followersBlogTitle.centerXAnchor),
             followersBlogNameTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
             followersBlogNameTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
@@ -279,7 +282,8 @@ final class MyProfileViewController: UIViewController {
             numberBlogTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
             numberBlogTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
             
-            numberBlogNameTitle.topAnchor.constraint(equalTo: numberBlogTitle.bottomAnchor, constant: 8),
+            numberBlogNameTitle.topAnchor.constraint(equalTo: numberBlogTitle.bottomAnchor,
+                                                     constant: CGFloat.minimumIdentConstant + 3),
             numberBlogNameTitle.centerXAnchor.constraint(equalTo: numberBlogTitle.centerXAnchor),
             numberBlogNameTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
             numberBlogNameTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
@@ -289,7 +293,8 @@ final class MyProfileViewController: UIViewController {
             follovingBlogTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
             follovingBlogTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
             
-            follovingBlogNameTitle.topAnchor.constraint(equalTo: follovingBlogTitle.bottomAnchor, constant: 8),
+            follovingBlogNameTitle.topAnchor.constraint(equalTo: follovingBlogTitle.bottomAnchor,
+                                                        constant: CGFloat.minimumIdentConstant + 3),
             follovingBlogNameTitle.centerXAnchor.constraint(equalTo: follovingBlogTitle.centerXAnchor),
             follovingBlogNameTitle.widthAnchor.constraint(equalToConstant: statisticView.frame.width/3 - 6),
             follovingBlogNameTitle.heightAnchor.constraint(equalToConstant: statisticView.frame.height/2 - 4),
@@ -297,50 +302,52 @@ final class MyProfileViewController: UIViewController {
             profileView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             profileView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             profileView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            profileView.bottomAnchor.constraint(equalTo: statisticView.bottomAnchor, constant: 36),
+            profileView.bottomAnchor.constraint(equalTo: statisticView.bottomAnchor, constant: CGFloat.standartIdentConstant * 1.5),
             
-            aboutMeSubTitle.topAnchor.constraint(equalTo: profileView.bottomAnchor, constant: 24),
-            aboutMeSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            aboutMeSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            aboutMeSubTitle.heightAnchor.constraint(equalToConstant: 28),
+            aboutMeSubTitle.topAnchor.constraint(equalTo: profileView.bottomAnchor, constant: CGFloat.standartIdentConstant),
+            aboutMeSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            aboutMeSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            aboutMeSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight28Constant),
 
-            aboutMeText.topAnchor.constraint(equalTo: aboutMeSubTitle.bottomAnchor, constant: 16),
-            aboutMeText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            aboutMeText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            aboutMeText.topAnchor.constraint(equalTo: aboutMeSubTitle.bottomAnchor, constant: CGFloat.standartIdentConstant - 8),
+            aboutMeText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            aboutMeText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
 
-            myBlogsSubTitle.topAnchor.constraint(equalTo: aboutMeText.bottomAnchor, constant: 30),
-            myBlogsSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            myBlogsSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            myBlogsSubTitle.heightAnchor.constraint(equalToConstant: 28),
+            myBlogsSubTitle.topAnchor.constraint(equalTo: aboutMeText.bottomAnchor, constant: CGFloat.standartIdentConstant + 6),
+            myBlogsSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            myBlogsSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            myBlogsSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight28Constant),
 
-            createBlogButton.topAnchor.constraint(equalTo: myBlogsSubTitle.bottomAnchor, constant: 24),
-            createBlogButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            createBlogButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            createBlogButton.topAnchor.constraint(equalTo: myBlogsSubTitle.bottomAnchor, constant: CGFloat.standartIdentConstant),
+            createBlogButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            createBlogButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
         ])
         
         if section.rows.isEmpty {
             NSLayoutConstraint.activate([
-                createBlogButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
+                createBlogButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -CGFloat.standartIdentConstant)
             ])
         } else if section.rows.count <= 3 {
             NSLayoutConstraint.activate([
-                blogTableView.topAnchor.constraint(equalTo: createBlogButton.bottomAnchor, constant: 12),
+                blogTableView.topAnchor.constraint(equalTo: createBlogButton.bottomAnchor,
+                                                   constant: CGFloat.standartIdentConstant/2),
                 blogTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 blogTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 blogTableView.heightAnchor.constraint(equalToConstant: heightBlogTableView),
-                blogTableView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -12)
+                blogTableView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -CGFloat.standartIdentConstant/2)
             ])
         } else {
             NSLayoutConstraint.activate([
-                blogTableView.topAnchor.constraint(equalTo: createBlogButton.bottomAnchor, constant: 12),
+                blogTableView.topAnchor.constraint(equalTo: createBlogButton.bottomAnchor,
+                                                   constant: CGFloat.standartIdentConstant/2),
                 blogTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 blogTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 blogTableView.heightAnchor.constraint(equalToConstant: heightBlogTableView),
                 
-                moreBlogButton.topAnchor.constraint(equalTo: blogTableView.bottomAnchor, constant: 12),
-                moreBlogButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-                moreBlogButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-                moreBlogButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24)
+                moreBlogButton.topAnchor.constraint(equalTo: blogTableView.bottomAnchor, constant: CGFloat.standartIdentConstant/2),
+                moreBlogButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+                moreBlogButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+                moreBlogButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -CGFloat.standartIdentConstant)
             ])
         }
         

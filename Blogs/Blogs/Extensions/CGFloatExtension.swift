@@ -37,4 +37,9 @@ extension CGFloat {
     
     static let subTitleHeight20Constant: CGFloat = 20
     static let subTitleHeight28Constant: CGFloat = 28
+    
+    static let statisticViewProfileHeightConstant: CGFloat = 60
+    static let nameTitleProfileHeightConstant: CGFloat = 44
+    
+    static let loginViewIdentConstant: CGFloat = UIScreen.main.bounds.height * 0.148
 }

@@ -100,21 +100,25 @@ final class PasswordChangeViewController: UIViewController {
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            oldPasswordTextfield.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 14),
-            oldPasswordTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            oldPasswordTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            oldPasswordTextfield.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.standartIdentConstant - 10),
+            oldPasswordTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            oldPasswordTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            newPasswordTextfield.topAnchor.constraint(equalTo: oldPasswordTextfield.bottomAnchor, constant: 5),
-            newPasswordTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            newPasswordTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            newPasswordTextfield.topAnchor.constraint(equalTo: oldPasswordTextfield.bottomAnchor,
+                                                      constant: CGFloat.minimumIdentConstant),
+            newPasswordTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            newPasswordTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
 
-            repeatPasswordTextfield.topAnchor.constraint(equalTo: newPasswordTextfield.bottomAnchor, constant: 5),
-            repeatPasswordTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            repeatPasswordTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            repeatPasswordTextfield.topAnchor.constraint(equalTo: newPasswordTextfield.bottomAnchor,
+                                                         constant: CGFloat.minimumIdentConstant),
+            repeatPasswordTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            repeatPasswordTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                              constant: -CGFloat.standartIdentConstant),
             
-            saveButton.topAnchor.constraint(equalTo: repeatPasswordTextfield.bottomAnchor, constant: 30),
-            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            saveButton.topAnchor.constraint(equalTo: repeatPasswordTextfield.bottomAnchor,
+                                            constant: CGFloat.standartIdentConstant + 6),
+            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant)
         ])
         //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)

@@ -117,28 +117,29 @@ final class SignUpViewController: UIViewController {
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            signUpTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 12),
-            signUpTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            signUpTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.standartIdentConstant/2),
+            signUpTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
             
-            text.topAnchor.constraint(equalTo: signUpTitle.bottomAnchor, constant: 12),
-            text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            text.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            text.topAnchor.constraint(equalTo: signUpTitle.bottomAnchor, constant: CGFloat.standartIdentConstant/2),
+            text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            text.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
 
-            tagnameTextField.topAnchor.constraint(equalTo: text.bottomAnchor, constant: 15),
-            tagnameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            tagnameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            tagnameTextField.topAnchor.constraint(equalTo: text.bottomAnchor, constant: CGFloat.standartIdentConstant - 9),
+            tagnameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            tagnameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            mailTextField.topAnchor.constraint(equalTo: tagnameTextField.bottomAnchor, constant: 5),
-            mailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            mailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            mailTextField.topAnchor.constraint(equalTo: tagnameTextField.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            mailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            mailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            passwordTextField.topAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: 5),
-            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            passwordTextField.topAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 7),
-            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
+                                                constant: CGFloat.minimumIdentConstant + 2),
+            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant)
         ])
         //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)

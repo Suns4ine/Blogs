@@ -84,14 +84,15 @@ final class HomeViewController: UIViewController {
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            blogsTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 8),
+            blogsTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.minimumIdentConstant + 3),
             blogsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             blogsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             blogsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            emptyArrayTitle.topAnchor.constraint(equalTo: refreshControl.bottomAnchor, constant: 44),
-            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            emptyArrayTitle.topAnchor.constraint(equalTo: refreshControl.bottomAnchor,
+                                                 constant: CGFloat.emptyArrayTitleTopConstant),
+            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant)
         ])
     }
     

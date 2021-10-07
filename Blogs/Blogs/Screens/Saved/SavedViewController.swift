@@ -84,14 +84,15 @@ final class SavedViewController: UIViewController {
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            savedTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 4),
+            savedTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.minimumIdentConstant - 1),
             savedTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             savedTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             savedTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            emptyArrayTitle.topAnchor.constraint(equalTo: refreshControl.bottomAnchor, constant: 44),
-            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            emptyArrayTitle.topAnchor.constraint(equalTo: refreshControl.bottomAnchor,
+                                                 constant: CGFloat.emptyArrayTitleTopConstant),
+            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant)
         ])
     }
     

@@ -121,25 +121,25 @@ final class LoginViewController: UIViewController {
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logo.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 18),
+            logo.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.standartIdentConstant - 6),
             
             LoginTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            LoginTitle.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 32),
+            LoginTitle.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: CGFloat.standartIdentConstant + 8),
             
-            loginTextField.topAnchor.constraint(equalTo: LoginTitle.bottomAnchor, constant: 5),
-            loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            loginTextField.topAnchor.constraint(equalTo: LoginTitle.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: 5),
-            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            signInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 7),
-            signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            signInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: CGFloat.minimumIdentConstant + 2),
+            signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
             signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            signUpButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 15)
+            signUpButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: CGFloat.standartIdentConstant - 9)
         ])
         //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
