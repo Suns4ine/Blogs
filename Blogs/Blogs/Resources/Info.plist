@@ -20,6 +20,28 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Take Photo</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Safe Image</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Montserrat-Lightltalic.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-Boldtalic.ttf</string>
+		<string>Montserrat-Light.ttf</string>
+		<string>Montserrat-Thinlatic.ttf</string>
+		<string>Montserrat-ExtraLight.ttf</string>
+		<string>Montserrat-Thin.ttf</string>
+		<string>Montserrat-Bold.ttf</string>
+		<string>Montserrat-Mediumltalic.ttf</string>
+		<string>Montserrat-ExtraBold.ttf</string>
+		<string>Montserrat-Black.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-Italic.ttf</string>
+		<string>Montserrat-SemiBoldltalic.ttf</string>
+		<string>Montserrat-ExtraBoldltalic.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -56,27 +78,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Montserrat-Lightltalic.ttf</string>
-		<string>Montserrat-Medium.ttf</string>
-		<string>Montserrat-Boldtalic.ttf</string>
-		<string>Montserrat-Light.ttf</string>
-		<string>Montserrat-Thinlatic.ttf</string>
-		<string>Montserrat-ExtraLight.ttf</string>
-		<string>Montserrat-Thin.ttf</string>
-		<string>Montserrat-Bold.ttf</string>
-		<string>Montserrat-Mediumltalic.ttf</string>
-		<string>Montserrat-ExtraBold.ttf</string>
-		<string>Montserrat-Black.ttf</string>
-		<string>Montserrat-Regular.ttf</string>
-		<string>Montserrat-Italic.ttf</string>
-		<string>Montserrat-SemiBoldltalic.ttf</string>
-		<string>Montserrat-ExtraBoldltalic.ttf</string>
-	</array>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Safe Image</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Take Photo</string>
 </dict>
 </plist>

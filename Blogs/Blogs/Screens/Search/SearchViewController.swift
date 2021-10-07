@@ -28,8 +28,8 @@ final class SearchViewController: UIViewController {
     
     private lazy var searchBar: UISearchBar = {
         let search = UISearchBar()
-        search.layer.cornerRadius = 16
-        search.layer.borderWidth = 2
+        search.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
+        search.layer.borderWidth = CGFloat.borderConstant
         search.layer.borderColor = StandartColors.borderColor.cgColor
         search.backgroundColor = StandartColors.standartBackgroundColor
         search.translatesAutoresizingMaskIntoConstraints = false
@@ -56,7 +56,7 @@ final class SearchViewController: UIViewController {
     
     private let shadowSearchBarView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
         view.backgroundColor = StandartColors.shadowColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -71,7 +71,7 @@ final class SearchViewController: UIViewController {
     
     private let searchTableView: UITableView = {
         let table = UITableView()
-        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0)
+        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: CGFloat.standartIdentConstant/2, right: 0)
         table.showsVerticalScrollIndicator = false
         table.backgroundColor = .clear
         table.tableFooterView = UIView()
@@ -126,23 +126,25 @@ final class SearchViewController: UIViewController {
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             searchBar.topAnchor.constraint(equalTo: header.bottomAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            searchBar.heightAnchor.constraint(equalToConstant: 56),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            searchBar.heightAnchor.constraint(equalToConstant: CGFloat.searchBarHeightConstant),
             
-            shadowSearchBarView.topAnchor.constraint(equalTo: searchBar.topAnchor, constant: 4),
+            shadowSearchBarView.topAnchor.constraint(equalTo: searchBar.topAnchor, constant: CGFloat.shadowIdentConstant),
             shadowSearchBarView.leadingAnchor.constraint(equalTo: searchBar.leadingAnchor),
             shadowSearchBarView.trailingAnchor.constraint(equalTo: searchBar.trailingAnchor),
-            shadowSearchBarView.bottomAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 4),
+            shadowSearchBarView.bottomAnchor.constraint(equalTo: searchBar.bottomAnchor,
+                                                        constant: CGFloat.shadowIdentConstant),
             
-            searchTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: -10),
+            searchTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: -CGFloat.minimumIdentConstant * 2),
             searchTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             searchTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             searchTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            emptyArrayTitle.topAnchor.constraint(equalTo: refreshControl.bottomAnchor, constant: 44),
-            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            emptyArrayTitle.topAnchor.constraint(equalTo: refreshControl.bottomAnchor,
+                                                 constant: CGFloat.emptyArrayTitleTopConstant),
+            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant)
         ])
     }
     
@@ -188,7 +190,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 for: indexPath) as? StandartBlogTableViewCell else { return .init() }
         
         cell.viewModel = viewModel
-        cell.ediTindentHeight(top: 24, bot: 0)
+        cell.ediTindentHeight(top: CGFloat.standartIdentConstant, bot: 0)
         return cell
     }
     

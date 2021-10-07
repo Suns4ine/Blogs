@@ -39,8 +39,8 @@ final class PreviewViewController: UIViewController , PageProtocol {
     private let smallCircleOne: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        view.layer.cornerRadius = 6
-        view.layer.borderWidth = 2
+        view.layer.cornerRadius = CGFloat.smallCircleHeightConstant/2
+        view.layer.borderWidth = CGFloat.borderConstant
         view.layer.borderColor = UIColor.firstBlack.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -49,8 +49,8 @@ final class PreviewViewController: UIViewController , PageProtocol {
     private let smallCircleTwo: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        view.layer.cornerRadius = 6
-        view.layer.borderWidth = 2
+        view.layer.cornerRadius = CGFloat.smallCircleHeightConstant/2
+        view.layer.borderWidth = CGFloat.borderConstant
         view.layer.borderColor = UIColor.firstBlack.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -59,8 +59,8 @@ final class PreviewViewController: UIViewController , PageProtocol {
     private let smallCircleThree: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
-        view.layer.cornerRadius = 6
-        view.layer.borderWidth = 2
+        view.layer.cornerRadius = CGFloat.smallCircleHeightConstant/2
+        view.layer.borderWidth = CGFloat.borderConstant
         view.layer.borderColor = UIColor.firstBlack.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -119,41 +119,45 @@ final class PreviewViewController: UIViewController , PageProtocol {
     private func addLayoutSubviews() {
         
         twoButtonsBottonConstraint = twoButtons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-                                                                        constant: -24)
+                                                                        constant: -CGFloat.standartIdentConstant)
         twoButtonsBottonConstraint?.isActive = true
         
         NSLayoutConstraint.activate([
-            twoButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            twoButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            twoButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            twoButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            startedButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
-            startedButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            startedButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            startedButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                                  constant: -CGFloat.standartIdentConstant),
+            startedButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            startedButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
             circle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            circle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 38),
-            circle.widthAnchor.constraint(equalToConstant: view.frame.width - 66),
-            circle.heightAnchor.constraint(equalToConstant: view.frame.width - 66),
+            circle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: CGFloat.standartIdentConstant + 14),
+            circle.widthAnchor.constraint(equalToConstant: view.frame.width - CGFloat.circlePreviewIdentConstant),
+            circle.heightAnchor.constraint(equalToConstant: view.frame.width - CGFloat.circlePreviewIdentConstant),
             
             smallCircleOne.topAnchor.constraint(equalTo: sliderView.topAnchor),
             smallCircleOne.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
             smallCircleOne.bottomAnchor.constraint(equalTo: sliderView.bottomAnchor),
-            smallCircleOne.heightAnchor.constraint(equalToConstant: 12),
-            smallCircleOne.widthAnchor.constraint(equalToConstant: 12),
+            smallCircleOne.heightAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
+            smallCircleOne.widthAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
             
             smallCircleTwo.topAnchor.constraint(equalTo: sliderView.topAnchor),
-            smallCircleTwo.leadingAnchor.constraint(equalTo: smallCircleOne.trailingAnchor, constant: 8),
-            smallCircleTwo.heightAnchor.constraint(equalToConstant: 12),
-            smallCircleTwo.widthAnchor.constraint(equalToConstant: 12),
+            smallCircleTwo.leadingAnchor.constraint(equalTo: smallCircleOne.trailingAnchor,
+                                                    constant: CGFloat.minimumIdentConstant + 3),
+            smallCircleTwo.heightAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
+            smallCircleTwo.widthAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
             
             smallCircleThree.topAnchor.constraint(equalTo: sliderView.topAnchor),
-            smallCircleThree.leadingAnchor.constraint(equalTo: smallCircleTwo.trailingAnchor, constant: 8),
+            smallCircleThree.leadingAnchor.constraint(equalTo: smallCircleTwo.trailingAnchor,
+                                                      constant: CGFloat.minimumIdentConstant + 3),
             smallCircleThree.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor),
-            smallCircleThree.heightAnchor.constraint(equalToConstant: 12),
-            smallCircleThree.widthAnchor.constraint(equalToConstant: 12),
+            smallCircleThree.heightAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
+            smallCircleThree.widthAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
             
             sliderView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            sliderView.bottomAnchor.constraint(equalTo: startedButton.topAnchor, constant: -20),
+                                        sliderView.bottomAnchor.constraint(equalTo: startedButton.topAnchor,
+                                                                           constant: -(CGFloat.standartIdentConstant - 4)),
             
             pageViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
             pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -162,7 +166,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
         ])
         
         //Так как мы не знаем с самого начала размер заднего круга, то после вычисления выше, мы можем его округлить
-        circle.layer.cornerRadius = (view.frame.width - 66) / 2
+        circle.layer.cornerRadius = (view.frame.width - CGFloat.circlePreviewIdentConstant) / 2
     }
     
     func numbPage(numb: Int) {
@@ -244,7 +248,7 @@ extension PreviewViewController: PreviewViewInput {
         })
         
         twoButtons.isHidden = true
-        twoButtonsBottonConstraint?.constant = 24
+        twoButtonsBottonConstraint?.constant = CGFloat.standartIdentConstant
     }
     
     func reloadData(for section: PageSectionViewModel) {

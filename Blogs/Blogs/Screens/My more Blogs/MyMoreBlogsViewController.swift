@@ -87,14 +87,15 @@ final class MyMoreBlogsViewController: UIViewController {
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            myBlogsTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 4),
+            myBlogsTableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.minimumIdentConstant - 1),
             myBlogsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             myBlogsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             myBlogsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            emptyArrayTitle.topAnchor.constraint(equalTo: refreshControl.bottomAnchor, constant: 44),
-            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            emptyArrayTitle.topAnchor.constraint(equalTo: refreshControl.bottomAnchor,
+                                                 constant: CGFloat.emptyArrayTitleTopConstant),
+            emptyArrayTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            emptyArrayTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant)
         ])
     }
     

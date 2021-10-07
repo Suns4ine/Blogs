@@ -365,6 +365,8 @@
 		35B10A3A26C97FD8003E3D44 /* SettingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A3426C97FD8003E3D44 /* SettingContainer.swift */; };
 		35B10A3F26C99CB6003E3D44 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B10A3E26C99CB6003E3D44 /* SettingTableViewCell.swift */; };
 		35B7E61826F9121900871685 /* SnapahotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B7E61726F9121900871685 /* SnapahotTests.swift */; };
+		35BFD2D3270F4BFD005289EE /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BFD2D2270F4BFD005289EE /* CGFloatExtension.swift */; };
+		35BFD2D7270F4C02005289EE /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BFD2D2270F4BFD005289EE /* CGFloatExtension.swift */; };
 		35CE261626AEBA66000F4E84 /* SecondBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261526AEBA66000F4E84 /* SecondBigButton.swift */; };
 		35CE261B26AEBDEC000F4E84 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261A26AEBDEC000F4E84 /* Icons.swift */; };
 		35CE262026AF1BB8000F4E84 /* ThirdBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */; };
@@ -625,6 +627,7 @@
 		35B10A3426C97FD8003E3D44 /* SettingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingContainer.swift; sourceTree = "<group>"; };
 		35B10A3E26C99CB6003E3D44 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		35B7E61726F9121900871685 /* SnapahotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapahotTests.swift; sourceTree = "<group>"; };
+		35BFD2D2270F4BFD005289EE /* CGFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
 		35CE261526AEBA66000F4E84 /* SecondBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondBigButton.swift; sourceTree = "<group>"; };
 		35CE261A26AEBDEC000F4E84 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		35CE261F26AF1BB7000F4E84 /* ThirdBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdBigButton.swift; sourceTree = "<group>"; };
@@ -1136,6 +1139,7 @@
 		35CE261026AE8829000F4E84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				35BFD2D2270F4BFD005289EE /* CGFloatExtension.swift */,
 				35028DF826C5ED6700FF9D68 /* AnotherExtension.swift */,
 				354059AD26F5534700CC4D50 /* UIViewExtension.swift */,
 				35E020F326C2B3AB00C99280 /* UIImagesExtension.swift */,
@@ -1745,6 +1749,7 @@
 				35FDAC2126D63B4600A84B99 /* User.swift in Sources */,
 				35B1095826C6AAF0003E3D44 /* ChoiceColorRouter.swift in Sources */,
 				35E020E826C1FCBE00C99280 /* StartInteractor.swift in Sources */,
+				35BFD2D3270F4BFD005289EE /* CGFloatExtension.swift in Sources */,
 				35595AEA26D528DD0080B184 /* AnotherMoreBlogsRouter.swift in Sources */,
 				35B109A126C6D559003E3D44 /* DraftBlogsRouter.swift in Sources */,
 				3505BB5E26E5313300B13202 /* BlogRouter.swift in Sources */,
@@ -2005,6 +2010,7 @@
 				350CF4B426F896E600E9CE00 /* BlogsTableViewCell.swift in Sources */,
 				350CF35A26F895ED00E9CE00 /* AnotherMoreBlogsInteractor.swift in Sources */,
 				350CF3B826F8963600E9CE00 /* AdditionBlogProtocols.swift in Sources */,
+				35BFD2D7270F4C02005289EE /* CGFloatExtension.swift in Sources */,
 				350CF45826F8969200E9CE00 /* SavedContainer.swift in Sources */,
 				350CF44726F8968A00E9CE00 /* MyProfileViewController.swift in Sources */,
 				350CF40A26F8966400E9CE00 /* PasswordChangeContainer.swift in Sources */,
@@ -2362,6 +2368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZA5Q28CH8;
 				INFOPLIST_FILE = Blogs/Resources/Info.plist;
@@ -2372,6 +2379,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Pronin-Project.Blogs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2383,6 +2391,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZA5Q28CH8;
 				INFOPLIST_FILE = Blogs/Resources/Info.plist;
@@ -2393,6 +2402,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Pronin-Project.Blogs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

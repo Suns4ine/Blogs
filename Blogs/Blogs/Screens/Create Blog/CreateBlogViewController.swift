@@ -102,9 +102,6 @@ final class CreateBlogViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
-        heightUtilietsViewConstraint = utilitiesView.heightAnchor.constraint(equalToConstant: 56)
-        heightUtilietsViewConstraint?.isActive = true
-        
         utilitiesCollectionView.delegate = self
         utilitiesCollectionView.dataSource = self
         utilitiesCollectionView.register(UtilitiesCollectionViewCell.self,
@@ -120,43 +117,44 @@ final class CreateBlogViewController: UIViewController {
     
     //MARK: Personal Functions
     private func addLayoutSubviews() {
+        
+        heightUtilietsViewConstraint = utilitiesView.heightAnchor.constraint(equalToConstant: CGFloat.heightUtilietsViewConstant)
+        heightUtilietsViewConstraint?.isActive = true
+        
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             nextButton.centerYAnchor.constraint(equalTo: header.leftIcon.centerYAnchor),
-            nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
             draftButton.centerYAnchor.constraint(equalTo: header.leftIcon.centerYAnchor),
-            draftButton.trailingAnchor.constraint(equalTo: nextButton.leadingAnchor, constant: -12),
+            draftButton.trailingAnchor.constraint(equalTo: nextButton.leadingAnchor, constant: -CGFloat.standartIdentConstant/2),
             
             utilitiesView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             utilitiesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             utilitiesView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            //utilitiesView.heightAnchor.constraint(equalToConstant: 56),
 
             borderView.topAnchor.constraint(equalTo: utilitiesView.topAnchor),
             borderView.leadingAnchor.constraint(equalTo: utilitiesView.leadingAnchor),
             borderView.trailingAnchor.constraint(equalTo: utilitiesView.trailingAnchor),
-            borderView.heightAnchor.constraint(equalToConstant: 1),
+            borderView.heightAnchor.constraint(equalToConstant: CGFloat.borderConstant/2),
 
             utilitiesCollectionView.topAnchor.constraint(equalTo: utilitiesView.topAnchor),
             utilitiesCollectionView.leadingAnchor.constraint(equalTo: utilitiesView.leadingAnchor),
             utilitiesCollectionView.trailingAnchor.constraint(equalTo: utilitiesView.trailingAnchor),
-            //utilitiesCollectionView.bottomAnchor.constraint(equalTo: utilitiesView.bottomAnchor),
-            utilitiesCollectionView.heightAnchor.constraint(equalToConstant: 56),
+            utilitiesCollectionView.heightAnchor.constraint(equalToConstant: CGFloat.heightUtilietsViewConstant),
             
             utilitiesAutoLayoutView.topAnchor.constraint(equalTo: utilitiesView.bottomAnchor),
             utilitiesAutoLayoutView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             utilitiesAutoLayoutView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             utilitiesAutoLayoutView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            text.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 14),
-            text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            text.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-//            text.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -14)
-            text.bottomAnchor.constraint(equalTo: utilitiesView.topAnchor, constant: -14)
+            text.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.textVerticalConstant),
+            text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.textHorizontalConstant),
+            text.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.textHorizontalConstant),
+            text.bottomAnchor.constraint(equalTo: utilitiesView.topAnchor, constant: -CGFloat.textVerticalConstant)
         ])
     }
     
@@ -251,7 +249,6 @@ extension CreateBlogViewController {
             action: #selector(dismissMyKeyboard))
 
         header.addGestureRecognizer(tap)
-        //view.addGestureRecognizer(tap)
     }
     
     @objc func dismissMyKeyboard(){
@@ -266,12 +263,12 @@ extension CreateBlogViewController {
 
         if notification.name == UIResponder.keyboardWillHideNotification {
             text.textView.contentInset = .zero
-            heightUtilietsViewConstraint?.constant = 56
+            heightUtilietsViewConstraint?.constant = CGFloat.heightUtilietsViewConstant
         } else {
-            heightUtilietsViewConstraint?.constant = keyboardViewEndFrame.height - view.safeAreaInsets.bottom + 56
+            heightUtilietsViewConstraint?.constant = keyboardViewEndFrame.height - view.safeAreaInsets.bottom + CGFloat.heightUtilietsViewConstant
             text.textView.contentInset = UIEdgeInsets(top: 0,
                                                       left: 0,
-                                                      bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom - (heightUtilietsViewConstraint?.constant ?? 0) + 56,
+                                                      bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom - (heightUtilietsViewConstraint?.constant ?? 0) + CGFloat.heightUtilietsViewConstant,
                                                       right: 0)
         }
 

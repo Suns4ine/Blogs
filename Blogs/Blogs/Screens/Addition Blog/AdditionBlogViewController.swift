@@ -45,8 +45,8 @@ final class AdditionBlogViewController: UIViewController {
     private let blogTitleView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 16
-        view.layer.borderWidth = 2
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
+        view.layer.borderWidth = CGFloat.borderConstant
         view.layer.borderColor = StandartColors.borderColor.cgColor
         view.backgroundColor = StandartColors.standartBackgroundColor
         return view
@@ -80,8 +80,8 @@ final class AdditionBlogViewController: UIViewController {
     private let tagView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 16
-        view.layer.borderWidth = 2
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
+        view.layer.borderWidth = CGFloat.borderConstant
         view.layer.borderColor = StandartColors.borderColor.cgColor
         view.backgroundColor = StandartColors.standartBackgroundColor
         return view
@@ -150,47 +150,50 @@ final class AdditionBlogViewController: UIViewController {
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             nextButton.centerYAnchor.constraint(equalTo: header.leftIcon.centerYAnchor),
-            nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            blogTitleSubTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 8),
-            blogTitleSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            blogTitleSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            blogTitleSubTitle.heightAnchor.constraint(equalToConstant: 28),
+            blogTitleSubTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.minimumIdentConstant + 3),
+            blogTitleSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant + 19),
+            blogTitleSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            blogTitleSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight28Constant),
             
-            blogTitleView.topAnchor.constraint(equalTo: blogTitleSubTitle.bottomAnchor, constant: 5),
-            blogTitleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            blogTitleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            blogTitleView.heightAnchor.constraint(equalToConstant: 168),
+            blogTitleView.topAnchor.constraint(equalTo: blogTitleSubTitle.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            blogTitleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            blogTitleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            blogTitleView.heightAnchor.constraint(equalToConstant: CGFloat.textHeightConstant),
             
-            blogTitleText.topAnchor.constraint(equalTo: blogTitleView.topAnchor, constant: 14),
-            blogTitleText.bottomAnchor.constraint(equalTo: blogTitleView.bottomAnchor, constant: -14),
-            blogTitleText.leadingAnchor.constraint(equalTo: blogTitleView.leadingAnchor, constant: 16),
-            blogTitleText.trailingAnchor.constraint(equalTo: blogTitleView.trailingAnchor, constant: -16),
+            blogTitleText.topAnchor.constraint(equalTo: blogTitleView.topAnchor, constant: CGFloat.textVerticalConstant),
+            blogTitleText.bottomAnchor.constraint(equalTo: blogTitleView.bottomAnchor, constant: -CGFloat.textVerticalConstant),
+            blogTitleText.leadingAnchor.constraint(equalTo: blogTitleView.leadingAnchor, constant: CGFloat.textHorizontalConstant),
+            blogTitleText.trailingAnchor.constraint(equalTo: blogTitleView.trailingAnchor,
+                                                    constant: -CGFloat.textHorizontalConstant),
             
-            blogTitleErrorSubTitle.topAnchor.constraint(equalTo: blogTitleView.bottomAnchor, constant: 5),
-            blogTitleErrorSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            blogTitleErrorSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            blogTitleErrorSubTitle.heightAnchor.constraint(equalToConstant: 20),
+            blogTitleErrorSubTitle.topAnchor.constraint(equalTo: blogTitleView.bottomAnchor,
+                                                        constant: CGFloat.minimumIdentConstant),
+            blogTitleErrorSubTitle.leadingAnchor.constraint(equalTo: blogTitleSubTitle.leadingAnchor),
+            blogTitleErrorSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                             constant: -CGFloat.standartIdentConstant),
+            blogTitleErrorSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight20Constant),
             
-            tagSubTitle.topAnchor.constraint(equalTo: blogTitleErrorSubTitle.bottomAnchor, constant: 5),
-            tagSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            tagSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            tagSubTitle.heightAnchor.constraint(equalToConstant: 28),
+            tagSubTitle.topAnchor.constraint(equalTo: blogTitleErrorSubTitle.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            tagSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant + 19),
+            tagSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            tagSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight28Constant),
             
-            tagView.topAnchor.constraint(equalTo: tagSubTitle.bottomAnchor, constant: 5),
-            tagView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            tagView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            tagView.heightAnchor.constraint(equalToConstant: 168),
+            tagView.topAnchor.constraint(equalTo: tagSubTitle.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            tagView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            tagView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            tagView.heightAnchor.constraint(equalToConstant: CGFloat.textHeightConstant),
             
-            tagText.topAnchor.constraint(equalTo: tagView.topAnchor, constant: 14),
-            tagText.bottomAnchor.constraint(equalTo: tagView.bottomAnchor, constant: -14),
-            tagText.leadingAnchor.constraint(equalTo: tagView.leadingAnchor, constant: 16),
-            tagText.trailingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: -16),
+            tagText.topAnchor.constraint(equalTo: tagView.topAnchor, constant: CGFloat.textVerticalConstant),
+            tagText.bottomAnchor.constraint(equalTo: tagView.bottomAnchor, constant: -CGFloat.textVerticalConstant),
+            tagText.leadingAnchor.constraint(equalTo: tagView.leadingAnchor, constant: CGFloat.textHorizontalConstant),
+            tagText.trailingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: -CGFloat.textHorizontalConstant),
             
-            tagErrorSubTitle.topAnchor.constraint(equalTo: tagView.bottomAnchor, constant: 5),
-            tagErrorSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 43),
-            tagErrorSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            tagErrorSubTitle.heightAnchor.constraint(equalToConstant: 20),
+            tagErrorSubTitle.topAnchor.constraint(equalTo: tagView.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            tagErrorSubTitle.leadingAnchor.constraint(equalTo: tagSubTitle.leadingAnchor),
+            tagErrorSubTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            tagErrorSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight20Constant),
         ])
         //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
