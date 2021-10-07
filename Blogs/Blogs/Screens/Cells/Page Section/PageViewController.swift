@@ -11,13 +11,11 @@ import UIKit
 final class PageViewController: UIViewController {
     
     //MARK: Create Variable
-    private let heightScreen = UIScreen.main.bounds.height
     private (set) var number = 0
     private var flowHeightConstraint: NSLayoutConstraint?
     private var flowWigthConstraint: NSLayoutConstraint?
     private var centerXConstraint: NSLayoutConstraint?
     private var bottomConstraint: NSLayoutConstraint?
-    private var isSmallScreen =  UIScreen.main.bounds.height <= 667
     
     private let image: UIImageView = {
         let image = UIImageView()
@@ -29,14 +27,14 @@ final class PageViewController: UIViewController {
     
     private lazy var titlePage: Title = {
         let title = Title(text: StandartLanguage.titlePageScreen,
-                          size: isSmallScreen ? .meb24 : .meb36)
+                          size: Bool.isSmallScreen ? .meb24 : .meb36)
         title.sizeToFit()
         return title
     }()
     
     private lazy var subtitle: SubTitle = {
         let subtitle = SubTitle(text: StandartLanguage.subtitlePageScreen,
-                                size: isSmallScreen ? .mm15 : .mm21)
+                                size: Bool.isSmallScreen ? .mm15 : .mm21)
         subtitle.sizeToFit()
         return subtitle
     }()
@@ -72,16 +70,15 @@ final class PageViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-            titlePage.topAnchor.constraint(equalTo: view.topAnchor,
-                                           constant: isSmallScreen ? heightScreen/1.77 : heightScreen/1.93),
-            titlePage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            titlePage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            titlePage.heightAnchor.constraint(equalToConstant: isSmallScreen ? 60 : 88),
+            titlePage.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat.titlePageTopIdentConstant),
+            titlePage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            titlePage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            titlePage.heightAnchor.constraint(equalToConstant: CGFloat.titlePageHeightIdentConstant),
             
-            subtitle.topAnchor.constraint(equalTo: titlePage.bottomAnchor, constant: 12),
-            subtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            subtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            subtitle.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -37)
+            subtitle.topAnchor.constraint(equalTo: titlePage.bottomAnchor, constant: CGFloat.standartIdentConstant/2),
+            subtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            subtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            subtitle.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -(CGFloat.standartIdentConstant + 13))
         ])
     }
     
@@ -93,7 +90,7 @@ final class PageViewController: UIViewController {
     private func addConstraintImage() {
         centerXConstraint = image.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0)
         centerXConstraint?.isActive = true
-        flowHeightConstraint = image.heightAnchor.constraint(equalToConstant: heightScreen/3.1)
+        flowHeightConstraint = image.heightAnchor.constraint(equalToConstant: CGFloat.heightScreen/3.1)
         flowHeightConstraint?.isActive = true
         flowWigthConstraint = image.widthAnchor.constraint(equalToConstant: (flowHeightConstraint?.constant ?? 240)/1.083)
         flowWigthConstraint?.isActive = true
@@ -115,7 +112,7 @@ final class PageViewController: UIViewController {
                                         })
         case 1:
             image.image = UIImage(named: "peep-sitting-19")
-            flowHeightConstraint?.constant = heightScreen/2.483
+            flowHeightConstraint?.constant = CGFloat.heightScreen/2.483
             flowWigthConstraint?.constant =  (flowHeightConstraint?.constant ?? 218)/1.5
             centerXConstraint?.constant = 20
             bottomConstraint?.constant = 0
@@ -129,7 +126,7 @@ final class PageViewController: UIViewController {
                                         })
         case 2:
             image.image = UIImage(named: "peep-106")
-            flowHeightConstraint?.constant = heightScreen/2.76
+            flowHeightConstraint?.constant = CGFloat.heightScreen/2.76
             flowWigthConstraint?.constant = (flowHeightConstraint?.constant ?? 255)/1.153
             centerXConstraint?.constant = 10
             bottomConstraint?.constant = -10

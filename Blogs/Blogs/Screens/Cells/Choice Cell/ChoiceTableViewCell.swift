@@ -44,10 +44,10 @@ final class ChoiceTableViewCell: UITableViewCell, ChoiceCellModelRepresentable {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
-            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24)
+            button.topAnchor.constraint(equalTo: self.topAnchor, constant: CGFloat.standartIdentConstant/2),
+            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -CGFloat.standartIdentConstant/2),
+            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -CGFloat.standartIdentConstant)
         ])
     }
     

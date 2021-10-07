@@ -122,35 +122,47 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
         switch typeCell {
         case .button:
             NSLayoutConstraint.activate([
-                button.topAnchor.constraint(equalTo: backgroundSettingView.topAnchor, constant: 12),
-                button.leadingAnchor.constraint(equalTo: backgroundSettingView.leadingAnchor, constant: 24),
-                button.trailingAnchor.constraint(equalTo: backgroundSettingView.trailingAnchor, constant: -24),
-                button.bottomAnchor.constraint(equalTo: backgroundSettingView.bottomAnchor, constant: -12)
+                button.topAnchor.constraint(equalTo: backgroundSettingView.topAnchor, constant: CGFloat.standartIdentConstant/2),
+                button.leadingAnchor.constraint(equalTo: backgroundSettingView.leadingAnchor,
+                                                constant: CGFloat.standartIdentConstant),
+                button.trailingAnchor.constraint(equalTo: backgroundSettingView.trailingAnchor,
+                                                 constant: -CGFloat.standartIdentConstant),
+                button.bottomAnchor.constraint(equalTo: backgroundSettingView.bottomAnchor,
+                                               constant: -CGFloat.standartIdentConstant/2)
             ])
         case .screen:
             NSLayoutConstraint.activate([
                 icon.centerYAnchor.constraint(equalTo: backgroundSettingView.centerYAnchor),
-                icon.trailingAnchor.constraint(equalTo:  backgroundSettingView.trailingAnchor, constant: -24),
+                icon.trailingAnchor.constraint(equalTo:  backgroundSettingView.trailingAnchor,
+                                               constant: -CGFloat.standartIdentConstant),
                 
-                title.topAnchor.constraint(equalTo: backgroundSettingView.topAnchor, constant: 24),
-                title.leadingAnchor.constraint(equalTo: backgroundSettingView.leadingAnchor, constant: 24),
-                title.trailingAnchor.constraint(lessThanOrEqualTo: icon.leadingAnchor, constant: -7),
-                title.bottomAnchor.constraint(equalTo: backgroundSettingView.bottomAnchor, constant: -24)
+                title.topAnchor.constraint(equalTo: backgroundSettingView.topAnchor, constant: CGFloat.standartIdentConstant),
+                title.leadingAnchor.constraint(equalTo: backgroundSettingView.leadingAnchor,
+                                               constant: CGFloat.standartIdentConstant),
+                title.trailingAnchor.constraint(lessThanOrEqualTo: icon.leadingAnchor,
+                                                constant: -(CGFloat.minimumIdentConstant + 2)),
+                title.bottomAnchor.constraint(equalTo: backgroundSettingView.bottomAnchor, constant: -CGFloat.standartIdentConstant)
             ])
         case .toggle:
             NSLayoutConstraint.activate([
-                togleButton.topAnchor.constraint(equalTo: backgroundSettingView.topAnchor, constant: 24),
-                togleButton.trailingAnchor.constraint(equalTo: backgroundSettingView.trailingAnchor, constant: -24),
+                togleButton.topAnchor.constraint(equalTo: backgroundSettingView.topAnchor, constant: CGFloat.standartIdentConstant),
+                togleButton.trailingAnchor.constraint(equalTo: backgroundSettingView.trailingAnchor,
+                                                      constant: -CGFloat.standartIdentConstant),
                 
-                title.topAnchor.constraint(equalTo: backgroundSettingView.topAnchor, constant: 24),
-                title.leadingAnchor.constraint(equalTo: backgroundSettingView.leadingAnchor, constant: 24),
-                title.trailingAnchor.constraint(lessThanOrEqualTo: togleButton.leadingAnchor, constant: -14),
-                title.heightAnchor.constraint(equalToConstant: 28),
+                title.topAnchor.constraint(equalTo: backgroundSettingView.topAnchor, constant: CGFloat.standartIdentConstant),
+                title.leadingAnchor.constraint(equalTo: backgroundSettingView.leadingAnchor,
+                                               constant: CGFloat.standartIdentConstant),
+                title.trailingAnchor.constraint(lessThanOrEqualTo: togleButton.leadingAnchor,
+                                                constant: -(CGFloat.standartIdentConstant - 10)),
+                title.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight28Constant),
                 
-                subtitle.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 4),
-                subtitle.leadingAnchor.constraint(equalTo: backgroundSettingView.leadingAnchor, constant: 24),
-                subtitle.trailingAnchor.constraint(lessThanOrEqualTo: togleButton.leadingAnchor, constant: -14),
-                subtitle.bottomAnchor.constraint(lessThanOrEqualTo: backgroundSettingView.bottomAnchor, constant: -4)
+                subtitle.topAnchor.constraint(equalTo: title.bottomAnchor, constant: CGFloat.minimumIdentConstant - 1),
+                subtitle.leadingAnchor.constraint(equalTo: backgroundSettingView.leadingAnchor,
+                                                  constant: CGFloat.standartIdentConstant),
+                subtitle.trailingAnchor.constraint(lessThanOrEqualTo: togleButton.leadingAnchor,
+                                                   constant: -(CGFloat.standartIdentConstant - 10)),
+                subtitle.bottomAnchor.constraint(lessThanOrEqualTo: backgroundSettingView.bottomAnchor,
+                                                 constant: -(CGFloat.minimumIdentConstant - 1))
             ])
         default: break
         }

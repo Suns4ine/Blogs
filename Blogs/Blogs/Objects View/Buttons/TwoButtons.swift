@@ -42,15 +42,15 @@ final class TwoButtons: UIView {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 60),
+            self.heightAnchor.constraint(equalToConstant: CGFloat.buttonBigHeightConstant),
             
             leadingButton.topAnchor.constraint(equalTo: self.topAnchor),
             leadingButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            leadingButton.trailingAnchor.constraint(equalTo: self.centerXAnchor, constant: -6),
+            leadingButton.trailingAnchor.constraint(equalTo: self.centerXAnchor, constant: -(CGFloat.minimumIdentConstant + 1)),
             
             trailingButton.topAnchor.constraint(equalTo: self.topAnchor),
             trailingButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            trailingButton.leadingAnchor.constraint(equalTo: self.centerXAnchor, constant: 6),
+            trailingButton.leadingAnchor.constraint(equalTo: self.centerXAnchor, constant: CGFloat.minimumIdentConstant + 1),
         ])
     }
     

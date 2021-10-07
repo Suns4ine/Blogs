@@ -34,8 +34,8 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
     private let blogView: UIView = {
         let view = UIView()
         view.backgroundColor = StandartColors.blogCellColor
-        view.layer.cornerRadius = 16
-        view.layer.borderWidth = 2
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
+        view.layer.borderWidth = CGFloat.borderConstant
         view.layer.borderColor = StandartColors.borderColor.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -44,7 +44,7 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
     private let shadowView: UIView = {
         let view = UIView()
         view.backgroundColor = StandartColors.shadowColor
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -101,32 +101,33 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            blogView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            blogView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
-            blogView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            blogView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            blogView.topAnchor.constraint(equalTo: self.topAnchor, constant: CGFloat.standartIdentConstant - 8),
+            blogView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(CGFloat.standartIdentConstant - 8)),
+            blogView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            blogView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            shadowView.topAnchor.constraint(equalTo: blogView.topAnchor, constant: 4),
+            shadowView.topAnchor.constraint(equalTo: blogView.topAnchor, constant: CGFloat.shadowIdentConstant),
             shadowView.leadingAnchor.constraint(equalTo: blogView.leadingAnchor),
             shadowView.trailingAnchor.constraint(equalTo: blogView.trailingAnchor),
-            shadowView.bottomAnchor.constraint(equalTo: blogView.bottomAnchor, constant: 4),
+            shadowView.bottomAnchor.constraint(equalTo: blogView.bottomAnchor, constant: CGFloat.shadowIdentConstant),
             
-            avatar.topAnchor.constraint(equalTo: blogView.topAnchor, constant: 24),
-            avatar.leadingAnchor.constraint(equalTo: blogView.leadingAnchor, constant: 24),
+            avatar.topAnchor.constraint(equalTo: blogView.topAnchor, constant: CGFloat.standartIdentConstant),
+            avatar.leadingAnchor.constraint(equalTo: blogView.leadingAnchor, constant: CGFloat.standartIdentConstant),
             
-            dateSubTitle.bottomAnchor.constraint(equalTo: blogView.bottomAnchor, constant: -24),
-            dateSubTitle.leadingAnchor.constraint(equalTo: blogView.leadingAnchor, constant: 24),
-            dateSubTitle.heightAnchor.constraint(equalToConstant: 20),
+            dateSubTitle.bottomAnchor.constraint(equalTo: blogView.bottomAnchor, constant: -CGFloat.standartIdentConstant),
+            dateSubTitle.leadingAnchor.constraint(equalTo: blogView.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            dateSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight20Constant),
             
             nameSubTitle.bottomAnchor.constraint(equalTo: dateSubTitle.topAnchor),
-            nameSubTitle.leadingAnchor.constraint(equalTo: blogView.leadingAnchor, constant: 24),
-            nameSubTitle.heightAnchor.constraint(equalToConstant: 24),
-            nameSubTitle.trailingAnchor.constraint(equalTo: blogView.trailingAnchor, constant: -48),
+            nameSubTitle.leadingAnchor.constraint(equalTo: blogView.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            nameSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.standartIdentConstant),
+            nameSubTitle.trailingAnchor.constraint(equalTo: blogView.trailingAnchor,
+                                                   constant: -(CGFloat.standartIdentConstant * 2)),
             
-            title.topAnchor.constraint(equalTo: blogView.topAnchor, constant: 108),
-            title.leadingAnchor.constraint(equalTo: blogView.leadingAnchor, constant: 24),
-            title.trailingAnchor.constraint(lessThanOrEqualTo: blogView.trailingAnchor, constant: -24),
-            title.bottomAnchor.constraint(lessThanOrEqualTo: nameSubTitle.topAnchor, constant: -12),
+            title.topAnchor.constraint(equalTo: blogView.topAnchor, constant: CGFloat.titleBlogCellIdentConstant),
+            title.leadingAnchor.constraint(equalTo: blogView.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            title.trailingAnchor.constraint(lessThanOrEqualTo: blogView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            title.bottomAnchor.constraint(lessThanOrEqualTo: nameSubTitle.topAnchor, constant: -CGFloat.standartIdentConstant/2),
             
 //            tagSubTitle.bottomAnchor.constraint(equalTo: blogView.bottomAnchor, constant: -24),
 //            tagSubTitle.trailingAnchor.constraint(equalTo: blogView.trailingAnchor, constant: -24),

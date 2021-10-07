@@ -24,7 +24,7 @@ final class Avatar: UIView {
         let image = UIImageView()
         image.backgroundColor = StandartColors.backgroundAvatarColor
         image.layer.borderColor = StandartColors.borderColor.cgColor
-        image.layer.borderWidth = 2
+        image.layer.borderWidth = CGFloat.borderConstant
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
         return image

@@ -113,3 +113,7 @@ extension UITextField {
         self.rightViewMode = .always
     }
 }
+
+extension Bool {
+    static let isSmallScreen =  UIScreen.main.bounds.height <= 667
+}

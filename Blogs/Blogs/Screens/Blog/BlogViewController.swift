@@ -199,7 +199,7 @@ final class BlogViewController: UIViewController {
             
             nameSubTitle.topAnchor.constraint(equalTo: tagText.bottomAnchor, constant: CGFloat.standartIdentConstant/2),
             nameSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            nameSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.nameSubtitleHeightConstant),
+            nameSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight20Constant + 4),
             nameSubTitle.trailingAnchor.constraint(equalTo: editButton.leadingAnchor, constant: -CGFloat.minimumIdentConstant),
             
             profileButton.topAnchor.constraint(equalTo: nameSubTitle.topAnchor),
@@ -207,7 +207,7 @@ final class BlogViewController: UIViewController {
             profileButton.trailingAnchor.constraint(equalTo: nameSubTitle.trailingAnchor),
             profileButton.bottomAnchor.constraint(equalTo: profileButton.bottomAnchor),
             
-            dateSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.dateSubtitleHeightConstant),
+            dateSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight16Constant),
             dateSubTitle.topAnchor.constraint(equalTo: nameSubTitle.bottomAnchor),
             dateSubTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
             dateSubTitle.trailingAnchor.constraint(equalTo: editButton.leadingAnchor, constant: -CGFloat.minimumIdentConstant),

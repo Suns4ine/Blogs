@@ -18,17 +18,17 @@ final class StandartBlogTableViewCell: UITableViewCell, StandartBlogCellModelRep
     }
     
     static var identifier = "StandartBlogTableViewCell"
-    private var indentLeading: CGFloat = 12
-    private var indentTrailing: CGFloat = 12
-    private var indentTop: CGFloat = 12
-    private var indentBot: CGFloat = 12
+    private var indentLeading: CGFloat = CGFloat.standartIdentConstant/2
+    private var indentTrailing: CGFloat = CGFloat.standartIdentConstant/2
+    private var indentTop: CGFloat = CGFloat.standartIdentConstant/2
+    private var indentBot: CGFloat = CGFloat.standartIdentConstant/2
     
     private let savedView: UIView = {
         let view = UIView()
         view.backgroundColor = StandartColors.blogCellColor
         view.layer.borderColor = StandartColors.borderColor.cgColor
-        view.layer.borderWidth = 2
-        view.layer.cornerRadius = 16
+        view.layer.borderWidth = CGFloat.borderConstant
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -36,7 +36,7 @@ final class StandartBlogTableViewCell: UITableViewCell, StandartBlogCellModelRep
     private let shadowView: UIView = {
         let view = UIView()
         view.backgroundColor = StandartColors.shadowColor
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -85,22 +85,24 @@ final class StandartBlogTableViewCell: UITableViewCell, StandartBlogCellModelRep
             shadowView.topAnchor.constraint(equalTo: savedView.topAnchor),
             shadowView.leadingAnchor.constraint(equalTo: savedView.leadingAnchor),
             shadowView.trailingAnchor.constraint(equalTo: savedView.trailingAnchor),
-            shadowView.bottomAnchor.constraint(equalTo: savedView.bottomAnchor, constant: 4),
+            shadowView.bottomAnchor.constraint(equalTo: savedView.bottomAnchor, constant: CGFloat.shadowIdentConstant),
             
-            nameSubTitle.heightAnchor.constraint(equalToConstant: 16),
-            nameSubTitle.topAnchor.constraint(equalTo: savedView.topAnchor, constant: 32),
-            nameSubTitle.leadingAnchor.constraint(equalTo: savedView.leadingAnchor, constant: 24),
-            nameSubTitle.trailingAnchor.constraint(lessThanOrEqualTo: savedView.centerXAnchor, constant: 42),
+            nameSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight16Constant),
+            nameSubTitle.topAnchor.constraint(equalTo: savedView.topAnchor, constant: CGFloat.standartIdentConstant + 8),
+            nameSubTitle.leadingAnchor.constraint(equalTo: savedView.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            nameSubTitle.trailingAnchor.constraint(lessThanOrEqualTo: savedView.centerXAnchor,
+                                                   constant: CGFloat.standartIdentConstant + 20),
             
-            dateSubTitle.heightAnchor.constraint(equalToConstant: 16),
+            dateSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight16Constant),
             dateSubTitle.centerYAnchor.constraint(equalTo: nameSubTitle.centerYAnchor),
             dateSubTitle.leadingAnchor.constraint(equalTo: nameSubTitle.trailingAnchor),
-            dateSubTitle.trailingAnchor.constraint(equalTo: savedView.trailingAnchor, constant: -24),
+            dateSubTitle.trailingAnchor.constraint(equalTo: savedView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             
-            title.topAnchor.constraint(equalTo: nameSubTitle.bottomAnchor, constant: 8),
-            title.bottomAnchor.constraint(lessThanOrEqualTo: savedView.bottomAnchor, constant: -22),
-            title.leadingAnchor.constraint(equalTo: savedView.leadingAnchor, constant: 24),
-            title.trailingAnchor.constraint(lessThanOrEqualTo: savedView.trailingAnchor, constant: -24)
+            title.topAnchor.constraint(equalTo: nameSubTitle.bottomAnchor, constant: CGFloat.minimumIdentConstant + 3),
+            title.bottomAnchor.constraint(lessThanOrEqualTo: savedView.bottomAnchor,
+                                          constant: -(CGFloat.standartIdentConstant - 2)),
+            title.leadingAnchor.constraint(equalTo: savedView.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            title.trailingAnchor.constraint(lessThanOrEqualTo: savedView.trailingAnchor, constant: -CGFloat.standartIdentConstant)
         ])
     }
     

@@ -92,10 +92,10 @@ final class IconImage: UIView {
                 button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: clickAreaButton),
                 button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: clickAreaButton),
                 
-                shadowView.topAnchor.constraint(equalTo: image.topAnchor, constant: 2),
+                shadowView.topAnchor.constraint(equalTo: image.topAnchor, constant: CGFloat.shadowIdentConstant/2),
                 shadowView.leadingAnchor.constraint(equalTo: image.leadingAnchor),
                 shadowView.trailingAnchor.constraint(equalTo: image.trailingAnchor),
-                shadowView.bottomAnchor.constraint(equalTo: image.bottomAnchor, constant: 2)
+                shadowView.bottomAnchor.constraint(equalTo: image.bottomAnchor, constant: CGFloat.shadowIdentConstant/2)
             ])
         }
     }

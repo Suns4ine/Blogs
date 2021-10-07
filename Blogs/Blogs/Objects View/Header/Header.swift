@@ -11,8 +11,8 @@ import UIKit
 final class Header: UIView {
     
     //MARK: Create Variable
-    private var leadingSize: CGFloat = 24
-    private var tralingSize: CGFloat = 24
+    private var leadingSize: CGFloat = CGFloat.standartIdentConstant
+    private var tralingSize: CGFloat = CGFloat.standartIdentConstant
     private var text = ""
     
     private let title: Title = {
@@ -56,18 +56,18 @@ final class Header: UIView {
         super.layoutSubviews()
 
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 74),
+            self.heightAnchor.constraint(equalToConstant: CGFloat.headerHeightConstant),
 
             title.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            title.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 18),
-            title.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -24),
+            title.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: CGFloat.standartIdentConstant - 6),
+            title.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -CGFloat.standartIdentConstant),
             title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leadingSize),
             title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -tralingSize),
 
-            leftIcon.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            leftIcon.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: CGFloat.standartIdentConstant),
             leftIcon.centerYAnchor.constraint(equalTo: title.centerYAnchor),
 
-            rightIcon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            rightIcon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -CGFloat.standartIdentConstant),
             rightIcon.centerYAnchor.constraint(equalTo: title.centerYAnchor)
         ])
     }

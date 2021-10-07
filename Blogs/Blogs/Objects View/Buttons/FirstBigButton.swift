@@ -15,7 +15,7 @@ final class FirstBigButton: UIView {
     private let shadowView: UIView = {
         let view = UIView()
         view.layer.zPosition = -1
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
         view.backgroundColor = StandartColors.shadowColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -30,8 +30,8 @@ final class FirstBigButton: UIView {
         button.titleLabel?.font = .firstBigButtonFont
         button.setTitleColor(StandartColors.firstTextButtonColor, for: .normal)
         button.layer.borderColor = StandartColors.borderColor.cgColor
-        button.layer.borderWidth = 2
-        button.layer.cornerRadius = 16
+        button.layer.borderWidth = CGFloat.borderConstant
+        button.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
         button.layer.zPosition = 1
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -57,7 +57,7 @@ final class FirstBigButton: UIView {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 60),
+            self.heightAnchor.constraint(equalToConstant: CGFloat.buttonBigHeightConstant),
             
             button.topAnchor.constraint(equalTo: self.topAnchor),
             button.bottomAnchor.constraint(equalTo: self.bottomAnchor),
@@ -66,8 +66,8 @@ final class FirstBigButton: UIView {
             
             shadowView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             shadowView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            shadowView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
-            shadowView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 4)
+            shadowView.topAnchor.constraint(equalTo: self.topAnchor, constant: CGFloat.shadowIdentConstant),
+            shadowView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: CGFloat.shadowIdentConstant)
         ])
     }
     

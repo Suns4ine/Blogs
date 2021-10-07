@@ -18,15 +18,12 @@ final class ToggleButton: UIView {
     private var flowLeadingConstraint: NSLayoutConstraint?
     private (set) var flag = false
     private (set) var indexPath: IndexPath?
-    
-    private var height: CGFloat = 36
-    private var width: CGFloat = 60
 
     private lazy var sliderButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = StandartColors.circleToggleColor
-        button.layer.cornerRadius = 18
-        button.layer.borderWidth = 2
+        button.layer.cornerRadius = CGFloat.toggleButtonHeightConstant/2
+        button.layer.borderWidth = CGFloat.borderConstant
         button.layer.borderColor = StandartColors.borderColor.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(newCoordinate), for: .touchUpInside)
@@ -37,8 +34,8 @@ final class ToggleButton: UIView {
         let view = UIView()
         view.layer.zPosition = 2
         view.layer.borderColor = StandartColors.borderColor.cgColor
-        view.layer.borderWidth = 2
-        view.layer.cornerRadius = 8
+        view.layer.borderWidth = CGFloat.borderConstant
+        view.layer.cornerRadius = CGFloat.standartCornerRadiusConstant/2
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = backgroundOff
         return view
@@ -58,15 +55,15 @@ final class ToggleButton: UIView {
         super.layoutSubviews()
 
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: height),
-            self.widthAnchor.constraint(equalToConstant: width),
+            self.heightAnchor.constraint(equalToConstant: CGFloat.toggleButtonHeightConstant),
+            self.widthAnchor.constraint(equalToConstant: CGFloat.toggleButtonWidthConstant),
             
-            sliderButton.heightAnchor.constraint(equalToConstant: height),
-            sliderButton.widthAnchor.constraint(equalToConstant: height),
+            sliderButton.heightAnchor.constraint(equalToConstant: CGFloat.toggleButtonHeightConstant),
+            sliderButton.widthAnchor.constraint(equalToConstant: CGFloat.toggleButtonHeightConstant),
             sliderButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
-            circle.heightAnchor.constraint(equalToConstant: height - 20),
-            circle.widthAnchor.constraint(equalToConstant: height - 20),
+            circle.heightAnchor.constraint(equalToConstant: CGFloat.toggleButtonHeightConstant - 20),
+            circle.widthAnchor.constraint(equalToConstant: CGFloat.toggleButtonHeightConstant - 20),
             circle.centerYAnchor.constraint(equalTo: sliderButton.centerYAnchor),
             circle.centerXAnchor.constraint(equalTo: sliderButton.centerXAnchor),
         ])
@@ -78,15 +75,15 @@ final class ToggleButton: UIView {
         firstSetFlag()
         
         self.layer.borderColor = StandartColors.borderColor.cgColor
-        self.layer.borderWidth = 2
-        self.layer.cornerRadius = 18
+        self.layer.borderWidth = CGFloat.borderConstant
+        self.layer.cornerRadius = CGFloat.toggleButtonHeightConstant/2
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func firstSetFlag() {
         flowLeadingConstraint = sliderButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
                                                                       constant: flag ?
-                                                                        width - height : 0)
+                                                                        CGFloat.toggleButtonWidthConstant - CGFloat.toggleButtonHeightConstant : 0)
         flowLeadingConstraint?.isActive = true
         
         circle.backgroundColor = flag ? backgroundOn : backgroundOff
@@ -121,7 +118,7 @@ final class ToggleButton: UIView {
                            delay: 0.1,
                            options: .allowAnimatedContent,
                            animations: {
-                            self.flowLeadingConstraint?.constant = self.width - self.height
+                            self.flowLeadingConstraint?.constant = CGFloat.toggleButtonWidthConstant - CGFloat.toggleButtonHeightConstant
                             self.circle.backgroundColor = self.backgroundOn
                             self.flag = true
                             self.layoutIfNeeded()

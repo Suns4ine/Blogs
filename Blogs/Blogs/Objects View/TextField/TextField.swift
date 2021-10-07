@@ -41,8 +41,8 @@ final class TextField: UIView, UITextFieldDelegate {
         textField.tintColor = StandartColors.highlightTextColor
         textField.textColor = StandartColors.enteredTextColor
         textField.font = .secondTextFont
-        textField.layer.cornerRadius = 16
-        textField.layer.borderWidth = 2
+        textField.layer.cornerRadius = CGFloat.standartCornerRadiusConstant
+        textField.layer.borderWidth = CGFloat.borderConstant
         textField.layer.borderColor = StandartColors.titleColor.cgColor
         textField.backgroundColor = StandartColors.standartBackgroundColor
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -95,22 +95,22 @@ final class TextField: UIView, UITextFieldDelegate {
 
     override func layoutSubviews() {
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 106),
+            self.heightAnchor.constraint(equalToConstant: CGFloat.textFieldHeightConstant),
             
             nameSubTitle.topAnchor.constraint(equalTo: self.topAnchor),
-            nameSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 19),
+            nameSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: CGFloat.standartIdentConstant - 5),
             nameSubTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            nameSubTitle.heightAnchor.constraint(equalToConstant: 20),
+            nameSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight20Constant),
             
             errorSubTitle.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            errorSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 19),
+            errorSubTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: CGFloat.standartIdentConstant - 5),
             errorSubTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            errorSubTitle.heightAnchor.constraint(equalToConstant: 20),
+            errorSubTitle.heightAnchor.constraint(equalToConstant: CGFloat.subTitleHeight20Constant),
             
             textField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            textField.topAnchor.constraint(equalTo: nameSubTitle.bottomAnchor, constant: 5),
-            textField.bottomAnchor.constraint(equalTo: errorSubTitle.topAnchor, constant: -5)
+            textField.topAnchor.constraint(equalTo: nameSubTitle.bottomAnchor, constant: CGFloat.minimumIdentConstant),
+            textField.bottomAnchor.constraint(equalTo: errorSubTitle.topAnchor, constant: -CGFloat.minimumIdentConstant)
         ])
     }
     

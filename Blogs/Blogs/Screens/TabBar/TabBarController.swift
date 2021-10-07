@@ -68,7 +68,7 @@ final class TabBarController: UITabBarController {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-            borderView.heightAnchor.constraint(equalToConstant: 1),
+            borderView.heightAnchor.constraint(equalToConstant: CGFloat.borderConstant/2),
             borderView.leadingAnchor.constraint(equalTo: tabBar.leadingAnchor),
             borderView.trailingAnchor.constraint(equalTo: tabBar.trailingAnchor),
             borderView.topAnchor.constraint(equalTo: tabBar.topAnchor)
