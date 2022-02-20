@@ -868,7 +868,7 @@
 			isa = PBXGroup;
 			children = (
 				35E020F826C309E000C99280 /* Screens */,
-				35E020C726C1C8E400C99280 /* Objects View */,
+				35E020C726C1C8E400C99280 /* Views */,
 				35E020C326C1C79100C99280 /* Application */,
 				35E020C226C1C76B00C99280 /* Resources */,
 				355D935026EBBE5E009CA8E0 /* Sound Application */,
@@ -1230,7 +1230,7 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		35E020C726C1C8E400C99280 /* Objects View */ = {
+		35E020C726C1C8E400C99280 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				35DA31D526E0DD200069BEF1 /* Refresh Control */,
@@ -1240,7 +1240,7 @@
 				35FFE51826B01CA00032321B /* Header */,
 				35FFE51E26B0200E0032321B /* Titles */,
 			);
-			path = "Objects View";
+			path = Views;
 			sourceTree = "<group>";
 		};
 		35E020C826C1C93200C99280 /* TextField */ = {

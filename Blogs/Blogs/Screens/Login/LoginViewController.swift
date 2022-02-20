@@ -65,7 +65,6 @@ final class LoginViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.sizeToFit()
         button.setTitle(StandartLanguage.signUpButtonLoginScreen, for: .normal)
         button.titleLabel?.font = .fourthTextFont
         button.setTitleColor(StandartColors.textErrorColor, for: .normal)

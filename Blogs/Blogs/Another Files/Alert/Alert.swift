@@ -12,7 +12,6 @@ final class Alert: UIView {
     
     private let subTitle: SubTitle = {
         let subtitle = SubTitle(text: "SubTitle", size: .meb17)
-        subtitle.sizeToFit()
         return subtitle
     }()
     
@@ -41,8 +40,6 @@ final class Alert: UIView {
     private func setup() {
         [subTitle, text, cancelButton].forEach{ addSubview($0)}
         
-        
-        self.sizeToFit()
         self.layer.cornerRadius = 16
         self.layer.borderWidth = 2
         self.layer.borderColor = StandartColors.borderColor.cgColor

@@ -31,7 +31,6 @@ final class HelpViewController: UIViewController {
     private let emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleHelpScreen,
                           size: .meb36)
-        title.sizeToFit()
         return title
     }()
     

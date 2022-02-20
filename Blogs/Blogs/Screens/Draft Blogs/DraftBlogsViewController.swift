@@ -29,7 +29,6 @@ final class DraftBlogsViewController: UIViewController {
     private lazy var emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleDraftBlogsScreen,
                           size: .meb36)
-        title.sizeToFit()
         return title
     }()
     

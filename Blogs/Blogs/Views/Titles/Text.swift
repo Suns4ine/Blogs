@@ -25,7 +25,6 @@ final class Text: UIView, TextProtocol, UITextViewDelegate {
         text.textAlignment = .center
         text.font = .firstTextFont
         text.textColor = StandartColors.textColor
-        text.sizeToFit()
         text.showsVerticalScrollIndicator = false
         text.showsHorizontalScrollIndicator = false
         text.translatesAutoresizingMaskIntoConstraints = false

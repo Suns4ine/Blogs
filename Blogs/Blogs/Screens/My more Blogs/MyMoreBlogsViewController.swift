@@ -31,7 +31,6 @@ final class MyMoreBlogsViewController: UIViewController {
         let title = Title(text: StandartLanguage.emptyArrayTitleMyMoreBlogsScreen,
                           size: .meb36)
         title.editColor(color: StandartColors.anotherTitleColor)
-        title.sizeToFit()
         return title
     }()
     

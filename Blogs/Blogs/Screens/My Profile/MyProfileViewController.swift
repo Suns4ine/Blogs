@@ -119,7 +119,6 @@ final class MyProfileViewController: UIViewController {
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
         table.isScrollEnabled = false
-        table.sizeToFit()
         return table
     }()
     
@@ -141,7 +140,6 @@ final class MyProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.numberBlogTitleMyProfileScreen,
                              size: .meb24)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
     
@@ -149,7 +147,6 @@ final class MyProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.numberBlogNameTitleMyProfileScreen,
                              size: .mm15)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
     
@@ -157,7 +154,6 @@ final class MyProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.followersBlogTitleMyProfileScreen,
                              size: .meb24)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
 
@@ -165,7 +161,6 @@ final class MyProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.followersBlogNameTitleMyProfileScreen,
                              size: .mm15)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
     
@@ -173,7 +168,6 @@ final class MyProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.follovingBlogTitleMyProfileScreen,
                              size: .meb24)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
     
@@ -181,7 +175,6 @@ final class MyProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.follovingBlogNameTitleMyProfileScreen,
                              size: .mm15)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
     

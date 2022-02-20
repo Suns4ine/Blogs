@@ -17,7 +17,6 @@ final class Header: UIView {
     
     private let title: Title = {
         let title = Title(text: "Title", size: .meb27)
-        title.sizeToFit()
         return title
     }()
     

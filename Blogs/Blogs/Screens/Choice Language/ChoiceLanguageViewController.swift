@@ -40,7 +40,6 @@ final class ChoiceLanguageViewController: UIViewController {
     private let emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleChoiceLanguageScreen,
                           size: .meb36)
-        title.sizeToFit()
         return title
     }()
     

@@ -36,7 +36,6 @@ final class StartViewController: UIViewController {
     
     private let textLogin: Text = {
         let text = Text(text: StandartLanguage.textStartScreen, size: .mm17)
-        text.sizeToFit()
         return text
     }()
     
@@ -48,7 +47,6 @@ final class StartViewController: UIViewController {
         view.layer.borderWidth = CGFloat.borderConstant
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.zPosition = 2
-        view.sizeToFit()
         return view
     }()
     

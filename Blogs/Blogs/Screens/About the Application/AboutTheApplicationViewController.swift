@@ -31,7 +31,6 @@ final class AboutTheApplicationViewController: UIViewController {
     private lazy var emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleAboutTheApplicationScreen,
                           size: .meb36)
-        title.sizeToFit()
         return title
     }()
     

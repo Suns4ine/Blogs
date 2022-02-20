@@ -43,7 +43,6 @@ final class StandartBlogTableViewCell: UITableViewCell, StandartBlogCellModelRep
     
     private let nameSubTitle: SubTitle = {
         let subtitle = SubTitle(text: StandartLanguage.nameSubTitleStandartBlogCell, size: .mm15)
-        subtitle.sizeToFit()
         subtitle.editAligent(aligent: .left)
         subtitle.editColor(color: StandartColors.textColor)
         return subtitle
@@ -51,7 +50,6 @@ final class StandartBlogTableViewCell: UITableViewCell, StandartBlogCellModelRep
     
     private let dateSubTitle: SubTitle = {
         let subtitle = SubTitle(text: " • " + StandartLanguage.dateSubTitleStandartBlogCell, size: .mm15)
-        subtitle.sizeToFit()
         subtitle.editAligent(aligent: .left)
         subtitle.editColor(color: StandartColors.textColor)
         return subtitle

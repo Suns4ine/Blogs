@@ -10,10 +10,19 @@ import UIKit
 
 final class PageViewController: UIViewController {
     
-    //MARK: Create Variable
+    
+    //MARK: Public Property
+    
+    var viewModel: PageViewModel? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    //MARK: Private Property
+    
     private (set) var number = 0
     private var flowHeightConstraint: NSLayoutConstraint?
-    private var flowWigthConstraint: NSLayoutConstraint?
     private var centerXConstraint: NSLayoutConstraint?
     private var bottomConstraint: NSLayoutConstraint?
     
@@ -22,83 +31,76 @@ final class PageViewController: UIViewController {
         image.backgroundColor = .clear
         image.layer.zPosition = 2
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        //image.backgroundColor = .green
         return image
     }()
     
     private lazy var titlePage: Title = {
         let title = Title(text: StandartLanguage.titlePageScreen,
-                          size: Bool.isSmallScreen ? .meb24 : .meb36)
-        title.sizeToFit()
+                          size: .meb36)
         return title
     }()
     
     private lazy var subtitle: SubTitle = {
         let subtitle = SubTitle(text: StandartLanguage.subtitlePageScreen,
-                                size: Bool.isSmallScreen ? .mm15 : .mm21)
-        subtitle.sizeToFit()
+                                size: .mm21)
         return subtitle
     }()
     
-    //MARK: System override Functions
-    convenience init(pageModel: PageIdentifiable) {
-        self.init()
-        guard let pageModel = pageModel as? PageViewModel else { return }
-        
-        number = pageModel.numb
-        titlePage.editText(text: pageModel.title)
-        subtitle.editText(text: pageModel.subtitle)
-    }
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    //MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addView()
-        addConstraintImage()
-        setup()
-        self.view.backgroundColor = .clear
+        addSubviewsInView()
+        addLayoutSubviews()
+        updatePage()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    //MARK: Private Methods
+    
+    private func updateViews() {
+        guard let viewModel = viewModel else { return }
         
-        NSLayoutConstraint.activate([
-            titlePage.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat.titlePageTopIdentConstant),
-            titlePage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            titlePage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
-            titlePage.heightAnchor.constraint(equalToConstant: CGFloat.titlePageHeightIdentConstant),
-            
-            subtitle.topAnchor.constraint(equalTo: titlePage.bottomAnchor, constant: CGFloat.standartIdentConstant/2),
-            subtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            subtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
-            subtitle.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -(CGFloat.standartIdentConstant + 13))
-        ])
+        number = viewModel.numb
+        titlePage.editText(text: viewModel.title)
+        subtitle.editText(text: viewModel.subtitle)
     }
     
-    //MARK: Personal Functions
-    private func addView() {
+    private func addSubviewsInView() {
         [image, titlePage, subtitle].forEach{ view.addSubview($0)}
     }
     
-    private func addConstraintImage() {
+    private func addLayoutSubviews() {
+        NSLayoutConstraint.activate([
+            titlePage.topAnchor.constraint(equalTo: view.topAnchor,
+                                           constant: CGFloat.titlePageTopIdentConstant),
+            titlePage.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                               constant: CGFloat.standartIdentConstant),
+            titlePage.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                constant: -CGFloat.standartIdentConstant),
+            titlePage.heightAnchor.constraint(equalToConstant: CGFloat.titlePageHeightIdentConstant),
+            
+            subtitle.topAnchor.constraint(equalTo: titlePage.bottomAnchor,
+                                          constant: CGFloat.standartIdentConstant/2),
+            subtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                              constant: CGFloat.standartIdentConstant),
+            subtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                               constant: -CGFloat.standartIdentConstant),
+            subtitle.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor,
+                                             constant: -(CGFloat.standartIdentConstant + 13))
+        ])
+        
         centerXConstraint = image.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0)
         centerXConstraint?.isActive = true
         flowHeightConstraint = image.heightAnchor.constraint(equalToConstant: CGFloat.heightScreen/3.1)
         flowHeightConstraint?.isActive = true
-        flowWigthConstraint = image.widthAnchor.constraint(equalToConstant: (flowHeightConstraint?.constant ?? 240)/1.083)
-        flowWigthConstraint?.isActive = true
         bottomConstraint = image.bottomAnchor.constraint(equalTo: titlePage.topAnchor, constant: -10)
         bottomConstraint?.isActive = true
     }
     
-    private func setup() {
+    private func updatePage() {
         switch number {
         case 0:
             image.image = UIImage(named: "peep-107")
@@ -113,7 +115,6 @@ final class PageViewController: UIViewController {
         case 1:
             image.image = UIImage(named: "peep-sitting-19")
             flowHeightConstraint?.constant = CGFloat.heightScreen/2.483
-            flowWigthConstraint?.constant =  (flowHeightConstraint?.constant ?? 218)/1.5
             centerXConstraint?.constant = 20
             bottomConstraint?.constant = 0
            
@@ -125,11 +126,10 @@ final class PageViewController: UIViewController {
                             self.subtitle.editColor(color: .secondBlack)
                                         })
         case 2:
-            image.image = UIImage(named: "peep-106")
+            image.image = UIImage(named: "peep-108")
             flowHeightConstraint?.constant = CGFloat.heightScreen/2.76
-            flowWigthConstraint?.constant = (flowHeightConstraint?.constant ?? 255)/1.153
             centerXConstraint?.constant = 10
-            bottomConstraint?.constant = -10
+            bottomConstraint?.constant = 0
             
             UIView.animate(withDuration: 0.1,
                            delay: 0.1,

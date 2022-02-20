@@ -121,7 +121,6 @@ final class AnotherProfileViewController: UIViewController {
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
         table.isScrollEnabled = false
-        table.sizeToFit()
         return table
     }()
     
@@ -144,7 +143,6 @@ final class AnotherProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.numberBlogTitleAnotherProfileScreen,
                              size: .meb24)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
     
@@ -152,7 +150,6 @@ final class AnotherProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.numberBlogNameTitleAnotherProfileScreen,
                              size: .mm15)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
     
@@ -160,7 +157,6 @@ final class AnotherProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.followersBlogTitleAnotherProfileScreen,
                              size: .meb24)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
 
@@ -168,7 +164,6 @@ final class AnotherProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.followersBlogNameTitleAnotherProfileScreen,
                              size: .mm15)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
     
@@ -176,7 +171,6 @@ final class AnotherProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.follovingBlogTitleAnotherProfileScreen,
                              size: .meb24)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
     
@@ -184,7 +178,6 @@ final class AnotherProfileViewController: UIViewController {
         let title = SubTitle(text: StandartLanguage.follovingBlogNameTitleAnotherProfileScreen,
                              size: .mm15)
         title.editColor(color: StandartColors.anotherSubTitleColor)
-        title.sizeToFit()
         return title
     }()
     

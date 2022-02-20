@@ -32,7 +32,6 @@ final class SomeViewController: UIViewController {
     private lazy var toggleSwitchButton: ToggleButton = {
        let swiftySwitch = ToggleButton()
         swiftySwitch.addTarget(self, action: #selector(backController), for: .touchUpInside)
-        //swiftySwitch.sizeToFit()
         swiftySwitch.translatesAutoresizingMaskIntoConstraints = false
         return swiftySwitch
     }()

@@ -42,14 +42,12 @@ final class SettingTableViewCell: UITableViewCell, SettingCellModelRepresentable
     private let title: SubTitle = {
         let subtitle = SubTitle(text: StandartLanguage.titleSettingCell, size: .meb21)
         subtitle.editAligent(aligent: .natural)
-        subtitle.sizeToFit()
         return subtitle
     }()
     
     private let subtitle: SubTitle = {
         let subtitle = SubTitle(text: StandartLanguage.subtitleSettingCell, size: .mm15)
         subtitle.editAligent(aligent: .natural)
-        subtitle.sizeToFit()
         return subtitle
     }()
     

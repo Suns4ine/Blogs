@@ -29,7 +29,6 @@ final class SavedViewController: UIViewController {
     private let emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleSavedScreen,
                           size: .meb36)
-        title.sizeToFit()
         return title
     }()
     

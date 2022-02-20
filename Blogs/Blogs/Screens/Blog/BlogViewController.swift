@@ -34,7 +34,6 @@ final class BlogViewController: UIViewController {
         let title = Title(text: StandartLanguage.titleBlogMyBlogScreen,
             size: .meb36)
         title.editAligent(aligent: .natural)
-        title.sizeToFit()
         return title
     }()
     
@@ -62,7 +61,6 @@ final class BlogViewController: UIViewController {
     private let editButton: FirstSmallButton = {
         let button = FirstSmallButton(text: StandartLanguage.editButtonMyBlogScreen)
         button.addTarget(self, action: #selector(tapEditButton))
-        button.sizeToFit()
         button.isHidden = true
         return button
     }()
@@ -70,7 +68,6 @@ final class BlogViewController: UIViewController {
     private let followButton: FirstSmallButton = {
         let button = FirstSmallButton(text: StandartLanguage.followButtonAnotherBlogScreen)
         button.addTarget(self, action: #selector(tapFollowButton))
-        button.sizeToFit()
         button.isHidden = true
         return button
     }()
@@ -111,7 +108,6 @@ final class BlogViewController: UIViewController {
     private let likeSubtitle: SubTitle = {
         let subtitle = SubTitle(text: StandartLanguage.likeSubtitleMyBlogScreen,
                                 size: .meb17)
-        subtitle.sizeToFit()
         subtitle.editAligent(aligent: .right)
         return subtitle
     }()

@@ -40,7 +40,6 @@ final class ChoiceColorViewController: UIViewController {
     private let emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleChoiceColorScreen,
                           size: .meb36)
-        title.sizeToFit()
         return title
     }()
     

@@ -24,8 +24,8 @@ final class Title: UIView, TextProtocol {
         label.font = .firstTitleFont
         label.textColor = StandartColors.titleColor
         label.numberOfLines = 0
-        label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     

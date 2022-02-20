@@ -37,7 +37,6 @@ final class SignUpViewController: UIViewController {
     private let text: Text = {
         let text = Text(text: StandartLanguage.textSignUpScreen, size: .mm17)
         text.editAligent(aligent: .left)
-        text.sizeToFit()
         return text
     }()
     

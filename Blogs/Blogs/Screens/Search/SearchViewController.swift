@@ -65,7 +65,6 @@ final class SearchViewController: UIViewController {
     private let emptyArrayTitle: Title = {
         let title = Title(text: StandartLanguage.emptyArrayTitleSearchScreen,
                           size: .meb36)
-        title.sizeToFit()
         return title
     }()
     

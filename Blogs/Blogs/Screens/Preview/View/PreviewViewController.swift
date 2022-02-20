@@ -85,7 +85,6 @@ final class PreviewViewController: UIViewController , PageProtocol {
     
     private let sliderView: UIView = {
         let view = UIView()
-        view.sizeToFit()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

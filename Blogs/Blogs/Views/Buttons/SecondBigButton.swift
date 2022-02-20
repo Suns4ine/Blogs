@@ -37,7 +37,6 @@ final class SecondBigButton: UIView {
         label.textAlignment = .center
         label.textColor = StandartColors.secondTextButtonColor
         label.numberOfLines = 1
-        label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

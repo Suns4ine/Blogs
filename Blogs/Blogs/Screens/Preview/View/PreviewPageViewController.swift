@@ -53,7 +53,12 @@ final class PreviewPageViewController: UIPageViewController {
         guard let section = section else { return }
         
         for model in section.rows {
-            arrayViewControllers.append(PageViewController(pageModel: model))
+            guard let pageModel = model as? PageViewModel else { return }
+            
+            let pageViewController = PageViewController()
+            pageViewController.viewModel = pageModel
+            
+            arrayViewControllers.append(pageViewController)
         }
         setViewControllers([arrayViewControllers[numbPage]], direction: .forward, animated: true, completion: nil)
     }

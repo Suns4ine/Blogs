@@ -62,20 +62,17 @@ final class BlogsTableViewCell: UITableViewCell, BlogCellModelRepresentable {
     
     private let dateSubTitle: SubTitle = {
         let subtitle = SubTitle(text: StandartLanguage.dateSubTitleBlogCell, size: .mm15)
-        subtitle.sizeToFit()
         return subtitle
     }()
     
     private let nameSubTitle: SubTitle = {
         let subtitle = SubTitle(text: StandartLanguage.nameSubTitleBlogCell, size: .mb17)
-        subtitle.sizeToFit()
         subtitle.editAligent(aligent: .left)
         return subtitle
     }()
     
     private let tagSubTitle: SubTitle = {
         let subtitle = SubTitle(text: StandartLanguage.tagSubTitleBlogCell, size: .mm15)
-        subtitle.sizeToFit()
         subtitle.editAligent(aligent: .right)
         return subtitle
     }()
