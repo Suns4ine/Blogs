@@ -79,4 +79,6 @@ enum ImageAssets: String {
     case peep107 = "peep-107"
     case peep108 = "peep-108"
     case peepSitting19 = "peep-sitting-19"
+    case peepStanding1 = "peep-standing-1"
+    case peepStanding32 = "peep-standing-32"
 }

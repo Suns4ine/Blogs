@@ -20,7 +20,7 @@ final class PreviewPageViewController: UIPageViewController {
     private var section: PageSectionRowPresentable?
     private var arrayViewControllers: [UIViewController] = []
     
-    //MARK: Life Cycle
+    //MARK: Inits
     
     convenience init(section: PageSectionRowPresentable) {
         self.init()
@@ -38,6 +38,8 @@ final class PreviewPageViewController: UIPageViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,19 +72,22 @@ final class PreviewPageViewController: UIPageViewController {
         guard let section = section else { return }
         
         for model in section.rows {
-            guard let pageModel = model as? PageViewModel else { return }
-            
             let pageViewController = PageViewController()
-            pageViewController.viewModel = pageModel
+            pageViewController.viewModel = model
             
             arrayViewControllers.append(pageViewController)
         }
-        setViewControllers([arrayViewControllers[numbPage]], direction: .forward, animated: true, completion: nil)
+        setViewControllers([arrayViewControllers[numbPage]],
+                           direction: .forward,
+                           animated: true,
+                           completion: nil)
     }
 }
 
 extension PreviewPageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? PageViewController else { return nil }
         if let index = arrayViewControllers.firstIndex(of: viewController) {
             if index > 0 {
@@ -93,7 +98,8 @@ extension PreviewPageViewController: UIPageViewControllerDelegate, UIPageViewCon
         return nil
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? PageViewController else { return nil }
         if let index = arrayViewControllers.lastIndex(of: viewController) {
             if index < arrayViewControllers.count - 1 {

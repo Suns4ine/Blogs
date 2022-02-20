@@ -10,9 +10,10 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
-	private let output: LoginViewOutput
+    //MARK: Private Property
     
-    //MARK: Create Variable
+    private let output: LoginViewOutput
+    
     private let header: Header = {
         let header = Header(title: StandartLanguage.headerTitleLoginScreen,
                             leftIcon: .init(icon: .outline3, size: .size48),
@@ -72,7 +73,8 @@ final class LoginViewController: UIViewController {
         return button
     }()
     
-    //MARK: System override Functions
+    //MARK: Inits
+    
     init(output: LoginViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
@@ -82,6 +84,8 @@ final class LoginViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -107,7 +111,8 @@ final class LoginViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
     
-    //MARK: Personal Functions
+    //MARK: Private Methods
+    
     private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),

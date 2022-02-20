@@ -9,23 +9,27 @@
 import UIKit
 
 final class StartViewController: UIViewController {
-	private let output: StartViewOutput
     
-    //MARK: Create Variable
+    //MARK: Private Property
+    
+    private let output: StartViewOutput
+    
     private let leftMan: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "peep-standing-1")
+        image.image = UIImage(named: ImageAssets.peepStanding1.rawValue)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.zPosition = 1
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
     private let rightMan: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "svg-editor-image")
+        image.image = UIImage(named: ImageAssets.peepStanding32.rawValue)
         image.transform = CGAffineTransform(scaleX: -1, y: 1)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.zPosition = 1
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -50,6 +54,16 @@ final class StartViewController: UIViewController {
         return view
     }()
     
+    private let loginStackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.zPosition = 2
+        view.axis = .vertical
+        view.distribution = .fill
+        view.spacing = CGFloat.standartIdentConstant - 8
+        return view
+    }()
+    
     private let emailButton: SecondBigButton = {
         let button = SecondBigButton(text: StandartLanguage.mailButtonStartScreen, icon: .mail)
         button.addTarget(self, action: #selector(tapEmailButton))
@@ -70,7 +84,8 @@ final class StartViewController: UIViewController {
         return button
     }()
     
-    //MARK: System override Functions
+    //MARK: Inits
+    
     init(output: StartViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
@@ -80,6 +95,8 @@ final class StartViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: Life Cycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -90,51 +107,41 @@ final class StartViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 	}
     
-    //MARK: Personal Functions
+    //MARK: Private Methods
+    
     private func addLayoutSubviews() {
         NSLayoutConstraint.activate([
-            loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
-            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: CGFloat.loginViewIdentConstant),
+            loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                               constant: CGFloat.standartIdentConstant),
+            loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                constant: -CGFloat.standartIdentConstant),
+            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor,
+                                               constant: CGFloat.loginViewIdentConstant),
 
-            titleLogin.centerXAnchor.constraint(equalTo: loginView.centerXAnchor),
-            titleLogin.topAnchor.constraint(equalTo: loginView.topAnchor, constant: CGFloat.standartIdentConstant),
-            titleLogin.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            titleLogin.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
-
-            textLogin.topAnchor.constraint(equalTo: titleLogin.bottomAnchor, constant: CGFloat.standartIdentConstant - 8),
-            textLogin.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            textLogin.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
-
-            emailButton.topAnchor.constraint(equalTo: textLogin.bottomAnchor, constant: CGFloat.standartIdentConstant - 8),
-            emailButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            emailButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
-
-            facebookButton.topAnchor.constraint(equalTo: emailButton.bottomAnchor, constant: CGFloat.standartIdentConstant - 8),
-            facebookButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            facebookButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
-
-            twitterButton.topAnchor.constraint(equalTo: facebookButton.bottomAnchor, constant: CGFloat.standartIdentConstant - 8),
-            twitterButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            twitterButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor, constant: -CGFloat.standartIdentConstant),
-            twitterButton.bottomAnchor.constraint(equalTo: loginView.bottomAnchor, constant: -(CGFloat.standartIdentConstant - 2)),
+            loginStackView.topAnchor.constraint(equalTo: loginView.topAnchor,
+                                                constant: CGFloat.standartIdentConstant),
+            loginStackView.leadingAnchor.constraint(equalTo: loginView.leadingAnchor,
+                                                    constant: CGFloat.standartIdentConstant),
+            loginStackView.trailingAnchor.constraint(equalTo: loginView.trailingAnchor,
+                                                    constant: -CGFloat.standartIdentConstant),
+            loginStackView.bottomAnchor.constraint(equalTo: loginView.bottomAnchor,
+                                              constant: -(CGFloat.standartIdentConstant - 2)),
             
-            leftMan.heightAnchor.constraint(equalToConstant: 462),
-            leftMan.widthAnchor.constraint(equalToConstant: 174),
+            leftMan.heightAnchor.constraint(equalToConstant: view.bounds.height/1.6),
             leftMan.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             leftMan.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             
-            rightMan.heightAnchor.constraint(equalToConstant: 503),
-            rightMan.widthAnchor.constraint(equalToConstant: 222),
-            rightMan.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            rightMan.heightAnchor.constraint(equalToConstant: view.bounds.height/1.6),
+            rightMan.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 25),
             rightMan.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 3),
         ])
     }
     
     private func addSubViewInView() {
-        [loginView, leftMan, rightMan].forEach{ view.addSubview($0)}
+        [ loginView, leftMan, rightMan].forEach{ view.addSubview($0)}
+        loginView.addSubview(loginStackView)
         [titleLogin, textLogin, emailButton,
-         facebookButton, twitterButton].forEach{ loginView.addSubview($0)}
+         facebookButton, twitterButton].forEach{ loginStackView.addArrangedSubview($0)}
     }
     
     @objc

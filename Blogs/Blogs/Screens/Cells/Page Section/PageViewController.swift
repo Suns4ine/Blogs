@@ -12,7 +12,7 @@ final class PageViewController: UIViewController {
     
     //MARK: Public Property
     
-    var viewModel: PageViewModel? {
+    var viewModel: PageIdentifiable? {
         didSet {
             updateViews()
         }
@@ -59,7 +59,7 @@ final class PageViewController: UIViewController {
     //MARK: Private Methods
     
     private func updateViews() {
-        guard let viewModel = viewModel else { return }
+        guard let viewModel = viewModel as? PageViewModel else { return }
         
         number = viewModel.numb
         titlePage.editText(text: viewModel.title)
