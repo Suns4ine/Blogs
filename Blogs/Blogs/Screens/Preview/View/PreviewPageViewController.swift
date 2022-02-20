@@ -10,14 +10,18 @@ import UIKit
 
 final class PreviewPageViewController: UIPageViewController {
     
-    //MARK: Create Variable
+    //MARK: Public Property
+    
     var delegatePage: PageProtocol?
-    private var section: PageSectionRowPresentable?
+    
+    //MARK: Private Property
     
     private var numbPage = 0
+    private var section: PageSectionRowPresentable?
     private var arrayViewControllers: [UIViewController] = []
     
-    //MARK: System override Functions
+    //MARK: Life Cycle
+    
     convenience init(section: PageSectionRowPresentable) {
         self.init()
         
@@ -25,8 +29,8 @@ final class PreviewPageViewController: UIPageViewController {
     }
     
     private override init(transitionStyle style: UIPageViewController.TransitionStyle,
-                  navigationOrientation: UIPageViewController.NavigationOrientation,
-                  options: [UIPageViewController.OptionsKey : Any]? = nil) {
+                          navigationOrientation: UIPageViewController.NavigationOrientation,
+                          options: [UIPageViewController.OptionsKey : Any]? = nil) {
 
         super.init(transitionStyle: .scroll, navigationOrientation: navigationOrientation, options: nil)
     }
@@ -46,7 +50,20 @@ final class PreviewPageViewController: UIPageViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    //MARK: Personal Functions
+    //MARK: Public Methods
+    
+    //Изменить страницу (вызывается из вне, по кнопке)
+    func nextPage() {
+        numbPage = numbPage + 1 > arrayViewControllers.count - 1 ? numbPage : numbPage + 1
+        
+        setViewControllers([arrayViewControllers[numbPage]],
+                           direction: .forward,
+                           animated: true,
+                           completion: nil)
+        delegatePage?.numbPage(numb: numbPage)
+    }
+    
+    //MARK: Private Methods
     
     //Заполняем массив контроллеров нашими viewModel'ями из section
     private func fillArrayViewControllers() {
@@ -61,17 +78,6 @@ final class PreviewPageViewController: UIPageViewController {
             arrayViewControllers.append(pageViewController)
         }
         setViewControllers([arrayViewControllers[numbPage]], direction: .forward, animated: true, completion: nil)
-    }
-    
-    //Изменить страницу (вызывается из вне, по кнопке)
-    func nextPage() {
-        numbPage = numbPage + 1 > arrayViewControllers.count - 1 ? numbPage : numbPage + 1
-        
-        setViewControllers([arrayViewControllers[numbPage]],
-                           direction: .forward,
-                           animated: true,
-                           completion: nil)
-        delegatePage?.numbPage(numb: numbPage)
     }
 }
 
@@ -107,5 +113,4 @@ extension PreviewPageViewController: UIPageViewControllerDelegate, UIPageViewCon
             delegatePage?.numbPage(numb: vc.number)
         }
     }
-
 }

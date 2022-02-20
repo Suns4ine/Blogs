@@ -74,3 +74,9 @@ enum Icons: String {
     case trash2 = "trash-2"
     case none = ""
 }
+
+enum ImageAssets: String {
+    case peep107 = "peep-107"
+    case peep108 = "peep-108"
+    case peepSitting19 = "peep-sitting-19"
+}

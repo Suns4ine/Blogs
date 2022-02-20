@@ -10,7 +10,6 @@ import UIKit
 
 final class PageViewController: UIViewController {
     
-    
     //MARK: Public Property
     
     var viewModel: PageViewModel? {
@@ -32,7 +31,6 @@ final class PageViewController: UIViewController {
         image.layer.zPosition = 2
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
-        //image.backgroundColor = .green
         return image
     }()
     
@@ -103,7 +101,7 @@ final class PageViewController: UIViewController {
     private func updatePage() {
         switch number {
         case 0:
-            image.image = UIImage(named: "peep-107")
+            image.image = UIImage(named: ImageAssets.peep107.rawValue)
            
             UIView.animate(withDuration: 0.1,
                            delay: 0.1,
@@ -113,7 +111,7 @@ final class PageViewController: UIViewController {
                             self.subtitle.editColor(color: .secondWhite)
                                         })
         case 1:
-            image.image = UIImage(named: "peep-sitting-19")
+            image.image = UIImage(named: ImageAssets.peepSitting19.rawValue)
             flowHeightConstraint?.constant = CGFloat.heightScreen/2.483
             centerXConstraint?.constant = 20
             bottomConstraint?.constant = 0
@@ -126,7 +124,7 @@ final class PageViewController: UIViewController {
                             self.subtitle.editColor(color: .secondBlack)
                                         })
         case 2:
-            image.image = UIImage(named: "peep-108")
+            image.image = UIImage(named: ImageAssets.peep108.rawValue)
             flowHeightConstraint?.constant = CGFloat.heightScreen/2.76
             centerXConstraint?.constant = 10
             bottomConstraint?.constant = 0

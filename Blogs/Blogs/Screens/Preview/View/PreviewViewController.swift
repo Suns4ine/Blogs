@@ -13,12 +13,14 @@ protocol PageProtocol {
 }
 
 final class PreviewViewController: UIViewController , PageProtocol {
-
-	private let output: PreviewViewOutput
     
-    //MARK: Create Variable
+    //MARK: Private Property
+    
+    private let output: PreviewViewOutput
+    
     private var section: PageSectionRowPresentable = PageSectionViewModel()
     private var twoButtonsBottonConstraint: NSLayoutConstraint?
+    private var smallCircleArray = [UIView]()
     
     private lazy var pageViewController: PreviewPageViewController = {
         let controller = PreviewPageViewController(section: section)
@@ -32,36 +34,6 @@ final class PreviewViewController: UIViewController , PageProtocol {
         let view = UIView()
         view.layer.zPosition = 1
         view.backgroundColor = .firstYellow
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let smallCircleOne: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.layer.cornerRadius = CGFloat.smallCircleHeightConstant/2
-        view.layer.borderWidth = CGFloat.borderConstant
-        view.layer.borderColor = UIColor.firstBlack.cgColor
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let smallCircleTwo: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.layer.cornerRadius = CGFloat.smallCircleHeightConstant/2
-        view.layer.borderWidth = CGFloat.borderConstant
-        view.layer.borderColor = UIColor.firstBlack.cgColor
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let smallCircleThree: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.layer.cornerRadius = CGFloat.smallCircleHeightConstant/2
-        view.layer.borderWidth = CGFloat.borderConstant
-        view.layer.borderColor = UIColor.firstBlack.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -83,13 +55,17 @@ final class PreviewViewController: UIViewController , PageProtocol {
         return button
     }()
     
-    private let sliderView: UIView = {
-        let view = UIView()
+    private let sliderStackView: UIStackView = {
+        let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.distribution = .fillEqually
+        view.axis = .horizontal
+        view.spacing = 8
         return view
     }()
     
-    //MARK: System override Functions
+    //MARK: Inits
+    
     init(output: PreviewViewOutput) {
         self.output = output
 
@@ -101,20 +77,35 @@ final class PreviewViewController: UIViewController , PageProtocol {
         fatalError("init(coder:) has not been implemented")
     }
 
+    //MARK: Life Cycle
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
         output.fetchViewPages()
         
         addSubViewInView()
-        editView(numb: 0)
         add(pageViewController)
         addLayoutSubviews()
+        editColorViews(numb: 0)
         
         view.backgroundColor = .firstBlue
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    //MARK: Personal Functions
+    //MARK: Public Methods
+    
+    func numbPage(numb: Int) {
+        output.newPage(numb: numb)
+        editColorViews(numb: numb)
+    }
+    
+    //MARK: Private Methods
+    
+    private func addSubViewInView() {
+        [twoButtons, circle, sliderStackView, startedButton].forEach{ view.addSubview($0) }
+        smallCircleArray.forEach{ sliderStackView.addArrangedSubview($0) }
+    }
+    
     private func addLayoutSubviews() {
         
         twoButtonsBottonConstraint = twoButtons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
@@ -122,42 +113,28 @@ final class PreviewViewController: UIViewController , PageProtocol {
         twoButtonsBottonConstraint?.isActive = true
         
         NSLayoutConstraint.activate([
-            twoButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            twoButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            twoButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                constant: CGFloat.standartIdentConstant),
+            twoButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                 constant: -CGFloat.standartIdentConstant),
             
             startedButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
                                                   constant: -CGFloat.standartIdentConstant),
-            startedButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            startedButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            startedButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                   constant: CGFloat.standartIdentConstant),
+            startedButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                    constant: -CGFloat.standartIdentConstant),
             
             circle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            circle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: CGFloat.standartIdentConstant + 14),
+            circle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                        constant: CGFloat.standartIdentConstant + 14),
             circle.widthAnchor.constraint(equalToConstant: view.frame.width - CGFloat.circlePreviewIdentConstant),
             circle.heightAnchor.constraint(equalToConstant: view.frame.width - CGFloat.circlePreviewIdentConstant),
             
-            smallCircleOne.topAnchor.constraint(equalTo: sliderView.topAnchor),
-            smallCircleOne.leadingAnchor.constraint(equalTo: sliderView.leadingAnchor),
-            smallCircleOne.bottomAnchor.constraint(equalTo: sliderView.bottomAnchor),
-            smallCircleOne.heightAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
-            smallCircleOne.widthAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
-            
-            smallCircleTwo.topAnchor.constraint(equalTo: sliderView.topAnchor),
-            smallCircleTwo.leadingAnchor.constraint(equalTo: smallCircleOne.trailingAnchor,
-                                                    constant: CGFloat.minimumIdentConstant + 3),
-            smallCircleTwo.heightAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
-            smallCircleTwo.widthAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
-            
-            smallCircleThree.topAnchor.constraint(equalTo: sliderView.topAnchor),
-            smallCircleThree.leadingAnchor.constraint(equalTo: smallCircleTwo.trailingAnchor,
-                                                      constant: CGFloat.minimumIdentConstant + 3),
-            smallCircleThree.trailingAnchor.constraint(equalTo: sliderView.trailingAnchor),
-            smallCircleThree.heightAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
-            smallCircleThree.widthAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant),
-            
-            sliderView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                                        sliderView.bottomAnchor.constraint(equalTo: startedButton.topAnchor,
-                                                                           constant: -(CGFloat.standartIdentConstant - 4)),
-            
+            sliderStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            sliderStackView.bottomAnchor.constraint(equalTo: startedButton.topAnchor,
+                                                    constant: -(CGFloat.standartIdentConstant - 4)),
+                        
             pageViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
             pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -168,13 +145,8 @@ final class PreviewViewController: UIViewController , PageProtocol {
         circle.layer.cornerRadius = (view.frame.width - CGFloat.circlePreviewIdentConstant) / 2
     }
     
-    func numbPage(numb: Int) {
-        output.newPage(numb: numb)
-        editView(numb: numb)
-    }
-    
     //Изменяем цвета, в зависимости от номера страницы
-    private func editView(numb: Int) {
+    private func editColorViews(numb: Int) {
         switch numb {
         case 0:
             UIView.animate(withDuration: 0.25,
@@ -183,8 +155,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
                            animations: {
                             self.circle.backgroundColor = .firstYellow
                             self.view.backgroundColor = .firstBlue
-                            self.smallCircleOne.backgroundColor = .firstSunnyRed
-                            self.smallCircleTwo.backgroundColor = .clear
+                            self.updateSmallCircles(numb: 1, color: .firstSunnyRed)
                             })
         case 1:
             UIView.animate(withDuration: 0.25,
@@ -193,9 +164,7 @@ final class PreviewViewController: UIViewController , PageProtocol {
                            animations: {
                             self.circle.backgroundColor = .firstSunnyRed
                             self.view.backgroundColor = .firstWhite
-                            self.smallCircleOne.backgroundColor = .firstSunnyRed
-                            self.smallCircleTwo.backgroundColor = .firstSunnyRed
-                            self.smallCircleThree.backgroundColor = .clear
+                            self.updateSmallCircles(numb: 2, color: .firstSunnyRed)
                             })
         case 2:
             UIView.animate(withDuration: 0.25,
@@ -204,17 +173,42 @@ final class PreviewViewController: UIViewController , PageProtocol {
                            animations: {
                             self.circle.backgroundColor = .firstYellow
                             self.view.backgroundColor = .firstSunnyRed
-                            self.smallCircleOne.backgroundColor = .firstYellow
-                            self.smallCircleTwo.backgroundColor = .firstYellow
-                            self.smallCircleThree.backgroundColor = .firstYellow
+                            self.updateSmallCircles(numb: 3, color: .firstYellow)
                             })
         default: break
         }
     }
     
-    private func addSubViewInView() {
-        [twoButtons, circle, sliderView, startedButton].forEach{ view.addSubview($0) }
-        [smallCircleOne, smallCircleTwo, smallCircleThree].forEach{ sliderView.addSubview($0) }
+    private func addSmallCircleInArray(numb: Int) {
+        guard numb > 0 else { return }
+        smallCircleArray = []
+        
+        for _ in 0..<numb {
+            let circle = UIView()
+            circle.layer.cornerRadius = CGFloat.smallCircleHeightConstant/2
+            circle.layer.borderWidth = CGFloat.borderConstant
+            circle.layer.borderColor = UIColor.firstBlack.cgColor
+            circle.translatesAutoresizingMaskIntoConstraints = false
+            
+            circle.heightAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant).isActive = true
+            circle.widthAnchor.constraint(equalToConstant: CGFloat.smallCircleHeightConstant).isActive = true
+            
+            smallCircleArray.append(circle)
+        }
+        
+        sliderStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        smallCircleArray.forEach{ sliderStackView.addArrangedSubview($0) }
+    }
+    
+    private func updateSmallCircles(numb: Int, color: UIColor) {
+        
+        for count in 0..<smallCircleArray.count {
+            if count < numb {
+                smallCircleArray[count].backgroundColor = color
+            } else {
+                smallCircleArray[count].backgroundColor = .clear
+            }
+        }
     }
     
     @objc
@@ -252,5 +246,6 @@ extension PreviewViewController: PreviewViewInput {
     
     func reloadData(for section: PageSectionViewModel) {
         self.section = section
+        addSmallCircleInArray(numb: section.rows.count)
     }
 }
