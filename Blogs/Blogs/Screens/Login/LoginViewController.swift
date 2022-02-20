@@ -153,8 +153,8 @@ final class LoginViewController: UIViewController {
         let array = [header, logo, LoginTitle, loginTextField,
                      passwordTextField, signInButton, signUpButton]
         
-        [scrollView].forEach{ view.addSubview($0)}
-        array.forEach{ scrollView.addSubview($0)}
+        [scrollView].forEach{ view.addSubview($0) }
+        array.forEach{ scrollView.addSubview($0) }
     }
     
     @objc

@@ -56,6 +56,7 @@ final class TabBarController: UITabBarController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         tabBar.isTranslucent = false
+        tabBar.backgroundColor = StandartColors.tabBarBackgroundColor
         tabBar.tintColor = StandartColors.selectedItemTintColor
         tabBar.unselectedItemTintColor = StandartColors.smallIconColor
         tabBar.barTintColor = StandartColors.tabBarBackgroundColor

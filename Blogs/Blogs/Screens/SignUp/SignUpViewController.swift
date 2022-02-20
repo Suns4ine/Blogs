@@ -29,6 +29,15 @@ final class SignUpViewController: UIViewController {
         return scroll
     }()
     
+    private let stackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.distribution = .fillEqually
+        view.spacing = CGFloat.minimumIdentConstant
+        return view
+    }()
+    
     private let signUpTitle: Title = {
         let title = Title(text: StandartLanguage.titleSignUpScreen, size: .meb36)
         return title
@@ -116,38 +125,40 @@ final class SignUpViewController: UIViewController {
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            signUpTitle.topAnchor.constraint(equalTo: header.bottomAnchor, constant: CGFloat.standartIdentConstant/2),
-            signUpTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
+            signUpTitle.topAnchor.constraint(equalTo: header.bottomAnchor,
+                                             constant: CGFloat.standartIdentConstant/2),
+            signUpTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                 constant: CGFloat.standartIdentConstant),
             
-            text.topAnchor.constraint(equalTo: signUpTitle.bottomAnchor, constant: CGFloat.standartIdentConstant/2),
-            text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            text.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
-
-            tagnameTextField.topAnchor.constraint(equalTo: text.bottomAnchor, constant: CGFloat.standartIdentConstant - 9),
-            tagnameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            tagnameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            text.topAnchor.constraint(equalTo: signUpTitle.bottomAnchor,
+                                      constant: CGFloat.standartIdentConstant/2),
+            text.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                          constant: CGFloat.standartIdentConstant),
+            text.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                           constant: -CGFloat.standartIdentConstant),
             
-            mailTextField.topAnchor.constraint(equalTo: tagnameTextField.bottomAnchor, constant: CGFloat.minimumIdentConstant),
-            mailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            mailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
+            stackView.topAnchor.constraint(equalTo: text.bottomAnchor,
+                                           constant: CGFloat.standartIdentConstant - 9),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                               constant: CGFloat.standartIdentConstant),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                constant: -CGFloat.standartIdentConstant),
             
-            passwordTextField.topAnchor.constraint(equalTo: mailTextField.bottomAnchor, constant: CGFloat.minimumIdentConstant),
-            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant),
-            
-            registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor,
+            registerButton.topAnchor.constraint(equalTo: stackView.bottomAnchor,
                                                 constant: CGFloat.minimumIdentConstant + 2),
-            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat.standartIdentConstant),
-            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -CGFloat.standartIdentConstant)
+            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                    constant: CGFloat.standartIdentConstant),
+            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                     constant: -CGFloat.standartIdentConstant)
         ])
         //Изменяем размер scroll view, чтобы он мог скролиться, только когда клавиатура активирована
         scrollView.contentSize = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.9)
     }
     
     private func addSubViewInView() {
-        let array =  [header, signUpTitle, text,
-                      tagnameTextField, mailTextField,
-                      passwordTextField, registerButton]
+        let array =  [header, signUpTitle, text, stackView, registerButton]
+        [tagnameTextField, mailTextField, passwordTextField].forEach{ stackView.addArrangedSubview($0) }
+        
         [scrollView].forEach{ view.addSubview($0)}
         array.forEach{ scrollView.addSubview($0)}
     }
